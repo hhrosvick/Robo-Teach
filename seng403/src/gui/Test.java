@@ -84,6 +84,10 @@ public class Test {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+/*****************************************************************************************************************************************
+* Main Page initialization and components
+*****************************************************************************************************************************************/
+		
 		frmRoboteach = new JFrame();
 		frmRoboteach.setTitle("Robo-Teach");
 		frmRoboteach.setBounds(100, 100, 800, 600);
