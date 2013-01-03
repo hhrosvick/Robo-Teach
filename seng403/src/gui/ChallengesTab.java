@@ -25,7 +25,7 @@ public class ChallengesTab implements ActionListener {
 public ChallengesTab()
 {
 	ChallengesTab = new JPanel();
-	
+	initialize();
 }
 
 public JPanel initialize()
@@ -111,9 +111,6 @@ public JPanel initialize()
 			}
 		));
 		ChallengesTab.add(ChallengeTree, "2,4");
-		
-		JLabel challengeLabel = new JLabel("Challenge Info");
-		challengePane.setViewportView(challengeLabel);
 		return ChallengesTab;
 }
 

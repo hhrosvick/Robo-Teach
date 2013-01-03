@@ -154,7 +154,7 @@ public class md_challenges {
 		Panel TitleLabelPanel = new Panel();
 		TitlePage.add(TitleLabelPanel, "2, 2, 25, 9, fill, fill");
 		TitleLabelPanel.setLayout(new BorderLayout(0, 0));
-		JLabel TitleLabel = new JLabel(" ", image, JLabel.CENTER);
+		JLabel TitleLabel = new JLabel("Username: ", image, JLabel.CENTER);
 		//Creating the button panel
 		JPanel TitleButtonPanel = new JPanel();
 		TitlePage.add(TitleButtonPanel, "2, 12, 25, 3, fill, fill");
@@ -174,7 +174,7 @@ public class md_challenges {
 		});
 		//Put everything onto the title panel
 		TitleButtonPanel.add(StartButton);
-		TitleLabelPanel.add(TitleLabel);
+		TitleLabelPanel.add(TitleLabel, BorderLayout.WEST);
 		TitleButtonPanel.add(UserManualButton);
 		
 /*****************************************************************************************************************************************
