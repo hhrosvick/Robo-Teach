@@ -1,0 +1,265 @@
+*** Started log at Thu Jan 24 16:51:32 MST 2013 ***
+[*16.51.32.474:casa:info:casa*] Loaded ontology casa
+[*16.51.32.477:casa:info:casa*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.AbstractProcess.init.lisp
+[*16.51.32.479:casa:info:casa*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/defs.lisp
+[*16.51.32.482:casa:info:casa*] Defining policies for strategy: sc3
+[*16.51.32.482:casa:info:casa*] policies/sc3/defs.process.lisp file loading...
+[*16.51.32.482:casa:info:casa*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.process.lisp
+[*16.51.32.484:casa:info:casa*] defs.process.lisp load started.
+[*16.51.32.520:casa:info:casa*] defs.process.lisp defining subscription-provider.
+[*16.51.32.524:casa:info:casa*] defs.process.lisp defining incomming-failure-policies.
+[*16.51.32.530:casa:info:casa*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.process.lisp
+[*16.51.32.531:casa:info:casa*] policies/sc3/defs.process.lisp file loaded.
+[*16.51.32.531:casa:info:casa*] policies/sc3/defs.agent.lisp file loading...
+[*16.51.32.532:casa:info:casa*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.agent.lisp
+[*16.51.32.543:casa:info:casa*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.agent.lisp
+[*16.51.32.543:casa:info:casa*] policies/sc3/defs.agent.lisp file loaded.
+[*16.51.32.544:casa:info:casa*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/defs.lisp
+[*16.51.32.544:casa:info:casa*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.AbstractProcess.init.lisp
+[*16.51.32.544:casa:info:casa*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.TransientAgent.init.lisp
+[*16.51.35.786:casa:info:casa*] FIPA-subscribes loaded.
+[*16.51.35.787:casa:info:casa*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.TransientAgent.init.lisp
+[*16.51.48.976:casa:msg:main*] Sending message (local call):
+( request 
+  :act execute 
+  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :receiver casa://10.11.131.51:5780 
+  :reply-by "Thu Jan 24 16:52:48 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--0 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--0 
+  :content "(iRobot-env.puck :name \"puck\")" 
+)
+[*16.51.48.977:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.48.979:casa:msg:main*] Sending message (local call):
+( request 
+  :act execute 
+  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :receiver casa://10.11.131.51:5780 
+  :reply-by "Thu Jan 24 16:52:48 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--1 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--1 
+  :content "(iRobot-env.set \"puck\" :labeled NIL)" 
+)
+[*16.51.48.981:casa:msg:main*] Sending message (local call):
+( request 
+  :act execute 
+  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :receiver casa://10.11.131.51:5780 
+  :reply-by "Thu Jan 24 16:52:48 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--2 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--2 
+  :content "(iRobot-env.circle \"puck\" :color-name \"red\")" 
+)
+[*16.51.49.115:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.49.135:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.49.136:casa:msg:casa*]  (event_messageReceived, ID 81):
+( agree 
+  :act request|execute 
+  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :reply-by "Thu Jan 24 16:52:48 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--1 
+  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--0 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--0 
+  :content "(iRobot-env.puck :name \"puck\")" 
+)
+[*16.51.49.170:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.49.172:casa:msg:casa*]  (event_messageReceived, ID 87):
+( agree 
+  :act request|execute 
+  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :reply-by "Thu Jan 24 16:52:48 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--2 
+  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--1 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--1 
+  :content "(iRobot-env.set \"puck\" :labeled NIL)" 
+)
+[*16.51.49.205:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.49.206:casa:msg:casa*]  (event_messageReceived, ID 93):
+( agree 
+  :act request|execute 
+  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :reply-by "Thu Jan 24 16:52:48 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--3 
+  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--2 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--2 
+  :content "(iRobot-env.circle \"puck\" :color-name \"red\")" 
+)
+[*16.51.49.289:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.49.290:casa:msg:casa*]  (event_messageReceived, ID 100):
+( propose 
+  :act discharge|perform|execute 
+  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :reply-by "Thu Jan 24 16:52:48 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--4 
+  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--0 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--0 
+  :language casa.* 
+  :content "[\"\\\"(iRobot-env.puck :name \\\\\\\"puck\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
+)
+[*16.51.49.316:casa:msg:casa*] Sending message (local call):
+( agree 
+  :act propose|discharge|perform|execute 
+  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :receiver casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :reply-by "Thu Jan 24 16:52:48 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--3 
+  :in-reply-to casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--4 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--0 
+  :language casa.* 
+  :content "[\"\\\"(iRobot-env.puck :name \\\\\\\"puck\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
+)
+[*16.51.49.332:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.49.345:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.49.346:casa:msg:casa*]  (event_messageReceived, ID 112):
+( propose 
+  :act discharge|perform|execute 
+  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :reply-by "Thu Jan 24 16:52:48 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--5 
+  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--1 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--1 
+  :language casa.* 
+  :content "[\"\\\"(iRobot-env.set \\\\\\\"puck\\\\\\\" :labeled NIL)\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"NIL\\\\\\\" \\\\\\\"NIL\\\\\\\" )\\\"\", \"\"]" 
+)
+[*16.51.49.366:casa:msg:casa*] Sending message (local call):
+( agree 
+  :act propose|discharge|perform|execute 
+  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :receiver casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :reply-by "Thu Jan 24 16:52:48 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--4 
+  :in-reply-to casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--5 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--1 
+  :language casa.* 
+  :content "[\"\\\"(iRobot-env.set \\\\\\\"puck\\\\\\\" :labeled NIL)\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"NIL\\\\\\\" \\\\\\\"NIL\\\\\\\" )\\\"\", \"\"]" 
+)
+[*16.51.49.381:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.49.409:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.49.410:casa:msg:casa*]  (event_messageReceived, ID 123):
+( propose 
+  :act discharge|perform|execute 
+  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :reply-by "Thu Jan 24 16:52:48 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--6 
+  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--2 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--2 
+  :language casa.* 
+  :content "[\"\\\"(iRobot-env.circle \\\\\\\"puck\\\\\\\" :color-name \\\\\\\"red\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
+)
+[*16.51.49.427:casa:msg:casa*] Sending message (local call):
+( agree 
+  :act propose|discharge|perform|execute 
+  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :receiver casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :reply-by "Thu Jan 24 16:52:48 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--5 
+  :in-reply-to casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--6 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--2 
+  :language casa.* 
+  :content "[\"\\\"(iRobot-env.circle \\\\\\\"puck\\\\\\\" :color-name \\\\\\\"red\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
+)
+[*16.51.49.452:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.56.828:casa:msg:main*] Sending message (local call):
+( request 
+  :act execute 
+  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :receiver casa://10.11.131.51:5780 
+  :reply-by "Thu Jan 24 16:52:56 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--6 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--6 
+  :content "(iRobot-env.triangle \"Alice2\" :name \"red-tri\" :color-name \"purple\")" 
+)
+[*16.51.56.829:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.56.871:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.56.872:casa:msg:casa*]  (event_messageReceived, ID 215):
+( agree 
+  :act request|execute 
+  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :reply-by "Thu Jan 24 16:52:56 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--7 
+  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--6 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--6 
+  :content "(iRobot-env.triangle \"Alice2\" :name \"red-tri\" :color-name \"purple\")" 
+)
+[*16.51.56.918:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.56.919:casa:msg:casa*]  (event_messageReceived, ID 223):
+( propose 
+  :act discharge|perform|execute 
+  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :reply-by "Thu Jan 24 16:52:56 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--8 
+  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--6 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--6 
+  :language casa.* 
+  :content "[\"\\\"(iRobot-env.triangle \\\\\\\"Alice2\\\\\\\" :name \\\\\\\"red-tri\\\\\\\" :color-name \\\\\\\"purple\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
+)
+[*16.51.56.942:casa:msg:casa*] Sending message (local call):
+( agree 
+  :act propose|discharge|perform|execute 
+  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :receiver casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :reply-by "Thu Jan 24 16:52:56 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--7 
+  :in-reply-to casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--8 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--6 
+  :language casa.* 
+  :content "[\"\\\"(iRobot-env.triangle \\\\\\\"Alice2\\\\\\\" :name \\\\\\\"red-tri\\\\\\\" :color-name \\\\\\\"purple\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
+)
+[*16.51.56.961:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.57.404:casa:msg:main*] Sending message (local call):
+( request 
+  :act execute 
+  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :receiver casa://10.11.131.51:5780 
+  :reply-by "Thu Jan 24 16:52:57 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--8 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--8 
+  :content "(iRobot-env.triangle \"Bob2\" :name \"green-tri\" :color-name \"green\")" 
+)
+[*16.51.57.405:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.57.479:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.57.480:casa:msg:casa*]  (event_messageReceived, ID 245):
+( agree 
+  :act request|execute 
+  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :reply-by "Thu Jan 24 16:52:57 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--9 
+  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--8 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--8 
+  :content "(iRobot-env.triangle \"Bob2\" :name \"green-tri\" :color-name \"green\")" 
+)
+[*16.51.57.531:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*16.51.57.532:casa:msg:casa*]  (event_messageReceived, ID 252):
+( propose 
+  :act discharge|perform|execute 
+  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :reply-by "Thu Jan 24 16:52:57 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--10 
+  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--8 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--8 
+  :language casa.* 
+  :content "[\"\\\"(iRobot-env.triangle \\\\\\\"Bob2\\\\\\\" :name \\\\\\\"green-tri\\\\\\\" :color-name \\\\\\\"green\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
+)
+[*16.51.57.554:casa:msg:casa*] Sending message (local call):
+( agree 
+  :act propose|discharge|perform|execute 
+  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
+  :receiver casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :reply-by "Thu Jan 24 16:52:57 MST 2013" 
+  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--9 
+  :in-reply-to casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--10 
+  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--8 
+  :language casa.* 
+  :content "[\"\\\"(iRobot-env.triangle \\\\\\\"Bob2\\\\\\\" :name \\\\\\\"green-tri\\\\\\\" :color-name \\\\\\\"green\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
+)
+[*16.51.57.573:casa:info:casa*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException

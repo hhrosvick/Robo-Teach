@@ -1,0 +1,23 @@
+*** Started log at Wed Jan 23 18:00:55 MST 2013 ***
+>>>>>>>>>>>>>>>>>>>>>>>>> casa.util.CASAUtil.log(CASAUtil.java:1715)
+[*18.00.56.378:LAC:error:LAC*] CASAFilePropertiesMap.constructor: IOException opening file:
+casa.io.CASAIOException: file C:\Users\Henry\.casa\LAC.casa for CASAInputStream is not a CASA file (CASAFile does not exist)
+	at casa.io.CASAInputStream.<init>(CASAInputStream.java:48)
+	at casa.io.CASAInputStream.<init>(CASAInputStream.java:40)
+	at casa.io.CASAFilePropertiesMap.<init>(CASAFilePropertiesMap.java:60)
+	at casa.LAC.initializeFile(LAC.java:306)
+	at casa.LAC.initializeThread(LAC.java:366)
+	at casa.AbstractProcess.run(AbstractProcess.java:1563)
+
+<<<<<<<<<<<<<<<<<<<<<<<<<
+>>>>>>>>>>>>>>>>>>>>>>>>> casa.util.CASAUtil.log(CASAUtil.java:1715)
+[*18.00.56.382:LAC:error:LAC*] CASAFileLACKnownUsersMap.constructor: IOException opening file:
+casa.io.CASAIOException: file C:\Users\Henry\.casa\LAC.casa for CASAInputStream is not a CASA file (CASAFile does not exist)
+	at casa.io.CASAInputStream.<init>(CASAInputStream.java:48)
+	at casa.io.CASAInputStream.<init>(CASAInputStream.java:40)
+	at casa.io.CASAFileLACKnownUsersMap.<init>(CASAFileLACKnownUsersMap.java:44)
+	at casa.LAC.initializeFile(LAC.java:307)
+	at casa.LAC.initializeThread(LAC.java:366)
+	at casa.AbstractProcess.run(AbstractProcess.java:1563)
+
+<<<<<<<<<<<<<<<<<<<<<<<<<
