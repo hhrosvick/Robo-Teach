@@ -1,55 +1,55 @@
-*** Started log at Thu Jan 24 16:51:56 MST 2013 ***
-[*16.51.56.877:Bob2:info:Bob2*] Loaded ontology iRobotCreate.iRobotCreate
-[*16.51.56.878:Bob2:info5:Bob2*] Can't find file java.lang.Object.init.lisp: java.io.IOException: Can't find resource initialization file: java.lang.Object.init.lisp
+*** Started log at Thu Jan 24 17:24:39 MST 2013 ***
+[*17.24.39.581:Bob2:info:Bob2*] Loaded ontology iRobotCreate.iRobotCreate
+[*17.24.39.581:Bob2:info5:Bob2*] Can't find file java.lang.Object.init.lisp: java.io.IOException: Can't find resource initialization file: java.lang.Object.init.lisp
 - Please put the file in one of the following search locations:
     C:\Users\Henry\casa\dataFiles
     .
-[*16.51.56.879:Bob2:info5:Bob2*] Can't find file java.lang.Thread.init.lisp: java.io.IOException: Can't find resource initialization file: java.lang.Thread.init.lisp
+[*17.24.39.582:Bob2:info5:Bob2*] Can't find file java.lang.Thread.init.lisp: java.io.IOException: Can't find resource initialization file: java.lang.Thread.init.lisp
 - Please put the file in one of the following search locations:
     C:\Users\Henry\casa\dataFiles
     .
-[*16.51.56.880:Bob2:info:Bob2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.AbstractProcess.init.lisp
-[*16.51.56.885:Bob2:info:Bob2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/defs.lisp
-[*16.51.56.889:Bob2:info:Bob2*] Defining policies for strategy: sc3
-[*16.51.56.890:Bob2:info:Bob2*] policies/sc3/defs.process.lisp file loading...
-[*16.51.56.890:Bob2:info:Bob2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.process.lisp
-[*16.51.56.894:Bob2:info:Bob2*] defs.process.lisp load started.
-[*16.51.56.930:Bob2:info:Bob2*] defs.process.lisp defining subscription-provider.
-[*16.51.56.934:Bob2:info:Bob2*] defs.process.lisp defining incomming-failure-policies.
-[*16.51.56.940:Bob2:info:Bob2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.process.lisp
-[*16.51.56.940:Bob2:info:Bob2*] policies/sc3/defs.process.lisp file loaded.
-[*16.51.56.940:Bob2:info:Bob2*] policies/sc3/defs.agent.lisp file loading...
-[*16.51.56.941:Bob2:info:Bob2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.agent.lisp
-[*16.51.56.946:Bob2:info:Bob2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.agent.lisp
-[*16.51.56.947:Bob2:info:Bob2*] policies/sc3/defs.agent.lisp file loaded.
-[*16.51.56.947:Bob2:info:Bob2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/defs.lisp
-[*16.51.56.948:Bob2:info:Bob2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.AbstractProcess.init.lisp
-[*16.51.56.948:Bob2:info:Bob2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.TransientAgent.init.lisp
-[*16.51.57.149:Bob2:info:Bob2*] FIPA-subscribes loaded.
-[*16.51.57.151:Bob2:info:Bob2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.TransientAgent.init.lisp
-[*16.51.57.152:Bob2:info5:Bob2*] Can't find file casa.Agent.init.lisp: java.io.IOException: Can't find resource initialization file: casa.Agent.init.lisp
+[*17.24.39.583:Bob2:info:Bob2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.AbstractProcess.init.lisp
+[*17.24.39.588:Bob2:info:Bob2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/defs.lisp
+[*17.24.39.594:Bob2:info:Bob2*] Defining policies for strategy: sc3
+[*17.24.39.594:Bob2:info:Bob2*] policies/sc3/defs.process.lisp file loading...
+[*17.24.39.595:Bob2:info:Bob2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.process.lisp
+[*17.24.39.599:Bob2:info:Bob2*] defs.process.lisp load started.
+[*17.24.39.628:Bob2:info:Bob2*] defs.process.lisp defining subscription-provider.
+[*17.24.39.631:Bob2:info:Bob2*] defs.process.lisp defining incomming-failure-policies.
+[*17.24.39.636:Bob2:info:Bob2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.process.lisp
+[*17.24.39.637:Bob2:info:Bob2*] policies/sc3/defs.process.lisp file loaded.
+[*17.24.39.637:Bob2:info:Bob2*] policies/sc3/defs.agent.lisp file loading...
+[*17.24.39.639:Bob2:info:Bob2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.agent.lisp
+[*17.24.39.644:Bob2:info:Bob2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.agent.lisp
+[*17.24.39.644:Bob2:info:Bob2*] policies/sc3/defs.agent.lisp file loaded.
+[*17.24.39.644:Bob2:info:Bob2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/defs.lisp
+[*17.24.39.645:Bob2:info:Bob2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.AbstractProcess.init.lisp
+[*17.24.39.646:Bob2:info:Bob2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.TransientAgent.init.lisp
+[*17.24.39.794:Bob2:info:Bob2*] FIPA-subscribes loaded.
+[*17.24.39.795:Bob2:info:Bob2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.TransientAgent.init.lisp
+[*17.24.39.795:Bob2:info5:Bob2*] Can't find file casa.Agent.init.lisp: java.io.IOException: Can't find resource initialization file: casa.Agent.init.lisp
 - Please put the file in one of the following search locations:
     C:\Users\Henry\casa\dataFiles
     .
-[*16.51.57.153:Bob2:info:Bob2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/iRobotCreate.iRobotCreate.init.lisp
-[*16.51.57.166:Bob2:info:Bob2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/iRobotCreate.iRobotCreate.init.lisp
-[*16.51.57.167:Bob2:info5:Bob2*] Can't find file cpsc403.MyRobot.init.lisp: java.io.IOException: Can't find resource initialization file: cpsc403.MyRobot.init.lisp
+[*17.24.39.796:Bob2:info:Bob2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/iRobotCreate.iRobotCreate.init.lisp
+[*17.24.39.820:Bob2:info:Bob2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/iRobotCreate.iRobotCreate.init.lisp
+[*17.24.39.820:Bob2:info5:Bob2*] Can't find file cpsc403.MyRobot.init.lisp: java.io.IOException: Can't find resource initialization file: cpsc403.MyRobot.init.lisp
 - Please put the file in one of the following search locations:
     C:\Users\Henry\casa\dataFiles
     .
-[*16.51.57.168:Bob2:info5:Bob2*] Can't find file Bob2.init.lisp: java.io.IOException: Can't find resource initialization file: Bob2.init.lisp
+[*17.24.39.821:Bob2:info5:Bob2*] Can't find file Bob2.init.lisp: java.io.IOException: Can't find resource initialization file: Bob2.init.lisp
 - Please put the file in one of the following search locations:
     C:\Users\Henry\casa\dataFiles
     .
-[*16.51.57.403:Bob2:iRobot:Bob2-commandQueueMonitor*] executeRaw(128 132 140 1 2 48 32 72 16 140 2 2 72 16 48 32 140 3 1 127 24 140 4 8 36 8 48 8 60 8 72 16 84 8 96 8 108 8 120 8 140 5 1 36 24 141 1 ) : Sending.
-[*16.51.57.403:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.51.57.417:Bob2:info:Bob2*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*16.51.57.420:Bob2:msg:Bob2-subthread0*] Sending message (TCP/IP):
+[*17.24.40.029:Bob2:iRobot:Bob2-commandQueueMonitor*] executeRaw(128 132 140 1 2 48 32 72 16 140 2 2 72 16 48 32 140 3 1 127 24 140 4 8 36 8 48 8 60 8 72 16 84 8 96 8 108 8 120 8 140 5 1 36 24 141 1 ) : Sending.
+[*17.24.40.029:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*17.24.40.076:Bob2:info:Bob2*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.24.40.090:Bob2:msg:Bob2-subthread0*] Sending message (TCP/IP):
 ( request 
   :act register_instance 
   :sender casa://Henry@10.11.131.51:9101/cpsc403/MyRobot/Bob2 
   :receiver casa://Henry@10.11.131.51:9000 
-  :reply-by "Thu Jan 24 16:52:57 MST 2013" 
+  :reply-by "Thu Jan 24 17:25:40 MST 2013" 
   :reply-with casa://Henry@10.11.131.51:9101/cpsc403/MyRobot/Bob2--0 
   :conversation-id casa://Henry@10.11.131.51:9101/cpsc403/MyRobot/Bob2--0 
   :language casa.* 
@@ -58,15 +58,14 @@
   :priority 10 
   :timeout "Wed Dec 31 17:00:10 MST 1969" 
 )
-[*16.51.57.421:Bob2:info:Bob2*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*16.51.57.480:Bob2:info:Bob2*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.24.40.091:Bob2:info:Bob2*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
 >>>>>>>>>>>>>>>>>>>>>>>>> casa.AbstractProcess$2.run(AbstractProcess.java:992)
-[*16.51.58.422:Bob2:error:Bob2-subthread0*] Exception (java.net.ConnectException: Connection refused: connect) caught when sending message
+[*17.24.41.173:Bob2:error:Bob2-subthread0*] Exception (java.net.ConnectException: Connection refused: connect) caught when sending message
 ( request 
   :act register_instance 
   :sender casa://Henry@10.11.131.51:9101/cpsc403/MyRobot/Bob2 
   :receiver casa://Henry@10.11.131.51:9000 
-  :reply-by "Thu Jan 24 16:52:57 MST 2013" 
+  :reply-by "Thu Jan 24 17:25:40 MST 2013" 
   :reply-with casa://Henry@10.11.131.51:9101/cpsc403/MyRobot/Bob2--0 
   :conversation-id casa://Henry@10.11.131.51:9101/cpsc403/MyRobot/Bob2--0 
   :language casa.* 
@@ -97,92 +96,7 @@ java.net.ConnectException: Connection refused: connect
 	at java.lang.Thread.run(Unknown Source)
 
 <<<<<<<<<<<<<<<<<<<<<<<<<
-[*16.52.02.116:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.04.116:Bob2:iRobot:Bob2-commandQueueMonitor*] executeRaw(139 0 0 127 155 1 139 0 16 127 155 1 139 0 32 127 155 1 139 0 48 127 155 1 139 0 64 127 155 1 139 0 80 127 155 1 139 0 96 127 155 1 139 0 112 127 155 1 139 0 128 127 155 1 139 0 144 127 155 1 139 0 160 127 155 1 139 0 176 127 155 1 139 0 192 127 155 1 139 0 208 127 155 1 139 0 224 127 155 1 139 0 240 127 155 1 ) : Sending.
-[*16.52.04.339:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.06.339:Bob2:iRobot:Bob2-commandQueueMonitor*] executeRaw(141 1 139 0 0 0 ) : Sending.
-[*16.52.08.011:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
->>>>>>>>>>>>> casa.CasaObservableObject.deleteObserver(CasaObservableObject.java:354)
-[*16.52.08.424:Bob2:warning:Bob2-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-235(event_SCPerformAction), Bob2, 0 observers, no params" when it isn't already an Observer.
-<<<<<<<<<<<<<
->>>>>>>>>>>>> casa.CasaObservableObject.deleteObserver(CasaObservableObject.java:354)
-[*16.52.08.424:Bob2:warning:Bob2-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-236(event_SCPerformAction), Bob2, 0 observers, no params" when it isn't already an Observer.
-<<<<<<<<<<<<<
->>>>>>>>>>>>> casa.CasaObservableObject.deleteObserver(CasaObservableObject.java:354)
-[*16.52.08.425:Bob2:warning:Bob2-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-237(event_SCPerformAction), Bob2, 0 observers, no params" when it isn't already an Observer.
-<<<<<<<<<<<<<
->>>>>>>>>>>>> casa.CasaObservableObject.deleteObserver(CasaObservableObject.java:354)
-[*16.52.08.425:Bob2:warning:Bob2-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-238(event_SCPerformAction), Bob2, 0 observers, no params" when it isn't already an Observer.
-<<<<<<<<<<<<<
->>>>>>>>>>>>> casa.CasaObservableObject.deleteObserver(CasaObservableObject.java:354)
-[*16.52.08.426:Bob2:warning:Bob2-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-239(event_SCPerformAction), Bob2, 0 observers, no params" when it isn't already an Observer.
-<<<<<<<<<<<<<
->>>>>>>>>>>>>>>>>>>>>>>>> casa.TransientAgent$58.run(TransientAgent.java:3523)
-[*16.52.08.426:Bob2:error:Bob2-subthread0*] TransientAgent failed to register with LAC: request timed out or failed (null return)
-<<<<<<<<<<<<<<<<<<<<<<<<<
-[*16.52.08.427:Bob2:info:Bob2*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
->>>>>>>>>>>>>>>>>>>>>>>>> casa.util.CASAUtil.log(CASAUtil.java:1715)
-[*16.52.08.441:Bob2:error:Bob2*] CASAFilePropertiesMap.constructor: IOException opening file:
-casa.io.CASAIOException: file C:\Users\Henry\.casa\cpsc403\MyRobot\Bob2.casa for CASAInputStream is not a CASA file (CASAFile does not exist)
-	at casa.io.CASAInputStream.<init>(CASAInputStream.java:48)
-	at casa.io.CASAInputStream.<init>(CASAInputStream.java:40)
-	at casa.io.CASAFilePropertiesMap.<init>(CASAFilePropertiesMap.java:60)
-	at casa.Agent.initializeFile(Agent.java:310)
-	at casa.Agent.initializeAfterRegistered(Agent.java:151)
-	at casa.TransientAgent$56.run(TransientAgent.java:932)
-	at casa.AbstractProcess$4.fireEvent(AbstractProcess.java:1777)
-	at casa.TransientAgent.processPolicies(TransientAgent.java:2316)
-	at casa.TransientAgent.handleEvent(TransientAgent.java:2217)
-	at casa.AbstractProcess.processEvent(AbstractProcess.java:1984)
-	at casa.AbstractProcess.eventBufferLoopBody(AbstractProcess.java:1853)
-	at casa.AbstractProcess.eventBufferLoop(AbstractProcess.java:1752)
-	at casa.AbstractProcess.run(AbstractProcess.java:1574)
-
-<<<<<<<<<<<<<<<<<<<<<<<<<
->>>>>>>>>>>>> casa.Agent.readPersistent(Agent.java:127)
-[*16.52.08.451:Bob2:warning:Bob2*] Agent.getPersistent(): readPersistentFromProperties(): Failed to read the following fields: dataFile, persistent, reqID
-<<<<<<<<<<<<<
-[*16.52.10.201:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.12.404:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.14.595:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.16.788:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.18.993:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.21.173:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.23.353:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.25.535:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.27.729:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.29.928:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.32.119:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.34.303:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.36.485:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.38.708:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.40.926:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.43.113:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.45.298:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.47.479:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.49.658:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.51.838:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.54.023:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.56.202:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.52.57.416:Bob2:info:Bob2*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
->>>>>>>>>>>>>>>>>>>>>>>>> casa.TransientAgent$26.execute(TransientAgent.java:7678)
-[*16.52.57.422:Bob2:error:Bob2*] Unexpected conversation failure:#Newline( -1 "Lisp Opertator EVENT.GET-MSG: no message event in scope" "null" )
-<<<<<<<<<<<<<<<<<<<<<<<<<
-[*16.52.58.389:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.00.567:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.02.755:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.04.954:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.07.149:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.09.327:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.11.520:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.13.701:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.15.879:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.18.060:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.20.236:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.22.515:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.24.700:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.26.883:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.29.090:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.31.268:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.33.480:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*16.53.35.658:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*17.24.44.678:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*17.24.46.678:Bob2:iRobot:Bob2-commandQueueMonitor*] executeRaw(139 0 0 127 155 1 139 0 16 127 155 1 139 0 32 127 155 1 139 0 48 127 155 1 139 0 64 127 155 1 139 0 80 127 155 1 139 0 96 127 155 1 139 0 112 127 155 1 139 0 128 127 155 1 139 0 144 127 155 1 139 0 160 127 155 1 139 0 176 127 155 1 139 0 192 127 155 1 139 0 208 127 155 1 139 0 224 127 155 1 139 0 240 127 155 1 ) : Sending.
+[*17.24.46.939:Bob2:iRobot:Bob2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*17.24.48.940:Bob2:iRobot:Bob2-commandQueueMonitor*] executeRaw(141 1 139 0 0 0 ) : Sending.
