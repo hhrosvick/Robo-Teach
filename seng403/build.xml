@@ -1,0 +1,15 @@
+<project>
+
+	<target name="test">
+		<mkdir dir="testbuild/classes"/>
+		<javac scrdir="./" destdir="testbuild/classes"/>
+		<mkdir dir="testbuild/jar"/>
+		<jar destfile="build/jar/MyRobot.jar" basedir="testbuild/classes">
+			<manifest>
+				<attribute name="Main-Class" value="casa.CASAProcess"/>
+			</manifest>
+		</jar>
+	</target>
+	
+</project>
+	
