@@ -1,4 +1,4 @@
 language: java
-jdk:
-  - oraclejdk7
-install: ant install-deps
+ant:
+	- 1.8.4
+script: "ant test"
