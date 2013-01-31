@@ -1,14 +1,11 @@
-<project>
+<project name="Robo-Teach" basedir="./seng403/">
+	<tstamp/>
 
-	<target name="test">
-		<mkdir dir="testbuild/classes"/>
-		<javac srcdir="./seng403/" destdir="testbuild/classes"/>
-		<mkdir dir="testbuild/jar"/>
-		<jar destfile="build/jar/MyRobot.jar" basedir="testbuild/classes">
-			<manifest>
-				<attribute name="Main-Class" value="casa.CASAProcess"/>
-			</manifest>
-		</jar>
+	<target name="build">
+		<mkdir dir="build/classes"/>
+		<javac srcdir="." destdir="./build/classes" classpath="iRobotCreate3.jar"/>
+		<mkdir dir="build/jar"/>
+		<jar destfile="build/jar/MyRobot.jar" basedir="build/classes"/>
 	</target>
 	
 </project>
