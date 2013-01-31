@@ -2,7 +2,7 @@
 
 	<target name="test">
 		<mkdir dir="testbuild/classes"/>
-		<javac scrdir="./seng403/" destdir="testbuild/classes"/>
+		<javac srcdir="./seng403/" destdir="testbuild/classes"/>
 		<mkdir dir="testbuild/jar"/>
 		<jar destfile="build/jar/MyRobot.jar" basedir="testbuild/classes">
 			<manifest>

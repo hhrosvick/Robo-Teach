@@ -1,81 +1,82 @@
-*** Started log at Thu Jan 24 17:24:24 MST 2013 ***
-[*17.24.26.444:RoomEnvironment:info:RoomEnvironment*] Loaded ontology casa.TransientAgent
-[*17.24.26.445:RoomEnvironment:info5:RoomEnvironment*] Can't find file java.lang.Object.init.lisp: java.io.IOException: Can't find resource initialization file: java.lang.Object.init.lisp
+*** Started log at Wed Jan 30 17:02:10 MST 2013 ***
+[*17.02.12.913:RoomEnvironment:info:RoomEnvironment*] Loaded ontology casa.TransientAgent
+[*17.02.12.913:RoomEnvironment:info5:RoomEnvironment*] Can't find file java.lang.Object.init.lisp: java.io.IOException: Can't find resource initialization file: java.lang.Object.init.lisp
 - Please put the file in one of the following search locations:
     C:\Users\Henry\casa\dataFiles
     .
-[*17.24.26.445:RoomEnvironment:info5:RoomEnvironment*] Can't find file java.lang.Thread.init.lisp: java.io.IOException: Can't find resource initialization file: java.lang.Thread.init.lisp
+[*17.02.12.914:RoomEnvironment:info5:RoomEnvironment*] Can't find file java.lang.Thread.init.lisp: java.io.IOException: Can't find resource initialization file: java.lang.Thread.init.lisp
 - Please put the file in one of the following search locations:
     C:\Users\Henry\casa\dataFiles
     .
-[*17.24.26.446:RoomEnvironment:info:RoomEnvironment*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.AbstractProcess.init.lisp
-[*17.24.26.449:RoomEnvironment:info:RoomEnvironment*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/defs.lisp
-[*17.24.26.452:RoomEnvironment:info:RoomEnvironment*] Defining policies for strategy: sc3
-[*17.24.26.453:RoomEnvironment:info:RoomEnvironment*] policies/sc3/defs.process.lisp file loading...
-[*17.24.26.453:RoomEnvironment:info:RoomEnvironment*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.process.lisp
-[*17.24.26.456:RoomEnvironment:info:RoomEnvironment*] defs.process.lisp load started.
-[*17.24.26.486:RoomEnvironment:info:RoomEnvironment*] defs.process.lisp defining subscription-provider.
-[*17.24.26.490:RoomEnvironment:info:RoomEnvironment*] defs.process.lisp defining incomming-failure-policies.
-[*17.24.26.494:RoomEnvironment:info:RoomEnvironment*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.process.lisp
-[*17.24.26.495:RoomEnvironment:info:RoomEnvironment*] policies/sc3/defs.process.lisp file loaded.
-[*17.24.26.495:RoomEnvironment:info:RoomEnvironment*] policies/sc3/defs.agent.lisp file loading...
-[*17.24.26.496:RoomEnvironment:info:RoomEnvironment*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.agent.lisp
-[*17.24.26.500:RoomEnvironment:info:RoomEnvironment*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.agent.lisp
-[*17.24.26.501:RoomEnvironment:info:RoomEnvironment*] policies/sc3/defs.agent.lisp file loaded.
-[*17.24.26.501:RoomEnvironment:info:RoomEnvironment*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/defs.lisp
-[*17.24.26.501:RoomEnvironment:info:RoomEnvironment*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.AbstractProcess.init.lisp
-[*17.24.26.502:RoomEnvironment:info:RoomEnvironment*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.TransientAgent.init.lisp
-[*17.24.26.601:RoomEnvironment:info:RoomEnvironment*] FIPA-subscribes loaded.
-[*17.24.26.603:RoomEnvironment:info:RoomEnvironment*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.TransientAgent.init.lisp
-[*17.24.26.604:RoomEnvironment:info5:RoomEnvironment*] Can't find file casa.Agent.init.lisp: java.io.IOException: Can't find resource initialization file: casa.Agent.init.lisp
+[*17.02.12.914:RoomEnvironment:info:RoomEnvironment*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.AbstractProcess.init.lisp
+[*17.02.12.916:RoomEnvironment:info:RoomEnvironment*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/defs.lisp
+[*17.02.12.918:RoomEnvironment:info:RoomEnvironment*] Defining policies for strategy: sc3
+[*17.02.12.918:RoomEnvironment:info:RoomEnvironment*] policies/sc3/defs.process.lisp file loading...
+[*17.02.12.919:RoomEnvironment:info:RoomEnvironment*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.process.lisp
+[*17.02.12.920:RoomEnvironment:info:RoomEnvironment*] defs.process.lisp load started.
+[*17.02.12.947:RoomEnvironment:info:RoomEnvironment*] defs.process.lisp defining subscription-provider.
+[*17.02.12.951:RoomEnvironment:info:RoomEnvironment*] defs.process.lisp defining incomming-failure-policies.
+[*17.02.12.955:RoomEnvironment:info:RoomEnvironment*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.process.lisp
+[*17.02.12.955:RoomEnvironment:info:RoomEnvironment*] policies/sc3/defs.process.lisp file loaded.
+[*17.02.12.955:RoomEnvironment:info:RoomEnvironment*] policies/sc3/defs.agent.lisp file loading...
+[*17.02.12.956:RoomEnvironment:info:RoomEnvironment*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.agent.lisp
+[*17.02.12.959:RoomEnvironment:info:RoomEnvironment*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.agent.lisp
+[*17.02.12.959:RoomEnvironment:info:RoomEnvironment*] policies/sc3/defs.agent.lisp file loaded.
+[*17.02.12.960:RoomEnvironment:info:RoomEnvironment*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/defs.lisp
+[*17.02.12.960:RoomEnvironment:info:RoomEnvironment*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.AbstractProcess.init.lisp
+[*17.02.12.960:RoomEnvironment:info:RoomEnvironment*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.TransientAgent.init.lisp
+[*17.02.13.046:RoomEnvironment:info:RoomEnvironment*] FIPA-subscribes loaded.
+[*17.02.13.047:RoomEnvironment:info:RoomEnvironment*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.TransientAgent.init.lisp
+[*17.02.13.048:RoomEnvironment:info5:RoomEnvironment*] Can't find file casa.Agent.init.lisp: java.io.IOException: Can't find resource initialization file: casa.Agent.init.lisp
 - Please put the file in one of the following search locations:
     C:\Users\Henry\casa\dataFiles
     .
-[*17.24.26.604:RoomEnvironment:info5:RoomEnvironment*] Can't find file iRobotCreate.simulator.Environment.init.lisp: java.io.IOException: Can't find resource initialization file: iRobotCreate.simulator.Environment.init.lisp
+[*17.02.13.048:RoomEnvironment:info5:RoomEnvironment*] Can't find file iRobotCreate.simulator.Environment.init.lisp: java.io.IOException: Can't find resource initialization file: iRobotCreate.simulator.Environment.init.lisp
 - Please put the file in one of the following search locations:
     C:\Users\Henry\casa\dataFiles
     .
-[*17.24.26.605:RoomEnvironment:info5:RoomEnvironment*] Can't find file RoomEnvironment.init.lisp: java.io.IOException: Can't find resource initialization file: RoomEnvironment.init.lisp
+[*17.02.13.049:RoomEnvironment:info5:RoomEnvironment*] Can't find file RoomEnvironment.init.lisp: java.io.IOException: Can't find resource initialization file: RoomEnvironment.init.lisp
 - Please put the file in one of the following search locations:
     C:\Users\Henry\casa\dataFiles
     .
 >>>>>>>>>>>>>>>>>>>>>>>>> iRobotCreate.simulator.Environment.initializeThread(Environment.java:501)
-[*17.24.26.662:RoomEnvironment:error:RoomEnvironment*] Environment.init(): can't read _*PhysObjects: ( -1 "" "Not a persistent agent" )
+[*17.02.13.098:RoomEnvironment:error:RoomEnvironment*] Environment.init(): can't read _*PhysObjects: ( -1 "" "Not a persistent agent" )
 <<<<<<<<<<<<<<<<<<<<<<<<<
-[*17.24.26.736:RoomEnvironment:msg:RoomEnvironment-subthread0*] Sending message (TCP/IP):
+[*17.02.13.192:RoomEnvironment:msg:RoomEnvironment-subthread0*] Sending message (TCP/IP):
 ( request 
   :act register_instance 
-  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :receiver casa://Henry@10.11.131.51:9000 
-  :reply-by "Thu Jan 24 17:25:26 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--0 
-  :conversation-id casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--0 
+  :sender casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.25.153:9000 
+  :reply-by "Wed Jan 30 17:03:13 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--0 
+  :conversation-id casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--0 
   :language casa.* 
   :language-version 1.0 
-  :content "[\"(casa.URLDescriptor)\\\"casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment\\\"\", \"(java.lang.Boolean)\\\"false\\\"\"]" 
+  :content "[\"(casa.URLDescriptor)\\\"casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment\\\"\", \"(java.lang.Boolean)\\\"false\\\"\"]" 
   :priority 10 
   :timeout "Wed Dec 31 17:00:10 MST 1969" 
 )
-[*17.24.26.892:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.26.989:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.27.113:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.27.238:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.27.355:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.27.476:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.27.594:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.27.717:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.13.192:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.13.197:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.13.444:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.13.542:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.13.665:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.13.783:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.13.899:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.14.024:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.14.199:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
 >>>>>>>>>>>>>>>>>>>>>>>>> casa.AbstractProcess$2.run(AbstractProcess.java:992)
-[*17.24.27.746:RoomEnvironment:error:RoomEnvironment-subthread0*] Exception (java.net.ConnectException: Connection refused: connect) caught when sending message
+[*17.02.14.240:RoomEnvironment:error:RoomEnvironment-subthread0*] Exception (java.net.ConnectException: Connection refused: connect) caught when sending message
 ( request 
   :act register_instance 
-  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :receiver casa://Henry@10.11.131.51:9000 
-  :reply-by "Thu Jan 24 17:25:26 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--0 
-  :conversation-id casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--0 
+  :sender casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.25.153:9000 
+  :reply-by "Wed Jan 30 17:03:13 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--0 
+  :conversation-id casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--0 
   :language casa.* 
   :language-version 1.0 
-  :content "[\"(casa.URLDescriptor)\\\"casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment\\\"\", \"(java.lang.Boolean)\\\"false\\\"\"]" 
+  :content "[\"(casa.URLDescriptor)\\\"casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment\\\"\", \"(java.lang.Boolean)\\\"false\\\"\"]" 
   :priority 10 
   :timeout "Wed Dec 31 17:00:10 MST 1969" 
 ):
@@ -101,272 +102,273 @@ java.net.ConnectException: Connection refused: connect
 	at java.lang.Thread.run(Unknown Source)
 
 <<<<<<<<<<<<<<<<<<<<<<<<<
-[*17.24.27.840:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.27.962:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.28.077:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.28.189:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.28.321:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.28.438:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.28.552:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.28.665:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.28.780:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.28.905:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.29.020:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.29.133:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.29.245:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.29.364:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.29.475:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.29.583:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.29.695:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.29.815:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.29.926:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.30.036:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.30.146:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.30.256:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.30.370:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.30.479:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.30.586:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.30.701:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.30.809:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.30.916:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.31.023:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.31.140:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.31.248:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.31.355:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.31.467:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.31.574:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.31.665:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.31.667:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 53):
+[*17.02.14.315:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.14.439:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.14.548:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.14.657:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.14.766:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.14.876:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.14.985:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.15.097:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.15.205:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.15.315:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.15.424:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.15.534:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.15.644:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.15.754:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.15.866:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.15.878:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.15.977:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.16.086:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.16.194:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.16.304:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.16.416:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.16.526:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.16.636:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.16.745:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.16.854:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.16.962:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.17.070:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.17.178:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.17.287:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.17.398:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.17.508:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.17.620:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.17.730:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.17.840:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.17.948:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.18.055:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.18.066:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.18.129:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.18.131:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 53):
 ( request 
   :act execute 
-  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :receiver casa://10.11.131.51:5780 
-  :reply-by "Thu Jan 24 17:25:31 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--0 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--0 
+  :sender casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :receiver casa://10.11.25.153:5780 
+  :reply-by "Wed Jan 30 17:03:18 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--0 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--0 
   :content "(iRobot-env.puck :name \"puck\")" 
 )
-[*17.24.31.706:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 55):
+[*17.02.18.195:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 55):
 ( request 
   :act execute 
-  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :receiver casa://10.11.131.51:5780 
-  :reply-by "Thu Jan 24 17:25:31 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--1 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--1 
+  :sender casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :receiver casa://10.11.25.153:5780 
+  :reply-by "Wed Jan 30 17:03:18 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--1 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--1 
   :content "(iRobot-env.set \"puck\" :labeled NIL)" 
 )
-[*17.24.31.757:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 62):
+[*17.02.18.238:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 62):
 ( request 
   :act execute 
-  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :receiver casa://10.11.131.51:5780 
-  :reply-by "Thu Jan 24 17:25:31 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--2 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--2 
+  :sender casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :receiver casa://10.11.25.153:5780 
+  :reply-by "Wed Jan 30 17:03:18 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--2 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--2 
   :content "(iRobot-env.circle \"puck\" :color-name \"red\")" 
 )
-[*17.24.31.798:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
+[*17.02.18.286:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
 ( agree 
   :act request|execute 
-  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :reply-by "Thu Jan 24 17:25:31 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--1 
-  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--0 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--0 
+  :sender casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :reply-by "Wed Jan 30 17:03:18 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--1 
+  :in-reply-to casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--0 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--0 
   :content "(iRobot-env.puck :name \"puck\")" 
 )
-[*17.24.31.826:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
+[*17.02.18.318:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
 ( agree 
   :act request|execute 
-  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :reply-by "Thu Jan 24 17:25:31 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--2 
-  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--1 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--1 
+  :sender casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :reply-by "Wed Jan 30 17:03:18 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--2 
+  :in-reply-to casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--1 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--1 
   :content "(iRobot-env.set \"puck\" :labeled NIL)" 
 )
-[*17.24.31.851:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
+[*17.02.18.348:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
 ( agree 
   :act request|execute 
-  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :reply-by "Thu Jan 24 17:25:31 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--3 
-  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--2 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--2 
+  :sender casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :reply-by "Wed Jan 30 17:03:18 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--3 
+  :in-reply-to casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--2 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--2 
   :content "(iRobot-env.circle \"puck\" :color-name \"red\")" 
 )
 >>>>>>>>>>>>>>>>>>>>>>>>> casa.util.CASAUtil.log(CASAUtil.java:1715)
-[*17.24.31.884:RoomEnvironment:error:RoomEnvironment*] Cannot serialize object 'iRobotCreate.simulator.Puck', returning null.
+[*17.02.18.439:RoomEnvironment:error:RoomEnvironment*] Cannot serialize object 'iRobotCreate.simulator.Puck', returning null.
 <<<<<<<<<<<<<<<<<<<<<<<<<
-[*17.24.31.918:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
+[*17.02.18.479:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
 ( propose 
   :act discharge|perform|execute 
-  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :reply-by "Thu Jan 24 17:25:31 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--4 
-  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--0 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--0 
+  :sender casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :reply-by "Wed Jan 30 17:03:18 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--4 
+  :in-reply-to casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--0 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--0 
   :language casa.* 
   :content "[\"\\\"(iRobot-env.puck :name \\\\\\\"puck\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
 )
-[*17.24.31.943:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 103):
+[*17.02.18.509:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 104):
 ( agree 
   :act propose|discharge|perform|execute 
-  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :receiver casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :reply-by "Thu Jan 24 17:25:31 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--3 
-  :in-reply-to casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--4 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--0 
+  :sender casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :receiver casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :reply-by "Wed Jan 30 17:03:18 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--3 
+  :in-reply-to casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--4 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--0 
   :language casa.* 
   :content "[\"\\\"(iRobot-env.puck :name \\\\\\\"puck\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
 )
-[*17.24.31.983:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
+[*17.02.18.547:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
 ( propose 
   :act discharge|perform|execute 
-  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :reply-by "Thu Jan 24 17:25:31 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--5 
-  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--1 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--1 
+  :sender casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :reply-by "Wed Jan 30 17:03:18 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--5 
+  :in-reply-to casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--1 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--1 
+  :language casa.* 
+  :content "[\"\\\"(iRobot-env.set \\\\\\\"puck\\\\\\\" :labeled NIL)\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"NIL\\\\\\\" \\\\\\\"NIL\\\\\\\" )\\\"\", \"\"]" 
+)
+[*17.02.18.579:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 116):
+( agree 
+  :act propose|discharge|perform|execute 
+  :sender casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :receiver casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :reply-by "Wed Jan 30 17:03:18 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--4 
+  :in-reply-to casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--5 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--1 
   :language casa.* 
   :content "[\"\\\"(iRobot-env.set \\\\\\\"puck\\\\\\\" :labeled NIL)\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"NIL\\\\\\\" \\\\\\\"NIL\\\\\\\" )\\\"\", \"\"]" 
 )
 >>>>>>>>>>>>>>>>>>>>>>>>> casa.util.CASAUtil.log(CASAUtil.java:1715)
-[*17.24.32.004:RoomEnvironment:error:RoomEnvironment*] Cannot serialize object 'iRobotCreate.simulator.CameraObservableCircle', returning null.
+[*17.02.18.604:RoomEnvironment:error:RoomEnvironment*] Cannot serialize object 'iRobotCreate.simulator.CameraObservableCircle', returning null.
 <<<<<<<<<<<<<<<<<<<<<<<<<
-[*17.24.32.032:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 116):
-( agree 
-  :act propose|discharge|perform|execute 
-  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :receiver casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :reply-by "Thu Jan 24 17:25:31 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--4 
-  :in-reply-to casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--5 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--1 
-  :language casa.* 
-  :content "[\"\\\"(iRobot-env.set \\\\\\\"puck\\\\\\\" :labeled NIL)\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"NIL\\\\\\\" \\\\\\\"NIL\\\\\\\" )\\\"\", \"\"]" 
-)
-[*17.24.32.063:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
+[*17.02.18.622:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
 ( propose 
   :act discharge|perform|execute 
-  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :reply-by "Thu Jan 24 17:25:31 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--6 
-  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--2 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--2 
+  :sender casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :reply-by "Wed Jan 30 17:03:18 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--6 
+  :in-reply-to casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--2 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--2 
   :language casa.* 
   :content "[\"\\\"(iRobot-env.circle \\\\\\\"puck\\\\\\\" :color-name \\\\\\\"red\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
 )
-[*17.24.32.080:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.32.083:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 127):
+[*17.02.18.643:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.18.645:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 127):
 ( agree 
   :act propose|discharge|perform|execute 
-  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :receiver casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :reply-by "Thu Jan 24 17:25:31 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--5 
-  :in-reply-to casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--6 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--2 
+  :sender casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :receiver casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :reply-by "Wed Jan 30 17:03:18 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--5 
+  :in-reply-to casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--6 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--2 
   :language casa.* 
   :content "[\"\\\"(iRobot-env.circle \\\\\\\"puck\\\\\\\" :color-name \\\\\\\"red\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
 )
-[*17.24.32.130:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.32.238:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.32.346:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.32.459:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.32.565:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.32.670:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.32.781:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.32.887:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.32.997:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.33.102:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.33.215:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.33.322:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.33.427:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.33.538:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.33.645:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.33.750:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.33.857:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.33.969:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.34.076:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.34.189:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.34.295:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.34.403:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.34.514:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.34.620:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.34.730:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.34.835:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.34.947:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.35.058:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.35.163:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.35.273:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.35.383:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.35.489:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.35.594:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.35.702:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.35.809:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.35.917:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.36.024:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.36.135:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.36.142:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.36.240:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.36.345:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.36.450:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.36.555:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.36.660:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.36.765:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.36.871:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.36.878:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.36.977:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.37.083:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.37.189:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.37.295:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.37.401:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.37.508:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.37.613:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.37.620:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.37.718:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.18.676:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.18.786:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.18.894:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.19.003:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.19.109:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.19.218:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.19.323:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.19.331:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.19.428:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.19.533:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.19.638:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.19.648:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.19.746:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.19.851:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.19.956:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.20.062:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.20.167:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.20.272:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.20.377:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.20.482:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.20.587:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.20.700:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.20.814:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.20.920:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.21.025:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.21.130:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.21.234:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.21.338:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.21.442:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.21.546:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.21.650:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.21.755:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.21.859:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.21.963:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.22.067:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.22.171:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.22.277:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.22.382:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.22.486:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.22.590:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.22.693:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.22.798:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.22.903:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.23.006:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.23.111:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.23.220:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.23.327:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.23.433:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.23.539:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.23.646:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.23.751:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.23.856:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.23.960:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.24.066:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.24.173:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
 >>>>>>>>>>>>> casa.CasaObservableObject.deleteObserver(CasaObservableObject.java:354)
-[*17.24.37.748:RoomEnvironment:warning:RoomEnvironment-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-3(event_SCPerformAction), RoomEnvironment, 0 observers, no params" when it isn't already an Observer.
+[*17.02.24.243:RoomEnvironment:warning:RoomEnvironment-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-3(event_SCPerformAction), RoomEnvironment, 0 observers, no params" when it isn't already an Observer.
 <<<<<<<<<<<<<
 >>>>>>>>>>>>> casa.CasaObservableObject.deleteObserver(CasaObservableObject.java:354)
-[*17.24.37.748:RoomEnvironment:warning:RoomEnvironment-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-4(event_SCPerformAction), RoomEnvironment, 0 observers, no params" when it isn't already an Observer.
+[*17.02.24.244:RoomEnvironment:warning:RoomEnvironment-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-4(event_SCPerformAction), RoomEnvironment, 0 observers, no params" when it isn't already an Observer.
 <<<<<<<<<<<<<
 >>>>>>>>>>>>> casa.CasaObservableObject.deleteObserver(CasaObservableObject.java:354)
-[*17.24.37.749:RoomEnvironment:warning:RoomEnvironment-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-5(event_SCPerformAction), RoomEnvironment, 0 observers, no params" when it isn't already an Observer.
+[*17.02.24.244:RoomEnvironment:warning:RoomEnvironment-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-5(event_SCPerformAction), RoomEnvironment, 0 observers, no params" when it isn't already an Observer.
 <<<<<<<<<<<<<
 >>>>>>>>>>>>> casa.CasaObservableObject.deleteObserver(CasaObservableObject.java:354)
-[*17.24.37.749:RoomEnvironment:warning:RoomEnvironment-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-6(event_SCPerformAction), RoomEnvironment, 0 observers, no params" when it isn't already an Observer.
+[*17.02.24.245:RoomEnvironment:warning:RoomEnvironment-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-6(event_SCPerformAction), RoomEnvironment, 0 observers, no params" when it isn't already an Observer.
 <<<<<<<<<<<<<
 >>>>>>>>>>>>> casa.CasaObservableObject.deleteObserver(CasaObservableObject.java:354)
-[*17.24.37.749:RoomEnvironment:warning:RoomEnvironment-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-7(event_SCPerformAction), RoomEnvironment, 0 observers, no params" when it isn't already an Observer.
+[*17.02.24.245:RoomEnvironment:warning:RoomEnvironment-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-7(event_SCPerformAction), RoomEnvironment, 0 observers, no params" when it isn't already an Observer.
 <<<<<<<<<<<<<
 >>>>>>>>>>>>>>>>>>>>>>>>> casa.TransientAgent$58.run(TransientAgent.java:3523)
-[*17.24.37.750:RoomEnvironment:error:RoomEnvironment-subthread0*] TransientAgent failed to register with LAC: request timed out or failed (null return)
+[*17.02.24.245:RoomEnvironment:error:RoomEnvironment-subthread0*] TransientAgent failed to register with LAC: request timed out or failed (null return)
 <<<<<<<<<<<<<<<<<<<<<<<<<
-[*17.24.37.823:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.37.928:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.38.033:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.38.138:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.38.243:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.38.348:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.38.356:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.38.456:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.38.561:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.38.666:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.38.772:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.38.877:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.38.976:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.24.281:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.24.385:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.24.495:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.24.604:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.24.710:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.24.813:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.24.917:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.25.025:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.25.131:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.25.241:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.25.351:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.25.446:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
 >>>>>>>>>>>>>>>>>>>>>>>>> casa.util.CASAUtil.log(CASAUtil.java:1715)
-[*17.24.39.016:RoomEnvironment:error:RoomEnvironment*] CASAFilePropertiesMap.constructor: IOException opening file:
+[*17.02.25.561:RoomEnvironment:error:RoomEnvironment*] CASAFilePropertiesMap.constructor: IOException opening file:
 casa.io.CASAIOException: file C:\Users\Henry\.casa\iRobotCreate\simulator\Environment\RoomEnvironment.casa for CASAInputStream is not a CASA file (CASAFile does not exist)
 	at casa.io.CASAInputStream.<init>(CASAInputStream.java:48)
 	at casa.io.CASAInputStream.<init>(CASAInputStream.java:40)
@@ -384,205 +386,259 @@ casa.io.CASAIOException: file C:\Users\Henry\.casa\iRobotCreate\simulator\Enviro
 
 <<<<<<<<<<<<<<<<<<<<<<<<<
 >>>>>>>>>>>>> casa.Agent.readPersistent(Agent.java:127)
-[*17.24.39.026:RoomEnvironment:warning:RoomEnvironment*] Agent.getPersistent(): readPersistentFromProperties(): Failed to read the following fields: dataFile, persistent, reqID
+[*17.02.25.568:RoomEnvironment:warning:RoomEnvironment*] Agent.getPersistent(): readPersistentFromProperties(): Failed to read the following fields: dataFile, persistent, reqID
 <<<<<<<<<<<<<
-[*17.24.39.042:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.39.140:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.39.249:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.39.356:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.39.463:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.39.535:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.39.537:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 205):
+[*17.02.25.583:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.25.682:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.25.789:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.25.851:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.25.852:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 203):
 ( request 
   :act execute 
-  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :receiver casa://10.11.131.51:5780 
-  :reply-by "Thu Jan 24 17:25:39 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--6 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--6 
+  :sender casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :receiver casa://10.11.25.153:5780 
+  :reply-by "Wed Jan 30 17:03:25 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--6 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--6 
   :content "(iRobot-env.triangle \"Alice2\" :name \"red-tri\" :color-name \"purple\")" 
 )
-[*17.24.39.574:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
+[*17.02.25.975:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
 ( agree 
   :act request|execute 
-  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :reply-by "Thu Jan 24 17:25:39 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--7 
-  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--6 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--6 
+  :sender casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :reply-by "Wed Jan 30 17:03:25 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--7 
+  :in-reply-to casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--6 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--6 
   :content "(iRobot-env.triangle \"Alice2\" :name \"red-tri\" :color-name \"purple\")" 
 )
 >>>>>>>>>>>>>>>>>>>>>>>>> casa.util.CASAUtil.log(CASAUtil.java:1715)
-[*17.24.39.612:RoomEnvironment:error:RoomEnvironment*] Cannot serialize object 'iRobotCreate.simulator.CameraObservableTriangle', returning null.
+[*17.02.26.052:RoomEnvironment:error:RoomEnvironment*] Cannot serialize object 'iRobotCreate.simulator.CameraObservableTriangle', returning null.
 <<<<<<<<<<<<<<<<<<<<<<<<<
-[*17.24.39.632:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
+[*17.02.26.069:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
 ( propose 
   :act discharge|perform|execute 
-  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :reply-by "Thu Jan 24 17:25:39 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--8 
-  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--6 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--6 
+  :sender casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :reply-by "Wed Jan 30 17:03:25 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--8 
+  :in-reply-to casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--6 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--6 
   :language casa.* 
   :content "[\"\\\"(iRobot-env.triangle \\\\\\\"Alice2\\\\\\\" :name \\\\\\\"red-tri\\\\\\\" :color-name \\\\\\\"purple\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
 )
-[*17.24.39.653:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.39.658:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.39.659:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 227):
+[*17.02.26.091:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.26.095:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.26.096:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 227):
 ( agree 
   :act propose|discharge|perform|execute 
-  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :receiver casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :reply-by "Thu Jan 24 17:25:39 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--7 
-  :in-reply-to casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--8 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--6 
+  :sender casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :receiver casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :reply-by "Wed Jan 30 17:03:25 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--7 
+  :in-reply-to casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--8 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--6 
   :language casa.* 
   :content "[\"\\\"(iRobot-env.triangle \\\\\\\"Alice2\\\\\\\" :name \\\\\\\"red-tri\\\\\\\" :color-name \\\\\\\"purple\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
 )
-[*17.24.39.703:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.39.800:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.39.813:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.39.910:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.40.020:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.40.065:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 234):
+[*17.02.26.192:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.26.303:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.26.336:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.26.338:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 231):
 ( request 
   :act execute 
-  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :receiver casa://10.11.131.51:5780 
-  :reply-by "Thu Jan 24 17:25:40 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--8 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--8 
+  :sender casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :receiver casa://10.11.25.153:5780 
+  :reply-by "Wed Jan 30 17:03:26 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--8 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--8 
   :content "(iRobot-env.triangle \"Bob2\" :name \"green-tri\" :color-name \"green\")" 
 )
-[*17.24.40.114:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
+[*17.02.26.406:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
 ( agree 
   :act request|execute 
-  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :reply-by "Thu Jan 24 17:25:40 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--9 
-  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--8 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--8 
+  :sender casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :reply-by "Wed Jan 30 17:03:26 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--9 
+  :in-reply-to casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--8 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--8 
   :content "(iRobot-env.triangle \"Bob2\" :name \"green-tri\" :color-name \"green\")" 
 )
 >>>>>>>>>>>>>>>>>>>>>>>>> casa.util.CASAUtil.log(CASAUtil.java:1715)
-[*17.24.40.141:RoomEnvironment:error:RoomEnvironment*] Cannot serialize object 'iRobotCreate.simulator.CameraObservableTriangle', returning null.
+[*17.02.26.482:RoomEnvironment:error:RoomEnvironment*] Cannot serialize object 'iRobotCreate.simulator.CameraObservableTriangle', returning null.
 <<<<<<<<<<<<<<<<<<<<<<<<<
-[*17.24.40.161:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
+[*17.02.26.522:RoomEnvironment:msg:RoomEnvironment*] Sending message (local call):
 ( propose 
   :act discharge|perform|execute 
-  :sender casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :receiver casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :reply-by "Thu Jan 24 17:25:40 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--10 
-  :in-reply-to casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--8 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--8 
+  :sender casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :receiver casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :reply-by "Wed Jan 30 17:03:26 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--10 
+  :in-reply-to casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--8 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--8 
   :language casa.* 
   :content "[\"\\\"(iRobot-env.triangle \\\\\\\"Bob2\\\\\\\" :name \\\\\\\"green-tri\\\\\\\" :color-name \\\\\\\"green\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
 )
-[*17.24.40.197:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.40.207:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.40.214:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 256):
+[*17.02.26.616:RoomEnvironment:msg:RoomEnvironment*]  (event_messageReceived, ID 254):
 ( agree 
   :act propose|discharge|perform|execute 
-  :sender casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa 
-  :receiver casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
-  :reply-by "Thu Jan 24 17:25:40 MST 2013" 
-  :reply-with casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--9 
-  :in-reply-to casa://Henry@10.11.131.51:5780/iRobotCreate/simulator/Environment/RoomEnvironment--10 
-  :conversation-id casa://Henry@10.11.131.51:1000/casa/TransientAgent/casa--8 
+  :sender casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa 
+  :receiver casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment 
+  :reply-by "Wed Jan 30 17:03:26 MST 2013" 
+  :reply-with casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--9 
+  :in-reply-to casa://Henry@10.11.25.153:5780/iRobotCreate/simulator/Environment/RoomEnvironment--10 
+  :conversation-id casa://Henry@10.11.25.153:1000/casa/TransientAgent/casa--8 
   :language casa.* 
   :content "[\"\\\"(iRobot-env.triangle \\\\\\\"Bob2\\\\\\\" :name \\\\\\\"green-tri\\\\\\\" :color-name \\\\\\\"green\\\\\\\")\\\"\", \"(casa.StatusObject)\\\"( 0 \\\\\\\"\\\\\\\" \\\\\\\"null\\\\\\\" )\\\"\", \"\"]" 
 )
-[*17.24.40.295:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.40.416:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.40.529:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.40.548:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.40.655:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.40.767:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.40.886:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.40.997:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.41.118:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.41.225:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.41.337:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.41.443:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.41.560:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.41.668:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.41.788:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.41.899:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.42.005:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.42.110:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.42.235:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.42.351:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.42.456:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.42.570:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.42.681:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.42.788:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.42.899:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.43.005:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.43.117:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.43.224:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.43.336:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.43.449:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.43.553:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.43.658:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.43.770:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.43.778:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.43.877:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.43.995:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.44.109:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.44.215:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.44.326:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.44.430:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.44.535:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.44.648:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.44.753:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.44.866:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.44.975:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.45.080:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.45.197:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.45.303:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.45.414:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.45.421:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.45.519:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.45.634:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.45.642:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.45.739:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.45.844:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.45.957:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.46.063:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.46.167:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.46.282:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.46.390:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.46.495:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.46.608:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.46.713:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.46.820:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.46.936:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.47.044:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.47.150:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.47.266:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.47.372:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.47.480:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.47.596:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.47.703:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.47.811:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.47.917:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.48.031:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.48.138:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.48.245:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.48.351:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.48.457:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.48.561:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.48.667:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.48.771:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.48.875:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.48.980:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.49.086:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.49.190:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.49.294:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.49.398:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.24.49.502:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.26.662:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.26.714:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.26.836:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.26.966:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.27.075:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.27.183:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.27.292:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.27.402:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.27.510:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.27.617:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.27.724:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.27.830:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.27.934:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.28.039:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.28.145:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.28.250:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.28.354:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.28.460:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.28.567:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.28.673:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.28.779:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.28.885:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.28.991:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.29.097:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.29.203:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.29.309:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.29.414:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.29.518:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.29.623:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.29.729:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.29.835:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.29.939:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.30.045:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.30.149:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.30.253:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.30.357:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.30.462:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.30.566:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.30.670:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.30.774:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.30.878:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.30.982:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.31.088:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.31.194:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.31.298:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.31.402:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.31.408:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.31.506:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.31.610:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.31.714:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.31.818:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.31.922:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.32.030:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.32.139:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.32.245:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.32.351:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.32.457:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.32.561:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.32.667:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.32.771:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.32.877:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.32.981:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.33.085:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.33.189:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.33.294:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.33.398:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.33.503:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.33.608:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.33.712:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.33.816:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.33.920:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.34.026:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.34.132:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.34.237:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.34.341:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.34.446:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.34.550:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.34.654:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.34.758:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.34.867:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.34.971:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.35.074:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.35.178:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.35.282:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.35.386:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.35.489:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.35.592:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.35.695:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.35.798:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.35.803:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.35.901:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.36.004:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.36.107:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.36.210:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.36.313:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.36.416:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.36.519:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.36.625:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.36.630:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.36.729:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.36.832:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.36.936:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.37.045:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.37.151:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.37.254:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.37.357:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.37.460:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.37.563:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.37.668:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.37.771:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.37.874:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.37.978:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.38.082:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.38.185:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.38.290:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.38.396:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.38.502:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.38.608:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.38.714:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.38.820:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.38.926:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.39.030:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.39.136:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.39.240:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.39.346:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.39.452:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.39.556:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.39.662:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.39.765:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.39.870:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.39.974:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.40.077:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.40.180:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.40.283:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.40.389:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.40.492:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.40.595:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.40.600:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.40.698:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.40.801:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.40.904:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.41.010:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.41.113:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.41.216:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.41.322:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.41.426:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.41.529:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.41.632:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*17.02.41.735:RoomEnvironment:info:RoomEnvironment*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
