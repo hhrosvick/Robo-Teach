@@ -11,6 +11,8 @@ import java.awt.event.ActionEvent;
 import casa.abcl.ParamsMap;
 import casa.ui.AgentUI;
 import iRobotCreate.iRobotCreate;
+
+import javax.swing.ImageIcon;
 import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -57,6 +59,7 @@ public class RoboTeach {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setResizable(true);
 		
 // Creating home panel, set to CardLayout		
 		final JPanel panel = new JPanel();
@@ -77,7 +80,7 @@ public class RoboTeach {
 				((CardLayout) panel.getLayout()).show(panel, "TabPage");
 			}
 		});
-		StartButton.setBounds(61, 161, 115, 25);
+		StartButton.setBounds(62, 180, 120, 25);
 		MainPage.add(StartButton);
 		
 // UserManualButton initialisation and ActionListener
@@ -87,13 +90,16 @@ public class RoboTeach {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		UserManualButton.setBounds(228, 161, 115, 25);
+		UserManualButton.setBounds(250, 180, 120, 25);
 		MainPage.add(UserManualButton);
 		
 // WelcomeTitleLabel initialisation
 		// Set Banner here
-		JLabel WelcomeTitleLabel = new JLabel("Welcome Title");
-		WelcomeTitleLabel.setBounds(130, 63, 153, 45);
+			String imgStr = "Pic.png";
+		ImageIcon image = new ImageIcon(imgStr);
+		JLabel WelcomeTitleLabel = new JLabel(" ", image, JLabel.CENTER);
+		WelcomeTitleLabel.setBounds(12, 13, 408, 229);
+		
 		MainPage.add(WelcomeTitleLabel);
 		
 // TabPage initialisation
@@ -107,13 +113,14 @@ public class RoboTeach {
 		TabPage.addTab("Welcome", null, WelcomeTab, null);
 		WelcomeTab.setLayout(null);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton BackToMenu = new JButton("Back");
+		BackToMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				((CardLayout) panel.getLayout()).show(panel, "MainPage");
 			}
 		});
-		btnNewButton.setBounds(85, 100, 97, 25);
-		WelcomeTab.add(btnNewButton);
+		BackToMenu.setBounds(12, 187, 97, 25);
+		WelcomeTab.add(BackToMenu);
 		
 /*****************************************************************************************************************************************
 * ProgramTab initialisation and components

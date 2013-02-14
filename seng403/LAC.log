@@ -1,6 +1,6 @@
-*** Started log at Mon Feb 11 20:11:34 MST 2013 ***
+*** Started log at Thu Feb 14 09:17:38 MST 2013 ***
 >>>>>>>>>>>>>>>>>>>>>>>>> casa.util.CASAUtil.log(CASAUtil.java:1715)
-[*20.11.34.512:LAC:error:LAC*] CASAFilePropertiesMap.constructor: IOException opening file:
+[*09.17.38.710:LAC:error:LAC*] CASAFilePropertiesMap.constructor: IOException opening file:
 casa.io.CASAIOException: file C:\Users\David Ryan\.casa\LAC.casa for CASAInputStream is not a CASA file (CASAFile does not exist)
 	at casa.io.CASAInputStream.<init>(CASAInputStream.java:48)
 	at casa.io.CASAInputStream.<init>(CASAInputStream.java:40)
@@ -11,7 +11,7 @@ casa.io.CASAIOException: file C:\Users\David Ryan\.casa\LAC.casa for CASAInputSt
 
 <<<<<<<<<<<<<<<<<<<<<<<<<
 >>>>>>>>>>>>>>>>>>>>>>>>> casa.util.CASAUtil.log(CASAUtil.java:1715)
-[*20.11.34.513:LAC:error:LAC*] CASAFileLACKnownUsersMap.constructor: IOException opening file:
+[*09.17.38.713:LAC:error:LAC*] CASAFileLACKnownUsersMap.constructor: IOException opening file:
 casa.io.CASAIOException: file C:\Users\David Ryan\.casa\LAC.casa for CASAInputStream is not a CASA file (CASAFile does not exist)
 	at casa.io.CASAInputStream.<init>(CASAInputStream.java:48)
 	at casa.io.CASAInputStream.<init>(CASAInputStream.java:40)
