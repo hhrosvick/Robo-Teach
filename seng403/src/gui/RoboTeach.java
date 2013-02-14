@@ -21,6 +21,9 @@ import javax.swing.JTree;
 import javax.swing.JLayeredPane;
 import java.awt.CardLayout;
 import javax.swing.JLabel;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
 
 public class RoboTeach {
 /*
@@ -58,8 +61,8 @@ public class RoboTeach {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
 		frame.setResizable(true);
+		frame.getContentPane().setLayout(null);
 		
 // Creating home panel, set to CardLayout		
 		final JPanel panel = new JPanel();
@@ -80,7 +83,7 @@ public class RoboTeach {
 				((CardLayout) panel.getLayout()).show(panel, "TabPage");
 			}
 		});
-		StartButton.setBounds(62, 180, 120, 25);
+		StartButton.setBounds(61, 180, 120, 25);
 		MainPage.add(StartButton);
 		
 // UserManualButton initialisation and ActionListener
