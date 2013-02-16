@@ -8,7 +8,7 @@ import casa.ui.AgentUI;
 import iRobotCreate.iRobotCreate;
 
 /**
- * @author Henry
+ * @author Henry test
  *
  */
 public class MyRobot extends iRobotCreate {
