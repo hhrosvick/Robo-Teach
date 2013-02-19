@@ -1,12 +1,17 @@
 package gui;
 
 import java.awt.EventQueue;
-
+import javax.swing.text.Element;
 import javax.swing.JFrame;
+
+import casa.CASAProcess;
+import casa.Status;
+
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
+
 import javax.swing.JPanel;
 import java.awt.CardLayout;
 import javax.swing.BoxLayout;
@@ -14,6 +19,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JTabbedPane;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
+
 import java.awt.Panel;
 import java.awt.BorderLayout;
 
@@ -23,6 +31,10 @@ import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
+import java.awt.Color;
 import java.awt.TextArea;
 import java.awt.ScrollPane;
 import java.awt.Label;
@@ -31,6 +43,8 @@ import java.awt.Scrollbar;
 public class Test {
 
 	private JFrame frame;
+	private JTextArea textArea;
+	private JTextArea lines;
 
 	/**
 	 * Launch the application.
@@ -56,7 +70,7 @@ public class Test {
 	}
 
 	/**
-	 * Initialise the contents of the frame.
+	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
 		frame = new JFrame();
@@ -114,7 +128,7 @@ public class Test {
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
 /*****************************************************************************************************************************************
-* TitlePage initialisation and components
+* TitlePage initialization and components
 *****************************************************************************************************************************************/
 		
 		//Title screen picture, add picture to folder and change file name here
@@ -148,7 +162,7 @@ public class Test {
 		TitleButtonPanel.add(UserManualButton);
 		
 /*****************************************************************************************************************************************
-* TitlePage initialisation and components
+* TitlePage initialization and components
 *****************************************************************************************************************************************/	
 		JTabbedPane TabPage = new JTabbedPane(JTabbedPane.TOP);
 		BasePanel.add(TabPage, "TabPage");
@@ -208,21 +222,149 @@ public class Test {
 		scrollPane.setViewportView(lblNewLabel);
 		
 		
-		
 		JButton btnNewButton_1 = new JButton("New button");
 		WelcomeTab.add(btnNewButton_1, "2, 4");
 		
 		JButton btnNewButton_2 = new JButton("New button");
 		WelcomeTab.add(btnNewButton_2, "2, 6");
-		
+
+/*****************************************************************************************************************************************
+* LessonsTab initialization and components
+******************************************************************************************************************************************/	
 		JPanel LessonsTab = new JPanel();
 		TabPage.addTab("Lessons", null, LessonsTab, null);
-		
+
+/*****************************************************************************************************************************************
+* ProgramTab initialization and components
+******************************************************************************************************************************************/	
 		JPanel ProgramTab = new JPanel();
 		TabPage.addTab("Program", null, ProgramTab, null);
-		ProgramTab.setLayout(new FormLayout(new ColumnSpec[] {},
-			new RowSpec[] {}));
+		ProgramTab.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),}));
 		
+		JButton btnStartEmulator = new JButton("Start Emulator");
+		//btnStartEmulator.setBounds(0, 0, 117, 29);
+		ProgramTab.add(btnStartEmulator, "2, 2");
+		
+		btnStartEmulator.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				System.out.println("ButtonPressed");
+				Status p = CASAProcess.getInstance().abclEval("(load\"scripts/sim.lisp\")", null);
+			}
+		});
+		
+		JButton btnOpen = new JButton("Open File");
+		//btnOpen.setBounds(0, 25, 117, 29);
+		ProgramTab.add(btnOpen, "2, 4");
+		
+		btnOpen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		
+		JButton btnSave = new JButton("Save File");
+		//btnSave.setBounds(0, 51, 117, 29);
+		ProgramTab.add(btnSave, "2, 6");
+		
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		
+		JScrollPane scrollPane1 = new JScrollPane();
+		scrollPane1.setBounds(113, 0, 298, 209);
+		//ProgramTab.add(scrollPane1, "4, 2, 1, 31, fill, fill");
+		
+		textArea = new JTextArea();
+		
+		// LINE NUMBERS
+		// from 
+		// http://www.javaprogrammingforums.com/java-swing-tutorials/915-how-add-line-numbers-your-jtextarea.html
+		lines = new JTextArea("1");
+		 
+		lines.setBackground(Color.LIGHT_GRAY);
+		lines.setEditable(false);
+ 
+		textArea.getDocument().addDocumentListener(new DocumentListener(){
+			
+			public String getText()
+			{
+				int caretPosition = textArea.getDocument().getLength();
+				Element root = textArea.getDocument().getDefaultRootElement();
+				String text = "1" + System.getProperty("line.separator");
+				
+				for(int i = 2; i < root.getElementIndex( caretPosition ) + 2; i++){
+					text += i + System.getProperty("line.separator");
+				}
+				
+				return text;
+			}
+			
+			@Override
+			public void changedUpdate(DocumentEvent de) {
+				lines.setText(getText());
+			}
+ 
+			@Override
+			public void insertUpdate(DocumentEvent de) {
+				lines.setText(getText());
+			}
+ 
+			@Override
+			public void removeUpdate(DocumentEvent de) {
+				lines.setText(getText());
+			}
+ 
+		});
+		scrollPane1.setViewportView(textArea);
+		scrollPane1.setRowHeaderView(lines);
+		scrollPane1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		ProgramTab.add(scrollPane1, "4, 2, 1, 31, fill, fill");
+
+
+/*****************************************************************************************************************************************
+* ChallengeTab initialization and components
+******************************************************************************************************************************************/			
 		JPanel ChallengesTab = new JPanel();
 		TabPage.addTab("Challenges", null, ChallengesTab, null);
 	}
