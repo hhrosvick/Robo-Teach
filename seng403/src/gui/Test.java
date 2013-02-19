@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 import java.awt.CardLayout;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -39,12 +41,20 @@ import java.awt.TextArea;
 import java.awt.ScrollPane;
 import java.awt.Label;
 import java.awt.Scrollbar;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class Test {
 
-	private JFrame frame;
+	private JFrame frmRoboteach;
 	private JTextArea textArea;
 	private JTextArea lines;
+	private JFileChooser fc;
+	private File f;
 
 	/**
 	 * Launch the application.
@@ -54,7 +64,7 @@ public class Test {
 			public void run() {
 				try {
 					Test window = new Test();
-					window.frame.setVisible(true);
+					window.frmRoboteach.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -67,19 +77,21 @@ public class Test {
 	 */
 	public Test() {
 		initialize();
+		fc = new JFileChooser();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 800, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.X_AXIS));
+		frmRoboteach = new JFrame();
+		frmRoboteach.setTitle("Robo-Teach");
+		frmRoboteach.setBounds(100, 100, 800, 600);
+		frmRoboteach.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRoboteach.getContentPane().setLayout(new BoxLayout(frmRoboteach.getContentPane(), BoxLayout.X_AXIS));
 		//Creating the base panel
 		final JPanel BasePanel = new JPanel();
-		frame.getContentPane().add(BasePanel);
+		frmRoboteach.getContentPane().add(BasePanel);
 		BasePanel.setLayout(new CardLayout(0, 0));
 		//Data needed for resizing
 		JPanel TitlePage = new JPanel();
@@ -211,7 +223,6 @@ public class Test {
 		JButton btnNewButton = new JButton("New button");
 		WelcomeTab.add(btnNewButton, "2, 2");
 		
-		
 		String imgStr2 = "LargPicture.png";
 		ImageIcon image2 = new ImageIcon(imgStr2);
 		
@@ -238,6 +249,9 @@ public class Test {
 * ProgramTab initialization and components
 ******************************************************************************************************************************************/	
 		JPanel ProgramTab = new JPanel();
+		textArea = new JTextArea();
+		
+		
 		TabPage.addTab("Program", null, ProgramTab, null);
 		ProgramTab.setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
@@ -279,7 +293,6 @@ public class Test {
 				RowSpec.decode("default:grow"),}));
 		
 		JButton btnStartEmulator = new JButton("Start Emulator");
-		//btnStartEmulator.setBounds(0, 0, 117, 29);
 		ProgramTab.add(btnStartEmulator, "2, 2");
 		
 		btnStartEmulator.addActionListener(new ActionListener() {
@@ -290,31 +303,49 @@ public class Test {
 			}
 		});
 		
+		
 		JButton btnOpen = new JButton("Open File");
-		//btnOpen.setBounds(0, 25, 117, 29);
 		ProgramTab.add(btnOpen, "2, 4");
 		
 		btnOpen.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent arg0) {
-				
+				int returnVal = fc.showOpenDialog(null);
+
+				if (returnVal == JFileChooser.APPROVE_OPTION) {
+					f = fc.getSelectedFile();
+					BufferedReader br = null;
+					try {
+						br = new BufferedReader(new FileReader(f));
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			        String st="";
+			        try {
+			        	textArea.setText("");
+						while((st=br.readLine())!=null){
+							textArea.append(st + "\n");
+						}
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				textArea.setCaretPosition(textArea.getDocument().getLength());
+				}
 			}
 		});
 		
 		JButton btnSave = new JButton("Save File");
-		//btnSave.setBounds(0, 51, 117, 29);
 		ProgramTab.add(btnSave, "2, 6");
 		
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 			}
 		});
 		
 		JScrollPane scrollPane1 = new JScrollPane();
 		scrollPane1.setBounds(113, 0, 298, 209);
-		//ProgramTab.add(scrollPane1, "4, 2, 1, 31, fill, fill");
-		
-		textArea = new JTextArea();
 		
 		// LINE NUMBERS
 		// from 
