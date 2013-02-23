@@ -248,12 +248,14 @@ public class Test {
 /*****************************************************************************************************************************************
 * ProgramTab initialization and components
 ******************************************************************************************************************************************/	
-		JPanel ProgramTab = new JPanel();
-		textArea = new JTextArea();
 		
+		JPanel ProgramTab1;
+		ProgramTab newTab = new ProgramTab();
+		ProgramTab1 = newTab.initialize();
+		TabPage.addTab("Program", null, ProgramTab1, null);
 		
-		TabPage.addTab("Program", null, ProgramTab, null);
-		ProgramTab.setLayout(new FormLayout(new ColumnSpec[] {
+		//JPanel ProgramTab = new JPanel();
+		/*ProgramTab1.setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
 				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
@@ -291,7 +293,8 @@ public class Test {
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),}));
-		
+	
+		textArea = new JTextArea();
 		JButton btnStartEmulator = new JButton("Start Emulator");
 		ProgramTab.add(btnStartEmulator, "2, 2");
 		
@@ -300,47 +303,6 @@ public class Test {
 				
 				System.out.println("ButtonPressed");
 				Status p = CASAProcess.getInstance().abclEval("(load\"scripts/sim.lisp\")", null);
-			}
-		});
-		
-		
-		JButton btnOpen = new JButton("Open File");
-		ProgramTab.add(btnOpen, "2, 4");
-		
-		btnOpen.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent arg0) {
-				int returnVal = fc.showOpenDialog(null);
-
-				if (returnVal == JFileChooser.APPROVE_OPTION) {
-					f = fc.getSelectedFile();
-					BufferedReader br = null;
-					try {
-						br = new BufferedReader(new FileReader(f));
-					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-			        String st="";
-			        try {
-			        	textArea.setText("");
-						while((st=br.readLine())!=null){
-							textArea.append(st + "\n");
-						}
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				textArea.setCaretPosition(textArea.getDocument().getLength());
-				}
-			}
-		});
-		
-		JButton btnSave = new JButton("Save File");
-		ProgramTab.add(btnSave, "2, 6");
-		
-		btnSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
 		
@@ -391,6 +353,49 @@ public class Test {
 		scrollPane1.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 		ProgramTab.add(scrollPane1, "4, 2, 1, 31, fill, fill");
+		
+		JButton btnNewFile = new JButton("New File");
+		ProgramTab.add(btnNewFile, "2, 4");
+		
+		JButton btnOpen = new JButton("Open File");
+		ProgramTab.add(btnOpen, "2, 6");
+		
+		btnOpen.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent arg0) {
+				int returnVal = fc.showOpenDialog(null);
+
+				if (returnVal == JFileChooser.APPROVE_OPTION) {
+					f = fc.getSelectedFile();
+					BufferedReader br = null;
+					try {
+						br = new BufferedReader(new FileReader(f));
+					} catch (FileNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			        String st="";
+			        try {
+			        	textArea.setText("");
+						while((st=br.readLine())!=null){
+							textArea.append(st + "\n");
+						}
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				textArea.setCaretPosition(textArea.getDocument().getLength());
+				}
+			}
+		});
+		
+		JButton btnSave = new JButton("Save File");
+		ProgramTab.add(btnSave, "2, 8");
+		
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});*/
 
 
 /*****************************************************************************************************************************************
