@@ -3,7 +3,6 @@ package gui;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.Window.Type;
 
 @SuppressWarnings("serial")
 public class Login extends JFrame {
