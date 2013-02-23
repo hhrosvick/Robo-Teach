@@ -77,7 +77,6 @@ public class Test {
 	 */
 	public Test() {
 		initialize();
-		fc = new JFileChooser();
 	}
 
 	/**

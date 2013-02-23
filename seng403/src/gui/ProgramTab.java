@@ -4,19 +4,23 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.Element;
 
 import com.jgoodies.forms.factories.FormFactory;
@@ -35,14 +39,16 @@ public class ProgramTab implements ActionListener {
 	private JFileChooser fc;
 	private File f;
 	private JButton btnNewFile, btnStartEmulator, btnOpen, btnSave;
-	private String fileName;
+	private String filePath;
 	
 	
 	public ProgramTab()
 	{
 		ProgramTab = new JPanel();
 		fc = new JFileChooser();
-		fileName = null;
+	    FileNameExtensionFilter filter = new FileNameExtensionFilter("LISP Files", "lisp");
+	    fc.setFileFilter(filter);
+		filePath = null;
 		//UNCOMMENT THIS IS IF YOU WANTED TO SEE THE GUI ON THE DESIGN TAB
 		//initialize();
 	}
@@ -136,7 +142,13 @@ public class ProgramTab implements ActionListener {
         	System.out.println("ButtonPressed");
 			Status p = CASAProcess.getInstance().abclEval("(load\"scripts/sim.lisp\")", null);
         
-        } 
+        }
+        //Handle new button action.
+        else if (e.getSource() == btnNewFile)
+        {
+        	filePath = null;
+        	textArea.setText("");
+        }
       //Handle open button action.
         else if (e.getSource() == btnOpen) 
         {
@@ -144,13 +156,18 @@ public class ProgramTab implements ActionListener {
 
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
 				f = fc.getSelectedFile();
+				
+				filePath = f.getAbsolutePath();
+				
 				BufferedReader br = null;
+				
 				try {
 					br = new BufferedReader(new FileReader(f));
 				} catch (FileNotFoundException f) {
 					// TODO Auto-generated catch block
 					f.printStackTrace();
 				}
+				
 		        String st="";
 		        try {
 		        	textArea.setText("");
@@ -161,30 +178,94 @@ public class ProgramTab implements ActionListener {
 					// TODO Auto-generated catch block
 					f.printStackTrace();
 				}
+		        
 			textArea.setCaretPosition(textArea.getDocument().getLength());
+			
 			}
-        }
-        //Handle new button action.
-        else if (e.getSource() == btnNewFile)
-        {
-        	
         }
       //Handle save button action.
         else if (e.getSource() == btnSave)
         {
-        	
+        	if(filePath != null)
+        	{
+        		BufferedWriter outFile;
+				try {
+					outFile = new BufferedWriter( new FileWriter( filePath ) );
+					//outFile.write( textArea.getText() ); //put in text file
+					textArea.write(outFile);
+	                outFile.flush( ); 
+	                outFile.close( );
+	                
+	                JOptionPane.showMessageDialog(null, "File Successfully Saved!");
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+        	}
+        	else
+        	{
+        		try {
+					saveButtonNewFile();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+        	}
         }
     }
+	
+	public void saveButtonNewFile() throws IOException
+	{
+		int returnVal = fc.showSaveDialog(null);
+
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			f = new File (fc.getSelectedFile() + ".lisp");
+			System.out.println(f);
+
+            if(f != null)
+            {
+            	if(f.exists())
+            	{
+            		returnVal = JOptionPane.showConfirmDialog(null, "Replace existing file?");
+
+            		while (returnVal == JOptionPane.NO_OPTION)
+            		{
+            			returnVal = fc.showSaveDialog(null);
+            				if ( returnVal == JFileChooser.APPROVE_OPTION)
+            				{
+            					f = new File(fc.getSelectedFile( ) + ".lisp");
+            					if(f.exists())
+            					{
+            						returnVal = JOptionPane.showConfirmDialog(null, "Replace existing file?");
+                                                                
+            					}
+            				}
+
+            		}
+            	}
+
+            filePath = f.getAbsolutePath();
+            BufferedWriter outFile = new BufferedWriter( new FileWriter( f ) );
+            //outFile.write( textArea.getText() ); //put in text file
+            textArea.write(outFile);
+            outFile.flush( ); 
+            outFile.close( );
+            
+            JOptionPane.showMessageDialog(null, "File Successfully Saved!");
+            }
+		}
+	}
+
 	
 	class MyDocumentListener implements DocumentListener {
 		public String getText()
 		{
 			int caretPosition = textArea.getDocument().getLength();
 			Element root = textArea.getDocument().getDefaultRootElement();
-			String text = "1" + System.getProperty("line.separator");
+			String text = "1";
 			
 			for(int i = 2; i < root.getElementIndex( caretPosition ) + 2; i++){
-				text += i + System.getProperty("line.separator");
+				text +="\n"+ i;
 			}
 			
 			return text;
