@@ -33,29 +33,19 @@ import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.TextArea;
 import java.awt.ScrollPane;
 import java.awt.Label;
 import java.awt.Scrollbar;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.awt.Toolkit;
 
-public class Test {
+
+public class Test{
 
 	private JFrame frmRoboteach;
-	private JTextArea textArea;
-	private JTextArea lines;
-	private JFileChooser fc;
-	private File f;
-
 	/**
 	 * Launch the application.
 	 */
@@ -70,6 +60,7 @@ public class Test {
 				}
 			}
 		});
+		
 	}
 
 	/**
@@ -82,19 +73,31 @@ public class Test {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize() {
 /*****************************************************************************************************************************************
 * Main Page initialization and components
 *****************************************************************************************************************************************/
-		
 		frmRoboteach = new JFrame();
 		frmRoboteach.setTitle("Robo-Teach");
 		frmRoboteach.setBounds(100, 100, 800, 600);
 		frmRoboteach.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmRoboteach.getContentPane().setLayout(new BoxLayout(frmRoboteach.getContentPane(), BoxLayout.X_AXIS));
+		frmRoboteach.getContentPane().setLayout(new CardLayout(0, 0));
+		
+		//get size of the screen
+		Toolkit toolkit = Toolkit.getDefaultToolkit();  
+		Dimension screenSize = toolkit.getScreenSize(); 
+		
+		//TO SHOW THE WINDOW IN THE CENTER OF THE SCREEN
+		int x = (screenSize.width - frmRoboteach.getWidth()) / 2;  
+		int y = (screenSize.height - frmRoboteach.getHeight()) / 2; 
+		frmRoboteach.setLocation(x,y);
+		
+		//USER LOGIN
+		new Login(frmRoboteach);
+		
 		//Creating the base panel
 		final JPanel BasePanel = new JPanel();
-		frmRoboteach.getContentPane().add(BasePanel);
+		frmRoboteach.getContentPane().add(BasePanel, "name_20408249708069");
 		BasePanel.setLayout(new CardLayout(0, 0));
 		//Data needed for resizing
 		JPanel TitlePage = new JPanel();
@@ -171,6 +174,7 @@ public class Test {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
+		
 		//Put everything onto the title panel
 		TitleButtonPanel.add(StartButton);
 		TitleLabelPanel.add(TitleLabel);
