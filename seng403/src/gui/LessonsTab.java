@@ -93,14 +93,14 @@ public class LessonsTab {
 		});
 		LessonsTab.add(StartLessonButton, "2, 2, 3, 1");
 		
-		JScrollPane scrollPane_2 = new JScrollPane();
-		LessonsTab.add(scrollPane_2, "6, 2, 17, 15, fill, fill");
+		JScrollPane PreviewPane = new JScrollPane();
+		LessonsTab.add(PreviewPane, "6, 2, 17, 15, fill, fill");
 		
 		final JLabel LessonPreviewLabel = new JLabel("");
-		scrollPane_2.setViewportView(LessonPreviewLabel);
+		PreviewPane.setViewportView(LessonPreviewLabel);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		LessonsTab.add(scrollPane_1, "2, 4, 3, 13, fill, fill");
+		JScrollPane TreePane = new JScrollPane();
+		LessonsTab.add(TreePane, "2, 4, 3, 13, fill, fill");
 		
 		final JTree LessonsTree = new JTree();
 		LessonsTree.setModel(new DefaultTreeModel(
@@ -128,7 +128,7 @@ public class LessonsTab {
 				}
 			}
 		));
-		scrollPane_1.setViewportView(LessonsTree);
+		TreePane.setViewportView(LessonsTree);
 		
 		LessonsTree.addTreeSelectionListener(new TreeSelectionListener() {
 			public void valueChanged(TreeSelectionEvent e) {
