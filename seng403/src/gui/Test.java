@@ -101,7 +101,7 @@ public class Test{
 		BasePanel.setLayout(new CardLayout(0, 0));
 		//Data needed for resizing
 		JPanel TitlePage = new JPanel();
-		BasePanel.add(TitlePage, "name_14339387689257");
+		BasePanel.add(TitlePage, "TitlePage");
 		TitlePage.setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"),
@@ -227,8 +227,8 @@ public class Test{
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),}));
 		
-		JButton btnNewButton = new JButton("New button");
-		WelcomeTab.add(btnNewButton, "2, 2");
+		JButton WelcomeButton = new JButton("New button");
+		WelcomeTab.add(WelcomeButton, "2, 2");
 		
 		String imgStr2 = "LargPicture.png";
 		ImageIcon image2 = new ImageIcon(imgStr2);
@@ -240,11 +240,11 @@ public class Test{
 		scrollPane.setViewportView(lblNewLabel);
 		
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		WelcomeTab.add(btnNewButton_1, "2, 4");
+		JButton GettingStartedButton = new JButton("New button");
+		WelcomeTab.add(GettingStartedButton, "2, 4");
 		
-		JButton btnNewButton_2 = new JButton("New button");
-		WelcomeTab.add(btnNewButton_2, "2, 6");
+		JButton BackToTitleButton = new JButton("New button");
+		WelcomeTab.add(BackToTitleButton, "2, 6");
 
 /*****************************************************************************************************************************************
 * LessonsTab initialization and components
