@@ -227,23 +227,24 @@ public class Test{
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),}));
 		
-		JButton WelcomeButton = new JButton("New button");
-		WelcomeTab.add(WelcomeButton, "2, 2");
-		
-		String imgStr2 = "LargPicture.png";
-		ImageIcon image2 = new ImageIcon(imgStr2);
+		String imgStr2 = "Pictures/WelcomePicture.png";
+		ImageIcon WelcomePicture = new ImageIcon(imgStr2);
+		String imgStr3 = "Pictures/GettingStartedPicture.png";
+		ImageIcon GettingStartedPicture = new ImageIcon(imgStr3);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		WelcomeTab.add(scrollPane, "4, 2, 1, 31, fill, fill");
 		
+		JButton WelcomeButton = new JButton("Welcome");
+		WelcomeTab.add(WelcomeButton, "2, 2");
+		
 		JLabel lblNewLabel = new JLabel("New label");
 		scrollPane.setViewportView(lblNewLabel);
 		
-		
-		JButton GettingStartedButton = new JButton("New button");
+		JButton GettingStartedButton = new JButton("Getting Started");
 		WelcomeTab.add(GettingStartedButton, "2, 4");
 		
-		JButton BackToTitleButton = new JButton("New button");
+		JButton BackToTitleButton = new JButton("Back to Title");
 		WelcomeTab.add(BackToTitleButton, "2, 6");
 
 /*****************************************************************************************************************************************
