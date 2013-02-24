@@ -3,7 +3,7 @@
 
 	<target name="build">
 		<mkdir dir="build/classes"/>
-		<javac srcdir="." destdir="./build/classes" classpath="*.jar"/>
+		<javac srcdir="." destdir="./build/classes" classpath="."/>
 		<mkdir dir="build/jar"/>
 		<jar destfile="build/jar/RoboTeach.jar" basedir="build/classes"/>
 	</target>
