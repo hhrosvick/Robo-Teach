@@ -3,9 +3,9 @@
 
 	<target name="build">
 		<mkdir dir="build/classes"/>
-		<javac srcdir="." destdir="./build/classes" classpath="iRobotCreate3.jar"/>
+		<javac srcdir="." destdir="./build/classes" classpath="."/>
 		<mkdir dir="build/jar"/>
-		<jar destfile="build/jar/MyRobot.jar" basedir="build/classes"/>
+		<jar destfile="build/jar/RoboTeach.jar" basedir="build/classes"/>
 	</target>
 	
 </project>
