@@ -265,8 +265,10 @@ public class Test{
 /*****************************************************************************************************************************************
 * LessonsTab initialization and components
 ******************************************************************************************************************************************/	
-		JPanel LessonsTab = new JPanel();
-		TabPage.addTab("Lessons", null, LessonsTab, null);
+		JPanel LessonsTab1;
+		LessonsTab newLessonsTab = new LessonsTab();
+		LessonsTab1 = newLessonsTab.initialize();
+		TabPage.addTab("Lessons", null, LessonsTab1, null);
 
 /*****************************************************************************************************************************************
 * ProgramTab initialization and components
