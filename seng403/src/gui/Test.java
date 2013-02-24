@@ -150,13 +150,13 @@ public class Test{
 *****************************************************************************************************************************************/
 		
 		//Title screen picture, add picture to folder and change file name here
-		String imgStr = "Pic.png";
-		ImageIcon image = new ImageIcon(imgStr);
+		String imgStr = "Pictures/TitlePicture.png";
+		ImageIcon TitlePicture = new ImageIcon(imgStr);
 		//Creating the picture panel
 		Panel TitleLabelPanel = new Panel();
 		TitlePage.add(TitleLabelPanel, "2, 2, 25, 9, fill, fill");
 		TitleLabelPanel.setLayout(new BorderLayout(0, 0));
-		JLabel TitleLabel = new JLabel(" ", image, JLabel.CENTER);
+		JLabel TitleLabel = new JLabel(" ", TitlePicture, JLabel.CENTER);
 		//Creating the button panel
 		JPanel TitleButtonPanel = new JPanel();
 		TitlePage.add(TitleButtonPanel, "2, 12, 25, 3, fill, fill");
@@ -228,23 +228,38 @@ public class Test{
 				RowSpec.decode("default:grow"),}));
 		
 		String imgStr2 = "Pictures/WelcomePicture.png";
-		ImageIcon WelcomePicture = new ImageIcon(imgStr2);
+		final ImageIcon WelcomePicture = new ImageIcon(imgStr2);
 		String imgStr3 = "Pictures/GettingStartedPicture.png";
-		ImageIcon GettingStartedPicture = new ImageIcon(imgStr3);
+		final ImageIcon GettingStartedPicture = new ImageIcon(imgStr3);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		WelcomeTab.add(scrollPane, "4, 2, 1, 31, fill, fill");
 		
+		final JLabel WelcomeLabel = new JLabel(" ", WelcomePicture, JLabel.CENTER);
+		scrollPane.setViewportView(WelcomeLabel);
+		
 		JButton WelcomeButton = new JButton("Welcome");
+		WelcomeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				WelcomeLabel.setIcon(WelcomePicture);
+			}
+		});
 		WelcomeTab.add(WelcomeButton, "2, 2");
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		scrollPane.setViewportView(lblNewLabel);
-		
 		JButton GettingStartedButton = new JButton("Getting Started");
+		GettingStartedButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				WelcomeLabel.setIcon(GettingStartedPicture);
+			}
+		});
 		WelcomeTab.add(GettingStartedButton, "2, 4");
 		
 		JButton BackToTitleButton = new JButton("Back to Title");
+		BackToTitleButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				((CardLayout) BasePanel.getLayout()).show(BasePanel, "TitlePage");
+			}
+		});
 		WelcomeTab.add(BackToTitleButton, "2, 6");
 
 /*****************************************************************************************************************************************
