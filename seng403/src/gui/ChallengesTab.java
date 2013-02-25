@@ -1,26 +1,34 @@
 package gui;
 
+import java.awt.CardLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
+import javax.swing.JEditorPane;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeSelectionModel;
 
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
+
 public class ChallengesTab implements ActionListener {
 	private JPanel ChallengesTab;
 	private JButton StartLesson;
-
+	JTree ChallengeTree = new JTree();
+	private JEditorPane textPane = null;
 
 public ChallengesTab()
 {
@@ -70,50 +78,154 @@ public JPanel initialize()
 			RowSpec.decode("default:grow"),}));
 
 		
-		JScrollPane challengePane = new JScrollPane();
-		ChallengesTab.add(challengePane, "4, 2, 1, 31, fill, fill");
+		final JScrollPane challengePane = new JScrollPane();
+		textPane = new JEditorPane();
+		textPane.setEditable(false);
+		ChallengesTab.add(challengePane, "4, 2, 1, 10, fill, fill");
 		
+		/*
+		 * // Potential Begin Challenge in New window button
+		 
 		JButton BeginChallenge = new JButton("Begin Challenge");
 		BeginChallenge.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			
+				
 			}
 		});
 		
-		
 		BeginChallenge.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
 		ChallengesTab.add(BeginChallenge, "2,2");
+		*/
 		
-		JTree ChallengeTree = new JTree();
-		ChallengeTree.setModel(new DefaultTreeModel(
-			new DefaultMutableTreeNode("Challenges") {
+		DefaultMutableTreeNode Challenges = new DefaultMutableTreeNode("Challenges");
+		createNodes(Challenges);
+		
+		ChallengeTree = new JTree(Challenges);
+		ChallengeTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+		ChallengeTree.addTreeSelectionListener(new TreeSelectionListener(){
+			public void valueChanged(TreeSelectionEvent e){
+				DefaultMutableTreeNode node = (DefaultMutableTreeNode)ChallengeTree.getLastSelectedPathComponent();
+				if (node == null)
+					return; // no node selected
+				
+				else // display seleted node
 				{
-					DefaultMutableTreeNode node_1;
-					node_1 = new DefaultMutableTreeNode("Easy");
-						node_1.add(new DefaultMutableTreeNode("E: 1.0"));
-						node_1.add(new DefaultMutableTreeNode("E: 2.0"));
-						node_1.add(new DefaultMutableTreeNode("E: 3.0"));
-						node_1.add(new DefaultMutableTreeNode("E: 4.0"));
-					add(node_1);
-					node_1 = new DefaultMutableTreeNode("Medium");
-						node_1.add(new DefaultMutableTreeNode("M: 1.0"));
-						node_1.add(new DefaultMutableTreeNode("M: 2.0"));
-						node_1.add(new DefaultMutableTreeNode("M: 3.0"));
-						node_1.add(new DefaultMutableTreeNode("M: 4.0"));
-					add(node_1);
-					node_1 = new DefaultMutableTreeNode("Hard");
-						node_1.add(new DefaultMutableTreeNode("H: 1.0"));
-						node_1.add(new DefaultMutableTreeNode("H: 2.0"));
-						node_1.add(new DefaultMutableTreeNode("H: 3.0"));
-						node_1.add(new DefaultMutableTreeNode("H: 4.0"));
-					add(node_1);
-				}
+					Object nodeInfo = node.getUserObject();
+					String exercise = nodeInfo.toString();
+	
+					String description = insertLabel(exercise);
+					JLabel lblNewLabel = new JLabel(description);
+					challengePane.setViewportView(lblNewLabel);
+				}	
 			}
-		));
+		});
+		
 		ChallengesTab.add(ChallengeTree, "2,4");
 		return ChallengesTab;
 }
-
+	private void createNodes(DefaultMutableTreeNode challenges) 
+	{
+		DefaultMutableTreeNode Easy = null;
+		DefaultMutableTreeNode Medium = null;
+		DefaultMutableTreeNode Hard = null;
+		DefaultMutableTreeNode exercises = null;
+		
+		
+		// Add Chapters
+		Easy = new DefaultMutableTreeNode("Easy");
+		challenges.add(Easy);
+		//add exercise nodes
+		exercises = new DefaultMutableTreeNode("E1");
+		Easy.add(exercises);
+		
+		exercises = new DefaultMutableTreeNode("E2");
+		Easy.add(exercises);
+		
+		exercises = new DefaultMutableTreeNode("E3");
+		Easy.add(exercises);
+		
+		Medium = new DefaultMutableTreeNode("Medium");
+		challenges.add(Medium);
+		
+		exercises = new DefaultMutableTreeNode("M1");
+		Medium.add(exercises);
+		
+		exercises = new DefaultMutableTreeNode("M2");
+		Medium.add(exercises);
+		
+		exercises = new DefaultMutableTreeNode("M3");
+		Medium.add(exercises);
+		
+		Hard = new DefaultMutableTreeNode("Hard");
+		challenges.add(Hard);
+		
+		exercises = new DefaultMutableTreeNode("H1");
+		Hard.add(exercises);
+		
+		exercises = new DefaultMutableTreeNode("H2");
+		Hard.add(exercises);
+		
+		exercises = new DefaultMutableTreeNode("H3");
+		Hard.add(exercises);
+	}
+	
+	private String insertLabel(String exercise)
+	{
+		String returnDescription = null;
+		
+		// Exercise descriptions, potentially pulled from a .txt document
+		// ** EASY EXERCISES ** //
+		if (exercise == "E1")
+		{
+			returnDescription = ("This is easy exercise 1.");
+		}
+		
+		if (exercise == "E2")
+		{
+			returnDescription = ("This is easy exercise 2.");
+		}
+		
+		if (exercise == "E3")
+		{
+			returnDescription = ("This is easy exercise 3.");
+		}
+		
+		
+		// ** MEDIUM Exercises ** //
+		if (exercise == "M1")
+		{
+			returnDescription = ("This is medium exercise 1.");
+		}
+				
+		if (exercise == "M2")
+		{
+			returnDescription = ("This is medium exercise 2.");
+		}
+				
+		if (exercise == "M3")
+		{
+			returnDescription = ("This is medium exercise 3.");
+		}		
+				
+		// ** HARD EXERCISES ** //
+		if (exercise == "H1")
+		{
+			returnDescription = ("This is hard exercise 1.");
+		}
+		
+		if (exercise == "H2")
+		{
+			returnDescription = ("This is hard exercise 2.");
+		}
+		
+		if (exercise == "H3")
+		{
+			returnDescription = ("This is hard exercise 3.");
+		}		
+				
+		// Return challenge description
+		return returnDescription;
+	}
 
 	public void actionPerformed(ActionEvent e) 
 	{
