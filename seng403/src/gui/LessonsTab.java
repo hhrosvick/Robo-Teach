@@ -102,13 +102,13 @@ public class LessonsTab {
 		LessonsTab.add(PreviewPane, "6, 2, 17, 15, fill, fill");
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
 		PreviewPane.setViewportView(panel);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		final JLabel LessonPreviewLabel = new JLabel("");
-		LessonPreviewLabel.setOpaque(true);
-		Color white = new Color(255,255,255);
-		LessonPreviewLabel.setBackground(white);
+		String imgStr = "Lessons/LessonsPreview.png";
+		final ImageIcon LessonsTitle = new ImageIcon(imgStr);
+		final JLabel LessonPreviewLabel = new JLabel("", LessonsTitle, JLabel.CENTER);
 		panel.add(LessonPreviewLabel);
 		
 		JScrollPane TreePane = new JScrollPane();
