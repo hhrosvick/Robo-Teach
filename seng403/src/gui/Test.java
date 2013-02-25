@@ -79,7 +79,7 @@ public class Test{
 * Main Page initialization and components
 *****************************************************************************************************************************************/
 		frmTest = new JFrame();
-		frmTest.setTitle("Robo-Teach");
+		frmTest.setTitle("Robo-Teach-Test");
 		frmTest.setBounds(100, 100, 800, 600);
 		frmTest.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTest.getContentPane().setLayout(new CardLayout(0, 0));
