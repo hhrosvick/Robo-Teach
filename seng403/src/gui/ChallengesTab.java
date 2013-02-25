@@ -27,6 +27,7 @@ import com.jgoodies.forms.layout.RowSpec;
 public class ChallengesTab implements ActionListener {
 	private JPanel ChallengesTab;
 	private JButton StartLesson;
+	private String exercise;
 	JTree ChallengeTree = new JTree();
 	private JEditorPane textPane = null;
 
@@ -83,19 +84,20 @@ public JPanel initialize()
 		textPane.setEditable(false);
 		ChallengesTab.add(challengePane, "4, 2, 1, 10, fill, fill");
 		
-		/*
-		 * // Potential Begin Challenge in New window button
-		 
+		
+		 // Potential Begin Challenge in New window button
 		JButton BeginChallenge = new JButton("Begin Challenge");
 		BeginChallenge.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				// Create .png Challenge images E1.png etc.
+				ChallengeWindow challWindow = new ChallengeWindow(exercise);
+				challWindow.OpenWindow();
 			}
 		});
 		
 		BeginChallenge.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
 		ChallengesTab.add(BeginChallenge, "2,2");
-		*/
+		
 		
 		DefaultMutableTreeNode Challenges = new DefaultMutableTreeNode("Challenges");
 		createNodes(Challenges);
@@ -111,8 +113,8 @@ public JPanel initialize()
 				else // display seleted node
 				{
 					Object nodeInfo = node.getUserObject();
-					String exercise = nodeInfo.toString();
-	
+					exercise = nodeInfo.toString();
+					
 					String description = insertLabel(exercise);
 					JLabel lblNewLabel = new JLabel(description);
 					challengePane.setViewportView(lblNewLabel);
@@ -177,50 +179,50 @@ public JPanel initialize()
 		// ** EASY EXERCISES ** //
 		if (exercise == "E1")
 		{
-			returnDescription = ("This is easy exercise 1.");
+			returnDescription = ("Description for easy challenge 1.");
 		}
 		
 		if (exercise == "E2")
 		{
-			returnDescription = ("This is easy exercise 2.");
+			returnDescription = ("Description for easy challenge 2.");
 		}
 		
 		if (exercise == "E3")
 		{
-			returnDescription = ("This is easy exercise 3.");
+			returnDescription = ("Description for easy challenge 3.");
 		}
 		
 		
 		// ** MEDIUM Exercises ** //
 		if (exercise == "M1")
 		{
-			returnDescription = ("This is medium exercise 1.");
+			returnDescription = ("Description for medium challenge 1.");
 		}
 				
 		if (exercise == "M2")
 		{
-			returnDescription = ("This is medium exercise 2.");
+			returnDescription = ("Description for medium challenge 2.");
 		}
 				
 		if (exercise == "M3")
 		{
-			returnDescription = ("This is medium exercise 3.");
+			returnDescription = ("Description for medium challenge 3.");
 		}		
 				
 		// ** HARD EXERCISES ** //
 		if (exercise == "H1")
 		{
-			returnDescription = ("This is hard exercise 1.");
+			returnDescription = ("Description for hard challenge 1.");
 		}
 		
 		if (exercise == "H2")
 		{
-			returnDescription = ("This is hard exercise 2.");
+			returnDescription = ("Description for hard challenge 2.");
 		}
 		
 		if (exercise == "H3")
 		{
-			returnDescription = ("This is hard exercise 3.");
+			returnDescription = ("Description for hard challenge 3.");
 		}		
 				
 		// Return challenge description
