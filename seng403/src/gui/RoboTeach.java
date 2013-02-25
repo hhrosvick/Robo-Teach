@@ -237,6 +237,9 @@ public class RoboTeach{
 		WelcomeTab.add(scrollPane, "4, 2, 1, 31, fill, fill");
 		
 		final JLabel WelcomeLabel = new JLabel(" ", WelcomePicture, JLabel.CENTER);
+		WelcomeLabel.setOpaque(true);
+		Color white = new Color(255,255,255);
+		WelcomeLabel.setBackground(white);
 		scrollPane.setViewportView(WelcomeLabel);
 		
 		JButton WelcomeButton = new JButton("Welcome");

@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
@@ -43,7 +44,11 @@ public class LessonWindow {
 		JScrollPane scrollPane = new JScrollPane();
 		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		// creates the label with the specified image icon
-		JLabel LessonLabel = new JLabel("", LessonPicture, JLabel.CENTER);
+
+		JLabel LessonLabel = new JLabel("", LessonPicture, JLabel.CENTER);		
+		LessonLabel.setOpaque(true);
+		Color white = new Color(255,255,255);
+		LessonLabel.setBackground(white);
 		scrollPane.setViewportView(LessonLabel);
 	}
 }

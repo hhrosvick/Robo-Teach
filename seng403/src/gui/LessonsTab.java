@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -105,6 +106,9 @@ public class LessonsTab {
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		final JLabel LessonPreviewLabel = new JLabel("");
+		LessonPreviewLabel.setOpaque(true);
+		Color white = new Color(255,255,255);
+		LessonPreviewLabel.setBackground(white);
 		panel.add(LessonPreviewLabel);
 		
 		JScrollPane TreePane = new JScrollPane();
