@@ -7,6 +7,8 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -18,6 +20,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.FlowLayout;
 
 public class LessonsTab {
 
@@ -41,21 +44,21 @@ public class LessonsTab {
 		LessonsTab.setBounds(100, 100, 450, 300);
 		LessonsTab.setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.BUTTON_COLSPEC,
+				ColumnSpec.decode("max(44dlu;pref)"),
 				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.BUTTON_COLSPEC,
+				ColumnSpec.decode("max(39dlu;pref)"),
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),
+				ColumnSpec.decode("8dlu:grow"),
 				FormFactory.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),
-				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
+				ColumnSpec.decode("max(7dlu;default):grow"),
 				FormFactory.RELATED_GAP_COLSPEC,
 				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
+				ColumnSpec.decode("max(10dlu;default)"),
 				FormFactory.RELATED_GAP_COLSPEC,
-				FormFactory.DEFAULT_COLSPEC,
+				ColumnSpec.decode("max(9dlu;default)"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("max(9dlu;default)"),
 				FormFactory.RELATED_GAP_COLSPEC,
 				FormFactory.DEFAULT_COLSPEC,
 				FormFactory.RELATED_GAP_COLSPEC,
@@ -87,7 +90,8 @@ public class LessonsTab {
 					return;
 				else
 				{
-					//Create new lesson window
+					LessonWindow NewWindow = new LessonWindow(Selection);
+					NewWindow.OpenWindow();
 				}
 			}
 		});
@@ -96,8 +100,12 @@ public class LessonsTab {
 		JScrollPane PreviewPane = new JScrollPane();
 		LessonsTab.add(PreviewPane, "6, 2, 17, 15, fill, fill");
 		
+		JPanel panel = new JPanel();
+		PreviewPane.setViewportView(panel);
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
 		final JLabel LessonPreviewLabel = new JLabel("");
-		PreviewPane.setViewportView(LessonPreviewLabel);
+		panel.add(LessonPreviewLabel);
 		
 		JScrollPane TreePane = new JScrollPane();
 		LessonsTab.add(TreePane, "2, 4, 3, 13, fill, fill");
@@ -108,9 +116,9 @@ public class LessonsTab {
 				{
 					DefaultMutableTreeNode node_1;
 					node_1 = new DefaultMutableTreeNode("Chapter 1");
-						node_1.add(new DefaultMutableTreeNode("Lesson1.1"));
-						node_1.add(new DefaultMutableTreeNode("Lesson1.2"));
-						node_1.add(new DefaultMutableTreeNode("Lesson1.3"));
+						node_1.add(new DefaultMutableTreeNode("Lesson1"));
+						node_1.add(new DefaultMutableTreeNode("Lesson2"));
+						node_1.add(new DefaultMutableTreeNode("Lesson3"));
 						node_1.add(new DefaultMutableTreeNode("Lesson1.4"));
 					add(node_1);
 					node_1 = new DefaultMutableTreeNode("Chapter 2");
@@ -135,7 +143,9 @@ public class LessonsTab {
 				DefaultMutableTreeNode node = (DefaultMutableTreeNode) LessonsTree.getLastSelectedPathComponent();	
 				Object nodeInfo = node.getUserObject();
 				Selection = nodeInfo.toString();
-				LessonPreviewLabel.setText(Selection);
+				String imgStr = "Lessons/" + Selection + "Preview" + ".png";
+				final ImageIcon LessonPreview = new ImageIcon(imgStr);
+				LessonPreviewLabel.setIcon(LessonPreview);
 			}
 		});
 		return LessonsTab;
