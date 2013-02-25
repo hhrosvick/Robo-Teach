@@ -45,7 +45,7 @@ import java.awt.Toolkit;
 
 public class Test{
 
-	private JFrame frmRoboteach;
+	private JFrame frmTest;
 
 	/**
 	 * Launch the application.
@@ -55,7 +55,7 @@ public class Test{
 			public void run() {
 				try {
 					Test window = new Test();
-					window.frmRoboteach.setVisible(true);
+					window.frmTest.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -78,27 +78,27 @@ public class Test{
 /*****************************************************************************************************************************************
 * Main Page initialization and components
 *****************************************************************************************************************************************/
-		frmRoboteach = new JFrame();
-		frmRoboteach.setTitle("Robo-Teach");
-		frmRoboteach.setBounds(100, 100, 800, 600);
-		frmRoboteach.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmRoboteach.getContentPane().setLayout(new CardLayout(0, 0));
+		frmTest = new JFrame();
+		frmTest.setTitle("Robo-Teach");
+		frmTest.setBounds(100, 100, 800, 600);
+		frmTest.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmTest.getContentPane().setLayout(new CardLayout(0, 0));
 		
 		//get size of the screen
 		Toolkit toolkit = Toolkit.getDefaultToolkit();  
 		Dimension screenSize = toolkit.getScreenSize(); 
 		
 		//TO SHOW THE WINDOW IN THE CENTER OF THE SCREEN
-		int x = (screenSize.width - frmRoboteach.getWidth()) / 2;  
-		int y = (screenSize.height - frmRoboteach.getHeight()) / 2; 
-		frmRoboteach.setLocation(x,y);
+		int x = (screenSize.width - frmTest.getWidth()) / 2;  
+		int y = (screenSize.height - frmTest.getHeight()) / 2; 
+		frmTest.setLocation(x,y);
 		
 		//USER LOGIN
-		new Login(frmRoboteach);
+		new Login(frmTest);
 		
 		//Creating the base panel
 		final JPanel BasePanel = new JPanel();
-		frmRoboteach.getContentPane().add(BasePanel, "name_20408249708069");
+		frmTest.getContentPane().add(BasePanel, "name_20408249708069");
 		BasePanel.setLayout(new CardLayout(0, 0));
 		//Data needed for resizing
 		JPanel TitlePage = new JPanel();

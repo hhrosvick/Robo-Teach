@@ -1,35 +1,51 @@
 package gui;
+
 import java.awt.EventQueue;
+import javax.swing.text.Element;
 import javax.swing.JFrame;
-import javax.swing.JButton;
-import cpsc403.MyRobot;
+
 import casa.CASAProcess;
 import casa.Status;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import casa.abcl.ParamsMap;
-import casa.ui.AgentUI;
-import iRobotCreate.iRobotCreate;
-
-import javax.swing.ImageIcon;
-import javax.swing.JTabbedPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JList;
-import javax.swing.JTree;
-import javax.swing.JLayeredPane;
-import java.awt.CardLayout;
-import javax.swing.JLabel;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
+import com.jgoodies.forms.factories.FormFactory;
 
-public class RoboTeach {
-/*
- * Jobelle Firmeeeeeeeeeeee
- */
-	private JFrame frame;
+import javax.swing.JPanel;
+import java.awt.CardLayout;
+import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
+
+import java.awt.Panel;
+import java.awt.BorderLayout;
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JCheckBox;
+import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.TextArea;
+import java.awt.ScrollPane;
+import java.awt.Label;
+import java.awt.Scrollbar;
+import java.awt.Toolkit;
+
+
+public class RoboTeach{
+
+	private JFrame frmRoboteach;
 
 	/**
 	 * Launch the application.
@@ -39,12 +55,13 @@ public class RoboTeach {
 			public void run() {
 				try {
 					RoboTeach window = new RoboTeach();
-					window.frame.setVisible(true);
+					window.frmRoboteach.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
+		
 	}
 
 	/**
@@ -55,112 +72,221 @@ public class RoboTeach {
 	}
 
 	/**
-	 * Initialise the contents of the frame.
+	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(true);
-		frame.getContentPane().setLayout(null);
+	public void initialize() {
+/*****************************************************************************************************************************************
+* Main Page initialization and components
+*****************************************************************************************************************************************/
+		frmRoboteach = new JFrame();
+		frmRoboteach.setTitle("Robo-Teach");
+		frmRoboteach.setBounds(100, 100, 800, 600);
+		frmRoboteach.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRoboteach.getContentPane().setLayout(new CardLayout(0, 0));
 		
-// Creating home panel, set to CardLayout		
-		final JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 432, 255);
-		frame.getContentPane().add(panel);
-		panel.setLayout(new CardLayout(0, 0));
+		//get size of the screen
+		Toolkit toolkit = Toolkit.getDefaultToolkit();  
+		Dimension screenSize = toolkit.getScreenSize(); 
 		
-// Creating MainPage panel, added to home panel		
-		JPanel MainPage = new JPanel();
-		panel.add(MainPage, "MainPage");
-		MainPage.setLayout(null);
+		//TO SHOW THE WINDOW IN THE CENTER OF THE SCREEN
+		int x = (screenSize.width - frmRoboteach.getWidth()) / 2;  
+		int y = (screenSize.height - frmRoboteach.getHeight()) / 2; 
+		frmRoboteach.setLocation(x,y);
 		
-// StartButton initialisation and ActionListener
-		// On click opens TabPage
+		//USER LOGIN
+		new Login(frmRoboteach);
+		
+		//Creating the base panel
+		final JPanel BasePanel = new JPanel();
+		frmRoboteach.getContentPane().add(BasePanel, "name_20408249708069");
+		BasePanel.setLayout(new CardLayout(0, 0));
+		//Data needed for resizing
+		JPanel TitlePage = new JPanel();
+		BasePanel.add(TitlePage, "TitlePage");
+		TitlePage.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("bottom:default:grow"),
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,}));
+		
+/*****************************************************************************************************************************************
+* TitlePage initialization and components
+*****************************************************************************************************************************************/
+		
+		//Title screen picture, add picture to folder and change file name here
+		String imgStr = "Pictures/TitlePicture.png";
+		ImageIcon TitlePicture = new ImageIcon(imgStr);
+		//Creating the picture panel
+		Panel TitleLabelPanel = new Panel();
+		TitlePage.add(TitleLabelPanel, "2, 2, 25, 9, fill, fill");
+		TitleLabelPanel.setLayout(new BorderLayout(0, 0));
+		JLabel TitleLabel = new JLabel(" ", TitlePicture, JLabel.CENTER);
+		//Creating the button panel
+		JPanel TitleButtonPanel = new JPanel();
+		TitlePage.add(TitleButtonPanel, "2, 12, 25, 3, fill, fill");
+		TitleButtonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		//Start Button Activity
 		JButton StartButton = new JButton("Start");
 		StartButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				((CardLayout) panel.getLayout()).show(panel, "TabPage");
+			public void actionPerformed(ActionEvent arg0) {
+				((CardLayout) BasePanel.getLayout()).show(BasePanel, "TabPage");
 			}
 		});
-		StartButton.setBounds(61, 180, 120, 25);
-		MainPage.add(StartButton);
-		
-// UserManualButton initialisation and ActionListener
-		// On click open User Manual
+		//User Manual Button Activity
 		JButton UserManualButton = new JButton("User Manual");
 		UserManualButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		UserManualButton.setBounds(250, 180, 120, 25);
-		MainPage.add(UserManualButton);
 		
-// WelcomeTitleLabel initialisation
-		// Set Banner here
-			String imgStr = "Pic.png";
-		ImageIcon image = new ImageIcon(imgStr);
-		JLabel WelcomeTitleLabel = new JLabel(" ", image, JLabel.CENTER);
-		WelcomeTitleLabel.setBounds(12, 13, 408, 229);
-		
-		MainPage.add(WelcomeTitleLabel);
-		
-// TabPage initialisation
-		JTabbedPane TabPage = new JTabbedPane(JTabbedPane.TOP);
-		panel.add(TabPage, "TabPage");
+		//Put everything onto the title panel
+		TitleButtonPanel.add(StartButton);
+		TitleLabelPanel.add(TitleLabel);
+		TitleButtonPanel.add(UserManualButton);
 		
 /*****************************************************************************************************************************************
- * WelcomeTab initialisation and components
- *****************************************************************************************************************************************/
+* TitlePage initialization and components
+*****************************************************************************************************************************************/	
+		JTabbedPane TabPage = new JTabbedPane(JTabbedPane.TOP);
+		BasePanel.add(TabPage, "TabPage");
+		
 		JPanel WelcomeTab = new JPanel();
 		TabPage.addTab("Welcome", null, WelcomeTab, null);
-		WelcomeTab.setLayout(null);
+		WelcomeTab.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),}));
 		
-		JButton BackToMenu = new JButton("Back");
-		BackToMenu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				((CardLayout) panel.getLayout()).show(panel, "MainPage");
-			}
-		});
-		BackToMenu.setBounds(12, 187, 97, 25);
-		WelcomeTab.add(BackToMenu);
+		String imgStr2 = "Pictures/WelcomePicture.png";
+		final ImageIcon WelcomePicture = new ImageIcon(imgStr2);
+		String imgStr3 = "Pictures/GettingStartedPicture.png";
+		final ImageIcon GettingStartedPicture = new ImageIcon(imgStr3);
 		
-/*****************************************************************************************************************************************
-* ProgramTab initialisation and components
-******************************************************************************************************************************************/
-		JPanel ProgramTab = new JPanel();
-		TabPage.addTab("Program", null, ProgramTab, null);
-		ProgramTab.setLayout(null);
+		JScrollPane scrollPane = new JScrollPane();
+		WelcomeTab.add(scrollPane, "4, 2, 1, 31, fill, fill");
 		
-		JButton btnStartEmulator = new JButton("Start Emulator");
-		btnStartEmulator.setBounds(0, 13, 145, 33);
-		ProgramTab.add(btnStartEmulator);
+		final JLabel WelcomeLabel = new JLabel(" ", WelcomePicture, JLabel.CENTER);
+		scrollPane.setViewportView(WelcomeLabel);
 		
-		btnStartEmulator.addActionListener(new ActionListener() {
+		JButton WelcomeButton = new JButton("Welcome");
+		WelcomeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				System.out.println("ButtonPressed");
-				Status p = CASAProcess.getInstance().abclEval("(load\"scripts/sim.lisp\")", null);
+				WelcomeLabel.setIcon(WelcomePicture);
 			}
 		});
-/*****************************************************************************************************************************************
-* LessonsTab initialisation and components
-******************************************************************************************************************************************/		
-		JPanel LessonsTab = new JPanel();
-		TabPage.addTab("Lessons", null, LessonsTab, null);
-		LessonsTab.setLayout(null);
+		WelcomeTab.add(WelcomeButton, "2, 2");
 		
-		JTree tree = new JTree();
-		tree.setBounds(12, 65, 77, 64);
-		LessonsTab.add(tree);
+		JButton GettingStartedButton = new JButton("Getting Started");
+		GettingStartedButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				WelcomeLabel.setIcon(GettingStartedPicture);
+			}
+		});
+		WelcomeTab.add(GettingStartedButton, "2, 4");
 		
-/*****************************************************************************************************************************************
-* LessonsTab initialisation and components
-******************************************************************************************************************************************/	
-		JPanel ChallengesTab = new JPanel();
-		TabPage.addTab("Challenges", null, ChallengesTab, null);
-		ChallengesTab.setLayout(null);
-		
+		JButton BackToTitleButton = new JButton("Back to Title");
+		BackToTitleButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				((CardLayout) BasePanel.getLayout()).show(BasePanel, "TitlePage");
+			}
+		});
+		WelcomeTab.add(BackToTitleButton, "2, 6");
 
+/*****************************************************************************************************************************************
+* LessonsTab initialization and components
+******************************************************************************************************************************************/	
+		JPanel LessonsTab1;
+		LessonsTab newLessonsTab = new LessonsTab();
+		LessonsTab1 = newLessonsTab.initialize();
+		TabPage.addTab("Lessons", null, LessonsTab1, null);
+
+/*****************************************************************************************************************************************
+* ProgramTab initialization and components
+******************************************************************************************************************************************/	
+		
+		JPanel ProgramTab1;
+		ProgramTab newTab = new ProgramTab();
+		ProgramTab1 = newTab.initialize();
+		TabPage.addTab("Program", null, ProgramTab1, null);
+		
+		
+/*****************************************************************************************************************************************
+* ChallengeTab initialization and components
+******************************************************************************************************************************************/			
+		JPanel ChallengeTab1;
+		ChallengesTab newChallengeTab = new ChallengesTab();
+		ChallengeTab1 = newChallengeTab.initialize();
+		TabPage.addTab("Challenges", null, ChallengeTab1, null);
 	}
 }
