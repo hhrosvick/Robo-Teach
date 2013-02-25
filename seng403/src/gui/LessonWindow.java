@@ -23,7 +23,7 @@ public class LessonWindow {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Test window = new Test();
+					//Test window = new Test();
 					frame.setVisible(true);
 					frame.setTitle(LessonName);
 				} catch (Exception e) {

@@ -46,6 +46,7 @@ import java.awt.Toolkit;
 public class Test{
 
 	private JFrame frmRoboteach;
+
 	/**
 	 * Launch the application.
 	 */
