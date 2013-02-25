@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
@@ -13,9 +14,9 @@ public class ChallengeWindow {
 	private static JFrame frame;
 	private static String ChallengeName;
 // constructor takes lesson name argument
-	public ChallengeWindow(String LN) 
+	public ChallengeWindow(String CN) 
 	{
-		ChallengeName = LN;
+		ChallengeName = CN;
 		initialize();
 	}
 // creates the new window
@@ -38,12 +39,15 @@ public class ChallengeWindow {
 		frame.setBounds(100, 100, 450, 300);
 		// creates the image string and image icon
 		String imgStr = "Challenges/" + ChallengeName + ".png";
-		final ImageIcon LessonPicture = new ImageIcon(imgStr);
+		final ImageIcon ChallengePicture = new ImageIcon(imgStr);
 		// loads the scrollPane
 		JScrollPane scrollPane = new JScrollPane();
 		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 		// creates the label with the specified image icon
-		JLabel LessonLabel = new JLabel("", LessonPicture, JLabel.CENTER);
-		scrollPane.setViewportView(LessonLabel);
+		JLabel ChallengeLabel = new JLabel("", ChallengePicture, JLabel.CENTER);
+		ChallengeLabel.setOpaque(true);
+		Color white = new Color(255,255,255);
+		ChallengeLabel.setBackground(white);
+		scrollPane.setViewportView(ChallengeLabel);
 	}
 }

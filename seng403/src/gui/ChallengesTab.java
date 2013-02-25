@@ -1,236 +1,157 @@
 package gui;
 
-import java.awt.CardLayout;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
+import java.awt.Color;
+import java.awt.EventQueue;
 
+import javax.swing.JFrame;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import com.jgoodies.forms.factories.FormFactory;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JEditorPane;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
+import javax.swing.JLabel;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreeSelectionModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.FlowLayout;
 
-import com.jgoodies.forms.factories.FormFactory;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.RowSpec;
+public class ChallengesTab {
 
-
-public class ChallengesTab implements ActionListener {
 	private JPanel ChallengesTab;
-	private JButton StartLesson;
-	private String exercise;
-	JTree ChallengeTree = new JTree();
-	private JEditorPane textPane = null;
+	private String Selection;
 
-public ChallengesTab()
-{
-	ChallengesTab = new JPanel();
-	initialize();
-}
+	/**
+	 * Create the application.
+	 */
+	public ChallengesTab() 
+	{
+		ChallengesTab = new JPanel();
+		initialize();
+	}
 
-public JPanel initialize()
-{
-	ChallengesTab.setLayout(new FormLayout(new ColumnSpec[] {
-			FormFactory.RELATED_GAP_COLSPEC,
-			FormFactory.DEFAULT_COLSPEC,
-			FormFactory.RELATED_GAP_COLSPEC,
-			ColumnSpec.decode("default:grow"),},
-		new RowSpec[] {
-			FormFactory.RELATED_GAP_ROWSPEC,
-			FormFactory.DEFAULT_ROWSPEC,
-			FormFactory.RELATED_GAP_ROWSPEC,
-			FormFactory.DEFAULT_ROWSPEC,
-			FormFactory.RELATED_GAP_ROWSPEC,
-			FormFactory.DEFAULT_ROWSPEC,
-			FormFactory.RELATED_GAP_ROWSPEC,
-			FormFactory.DEFAULT_ROWSPEC,
-			FormFactory.RELATED_GAP_ROWSPEC,
-			FormFactory.DEFAULT_ROWSPEC,
-			FormFactory.RELATED_GAP_ROWSPEC,
-			FormFactory.DEFAULT_ROWSPEC,
-			FormFactory.RELATED_GAP_ROWSPEC,
-			FormFactory.DEFAULT_ROWSPEC,
-			FormFactory.RELATED_GAP_ROWSPEC,
-			FormFactory.DEFAULT_ROWSPEC,
-			FormFactory.RELATED_GAP_ROWSPEC,
-			FormFactory.DEFAULT_ROWSPEC,
-			FormFactory.RELATED_GAP_ROWSPEC,
-			FormFactory.DEFAULT_ROWSPEC,
-			FormFactory.RELATED_GAP_ROWSPEC,
-			FormFactory.DEFAULT_ROWSPEC,
-			FormFactory.RELATED_GAP_ROWSPEC,
-			FormFactory.DEFAULT_ROWSPEC,
-			FormFactory.RELATED_GAP_ROWSPEC,
-			FormFactory.DEFAULT_ROWSPEC,
-			FormFactory.RELATED_GAP_ROWSPEC,
-			FormFactory.DEFAULT_ROWSPEC,
-			FormFactory.RELATED_GAP_ROWSPEC,
-			FormFactory.DEFAULT_ROWSPEC,
-			FormFactory.RELATED_GAP_ROWSPEC,
-			RowSpec.decode("default:grow"),}));
-
+	/**
+	 * Initialize the contents of the frame.
+	 * @return 
+	 */
+	public JPanel initialize() {
+		ChallengesTab.setBounds(100, 100, 450, 300);
+		ChallengesTab.setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("max(44dlu;pref)"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("max(39dlu;pref)"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("8dlu:grow"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("max(7dlu;default):grow"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("max(10dlu;default)"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("max(9dlu;default)"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("max(9dlu;default)"),
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,
+				FormFactory.RELATED_GAP_COLSPEC,
+				FormFactory.DEFAULT_COLSPEC,},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,}));
 		
-		final JScrollPane challengePane = new JScrollPane();
-		textPane = new JEditorPane();
-		textPane.setEditable(false);
-		ChallengesTab.add(challengePane, "4, 2, 1, 10, fill, fill");
-		
-		
-		 // Potential Begin Challenge in New window button
-		JButton BeginChallenge = new JButton("Begin Challenge");
-		BeginChallenge.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				// Create .png Challenge images E1.png etc.
-				ChallengeWindow challWindow = new ChallengeWindow(exercise);
-				challWindow.OpenWindow();
-			}
-		});
-		
-		BeginChallenge.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
-		ChallengesTab.add(BeginChallenge, "2,2");
-		
-		
-		DefaultMutableTreeNode Challenges = new DefaultMutableTreeNode("Challenges");
-		createNodes(Challenges);
-		
-		ChallengeTree = new JTree(Challenges);
-		ChallengeTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-		ChallengeTree.addTreeSelectionListener(new TreeSelectionListener(){
-			public void valueChanged(TreeSelectionEvent e){
-				DefaultMutableTreeNode node = (DefaultMutableTreeNode)ChallengeTree.getLastSelectedPathComponent();
-				if (node == null)
-					return; // no node selected
-				
-				else // display seleted node
+		JButton StartChallengeButton = new JButton("Start Challenge");
+		StartChallengeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(Selection.endsWith("Tier") || Selection.compareTo("Challenges") == 0 || Selection == null)
+					return;
+				else
 				{
-					Object nodeInfo = node.getUserObject();
-					exercise = nodeInfo.toString();
-					
-					String description = insertLabel(exercise);
-					JLabel lblNewLabel = new JLabel(description);
-					challengePane.setViewportView(lblNewLabel);
-				}	
+					ChallengeWindow NewWindow = new ChallengeWindow(Selection);
+					NewWindow.OpenWindow();
+				}
 			}
 		});
+		ChallengesTab.add(StartChallengeButton, "2, 2, 3, 1");
 		
-		ChallengesTab.add(ChallengeTree, "2,4");
+		JScrollPane PreviewPane = new JScrollPane();
+		ChallengesTab.add(PreviewPane, "6, 2, 17, 15, fill, fill");
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
+		PreviewPane.setViewportView(panel);
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		String imgStr = "Challenges/ChallengesPreview.png";
+		final ImageIcon LessonsTitle = new ImageIcon(imgStr);
+		final JLabel ChallengePreviewLabel = new JLabel("", LessonsTitle, JLabel.CENTER);
+		panel.add(ChallengePreviewLabel);
+		
+		JScrollPane TreePane = new JScrollPane();
+		ChallengesTab.add(TreePane, "2, 4, 3, 13, fill, fill");
+		
+		final JTree ChallengesTree = new JTree();
+		ChallengesTree.setModel(new DefaultTreeModel(
+			new DefaultMutableTreeNode("Challenges") {
+				{
+					DefaultMutableTreeNode node_1;
+					node_1 = new DefaultMutableTreeNode("Beginner Tier");
+						node_1.add(new DefaultMutableTreeNode("Challenge1"));
+						node_1.add(new DefaultMutableTreeNode("ExampleChallenge"));
+						node_1.add(new DefaultMutableTreeNode("Challenge3"));
+						node_1.add(new DefaultMutableTreeNode("Challenge4"));
+					add(node_1);
+					node_1 = new DefaultMutableTreeNode("Advanced Tier");
+						node_1.add(new DefaultMutableTreeNode("Challenge5"));
+						node_1.add(new DefaultMutableTreeNode("Challenge6"));
+						node_1.add(new DefaultMutableTreeNode("Challenge7"));
+						node_1.add(new DefaultMutableTreeNode("Challenge8"));
+					add(node_1);
+					node_1 = new DefaultMutableTreeNode("Expert Tier");
+						node_1.add(new DefaultMutableTreeNode("Challenge9"));
+						node_1.add(new DefaultMutableTreeNode("Challenge10"));
+						node_1.add(new DefaultMutableTreeNode("Challenge11"));
+						node_1.add(new DefaultMutableTreeNode("Challenge12"));
+					add(node_1);
+				}
+			}
+		));
+		TreePane.setViewportView(ChallengesTree);
+		
+		ChallengesTree.addTreeSelectionListener(new TreeSelectionListener() {
+			public void valueChanged(TreeSelectionEvent e) {
+				DefaultMutableTreeNode node = (DefaultMutableTreeNode) ChallengesTree.getLastSelectedPathComponent();	
+				Object nodeInfo = node.getUserObject();
+				Selection = nodeInfo.toString();
+				String imgStr = "Challenges/" + Selection + "Preview" + ".png";
+				final ImageIcon ChallengePreview = new ImageIcon(imgStr);
+				ChallengePreviewLabel.setIcon(ChallengePreview);
+			}
+		});
 		return ChallengesTab;
-}
-	private void createNodes(DefaultMutableTreeNode challenges) 
-	{
-		DefaultMutableTreeNode Easy = null;
-		DefaultMutableTreeNode Medium = null;
-		DefaultMutableTreeNode Hard = null;
-		DefaultMutableTreeNode exercises = null;
-		
-		
-		// Add Chapters
-		Easy = new DefaultMutableTreeNode("Easy");
-		challenges.add(Easy);
-		//add exercise nodes
-		exercises = new DefaultMutableTreeNode("E1");
-		Easy.add(exercises);
-		
-		exercises = new DefaultMutableTreeNode("E2");
-		Easy.add(exercises);
-		
-		exercises = new DefaultMutableTreeNode("E3");
-		Easy.add(exercises);
-		
-		Medium = new DefaultMutableTreeNode("Medium");
-		challenges.add(Medium);
-		
-		exercises = new DefaultMutableTreeNode("M1");
-		Medium.add(exercises);
-		
-		exercises = new DefaultMutableTreeNode("M2");
-		Medium.add(exercises);
-		
-		exercises = new DefaultMutableTreeNode("M3");
-		Medium.add(exercises);
-		
-		Hard = new DefaultMutableTreeNode("Hard");
-		challenges.add(Hard);
-		
-		exercises = new DefaultMutableTreeNode("H1");
-		Hard.add(exercises);
-		
-		exercises = new DefaultMutableTreeNode("H2");
-		Hard.add(exercises);
-		
-		exercises = new DefaultMutableTreeNode("H3");
-		Hard.add(exercises);
-	}
-	
-	private String insertLabel(String exercise)
-	{
-		String returnDescription = null;
-		
-		// Exercise descriptions, potentially pulled from a .txt document
-		// ** EASY EXERCISES ** //
-		if (exercise == "E1")
-		{
-			returnDescription = ("Description for easy challenge 1.");
-		}
-		
-		if (exercise == "E2")
-		{
-			returnDescription = ("Description for easy challenge 2.");
-		}
-		
-		if (exercise == "E3")
-		{
-			returnDescription = ("Description for easy challenge 3.");
-		}
-		
-		
-		// ** MEDIUM Exercises ** //
-		if (exercise == "M1")
-		{
-			returnDescription = ("Description for medium challenge 1.");
-		}
-				
-		if (exercise == "M2")
-		{
-			returnDescription = ("Description for medium challenge 2.");
-		}
-				
-		if (exercise == "M3")
-		{
-			returnDescription = ("Description for medium challenge 3.");
-		}		
-				
-		// ** HARD EXERCISES ** //
-		if (exercise == "H1")
-		{
-			returnDescription = ("Description for hard challenge 1.");
-		}
-		
-		if (exercise == "H2")
-		{
-			returnDescription = ("Description for hard challenge 2.");
-		}
-		
-		if (exercise == "H3")
-		{
-			returnDescription = ("Description for hard challenge 3.");
-		}		
-				
-		// Return challenge description
-		return returnDescription;
-	}
-
-	public void actionPerformed(ActionEvent e) 
-	{
-		// TODO Auto-generated method stub
 	}
 }
