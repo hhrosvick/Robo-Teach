@@ -5,12 +5,15 @@ import casa.Status;
 
 public class API implements API_Interface {
 
+	private CASAProcess CASA = null;
+		
 	public API() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	public Status initialize()	{
-		return CASAProcess.getInstance().abclEval("(load\"scripts/sim.lisp\")", null);
+		CASA = CASAProcess.getInstance();
+		return CASA.abclEval("(load\"scripts/sim.lisp\")", null);
 	}
 
 	@Override
@@ -34,8 +37,13 @@ public class API implements API_Interface {
 
 	@Override
 	public String loadToSimulator(String filepath) {
+		
+		
+		
+		CASA.abclEval("", null);
+		
 		return null;
-		// TODO Auto-generated method stub
+		// TODO 
 		
 	}
 
