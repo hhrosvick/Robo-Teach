@@ -6,7 +6,14 @@ import casa.Status;
 public class API implements API_Interface {
 
 	private CASAProcess CASA = null;
+	
+	public static void main(String[] args) {
 		
+		API api = new API();
+		api.initialize();
+		api.loadToSimulator("blah");
+	}
+	
 	public API() {
 		// TODO Auto-generated constructor stub
 	}
@@ -39,8 +46,7 @@ public class API implements API_Interface {
 	public String loadToSimulator(String filepath) {
 		
 		
-		
-		CASA.abclEval("", null);
+		System.out.println(CASA.getAgentName());
 		
 		return null;
 		// TODO 
