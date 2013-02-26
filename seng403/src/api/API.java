@@ -1,14 +1,13 @@
 package api;
 
-import java.awt.Container;
-
-import javax.swing.JPanel;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import casa.CASAProcess;
 import casa.ProcessOptions;
-import casa.Status;
 import casa.TransientAgent;
-import casa.abcl.ParamsMap;
 import casa.ui.AgentUI;
 import casa.ui.StandardOutAgentUI;
 
@@ -22,7 +21,7 @@ public class API implements API_Interface {
 		
 		API api = new API();
 		api.initalize();
-		api.loadToSimulator("blah");
+		api.loadToSimulator("example.lisp");
 	}
 	
 	public API() {}
@@ -53,23 +52,29 @@ public class API implements API_Interface {
 		// Can be create the same as the simulator, but do not create the environment.
 		// The INSTREAM and OUTSTEAM need to be the same file the represents the port location of the actual robot.
 		
-		
 		return "Not yet implemented";		
 	}
 
 	@Override
 	public String loadToSimulator(String filepath) {
 		
-		// Start simulator environment
-				
+		
+		// Agent and process options
+		
 		String tracetags ="info5,warning,msg,iRobot,-boundSymbols,-policies9,-commitments,-eventqueue,-conversations";
+		
 		ProcessOptions options = new ProcessOptions(CASA);
 		options.traceTags = tracetags;
 		options.tracing = true;
 		
 		CASA.setOptions(options);
 		
+		// UI instantiation
+		
 		AgentUI ui = new StandardOutAgentUI();
+		
+		// Start simulator environment
+		
 		Environment = CASAProcess.startAgent(ui, SimEnvironment.class,
 				"SimEnvironment",
 				5780,
@@ -79,6 +84,8 @@ public class API implements API_Interface {
 				"TRACE", "10",
 				"MARKUP", "KQML"
 				);
+		
+		// Start the sim robot
 		
 		Robot = CASAProcess.startAgent(ui, Simulator.class,
 				"Cutesy",
@@ -92,11 +99,12 @@ public class API implements API_Interface {
                 "INSTREAM", "sim.in"
 				);
 		
-		// TEST DRIVE!!!
-		Robot.abclEval("(irobot.drive 100 50)", null);
+		// Run code found in file at filepath
+		
+		Robot.abclEval(fileRead(filepath), null);
 		
 		
-		return "Cutesy should be driving like my mother by now...";		
+		return null;		
 	}	
 	
 	@Override
@@ -110,4 +118,38 @@ public class API implements API_Interface {
 		// TODO Implement translateLoadToSimulator
 		return "NOT YET IMPLEMENTED";
 	}
+	
+	/**
+	 * Reads the file at filepath and returns the contents as a string
+	 * @param filepath
+	 * @return a String of the file contents
+	 */
+	private String fileRead(String filepath){
+				
+		try {
+			
+			BufferedReader reader = new BufferedReader(new FileReader(filepath));
+			
+			StringBuilder builder = new StringBuilder();
+			
+			String line = null;
+			while((line = reader.readLine()) != null)
+			{
+				builder.append(" " + line);				
+			}
+			
+			reader.close();
+			
+			return builder.toString();
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	
+		return null;
+		
+	}
+	
 }
