@@ -162,7 +162,7 @@ public class ProgramTab implements ActionListener {
         if (e.getSource() == btnStartEmulator) 
         {
         	System.out.println("ButtonPressed");
-        	api.initalaize();
+        	api.initalize();
 			//Status p = CASAProcess.getInstance().abclEval("(load\"scripts/sim.lisp\")", null);
         }
         else if (e.getSource() == btnRunOnEmulator)

@@ -7,63 +7,79 @@ public class API implements API_Interface {
 
 	private CASAProcess CASA = null;
 	private CASA_Interface Robot_Agent = null;
+	private CASA_Interface Simulator_Agent = null;
 	
 	public static void main(String[] args) {
 		
 		API api = new API();
-		api.initialize();
+		api.initalize();
 		api.loadToSimulator("blah");
 	}
 	
-	public API() {
-		// TODO Auto-generated constructor stub
-	}
+	public API() {}
 	
-	public Status initialize()	{
-		CASA = CASAProcess.getInstance();
-		return CASA.abclEval("(load\"scripts/sim.lisp\")", null);
-	}
-
 	@Override
-	public Status initalaize() {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean initalize()	{
+		try {
+			CASA = CASAProcess.getInstance();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
 	}
 
 	@Override
 	public boolean authenticate_user(String user_name, String password) {
-		// TODO Auto-generated method stub
+		
+		// TODO Implement authentication check to external system
+		if(user_name == "test" && password == "1234") return true;
 		return false;
 	}
 
 	@Override
 	public String loadToRobot(String filepath) {
-		return null;
-		// TODO Auto-generated method stub
 		
+		if(Robot_Agent == null) {
+			try {
+				Robot_Agent = new Robot(null, null);
+			} catch (Exception e) {
+				System.err.println("Error when creating new Robot instance");
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return null;		
 	}
 
 	@Override
 	public String loadToSimulator(String filepath) {
+			
 		
+		if(Robot_Agent == null) {
+			try {
+				Robot_Agent = new Robot(null, null);
+			} catch (Exception e) {
+				System.err.println("Error when creating new Robot instance");
+				e.printStackTrace();
+			}
+		}
 		
-		System.out.println(CASA.getAgentName());
-		
-		return null;
-		// TODO 
-		
+		return null;		
 	}
 
 	@Override
 	public String translateLoadToRobot(String filepath) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO Implement translateLoadToRobot
+		return "NOT YET IMPLEMENTED";
 	}
 
 	@Override
 	public String translateLoadToSimulator(String filepath) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO Implement translateLoadToSimulator
+		return "NOT YET IMPLEMENTED";
 	}
 
 	

@@ -3,4 +3,4 @@
 *.out
 *.log
 .metadata/
-/seng403/bin
+/seng403/bin/*

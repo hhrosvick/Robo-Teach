@@ -9,7 +9,7 @@ public interface API_Interface {
 	 * 	Should not load any code. Use loadToxxx or translateLoadToxxx instead. (Where xxx is Robot or Simulator) 
 	 * @return Status of the casa process
 	 */
-	public Status initalaize();
+	public boolean initalize();
 	
 	/**
 	 * Checks a username / password combination against a database or external system.
