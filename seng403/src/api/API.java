@@ -1,12 +1,18 @@
 package api;
 
 import casa.CASAProcess;
+import casa.ProcessOptions;
 import casa.Status;
+import casa.TransientAgent;
 import casa.abcl.ParamsMap;
+import casa.ui.AgentUI;
+import casa.ui.StandardOutAgentUI;
 
 public class API implements API_Interface {
 
 	private CASAProcess CASA = null;
+	private TransientAgent Environment = null;
+	private TransientAgent Robot = null;
 	
 	public static void main(String[] args) {
 		
@@ -46,10 +52,43 @@ public class API implements API_Interface {
 	public String loadToSimulator(String filepath) {
 		
 		// Start simulator environment
-		CASA.abclEval("(load \"/scripts/startsimulatorevironment.lisp\")", null);
-		CASA.abclEval("(load \"/scripts/startsimulatorrobot.lisp\")", null);
+				
+		String tracetags ="info5,warning,msg,iRobot,-boundSymbols,-policies9,-commitments,-eventqueue,-conversations";
+		ProcessOptions options = new ProcessOptions(CASA);
+		options.traceTags = tracetags;
+		options.tracing = true;
 		
-		return null;		
+		CASA.setOptions(options);
+		
+		AgentUI ui = new StandardOutAgentUI();
+		Environment = CASAProcess.startAgent(ui, iRobotCreate.simulator.Environment.class,
+				"SimEnvironment",
+				5780,
+				"LAC", "9000",
+				"PROCESS", "CURRENT",
+				"TRACETAGS", tracetags,
+				"TRACE", "10",
+				"MARKUP", "KQML"
+				);
+		
+		Robot = CASAProcess.startAgent(ui, api.Simulator.class,
+				"George",
+				5781,
+				"LAC", "9000",
+				"PROCESS", "CURRENT",
+				"TRACETAGS", tracetags,
+				"TRACE", "10",
+				"MARKUP", "KQML",
+				"OUTSTREAM","sim.out", 
+                "INSTREAM", "sim.in",
+                "INTERFACE", "none"
+				);
+		
+		// TEST DRIVE!!!
+		Robot.abclEval("(irobot.drive 100 50)", null);
+		
+		
+		return "George should be driving like my mother by now...";		
 	}	
 	
 	@Override

@@ -16,5 +16,5 @@
                    :trace trace-code 
                    :traceTags trace-tags 
                    :markup "KQML"
-                   :interface "none")
+                   )
   ); let
