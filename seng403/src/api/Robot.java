@@ -13,8 +13,7 @@ public class Robot extends iRobotCreate implements CASA_Interface {
 	 */
 	public Robot(ParamsMap params, AgentUI ui) throws Exception {
 		super(params, ui);
-		// TODO Auto-generated constructor stub
-		// TEST COMMIT
+		// TODO Implement Robot's functions
 		
 	}
 }

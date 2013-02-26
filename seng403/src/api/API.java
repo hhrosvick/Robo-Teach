@@ -2,12 +2,11 @@ package api;
 
 import casa.CASAProcess;
 import casa.Status;
+import casa.abcl.ParamsMap;
 
 public class API implements API_Interface {
 
 	private CASAProcess CASA = null;
-	private CASA_Interface Robot_Agent = null;
-	private CASA_Interface Simulator_Agent = null;
 	
 	public static void main(String[] args) {
 		
@@ -40,36 +39,19 @@ public class API implements API_Interface {
 
 	@Override
 	public String loadToRobot(String filepath) {
-		
-		if(Robot_Agent == null) {
-			try {
-				Robot_Agent = new Robot(null, null);
-			} catch (Exception e) {
-				System.err.println("Error when creating new Robot instance");
-				e.printStackTrace();
-			}
-		}
-		
-		
-		return null;		
+		return "Not yet implemented";		
 	}
 
 	@Override
 	public String loadToSimulator(String filepath) {
-			
 		
-		if(Robot_Agent == null) {
-			try {
-				Robot_Agent = new Robot(null, null);
-			} catch (Exception e) {
-				System.err.println("Error when creating new Robot instance");
-				e.printStackTrace();
-			}
-		}
+		// Start simulator environment
+		CASA.abclEval("(load \"/scripts/startsimulatorevironment.lisp\")", null);
+		CASA.abclEval("(load \"/scripts/startsimulatorrobot.lisp\")", null);
 		
 		return null;		
-	}
-
+	}	
+	
 	@Override
 	public String translateLoadToRobot(String filepath) {
 		// TODO Implement translateLoadToRobot
@@ -81,7 +63,5 @@ public class API implements API_Interface {
 		// TODO Implement translateLoadToSimulator
 		return "NOT YET IMPLEMENTED";
 	}
-
-	
 	
 }
