@@ -96,7 +96,8 @@ public class API implements API_Interface {
 				"TRACE", "10",
 				"MARKUP", "KQML",
 				"OUTSTREAM","sim.out", 
-                "INSTREAM", "sim.in"
+                "INSTREAM", "sim.in",
+                "INTERFACE", "NONE"
 				);
 		
 		// Run code found in file at filepath
@@ -120,31 +121,28 @@ public class API implements API_Interface {
 	}
 	
 	/**
-	 * Reads the file at filepath and returns the contents as a string
+	 * Reads the file at filepath and returns the contents as a string<br>
+	 * Accessible at the package level.
 	 * @param filepath
 	 * @return a String of the file contents
 	 */
-	private String fileRead(String filepath){
+	static String fileRead(String filepath){
 				
 		try {
 			
 			BufferedReader reader = new BufferedReader(new FileReader(filepath));
-			
 			StringBuilder builder = new StringBuilder();
-			
 			String line = null;
-			while((line = reader.readLine()) != null)
-			{
-				builder.append(" " + line);				
+			
+			while((line = reader.readLine()) != null) { 
+				builder.append(" " + line); 
 			}
 			
 			reader.close();
 			
 			return builder.toString();
 			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	
