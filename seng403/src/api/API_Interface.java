@@ -1,6 +1,10 @@
 package api;
 
+import java.awt.Container;
+
 import casa.Status;
+import casa.TransientAgent;
+import casa.ui.TransientAgentInternalFrame;
 
 public interface API_Interface {
 	
@@ -44,5 +48,5 @@ public interface API_Interface {
 	 * @return String containing any error messages related to the translation. Null if translation was successful.
 	 */
 	public String translateLoadToSimulator(String filepath);
-	
+
 }

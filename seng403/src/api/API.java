@@ -1,5 +1,9 @@
 package api;
 
+import java.awt.Container;
+
+import javax.swing.JPanel;
+
 import casa.CASAProcess;
 import casa.ProcessOptions;
 import casa.Status;
@@ -61,7 +65,7 @@ public class API implements API_Interface {
 		CASA.setOptions(options);
 		
 		AgentUI ui = new StandardOutAgentUI();
-		Environment = CASAProcess.startAgent(ui, iRobotCreate.simulator.Environment.class,
+		Environment = CASAProcess.startAgent(ui, SimEnvironment.class,
 				"SimEnvironment",
 				5780,
 				"LAC", "9000",
@@ -71,8 +75,8 @@ public class API implements API_Interface {
 				"MARKUP", "KQML"
 				);
 		
-		Robot = CASAProcess.startAgent(ui, api.Simulator.class,
-				"George",
+		Robot = CASAProcess.startAgent(ui, Simulator.class,
+				"Cutesy",
 				5781,
 				"LAC", "9000",
 				"PROCESS", "CURRENT",
@@ -88,7 +92,7 @@ public class API implements API_Interface {
 		Robot.abclEval("(irobot.drive 100 50)", null);
 		
 		
-		return "George should be driving like my mother by now...";		
+		return "Cutesy should be driving like my mother by now...";		
 	}	
 	
 	@Override
@@ -102,5 +106,4 @@ public class API implements API_Interface {
 		// TODO Implement translateLoadToSimulator
 		return "NOT YET IMPLEMENTED";
 	}
-	
 }
