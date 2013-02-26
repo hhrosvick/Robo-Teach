@@ -23,13 +23,13 @@ public interface API_Interface {
 	 * Loads the code found at 'filepath' to the robot.
 	 * @param filepath
 	 */
-	public void loadToRobot(String filepath);
+	public String loadToRobot(String filepath);
 	
 	/**
 	 * Loads the code found at 'filepath' to the simulator.
 	 * @param filepath
 	 */
-	public void loadToSimulator(String filepath);
+	public String loadToSimulator(String filepath);
 	
 	/**
 	 * Translates the code found at 'filepath', then loads it into the robot.

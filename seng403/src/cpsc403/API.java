@@ -26,13 +26,15 @@ public class API implements API_Interface {
 	}
 
 	@Override
-	public void loadToRobot(String filepath) {
+	public String loadToRobot(String filepath) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void loadToSimulator(String filepath) {
+	public String loadToSimulator(String filepath) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
