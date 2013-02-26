@@ -28,8 +28,8 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
-import cpsc403.API;
-import cpsc403.API_Interface;
+import api.API;
+import api.API_Interface;
 
 import casa.CASAProcess;
 import casa.Status;
