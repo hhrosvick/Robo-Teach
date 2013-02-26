@@ -2,7 +2,6 @@
 *.in
 *.out
 *.log
-.metadata/
-/seng403/bin/*
-/seng403/bin/api/*.class
-/seng403/bin/gui/*.class
+*.bin
+.metadata/**
+/seng403/bin/**
