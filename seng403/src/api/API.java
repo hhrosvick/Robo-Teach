@@ -49,6 +49,11 @@ public class API implements API_Interface {
 
 	@Override
 	public String loadToRobot(String filepath) {
+		
+		// Can be create the same as the simulator, but do not create the environment.
+		// The INSTREAM and OUTSTEAM need to be the same file the represents the port location of the actual robot.
+		
+		
 		return "Not yet implemented";		
 	}
 
@@ -84,8 +89,7 @@ public class API implements API_Interface {
 				"TRACE", "10",
 				"MARKUP", "KQML",
 				"OUTSTREAM","sim.out", 
-                "INSTREAM", "sim.in",
-                "INTERFACE", "none"
+                "INSTREAM", "sim.in"
 				);
 		
 		// TEST DRIVE!!!
