@@ -28,6 +28,9 @@ import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
 
+import cpsc403.API;
+import cpsc403.API_Interface;
+
 import casa.CASAProcess;
 import casa.Status;
 
@@ -40,6 +43,10 @@ public class ProgramTab implements ActionListener {
 	private File f;
 	private JButton btnNewFile, btnStartEmulator, btnOpen, btnSave;
 	private String filePath;
+	private JButton btnTestConnection;
+	private JButton btnRunOnEmulator;
+	private JButton btnRunOnRobot;
+	private API_Interface api;
 	
 	
 	public ProgramTab()
@@ -49,8 +56,11 @@ public class ProgramTab implements ActionListener {
 	    FileNameExtensionFilter filter = new FileNameExtensionFilter("LISP Files", "lisp");
 	    fc.setFileFilter(filter);
 		filePath = null;
+		api = new API();
 		//UNCOMMENT THIS IS IF YOU WANTED TO SEE THE GUI ON THE DESIGN TAB
 		//initialize();
+		
+
 	}
 	
 	public JPanel initialize()
@@ -96,21 +106,33 @@ public class ProgramTab implements ActionListener {
 		
 		textArea = new JTextArea();
 		
-		btnNewFile = new JButton("New File");
-		btnNewFile.addActionListener(this);
-		ProgramTab.add(btnNewFile, "2, 4");
-		
 		btnStartEmulator = new JButton("Start Emulator");
 		btnStartEmulator.addActionListener(this);
 		ProgramTab.add(btnStartEmulator, "2, 2");
 		
+		btnTestConnection = new JButton("Test Connection");
+		btnTestConnection.addActionListener(this);
+		ProgramTab.add(btnTestConnection, "2, 4");
+		
+		btnNewFile = new JButton("New File");
+		btnNewFile.addActionListener(this);
+		ProgramTab.add(btnNewFile, "2, 6");
+		
 		btnOpen = new JButton("Open File");
 		btnOpen.addActionListener(this);
-		ProgramTab.add(btnOpen, "2, 6");
+		ProgramTab.add(btnOpen, "2, 8");
 		
 		btnSave = new JButton("Save File");
 		btnSave.addActionListener(this);
-		ProgramTab.add(btnSave, "2, 8");
+		ProgramTab.add(btnSave, "2, 10");
+		
+		btnRunOnEmulator = new JButton("Run on Emulator");
+		btnRunOnEmulator.addActionListener(this);
+		ProgramTab.add(btnRunOnEmulator, "2, 12");
+		
+		btnRunOnRobot = new JButton("Run on Robot");
+		btnRunOnRobot.addActionListener(this);
+		ProgramTab.add(btnRunOnRobot, "2, 14");
 		
 		JScrollPane scrollPane1 = new JScrollPane();
 		scrollPane1.setBounds(113, 0, 298, 209);
@@ -140,8 +162,20 @@ public class ProgramTab implements ActionListener {
         if (e.getSource() == btnStartEmulator) 
         {
         	System.out.println("ButtonPressed");
-			Status p = CASAProcess.getInstance().abclEval("(load\"scripts/sim.lisp\")", null);
-        
+        	api.initalaize();
+			//Status p = CASAProcess.getInstance().abclEval("(load\"scripts/sim.lisp\")", null);
+        }
+        else if (e.getSource() == btnRunOnEmulator)
+        {
+        	api.loadToSimulator(filePath);
+        }
+        else if (e.getSource() == btnRunOnRobot)
+        {
+        	api.loadToRobot(filePath);
+        }
+        else if (e.getSource() == btnTestConnection)
+        {
+        	//test connection
         }
         //Handle new button action.
         else if (e.getSource() == btnNewFile)
