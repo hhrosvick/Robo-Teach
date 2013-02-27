@@ -121,7 +121,6 @@ public class LessonsTab {
 					DefaultMutableTreeNode node_1;
 					node_1 = new DefaultMutableTreeNode("Chapter 1");
 						node_1.add(new DefaultMutableTreeNode("Lesson 1.0"));
-						node_1.add(new DefaultMutableTreeNode("Lesson 1.1"));
 						node_1.add(new DefaultMutableTreeNode("History of Lisp"));
 						node_1.add(new DefaultMutableTreeNode("Modern Lisp"));
 						node_1.add(new DefaultMutableTreeNode("Future of Lisp"));
@@ -148,7 +147,7 @@ public class LessonsTab {
 				DefaultMutableTreeNode node = (DefaultMutableTreeNode) LessonsTree.getLastSelectedPathComponent();	
 				Object nodeInfo = node.getUserObject();
 				Selection = nodeInfo.toString();
-				String imgStr = "Lessons/" + Selection + "Preview" + ".png";
+				String imgStr = "Lessons/" + Selection + ".png";
 				final ImageIcon LessonPreview = new ImageIcon(imgStr);
 				LessonPreviewLabel.setIcon(LessonPreview);
 			}
