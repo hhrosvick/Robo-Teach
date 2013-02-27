@@ -120,22 +120,23 @@ public class LessonsTab {
 				{
 					DefaultMutableTreeNode node_1;
 					node_1 = new DefaultMutableTreeNode("Chapter 1");
-						node_1.add(new DefaultMutableTreeNode("Lesson1"));
-						node_1.add(new DefaultMutableTreeNode("ExampleLesson"));
-						node_1.add(new DefaultMutableTreeNode("Lesson3"));
-						node_1.add(new DefaultMutableTreeNode("Lesson1.4"));
+						node_1.add(new DefaultMutableTreeNode("Lesson 1.0"));
+						node_1.add(new DefaultMutableTreeNode("Lesson 1.1"));
+						node_1.add(new DefaultMutableTreeNode("History of Lisp"));
+						node_1.add(new DefaultMutableTreeNode("Modern Lisp"));
+						node_1.add(new DefaultMutableTreeNode("Future of Lisp"));
 					add(node_1);
 					node_1 = new DefaultMutableTreeNode("Chapter 2");
-						node_1.add(new DefaultMutableTreeNode("Lesson2.1"));
-						node_1.add(new DefaultMutableTreeNode("Lesson2.2"));
-						node_1.add(new DefaultMutableTreeNode("Lesson2.3"));
-						node_1.add(new DefaultMutableTreeNode("Lesson2.4"));
+						node_1.add(new DefaultMutableTreeNode("Lesson 2.1"));
+						node_1.add(new DefaultMutableTreeNode("Lesson 2.2"));
+						node_1.add(new DefaultMutableTreeNode("Lesson 2.3"));
+						node_1.add(new DefaultMutableTreeNode("Lesson 2.4"));
 					add(node_1);
 					node_1 = new DefaultMutableTreeNode("Chapter 3");
-						node_1.add(new DefaultMutableTreeNode("Lesson3.1"));
-						node_1.add(new DefaultMutableTreeNode("Lesson3.2"));
-						node_1.add(new DefaultMutableTreeNode("Lesson3.3"));
-						node_1.add(new DefaultMutableTreeNode("Lesson3.4"));
+						node_1.add(new DefaultMutableTreeNode("Lesson 3.1"));
+						node_1.add(new DefaultMutableTreeNode("Lesson 3.2"));
+						node_1.add(new DefaultMutableTreeNode("Lesson 3.3"));
+						node_1.add(new DefaultMutableTreeNode("Lesson 3.4"));
 					add(node_1);
 				}
 			}
