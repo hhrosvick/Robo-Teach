@@ -121,7 +121,6 @@ public class LessonsTab {
 					DefaultMutableTreeNode node_1;
 					node_1 = new DefaultMutableTreeNode("Chapter 1");
 						node_1.add(new DefaultMutableTreeNode("Lesson 1.0"));
-						node_1.add(new DefaultMutableTreeNode("Lesson 1.1"));
 						node_1.add(new DefaultMutableTreeNode("History of Lisp"));
 						node_1.add(new DefaultMutableTreeNode("Modern Lisp"));
 						node_1.add(new DefaultMutableTreeNode("Future of Lisp"));
