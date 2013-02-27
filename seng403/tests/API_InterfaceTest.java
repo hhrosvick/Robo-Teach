@@ -4,6 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import api.API;
+import api.API_Interface;
+
 public class API_InterfaceTest {
 
 	/**
@@ -97,7 +100,7 @@ public class API_InterfaceTest {
 		assertSame(api.translateLoadToRobot(null), "Error");
 	}
 	@Test
-	public void loadToSimulatorTestArgEmpty() {
+	public void trasnlateloadToRobotTestArgEmpty() {
 		API_Interface api = new API();
 		assertSame(api.translateLoadToRobot(""), "Error");
 	}
