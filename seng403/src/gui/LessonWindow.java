@@ -25,8 +25,8 @@ public class LessonWindow {
 			public void run() {
 				try {
 					//Test window = new Test();
-					frame.setVisible(true);
-					frame.setTitle(LessonName);
+					getFrame().setVisible(true);
+					getFrame().setTitle(LessonName);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -35,14 +35,14 @@ public class LessonWindow {
 	}
 // initializes components
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		setFrame(new JFrame());
+		getFrame().setBounds(100, 100, 450, 300);
 		// creates the image string and image icon
 		String imgStr = "Lessons/" + LessonName + ".png";
 		final ImageIcon LessonPicture = new ImageIcon(imgStr);
 		// loads the scrollPane
 		JScrollPane scrollPane = new JScrollPane();
-		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
+		getFrame().getContentPane().add(scrollPane, BorderLayout.CENTER);
 		// creates the label with the specified image icon
 
 		JLabel LessonLabel = new JLabel("", LessonPicture, JLabel.CENTER);		
@@ -50,5 +50,11 @@ public class LessonWindow {
 		Color white = new Color(255,255,255);
 		LessonLabel.setBackground(white);
 		scrollPane.setViewportView(LessonLabel);
+	}
+	public static JFrame getFrame() {
+		return frame;
+	}
+	public static void setFrame(JFrame frame) {
+		LessonWindow.frame = frame;
 	}
 }

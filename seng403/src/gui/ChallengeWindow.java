@@ -25,8 +25,8 @@ public class ChallengeWindow {
 			public void run() {
 				try {
 					//Test window = new Test();
-					frame.setVisible(true);
-					frame.setTitle(ChallengeName);
+					getFrame().setVisible(true);
+					getFrame().setTitle(ChallengeName);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -35,19 +35,25 @@ public class ChallengeWindow {
 	}
 // initializes components
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		setFrame(new JFrame());
+		getFrame().setBounds(100, 100, 450, 300);
 		// creates the image string and image icon
 		String imgStr = "Challenges/" + ChallengeName + ".png";
 		final ImageIcon ChallengePicture = new ImageIcon(imgStr);
 		// loads the scrollPane
 		JScrollPane scrollPane = new JScrollPane();
-		frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
+		getFrame().getContentPane().add(scrollPane, BorderLayout.CENTER);
 		// creates the label with the specified image icon
 		JLabel ChallengeLabel = new JLabel("", ChallengePicture, JLabel.CENTER);
 		ChallengeLabel.setOpaque(true);
 		Color white = new Color(255,255,255);
 		ChallengeLabel.setBackground(white);
 		scrollPane.setViewportView(ChallengeLabel);
+	}
+	public static JFrame getFrame() {
+		return frame;
+	}
+	public static void setFrame(JFrame frame) {
+		ChallengeWindow.frame = frame;
 	}
 }

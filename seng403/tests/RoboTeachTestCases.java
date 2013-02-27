@@ -1,5 +1,11 @@
 import static org.junit.Assert.*;
+
+import javax.swing.JFrame;
+
+import gui.ChallengeWindow;
+import gui.LessonWindow;
 import gui.LessonsTab;
+import gui.Login;
 import gui.ProgramTab;
 import gui.RoboTeach;
 
@@ -28,5 +34,32 @@ public class RoboTeachTestCases {
 		ProgramTab challengesTestTab = new ProgramTab();
 		assert(challengesTestTab != null);
 	}
-
+	/*
+	@Test
+	public void LoginInitializationTest() {
+		JFrame DummyWindow = new JFrame();
+		Login loginTestWindow = new Login(DummyWindow);
+		assert(loginTestWindow != null);
+	}
+	*/
+	@Test
+	public void LessonWindowInitializationTest() {
+		LessonWindow lessonTestWindow = new LessonWindow("test");
+		assert(lessonTestWindow != null);
+	}
+	@Test
+	public void ChallengeWindowInitializationTest() {
+		ChallengeWindow challengeTestWindow = new ChallengeWindow("test");
+		assert(challengeTestWindow != null);
+	}
+	@Test
+	public void LessonWindowStringTest() {
+		LessonWindow lessonTestWindow = new LessonWindow("StringTest");
+		assert(lessonTestWindow.getFrame().getTitle().compareTo("StringTest") == 0);
+	}
+	@Test
+	public void ChallengeWindowStringTest() {
+		ChallengeWindow challengeTestWindow = new ChallengeWindow("StringTest");
+		assert(challengeTestWindow.getFrame().getTitle().compareTo("StringTest") == 0);
+	}
 }
