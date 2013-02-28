@@ -38,7 +38,7 @@ public class LessonsTab {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialiyze the contents of the frame.
 	 * @return 
 	 */
 	public JPanel initialize() {
