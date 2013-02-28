@@ -120,7 +120,7 @@ public class LessonsTab {
 				{
 					DefaultMutableTreeNode node_1;
 					node_1 = new DefaultMutableTreeNode("Chapter 1");
-						node_1.add(new DefaultMutableTreeNode("Lesson 1.0"));
+						node_1.add(new DefaultMutableTreeNode("Lesson I"));
 						node_1.add(new DefaultMutableTreeNode("Lesson II"));
 					add(node_1);
 					node_1 = new DefaultMutableTreeNode("Chapter 2");
