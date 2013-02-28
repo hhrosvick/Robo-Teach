@@ -124,16 +124,12 @@ public class LessonsTab {
 						node_1.add(new DefaultMutableTreeNode("Lesson II"));
 					add(node_1);
 					node_1 = new DefaultMutableTreeNode("Chapter 2");
-						node_1.add(new DefaultMutableTreeNode("Lesson 2.1"));
-						node_1.add(new DefaultMutableTreeNode("Lesson 2.2"));
-						node_1.add(new DefaultMutableTreeNode("Lesson 2.3"));
-						node_1.add(new DefaultMutableTreeNode("Lesson 2.4"));
+						node_1.add(new DefaultMutableTreeNode("Lesson III"));
+						node_1.add(new DefaultMutableTreeNode("Lesson IV"));
 					add(node_1);
 					node_1 = new DefaultMutableTreeNode("Chapter 3");
-						node_1.add(new DefaultMutableTreeNode("Lesson 3.1"));
-						node_1.add(new DefaultMutableTreeNode("Lesson 3.2"));
-						node_1.add(new DefaultMutableTreeNode("Lesson 3.3"));
-						node_1.add(new DefaultMutableTreeNode("Lesson 3.4"));
+						node_1.add(new DefaultMutableTreeNode("Lesson V"));
+						node_1.add(new DefaultMutableTreeNode("Lesson VI"));
 					add(node_1);
 				}
 			}
