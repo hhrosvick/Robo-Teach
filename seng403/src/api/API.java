@@ -17,6 +17,7 @@ public class API implements API_Interface {
 	private TransientAgent Environment = null;
 	private TransientAgent Robot = null;
 	
+	// TESTING MAIN... SHOULD NOT BE USED IN PRODUCTION
 	public static void main(String[] args) {
 		
 		API api = new API();

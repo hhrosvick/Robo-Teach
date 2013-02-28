@@ -1,6 +1,7 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -33,6 +34,7 @@ import api.API_Interface;
 
 import casa.CASAProcess;
 import casa.Status;
+import javax.swing.JLabel;
 
 public class ProgramTab implements ActionListener {
 	
@@ -106,11 +108,11 @@ public class ProgramTab implements ActionListener {
 		
 		textArea = new JTextArea();
 		
-		btnStartEmulator = new JButton("Start Emulator");
+		btnStartEmulator = new JButton("Emulator Mode");
 		btnStartEmulator.addActionListener(this);
 		ProgramTab.add(btnStartEmulator, "2, 2");
 		
-		btnTestConnection = new JButton("Test Connection");
+		btnTestConnection = new JButton("Robot Mode");
 		btnTestConnection.addActionListener(this);
 		ProgramTab.add(btnTestConnection, "2, 4");
 		
@@ -163,6 +165,9 @@ public class ProgramTab implements ActionListener {
         {
         	System.out.println("ButtonPressed");
         	api.initalize();
+        	Font f = new Font("Tahoma", Font.BOLD, 13);
+        	btnStartEmulator.setFont(f);
+        	btnTestConnection.setFont(new Font("Tahoma", Font.PLAIN, 13));
 			//Status p = CASAProcess.getInstance().abclEval("(load\"scripts/sim.lisp\")", null);
         }
         else if (e.getSource() == btnRunOnEmulator)
@@ -176,6 +181,9 @@ public class ProgramTab implements ActionListener {
         else if (e.getSource() == btnTestConnection)
         {
         	//test connection
+        	Font f = new Font("Tahoma", Font.BOLD, 13);
+        	btnTestConnection.setFont(f);
+        	btnStartEmulator.setFont(new Font("Tahoma", Font.PLAIN, 13));
         }
         //Handle new button action.
         else if (e.getSource() == btnNewFile)
