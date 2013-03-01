@@ -1,9 +1,7 @@
 package api;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 
 import casa.CASAProcess;
 import casa.ProcessOptions;
@@ -13,11 +11,10 @@ import casa.ui.StandardOutAgentUI;
 
 public class API implements API_Interface {
 
-	private static API INSTANCE = null;
-	
+	// Object variables
 	private CASAProcess CASA = null;
 	private TransientAgent Environment = null;
-	private TransientAgent Robot = null;
+	private AbstractRobot Robot = null;
 	
 	// TESTING MAIN... SHOULD NOT BE USED IN PRODUCTION
 	public static void main(String[] args) {
@@ -27,21 +24,19 @@ public class API implements API_Interface {
 		
 	}
 	
-	private API() {
-		this.initalize();
+	/**
+	 * Constructor. Calls initialize() on itself.
+	 */
+	public API() {
+		this.initialize();
 	}
 	
-	
-	public static API getInstance(){
-		
-		if(INSTANCE == null)
-			INSTANCE = new API();
-		
-		return INSTANCE;
-	}
-	
+	/**
+	 * Gets and stores the CASAProcess instance
+	 * @return true if the instance is returned, false for an error.
+	 */
 	@Override
-	public boolean initalize()	{
+	public boolean initialize()	{
 		try {
 			CASA = CASAProcess.getInstance();
 			return true;
@@ -101,7 +96,7 @@ public class API implements API_Interface {
 		
 		// Start the sim robot
 		
-		Robot = CASAProcess.startAgent(ui, Simulator.class,
+		Robot = (Simulator) CASAProcess.startAgent(ui, Simulator.class,
 				"Cutesy",
 				5781,
 				"LAC", "9000",
@@ -117,8 +112,7 @@ public class API implements API_Interface {
 		// Run code found in file at filepath
 		
 		Robot.abclEval(fileRead(filepath), null);
-		
-		
+				
 		return null;		
 	}	
 	

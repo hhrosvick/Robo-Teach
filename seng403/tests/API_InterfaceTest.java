@@ -15,12 +15,12 @@ public class API_InterfaceTest {
 	@Test
 	public void initializetestnotReturningNull() {
 		API_Interface api = new API();
-		assertNotNull(api.initalize());
+		assertNotNull(api.initialize());
 	}
 	@Test
 	public void initializetestnotReturningFalse() {
 		API_Interface api = new API();
-		assertSame(api.initalize(), true);
+		assertSame(api.initialize(), true);
 	}
 	/**
 	 * authenticate_user negative tests

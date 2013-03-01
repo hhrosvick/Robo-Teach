@@ -3,11 +3,11 @@ package api;
 public interface API_Interface {
 	
 	/**
-	 * Starts the CASA process
-	 * 	Should not load any code. Use loadToxxx or translateLoadToxxx instead. (Where xxx is Robot or Simulator) 
-	 * @return Status of the casa process
+	 * Checks if the API has been initialized<br>
+	 * If not, it will be initialized.
+	 * @return true if the API is initialized, false if there is an error
 	 */
-	public boolean initalize();
+	public boolean initialize();
 	
 	/**
 	 * Checks a username / password combination against a database or external system.
