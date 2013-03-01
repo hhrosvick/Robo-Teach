@@ -58,7 +58,7 @@ public class ProgramTab implements ActionListener {
 	    FileNameExtensionFilter filter = new FileNameExtensionFilter("LISP Files", "lisp");
 	    fc.setFileFilter(filter);
 		filePath = null;
-		api = new API();
+		api = API.getInstance();
 		//UNCOMMENT THIS IS IF YOU WANTED TO SEE THE GUI ON THE DESIGN TAB
 		//initialize();
 		
@@ -164,7 +164,10 @@ public class ProgramTab implements ActionListener {
         if (e.getSource() == btnStartEmulator) 
         {
         	System.out.println("ButtonPressed");
-        	api.initalize();
+        	
+        	// Now done at at the creation of API. No longer needed.
+        	// api.initalize();
+        	
         	Font f = new Font("Tahoma", Font.BOLD, 13);
         	btnStartEmulator.setFont(f);
         	btnTestConnection.setFont(new Font("Tahoma", Font.PLAIN, 13));

@@ -13,6 +13,8 @@ import casa.ui.StandardOutAgentUI;
 
 public class API implements API_Interface {
 
+	private static API INSTANCE = null;
+	
 	private CASAProcess CASA = null;
 	private TransientAgent Environment = null;
 	private TransientAgent Robot = null;
@@ -21,11 +23,22 @@ public class API implements API_Interface {
 	public static void main(String[] args) {
 		
 		API api = new API();
-		api.initalize();
 		api.loadToSimulator("example.lisp");
+		
 	}
 	
-	public API() {}
+	private API() {
+		this.initalize();
+	}
+	
+	
+	public static API getInstance(){
+		
+		if(INSTANCE == null)
+			INSTANCE = new API();
+		
+		return INSTANCE;
+	}
 	
 	@Override
 	public boolean initalize()	{
