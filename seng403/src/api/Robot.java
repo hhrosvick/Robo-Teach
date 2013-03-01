@@ -2,11 +2,11 @@ package api;
 
 import casa.abcl.ParamsMap;
 import casa.ui.AgentUI;
-import iRobotCreate.iRobotCreate;
 
-public class Robot extends iRobotCreate implements CASA_Interface {
+public class Robot extends AbstractRobot {
 
 	/**
+	 * Robot - This class allows for further customization of the real robot.
 	 * @param params
 	 * @param ui
 	 * @throws Exception

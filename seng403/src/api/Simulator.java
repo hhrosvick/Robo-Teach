@@ -2,19 +2,18 @@ package api;
 
 import casa.abcl.ParamsMap;
 import casa.ui.AgentUI;
-import iRobotCreate.iRobotCreate;
 
-public class Simulator extends iRobotCreate implements CASA_Interface {
+public class Simulator extends AbstractRobot {
 
 	/**
+	 * Simulator - This class allows for further customization of the simulator robot.
 	 * @param params
 	 * @param ui
 	 * @throws Exception
 	 */
 	public Simulator(ParamsMap params, AgentUI ui) throws Exception {
 		super(params, ui);
-		// TODO Auto-generated constructor stub
-		// TEST COMMIT
-		
 	}
+	
+	
 }

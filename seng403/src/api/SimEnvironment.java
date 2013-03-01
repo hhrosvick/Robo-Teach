@@ -2,10 +2,8 @@ package api;
 
 import java.awt.Container;
 
-import casa.Agent;
 import casa.TransientAgent;
 import casa.abcl.ParamsMap;
-import casa.ui.AgentInternalFrame;
 import casa.ui.AgentUI;
 import casa.ui.TransientAgentInternalFrame;
 
