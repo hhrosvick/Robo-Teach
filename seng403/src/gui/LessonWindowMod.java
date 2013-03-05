@@ -10,6 +10,7 @@ import com.jgoodies.forms.factories.FormFactory;
 import javax.swing.JPanel;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 import java.awt.Window;
@@ -45,7 +46,7 @@ public class LessonWindowMod {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 650, 400);
+		frame.setBounds(100, 100, 1000, 825);
 		frame.getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"),},
@@ -66,18 +67,22 @@ public class LessonWindowMod {
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
-		Color white = new Color(255,255,255);
+		
+		frame.setResizable(false);
+		frame.getContentPane().setBackground(Color.WHITE);
 		String imgStr = "Lessons/" + LessonName + ".png";
 		final ImageIcon LessonPicture = new ImageIcon(imgStr);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		frame.getContentPane().add(scrollPane, "2, 2, 1, 13, fill, fill");
-		scrollPane.setViewportView(SlideLabel);
+		JPanel SlidePanel = new JPanel();
+		frame.getContentPane().add(SlidePanel, "2, 2, 1, 13, fill, fill");
+		SlidePanel.setBackground(Color.WHITE);
+		SlidePanel.add(SlideLabel);
 		SlideLabel.setOpaque(true);
 		SlideLabel.setBackground(Color.WHITE);
 		SlideLabel.setIcon(LessonPicture);
 		
 		JPanel ButtonPanel = new JPanel();
+		ButtonPanel.setBackground(Color.WHITE);
 		frame.getContentPane().add(ButtonPanel, "2, 16, fill, fill");
 		ButtonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
