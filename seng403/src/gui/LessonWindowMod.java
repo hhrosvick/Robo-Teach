@@ -16,29 +16,15 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class LessonWindowMod {
 
+	private static int MAX_SECTION = 20;
 	private JFrame frame;
 	private static String LessonName;
 	private int sectionNumber;
 	private String originalName;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LessonWindowMod window = new LessonWindowMod(LessonName);
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	/**
 	 * Create the application.
 	 */
@@ -48,7 +34,6 @@ public class LessonWindowMod {
 		originalName=LN;
 		sectionNumber=0;
 		initialize();
-		
 	}
 
 	/**
@@ -82,8 +67,11 @@ public class LessonWindowMod {
 		frame.getContentPane().add(SlidePanel, "2, 2, 1, 13, fill, fill");
 		SlidePanel.setLayout(new BorderLayout(0, 0));
 		
-		JLabel SlideLabel = new JLabel("New label");
-		SlidePanel.add(SlideLabel, BorderLayout.CENTER);
+		JScrollPane scrollPane = new JScrollPane();
+		SlidePanel.add(scrollPane, BorderLayout.CENTER);
+		
+		final JLabel SlideLabel = new JLabel("");
+		scrollPane.setViewportView(SlideLabel);
 		
 		JPanel ButtonPanel = new JPanel();
 		frame.getContentPane().add(ButtonPanel, "2, 16, fill, fill");
@@ -92,8 +80,11 @@ public class LessonWindowMod {
 		JButton PreviousButton = new JButton("Previous");
 		PreviousButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String imgStr = "Lessons/" + LessonName + ".png";
+				if(sectionNumber > 0)
+					sectionNumber--;
+				String imgStr = "Lessons/" + LessonName + sectionNumber + ".png";
 				final ImageIcon LessonPicture = new ImageIcon(imgStr);
+				SlideLabel.setIcon(LessonPicture);
 			}
 		});
 		ButtonPanel.add(PreviousButton);
@@ -101,10 +92,18 @@ public class LessonWindowMod {
 		JButton NextButton = new JButton("Next");
 		NextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				if(sectionNumber < MAX_SECTION)
+					sectionNumber++;
+				String imgStr = "Lessons/" + LessonName + sectionNumber + ".png";
+				final ImageIcon LessonPicture = new ImageIcon(imgStr);
+				SlideLabel.setIcon(LessonPicture);
 			}
 		});
 		ButtonPanel.add(NextButton);
 	}
 
+	public void OpenWindow() {
+		LessonWindowMod window = new LessonWindowMod(LessonName);
+		window.frame.setVisible(true);
+	}
 }
