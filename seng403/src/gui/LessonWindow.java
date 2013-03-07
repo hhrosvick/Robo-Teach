@@ -1,119 +1,131 @@
 package gui;
 
-import java.awt.Color;
 import java.awt.EventQueue;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JScrollPane;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import com.jgoodies.forms.factories.FormFactory;
+import javax.swing.JPanel;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.BorderLayout;
+import java.awt.Window;
+
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JButton;
-import javax.swing.JToggleButton;
-import javax.swing.JSeparator;
-import javax.swing.JComboBox;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import java.awt.Button;
-import java.awt.Canvas;
-import javax.swing.JEditorPane;
-import javax.swing.JSpinner;
-import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
-public class LessonWindow{
+public class LessonWindow {
 
+	private static int MAX_SECTION = 20;
 	private static JFrame frame;
 	private static String LessonName;
-	private final JButton btnPrevious = new JButton("Previous");
-	private final JButton btnNext = new JButton("Next");
-	private JFrame frame_1;
 	private int sectionNumber;
 	private String originalName;
-	
-// constructor takes lesson name argument
+	private final JLabel SlideLabel = new JLabel("");
+	/**
+	 * Create the application.
+	 */
 	public LessonWindow(String LN) 
 	{
 		LessonName = LN;
 		originalName=LN;
-		frame_1 = new JFrame();
 		sectionNumber=0;
 		initialize();
-		
 	}
-// creates the new window
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 1000, 825);
+		frame.getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
+				FormFactory.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("default:grow"),},
+			new RowSpec[] {
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("default:grow"),
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,}));
+		
+		frame.setResizable(false);
+		frame.getContentPane().setBackground(Color.WHITE);
+		String imgStr = "Lessons/" + LessonName + ".png";
+		final ImageIcon LessonPicture = new ImageIcon(imgStr);
+		
+		JPanel SlidePanel = new JPanel();
+		frame.getContentPane().add(SlidePanel, "2, 2, 1, 13, fill, fill");
+		SlidePanel.setBackground(Color.WHITE);
+		SlidePanel.add(SlideLabel);
+		SlideLabel.setOpaque(true);
+		SlideLabel.setBackground(Color.WHITE);
+		SlideLabel.setIcon(LessonPicture);
+		
+		JPanel ButtonPanel = new JPanel();
+		ButtonPanel.setBackground(Color.WHITE);
+		frame.getContentPane().add(ButtonPanel, "2, 16, fill, fill");
+		ButtonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		JButton PreviousButton = new JButton("Previous");
+		PreviousButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(sectionNumber > 1)
+					sectionNumber--;
+				String imgStr = "Lessons/" + LessonName + sectionNumber + ".png";
+				final ImageIcon LessonPicture = new ImageIcon(imgStr);
+				SlideLabel.setIcon(LessonPicture);
+			}
+		});
+		ButtonPanel.add(PreviousButton);
+		
+		JButton NextButton = new JButton("Next");
+		NextButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(sectionNumber < MAX_SECTION)
+					sectionNumber++;
+				String imgStr = "Lessons/" + LessonName + sectionNumber + ".png";
+				final ImageIcon LessonPicture = new ImageIcon(imgStr);
+				SlideLabel.setIcon(LessonPicture);
+			}
+		});
+		ButtonPanel.add(NextButton);
+	}
+
 	public static void OpenWindow() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					//Test window = new Test();
-					getFrame().setVisible(true);
-					getFrame().setTitle(LessonName);
+					frame.setVisible(true);
+					frame.setTitle(LessonName);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
-// initializes components
-	private void initialize() {
-		
-		setFrame(frame_1);
-		frame_1.getContentPane().setLayout(new BoxLayout(frame_1.getContentPane(), BoxLayout.X_AXIS));
-		frame_1.getContentPane().add(btnNext);
-		frame_1.getContentPane().add(btnPrevious);
-		
-		btnNext.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(e.getSource()==btnNext){
-					sectionNumber+=1;
-					String nm= String.valueOf(sectionNumber);
-					LessonName=originalName+nm;
-					frame_1.getContentPane().removeAll();
-					OpenWindow();
-					initialize();
-				}
-			}
-		});
-		
-		btnPrevious.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(e.getSource()==btnPrevious){
-					sectionNumber-=1;
-					String nm= String.valueOf(sectionNumber);
-					LessonName=originalName+nm;
-					frame_1.getContentPane().removeAll();
-					OpenWindow();
-					initialize();
-				}
-			}
-		});
-		
-		System.out.println(sectionNumber);
-		
-		getFrame().setBounds(100, 100, 450, 300);
-		// creates the image string and image icon
-		String imgStr = "Lessons/" + LessonName + ".png";
-		final ImageIcon LessonPicture = new ImageIcon(imgStr);
-		// loads the scrollPane
-		JScrollPane scrollPane = new JScrollPane();
-		getFrame().getContentPane().add(scrollPane, BorderLayout.CENTER);
-		// creates the label with the specified image icon
-		
-		JLabel LessonLabel = new JLabel("", LessonPicture, JLabel.CENTER);		
-		LessonLabel.setOpaque(true);
-		Color white = new Color(255,255,255);
-		LessonLabel.setBackground(white);
-		scrollPane.setViewportView(LessonLabel);
-		frame_1.pack();
-	}
-	
-	public static JFrame getFrame() {
+
+	public static Window getFrame() {
 		return frame;
-	}
-	
-	public static void setFrame(JFrame frame) {
-		LessonWindow.frame = frame;
 	}
 }

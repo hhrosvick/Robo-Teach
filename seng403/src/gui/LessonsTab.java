@@ -91,7 +91,7 @@ public class LessonsTab {
 					return;
 				else
 				{
-					LessonWindowMod NewWindow = new LessonWindowMod(Selection);
+					LessonWindow NewWindow = new LessonWindow(Selection);
 					NewWindow.OpenWindow();
 				}
 			}
