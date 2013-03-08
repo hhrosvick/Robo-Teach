@@ -49,7 +49,7 @@ public class RoboTeachTestCases {
 	}
 	@Test
 	public void ChallengeWindowInitializationTest() {
-		ChallengeWindow challengeTestWindow = new ChallengeWindow("test");
+		ChallengeWindow challengeTestWindow = new ChallengeWindow(0, 0, "test");
 		assert(challengeTestWindow != null);
 	}
 	@Test
@@ -59,7 +59,7 @@ public class RoboTeachTestCases {
 	}
 	@Test
 	public void ChallengeWindowStringTest() {
-		ChallengeWindow challengeTestWindow = new ChallengeWindow("StringTest");
+		ChallengeWindow challengeTestWindow = new ChallengeWindow(0, 0, "StringTest");
 		assert(challengeTestWindow.getFrame().getTitle().compareTo("StringTest") == 0);
 	}
 }

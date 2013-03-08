@@ -19,6 +19,8 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeNode;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
@@ -27,6 +29,9 @@ public class ChallengesTab {
 
 	private JPanel ChallengesTab;
 	private String Selection;
+	private int Tier;
+	private int Challenge;
+	private boolean ChallengeSelected;
 
 	/**
 	 * Create the application.
@@ -38,7 +43,7 @@ public class ChallengesTab {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialiyze the contents of the frame.
 	 * @return 
 	 */
 	public JPanel initialize() {
@@ -83,20 +88,18 @@ public class ChallengesTab {
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
-		
-		JButton StartChallengeButton = new JButton("Start Challenge");
-		StartChallengeButton.addActionListener(new ActionListener() {
+		// Sends request for lesson slides to database
+		JButton StartLessonButton = new JButton("Start Lesson");
+		StartLessonButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(Selection.endsWith("Tier") || Selection.compareTo("Challenges") == 0 || Selection == null)
-					return;
-				else
+				if(ChallengeSelected)
 				{
-					ChallengeWindow NewWindow = new ChallengeWindow(Selection);
+					ChallengeWindow NewWindow = new ChallengeWindow(Tier, Challenge, Selection);
 					NewWindow.OpenWindow();
 				}
 			}
 		});
-		ChallengesTab.add(StartChallengeButton, "2, 2, 3, 1");
+		ChallengesTab.add(StartLessonButton, "2, 2, 3, 1");
 		
 		JScrollPane PreviewPane = new JScrollPane();
 		ChallengesTab.add(PreviewPane, "6, 2, 17, 15, fill, fill");
@@ -106,50 +109,57 @@ public class ChallengesTab {
 		PreviewPane.setViewportView(panel);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		String imgStr = "Challenges/ChallengesPreview.png";
+		String imgStr = "Challenges/ChallengeTitle.png";
 		final ImageIcon LessonsTitle = new ImageIcon(imgStr);
-		final JLabel ChallengePreviewLabel = new JLabel("", LessonsTitle, JLabel.CENTER);
-		panel.add(ChallengePreviewLabel);
+		final JLabel LessonPreviewLabel = new JLabel("", LessonsTitle, JLabel.CENTER);
+		panel.add(LessonPreviewLabel);
 		
 		JScrollPane TreePane = new JScrollPane();
 		ChallengesTab.add(TreePane, "2, 4, 3, 13, fill, fill");
 		
-		final JTree ChallengesTree = new JTree();
-		ChallengesTree.setModel(new DefaultTreeModel(
+		final JTree LessonsTree = new JTree();
+		LessonsTree.setModel(new DefaultTreeModel(
 			new DefaultMutableTreeNode("Challenges") {
 				{
 					DefaultMutableTreeNode node_1;
-					node_1 = new DefaultMutableTreeNode("Beginner Tier");
-						node_1.add(new DefaultMutableTreeNode("Challenge1"));
-						node_1.add(new DefaultMutableTreeNode("ExampleChallenge"));
-						node_1.add(new DefaultMutableTreeNode("Challenge3"));
-						node_1.add(new DefaultMutableTreeNode("Challenge4"));
+					node_1 = new DefaultMutableTreeNode("Easy Tier");
+						node_1.add(new DefaultMutableTreeNode("Challenge I"));
+						node_1.add(new DefaultMutableTreeNode("Challenge II"));
 					add(node_1);
-					node_1 = new DefaultMutableTreeNode("Advanced Tier");
-						node_1.add(new DefaultMutableTreeNode("Challenge5"));
-						node_1.add(new DefaultMutableTreeNode("Challenge6"));
-						node_1.add(new DefaultMutableTreeNode("Challenge7"));
-						node_1.add(new DefaultMutableTreeNode("Challenge8"));
+					node_1 = new DefaultMutableTreeNode("Challenging Tier");
+						node_1.add(new DefaultMutableTreeNode("Challenge III"));
+						node_1.add(new DefaultMutableTreeNode("Challenge IV"));
 					add(node_1);
-					node_1 = new DefaultMutableTreeNode("Expert Tier");
-						node_1.add(new DefaultMutableTreeNode("Challenge9"));
-						node_1.add(new DefaultMutableTreeNode("Challenge10"));
-						node_1.add(new DefaultMutableTreeNode("Challenge11"));
-						node_1.add(new DefaultMutableTreeNode("Challenge12"));
+					node_1 = new DefaultMutableTreeNode("Difficult Tier");
+						node_1.add(new DefaultMutableTreeNode("Challenge V"));
+						node_1.add(new DefaultMutableTreeNode("Challenge VI"));
 					add(node_1);
 				}
 			}
 		));
-		TreePane.setViewportView(ChallengesTree);
+		TreePane.setViewportView(LessonsTree);
 		
-		ChallengesTree.addTreeSelectionListener(new TreeSelectionListener() {
+		LessonsTree.addTreeSelectionListener(new TreeSelectionListener() {
 			public void valueChanged(TreeSelectionEvent e) {
-				DefaultMutableTreeNode node = (DefaultMutableTreeNode) ChallengesTree.getLastSelectedPathComponent();	
+				
+				DefaultMutableTreeNode node = (DefaultMutableTreeNode) LessonsTree.getLastSelectedPathComponent();	
+				
+				//Creates the string for challenge preview, preview will be local for quick response time
 				Object nodeInfo = node.getUserObject();
 				Selection = nodeInfo.toString();
-				String imgStr = "Challenges/" + Selection + "Preview" + ".png";
-				final ImageIcon ChallengePreview = new ImageIcon(imgStr);
-				ChallengePreviewLabel.setIcon(ChallengePreview);
+				String imgStr = "Challenges/" + Selection + ".png";
+				final ImageIcon LessonPreview = new ImageIcon(imgStr);
+				LessonPreviewLabel.setIcon(LessonPreview);
+				
+				//Creates the integers for lesson selection for communication with API
+				ChallengeSelected = true;
+				try
+				{
+				Tier = ((node.getParent()).getParent()).getIndex(node.getParent());
+				Challenge = (node.getParent()).getIndex(node);	
+				}catch(NullPointerException NPE){ ChallengeSelected = false; }
+				if(ChallengeSelected)
+					System.out.println(Tier + "." + Challenge);
 			}
 		});
 		return ChallengesTab;

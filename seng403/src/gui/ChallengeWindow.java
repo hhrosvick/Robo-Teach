@@ -14,7 +14,7 @@ public class ChallengeWindow {
 	private static JFrame frame;
 	private static String ChallengeName;
 // constructor takes lesson name argument
-	public ChallengeWindow(String CN) 
+	public ChallengeWindow(int t, int c, String CN) 
 	{
 		ChallengeName = CN;
 		initialize();

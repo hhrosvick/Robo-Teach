@@ -158,8 +158,8 @@ public class LessonsTab {
 				Chapter = ((node.getParent()).getParent()).getIndex(node.getParent());
 				Lesson = (node.getParent()).getIndex(node);	
 				}catch(NullPointerException NPE){ LessonSelected = false; }
-				
-				System.out.println(Chapter + "." + Lesson);
+				if(LessonSelected)
+					System.out.println(Chapter + "." + Lesson);
 			}
 		});
 		return LessonsTab;
