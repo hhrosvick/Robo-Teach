@@ -109,7 +109,7 @@ public class ChallengesTab {
 		PreviewPane.setViewportView(panel);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		String imgStr = "Challenges/ChallengeTitle.png";
+		String imgStr = "Challenges/Challenges.png";
 		final ImageIcon LessonsTitle = new ImageIcon(imgStr);
 		final JLabel LessonPreviewLabel = new JLabel("", LessonsTitle, JLabel.CENTER);
 		panel.add(LessonPreviewLabel);
@@ -151,7 +151,7 @@ public class ChallengesTab {
 				final ImageIcon LessonPreview = new ImageIcon(imgStr);
 				LessonPreviewLabel.setIcon(LessonPreview);
 				
-				//Creates the integers for lesson selection for communication with API
+				//Creates the integers for challenge selection for communication with API
 				ChallengeSelected = true;
 				try
 				{

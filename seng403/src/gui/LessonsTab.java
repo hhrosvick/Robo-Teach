@@ -109,7 +109,7 @@ public class LessonsTab {
 		PreviewPane.setViewportView(panel);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		String imgStr = "Lessons/LessonTitle.png";
+		String imgStr = "Lessons/Lessons.png";
 		final ImageIcon LessonsTitle = new ImageIcon(imgStr);
 		final JLabel LessonPreviewLabel = new JLabel("", LessonsTitle, JLabel.CENTER);
 		panel.add(LessonPreviewLabel);

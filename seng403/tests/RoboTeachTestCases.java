@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.awt.Frame;
+
 import javax.swing.JFrame;
 
 import gui.ChallengeWindow;
@@ -55,7 +57,7 @@ public class RoboTeachTestCases {
 	@Test
 	public void LessonWindowStringTest() {
 		LessonWindow lessonTestWindow = new LessonWindow(0, 0, "StringTest");
-		//assert(lessonTestWindow.getFrame().getTitle().compareTo("StringTest") == 0);
+		assert(((Frame) lessonTestWindow.getFrame()).getTitle().compareTo("StringTest") == 0);
 	}
 	@Test
 	public void ChallengeWindowStringTest() {
