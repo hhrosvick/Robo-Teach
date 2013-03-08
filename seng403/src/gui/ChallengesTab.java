@@ -89,7 +89,7 @@ public class ChallengesTab {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
 		// Sends request for lesson slides to database
-		JButton StartLessonButton = new JButton("Start Lesson");
+		JButton StartLessonButton = new JButton("Start Challenge");
 		StartLessonButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(ChallengeSelected)
