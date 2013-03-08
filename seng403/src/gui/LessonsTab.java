@@ -19,6 +19,8 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeNode;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
@@ -27,6 +29,9 @@ public class LessonsTab {
 
 	private JPanel LessonsTab;
 	private String Selection;
+	private int Chapter;
+	private int Lesson;
+	private boolean LessonSelected;
 
 	/**
 	 * Create the application.
@@ -83,15 +88,13 @@ public class LessonsTab {
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
-		
+		// Sends request for lesson slides to database
 		JButton StartLessonButton = new JButton("Start Lesson");
 		StartLessonButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(Selection.startsWith("Chapter") || Selection.compareTo("Lessons") == 0 || Selection == null)
-					return;
-				else
+				if(LessonSelected)
 				{
-					LessonWindow NewWindow = new LessonWindow(Selection);
+					LessonWindow NewWindow = new LessonWindow(Chapter, Lesson, Selection);
 					NewWindow.OpenWindow();
 				}
 			}
@@ -106,7 +109,7 @@ public class LessonsTab {
 		PreviewPane.setViewportView(panel);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		String imgStr = "Lessons/LessonsPreview.png";
+		String imgStr = "Lessons/LessonTitle.png";
 		final ImageIcon LessonsTitle = new ImageIcon(imgStr);
 		final JLabel LessonPreviewLabel = new JLabel("", LessonsTitle, JLabel.CENTER);
 		panel.add(LessonPreviewLabel);
@@ -138,12 +141,25 @@ public class LessonsTab {
 		
 		LessonsTree.addTreeSelectionListener(new TreeSelectionListener() {
 			public void valueChanged(TreeSelectionEvent e) {
+				
 				DefaultMutableTreeNode node = (DefaultMutableTreeNode) LessonsTree.getLastSelectedPathComponent();	
+				
+				//Creates the string for lesson preview, preview will be local for quick response time
 				Object nodeInfo = node.getUserObject();
 				Selection = nodeInfo.toString();
 				String imgStr = "Lessons/" + Selection + ".png";
 				final ImageIcon LessonPreview = new ImageIcon(imgStr);
 				LessonPreviewLabel.setIcon(LessonPreview);
+				
+				//Creates the integers for lesson selection for communication with API
+				LessonSelected = true;
+				try
+				{
+				Chapter = ((node.getParent()).getParent()).getIndex(node.getParent());
+				Lesson = (node.getParent()).getIndex(node);	
+				}catch(NullPointerException NPE){ LessonSelected = false; }
+				
+				System.out.println(Chapter + "." + Lesson);
 			}
 		});
 		return LessonsTab;

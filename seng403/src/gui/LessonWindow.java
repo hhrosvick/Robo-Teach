@@ -24,20 +24,21 @@ import javax.swing.JScrollPane;
 
 public class LessonWindow {
 
-	private static int MAX_SECTION = 20;
+	private static int MaxSlide;
 	private static JFrame frame;
 	private static String LessonName;
-	private int sectionNumber;
-	private String originalName;
 	private final JLabel SlideLabel = new JLabel("");
+	private int Chapter;
+	private int Lesson;
+	private int Slide;
 	/**
 	 * Create the application.
 	 */
-	public LessonWindow(String LN) 
+	public LessonWindow(int c, int l, String ln) 
 	{
-		LessonName = LN;
-		originalName=LN;
-		sectionNumber=0;
+		LessonName = ln;
+		Chapter = c;
+		Lesson = l;
 		initialize();
 	}
 
@@ -89,11 +90,11 @@ public class LessonWindow {
 		JButton PreviousButton = new JButton("Previous");
 		PreviousButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(sectionNumber > 1)
-					sectionNumber--;
-				String imgStr = "Lessons/" + LessonName + sectionNumber + ".png";
-				final ImageIcon LessonPicture = new ImageIcon(imgStr);
-				SlideLabel.setIcon(LessonPicture);
+				//if(sectionNumber > 1)
+					//sectionNumber--;
+				//String imgStr = "Lessons/" + LessonName + sectionNumber + ".png";
+				//final ImageIcon LessonPicture = new ImageIcon(imgStr);
+				//SlideLabel.setIcon(LessonPicture);
 			}
 		});
 		ButtonPanel.add(PreviousButton);
@@ -101,11 +102,11 @@ public class LessonWindow {
 		JButton NextButton = new JButton("Next");
 		NextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(sectionNumber < MAX_SECTION)
-					sectionNumber++;
-				String imgStr = "Lessons/" + LessonName + sectionNumber + ".png";
-				final ImageIcon LessonPicture = new ImageIcon(imgStr);
-				SlideLabel.setIcon(LessonPicture);
+				//if(sectionNumber < MAX_SECTION)
+					//sectionNumber++;
+				//String imgStr = "Lessons/" + LessonName + sectionNumber + ".png";
+				//final ImageIcon LessonPicture = new ImageIcon(imgStr);
+				//SlideLabel.setIcon(LessonPicture);
 			}
 		});
 		ButtonPanel.add(NextButton);
