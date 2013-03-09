@@ -20,7 +20,7 @@ public class API implements API_Interface {
 	public static void main(String[] args) {
 		
 		API api = new API();
-		api.loadToSimulator("example.lisp");
+		api.loadToRobot("example.lisp");
 		
 	}
 	
@@ -44,7 +44,6 @@ public class API implements API_Interface {
 			e.printStackTrace();
 			return false;
 		}
-		
 	}
 
 	@Override
@@ -61,7 +60,57 @@ public class API implements API_Interface {
 		// Can be create the same as the simulator, but do not create the environment.
 		// The INSTREAM and OUTSTEAM need to be the same file the represents the port location of the actual robot.
 		
-		return "Not yet implemented";		
+		// Agent and process options
+		
+		String tracetags ="info5,warning,msg,iRobot,-boundSymbols,-policies9,-commitments,-eventqueue,-conversations";
+		
+		ProcessOptions options = new ProcessOptions(CASA);
+		options.traceTags = tracetags;
+		options.tracing = true;
+		
+		CASA.setOptions(options);
+		
+		// UI instantiation
+		
+		AgentUI ui = new StandardOutAgentUI();
+		
+		// Start simulator environment
+		
+		/* 
+		
+		Environment = CASAProcess.startAgent(ui, SimEnvironment.class,
+				"SimEnvironment",
+				5780,
+				"LAC", "9000",
+				"PROCESS", "CURRENT",
+				"TRACETAGS", tracetags,
+				"TRACE", "10",
+				"MARKUP", "KQML"
+				);
+				
+		*/
+		
+		
+		// Start the sim robot
+		
+		Robot = (Robot) CASAProcess.startAgent(ui, Simulator.class,
+				"Dayton",
+				5781,
+				"LAC", "9000",
+				"PROCESS", "CURRENT",
+				"TRACETAGS", tracetags,
+				"TRACE", "10",
+				"MARKUP", "KQML",
+				"OUTSTREAM","/dev/rfcomm0", 
+                "INSTREAM", "/dev/rfcomm0"
+				);
+		
+		// Run code found in file at file path, if one exists.
+		
+		if(filepath != null && filepath != "")
+			Robot.abclEval(fileRead(filepath), null);
+
+		return null;		
 	}
 
 	@Override
@@ -118,7 +167,7 @@ public class API implements API_Interface {
 	
 	@Override
 	public String translateLoadToRobot(String filepath) {
-		// TODO Implement translateLoadToRobot
+		
 		return "NOT YET IMPLEMENTED";
 	}
 
