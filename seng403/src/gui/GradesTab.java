@@ -17,6 +17,8 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JLabel;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.text.TableView.TableRow;
 
 public class GradesTab {
 
@@ -82,7 +84,15 @@ public class GradesTab {
 		JScrollPane scrollPane = new JScrollPane();
 		GradesTab.add(scrollPane, "4, 2, 3, 1, fill, fill");
 		
-		table = new JTable();
+		 String[] columnNames = {"Student ID", "Student Name", "Chapters Competed", "Challenges Completed" };
+	        Object[][] data = {
+	        	{"00000000", "Average", new Double(2.22), new Double(1.22)},	
+	            {"10012345", "David Ryan", new Double(2), new Double(0)},
+	            {"Tea", new Integer(1), new Double(3.33), new Double(3.33)},
+	            {"Cofee", new Integer(1), new Double(4.44), new Double(4.44)}
+	        };
+	        DefaultTableModel model = new DefaultTableModel(data, columnNames);
+	    table = new JTable(model);
 		scrollPane.setViewportView(table);
 	}
 
