@@ -43,4 +43,11 @@ public interface API_Interface {
 	 */
 	public String translateLoadToSimulator(String filepath);
 
+	
+	/**
+	 * Loads the robot control interface, and returns it's instance
+	 * @return a RobotControl instance
+	 */
+	public RobotControl loadRobotController();
+	
 }

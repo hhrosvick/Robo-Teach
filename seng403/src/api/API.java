@@ -11,16 +11,23 @@ import casa.ui.StandardOutAgentUI;
 
 public class API implements API_Interface {
 
-	// Object variables
+	// CASA Object variables
 	private CASAProcess CASA = null;
 	private TransientAgent Environment = null;
 	private AbstractRobot Robot = null;
+	private AgentUI UI = null;
+		
+	// Options
+	private static String tracetags ="info5,warning,msg,iRobot,-boundSymbols,-policies9,-commitments,-eventqueue,-conversations";
+	private static String SerialLocation = "/dev/rfcomm0";
+	private static int EnvironmentPort = 5780;
+	private static int RobotPort = 5781;
 	
 	// TESTING MAIN... SHOULD NOT BE USED IN PRODUCTION
 	public static void main(String[] args) {
 		
 		API api = new API();
-		api.loadToRobot("example.lisp");
+		api.loadToSimulator("example.lisp");
 		
 	}
 	
@@ -38,7 +45,17 @@ public class API implements API_Interface {
 	@Override
 	public boolean initialize()	{
 		try {
+			
 			CASA = CASAProcess.getInstance();
+			
+			ProcessOptions options = new ProcessOptions(CASA);
+			options.traceTags = tracetags;
+			options.tracing = true;
+			
+			CASA.setOptions(options);
+			
+			UI = new StandardOutAgentUI();
+			
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -48,64 +65,13 @@ public class API implements API_Interface {
 
 	@Override
 	public boolean authenticate_user(String user_name, String password) {
-		
-		// TODO Implement authentication check to external system
-		if(user_name == "test" && password == "1234") return true;
-		return false;
+		return Authenticator.auth(user_name, password);
 	}
 
 	@Override
 	public String loadToRobot(String filepath) {
 		
-		// Can be create the same as the simulator, but do not create the environment.
-		// The INSTREAM and OUTSTEAM need to be the same file the represents the port location of the actual robot.
-		
-		// Agent and process options
-		
-		String tracetags ="info5,warning,msg,iRobot,-boundSymbols,-policies9,-commitments,-eventqueue,-conversations";
-		
-		ProcessOptions options = new ProcessOptions(CASA);
-		options.traceTags = tracetags;
-		options.tracing = true;
-		
-		CASA.setOptions(options);
-		
-		// UI instantiation
-		
-		AgentUI ui = new StandardOutAgentUI();
-		
-		// Start simulator environment
-		
-		/* 
-		
-		Environment = CASAProcess.startAgent(ui, SimEnvironment.class,
-				"SimEnvironment",
-				5780,
-				"LAC", "9000",
-				"PROCESS", "CURRENT",
-				"TRACETAGS", tracetags,
-				"TRACE", "10",
-				"MARKUP", "KQML"
-				);
-				
-		*/
-		
-		
-		// Start the sim robot
-		
-		Robot = (Robot) CASAProcess.startAgent(ui, Simulator.class,
-				"Dayton",
-				5781,
-				"LAC", "9000",
-				"PROCESS", "CURRENT",
-				"TRACETAGS", tracetags,
-				"TRACE", "10",
-				"MARKUP", "KQML",
-				"OUTSTREAM","/dev/rfcomm0", 
-                "INSTREAM", "/dev/rfcomm0"
-				);
-		
-		// Run code found in file at file path, if one exists.
+		loadRobotAgent();
 		
 		if(filepath != null && filepath != "")
 			Robot.abclEval(fileRead(filepath), null);
@@ -116,51 +82,12 @@ public class API implements API_Interface {
 	@Override
 	public String loadToSimulator(String filepath) {
 		
+		loadEnvironment();
+		loadSimulatorAgent();		
 		
-		// Agent and process options
-		
-		String tracetags ="info5,warning,msg,iRobot,-boundSymbols,-policies9,-commitments,-eventqueue,-conversations";
-		
-		ProcessOptions options = new ProcessOptions(CASA);
-		options.traceTags = tracetags;
-		options.tracing = true;
-		
-		CASA.setOptions(options);
-		
-		// UI instantiation
-		
-		AgentUI ui = new StandardOutAgentUI();
-		
-		// Start simulator environment
-		
-		Environment = CASAProcess.startAgent(ui, SimEnvironment.class,
-				"SimEnvironment",
-				5780,
-				"LAC", "9000",
-				"PROCESS", "CURRENT",
-				"TRACETAGS", tracetags,
-				"TRACE", "10",
-				"MARKUP", "KQML"
-				);
-		
-		// Start the sim robot
-		
-		Robot = (Simulator) CASAProcess.startAgent(ui, Simulator.class,
-				"Cutesy",
-				5781,
-				"LAC", "9000",
-				"PROCESS", "CURRENT",
-				"TRACETAGS", tracetags,
-				"TRACE", "10",
-				"MARKUP", "KQML",
-				"OUTSTREAM","sim.out", 
-                "INSTREAM", "sim.in",
-                "INTERFACE", "NONE"
-				);
-		
-		// Run code found in file at filepath
-		
-		Robot.abclEval(fileRead(filepath), null);
+		// Run code found in file at file path, if one exists.
+		if(filepath != null && filepath != "")
+			Robot.abclEval(fileRead(filepath), null);
 				
 		return null;		
 	}	
@@ -168,17 +95,29 @@ public class API implements API_Interface {
 	@Override
 	public String translateLoadToRobot(String filepath) {
 		
-		return "NOT YET IMPLEMENTED";
+		loadRobotAgent();
+		
+		if(filepath != null && filepath != "")
+			Robot.abclEval(fileRead(Translator.translateFile(filepath)), null);
+
+		
+		return "Translation not yet implemented";
 	}
 
 	@Override
 	public String translateLoadToSimulator(String filepath) {
-		// TODO Implement translateLoadToSimulator
-		return "NOT YET IMPLEMENTED";
+
+		loadEnvironment();
+		loadSimulatorAgent();
+		
+		if(filepath != null && filepath != "")
+			Robot.abclEval(fileRead(Translator.translateFile(filepath)), null);
+		
+		return "Translation not yet implemented";
 	}
 	
 	/**
-	 * Reads the file at filepath and returns the contents as a string<br>
+	 * Reads the file at the file path and returns the contents as a string<br>
 	 * Accessible at the package level.
 	 * @param filepath
 	 * @return a String of the file contents
@@ -186,13 +125,12 @@ public class API implements API_Interface {
 	static String fileRead(String filepath){
 				
 		try {
-			
 			BufferedReader reader = new BufferedReader(new FileReader(filepath));
 			StringBuilder builder = new StringBuilder();
 			String line = null;
 			
 			while((line = reader.readLine()) != null) { 
-				builder.append(" " + line); 
+				builder.append(line); 
 			}
 			
 			reader.close();
@@ -206,5 +144,86 @@ public class API implements API_Interface {
 		return null;
 		
 	}
+
+	@Override
+	public RobotControl loadRobotController() {
+		loadRobotAgent_WithConsole();
+		return new RobotControl(Robot);
+	}
+	
+	
+	/**
+	 * Starts a robot agent with appropriate options.<br>
+	 * Access to the robot is provided through the 'Robot' variable.
+	 */
+	private void loadRobotAgent(){
+		Robot = (Robot) CASAProcess.startAgent(UI, Simulator.class,
+				"Dayton",
+				RobotPort,
+				"LAC", "9000",
+				"PROCESS", "CURRENT",
+				"TRACETAGS", tracetags,
+				"TRACE", "10",
+				"MARKUP", "KQML",
+				"OUTSTREAM",SerialLocation, 
+                "INSTREAM", SerialLocation,
+                "INTERFACE", "NONE"
+				);
+	}
+	
+	/**
+	 * Starts a robot agent with appropriate options.<br>
+	 * Access to the robot is provided through the 'Robot' variable.
+	 */
+	private void loadRobotAgent_WithConsole(){
+		Robot = (Robot) CASAProcess.startAgent(UI, Simulator.class,
+				"Dayton",
+				RobotPort,
+				"LAC", "9000",
+				"PROCESS", "CURRENT",
+				"TRACETAGS", tracetags,
+				"TRACE", "10",
+				"MARKUP", "KQML",
+				"OUTSTREAM",SerialLocation, 
+                "INSTREAM", SerialLocation
+				);
+	}
+	
+	/**
+	 * Starts a robot agent with appropriate options.<br>
+	 * Access to the robot is provided through the 'Robot' variable.
+	 */
+	private void loadSimulatorAgent(){
+		Robot = (Simulator) CASAProcess.startAgent(UI, Simulator.class,
+				"Cutesy",
+				RobotPort,
+				"LAC", "9000",
+				"PROCESS", "CURRENT",
+				"TRACETAGS", tracetags,
+				"TRACE", "10",
+				"MARKUP", "KQML",
+				"OUTSTREAM","sim.out", 
+		        "INSTREAM", "sim.in",
+		        "INTERFACE", "NONE"
+				);
+	}
+	
+	/**
+	 * Starts a environment agent with appropriate options.<br>
+	 * Access to the robot is provided through the 'Environment' variable.
+	 */
+	private void loadEnvironment(){
+		Environment = CASAProcess.startAgent(UI, SimEnvironment.class,
+				"SimEnvironment",
+				EnvironmentPort,
+				"LAC", "9000",
+				"PROCESS", "CURRENT",
+				"TRACETAGS", tracetags,
+				"TRACE", "10",
+				"MARKUP", "KQML"
+				);
+	}
+	
+	
 	
 }
