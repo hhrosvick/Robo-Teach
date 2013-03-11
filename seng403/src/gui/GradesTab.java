@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -19,12 +20,25 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.TableView.TableRow;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 public class GradesTab {
 
 	private JFrame frame;
 	private JTextField SearchBox;
 	private JTable table;
+	private String[][] data = {
+        	{"00000000", "Average", "", ""},	
+            {"10012345", "David Ryan", "", ""},
+            {"Tea", "", "", ""},
+            {"Cofee", "", "", ""}
+        };
+	private String[][] d2;
+	private String[][] d3;
+	private int entries;
 
 	/**
 	 * Launch the application.
@@ -78,22 +92,80 @@ public class GradesTab {
 		SearchPanel.add(SearchLabel);
 		
 		SearchBox = new JTextField();
+		SearchBox.addKeyListener(new KeyListener() {
+			public void keyTyped(KeyEvent arg0) {
+				String s = SearchBox.getText();
+				if(s.compareTo("") != 0)
+				{
+					updateTable(s);
+				}
+				else
+					refreshTable();
+			}
+			@Override
+			public void keyReleased(KeyEvent e) {
+				String s = SearchBox.getText();
+				if(s.compareTo("") != 0)
+				{
+					updateTable(s);
+				}
+				else
+					refreshTable();
+			}
+			@Override
+			public void keyPressed(KeyEvent e) {
+				String s = SearchBox.getText();
+				if(s.compareTo("") != 0)
+				{
+					updateTable(s);
+				}
+				else
+					refreshTable();
+			}
+		});
 		SearchPanel.add(SearchBox);
 		SearchBox.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		GradesTab.add(scrollPane, "4, 2, 3, 1, fill, fill");
 		
-		 String[] columnNames = {"Student ID", "Student Name", "Chapters Competed", "Challenges Completed" };
-	        Object[][] data = {
-	        	{"00000000", "Average", new Double(2.22), new Double(1.22)},	
-	            {"10012345", "David Ryan", new Double(2), new Double(0)},
-	            {"Tea", new Integer(1), new Double(3.33), new Double(3.33)},
-	            {"Cofee", new Integer(1), new Double(4.44), new Double(4.44)}
-	        };
-	        DefaultTableModel model = new DefaultTableModel(data, columnNames);
+		String[] columnNames = {"Student ID", "Student Name", "Chapters Competed", "Challenges Completed" };
+	    DefaultTableModel model = new DefaultTableModel(data, columnNames);
 	    table = new JTable(model);
 		scrollPane.setViewportView(table);
+		
+		
+	}
+
+	protected void refreshTable() {
+		String[] cn = {"Student ID", "Student Name", "Chapters Competed", "Challenges Completed" };
+	    DefaultTableModel m = new DefaultTableModel(this.data, cn);
+	    table.setModel(m);
+		
+	}
+
+	public void updateTable(String s) {
+		String[] cn = {"Student ID", "Student Name", "Chapters Completed", "Challenges Completed"};
+		int matches = 0;
+		int index = 0;
+		for(int i = 0; i < this.data.length; i++)
+			if(this.data[i][1].contains(s))
+				matches++;
+		this.d3 = new String[matches][4];
+		for(int i = 0; i < this.data.length; i++)
+		{
+			if(this.data[i][1].contains(s))
+			{
+				for(int j = 0; j < 4; j++)
+				{
+					this.d3[index][j] = this.data[i][j];
+				}
+				index++;
+			}
+		}
+		DefaultTableModel m = new DefaultTableModel(d3, cn);
+		table.setModel(m);
+		
 	}
 
 }
