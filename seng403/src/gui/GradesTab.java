@@ -38,10 +38,6 @@ public class GradesTab {
             {"12312399", "Bob", "0", "0"}};
 	private String[][] d2;
 
-
-	/**
-	 * Create the application.
-	 */
 	public GradesTab() 
 	{
 		GradesTab = new JPanel();
