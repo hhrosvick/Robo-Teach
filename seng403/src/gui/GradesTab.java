@@ -32,15 +32,25 @@ public class GradesTab {
 	private JTable table;
 	private String[][] data = {
 			{"00000000", "Class Average", "1.5", "2"},	
-            {"10012345", "David Ryan", "1", "3"},
-            {"12345678", "Henry", "2", "3"},
-            {"87654321", "Marshall", "3", "1"},
-            {"12312399", "Bob", "0", "0"}};
+            {"10012345", "David Ryan", "3", "3"},
+            {"12345678", "Henry", "0", "3"},
+            {"87654321", "Marshall", "2", "1"},
+            {"12312399", "Bob", "1", "0"}};
 	private String[][] d2;
-
+	private String[][] sortedLessons;
+	private boolean sLessons = false;
+	private String[][] sortedChallenges;
+	private boolean sChallenges = false;
+	private String[][] sortedName;
+	private boolean sName = false;
+	private String[][] sortedID;
+	private boolean sID = false;
+	private final JButton btnNewButton = new JButton("New button");
+	
 	public GradesTab() 
 	{
 		GradesTab = new JPanel();
+		initialize();
 	}
 
 	/**
@@ -58,16 +68,27 @@ public class GradesTab {
 				ColumnSpec.decode("default:grow"),},
 			new RowSpec[] {
 				FormFactory.RELATED_GAP_ROWSPEC,
-				RowSpec.decode("default:grow"),}));
-		
-		JPanel SearchPanel = new JPanel();
-		GradesTab.add(SearchPanel, "2, 2, center, top");
-		SearchPanel.setLayout(new GridLayout(0, 1, 0, 0));
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				FormFactory.DEFAULT_ROWSPEC,
+				FormFactory.RELATED_GAP_ROWSPEC,
+				RowSpec.decode("fill:default:grow"),}));
 		
 		JLabel SearchLabel = new JLabel("Search:");
-		SearchPanel.add(SearchLabel);
+		GradesTab.add(SearchLabel, "2, 2");
 		
 		SearchBox = new JTextField();
+		GradesTab.add(SearchBox, "2, 4");
 		SearchBox.addKeyListener(new KeyListener() {
 			public void keyTyped(KeyEvent arg0) {
 				String s = SearchBox.getText();
@@ -99,11 +120,53 @@ public class GradesTab {
 					refreshTable();
 			}
 		});
-		SearchPanel.add(SearchBox);
 		SearchBox.setColumns(10);
 		
+		JButton SortLessons = new JButton("Sort by Lessons");
+		GradesTab.add(SortLessons, "2, 6");
+		SortLessons.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!sLessons)
+					SortLessons();
+				String[] cn = {"Student ID", "Student Name", "Chapters Completed", "Challenges Completed"};
+				DefaultTableModel sl = new DefaultTableModel(sortedLessons, cn);
+				table.setModel(sl);
+			}
+		});
+		
+		JButton SortChallenges = new JButton("Sort by Challenges");
+		GradesTab.add(SortChallenges, "2, 8");
+		SortChallenges.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!sChallenges)
+					SortChallenges();
+				String[] cn = {"Student ID", "Student Name", "Chapters Completed", "Challenges Completed"};
+				DefaultTableModel sc = new DefaultTableModel(sortedChallenges, cn);
+				table.setModel(sc);
+			}
+		});
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		GradesTab.add(btnNewButton, "2, 10");
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		GradesTab.add(btnNewButton_1, "2, 12");
+		
+		JButton btnNewButton_2 = new JButton("New button");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		GradesTab.add(btnNewButton_2, "2, 14");
+		
 		JScrollPane scrollPane = new JScrollPane();
-		GradesTab.add(scrollPane, "4, 2, 3, 1, fill, fill");
+		GradesTab.add(scrollPane, "4, 2, 3, 15, fill, fill");
 		
 		String[] columnNames = {"Student ID", "Student Name", "Chapters Competed", "Challenges Completed" };
 	    DefaultTableModel model = new DefaultTableModel(data, columnNames);
@@ -143,7 +206,44 @@ public class GradesTab {
 		}
 		DefaultTableModel m = new DefaultTableModel(d2, cn);
 		table.setModel(m);
-		
+	}
+	protected void SortLessons()
+	{
+		sortedLessons = new String[data.length][4];
+		for(int i = 0; i < data.length; i++)
+			for(int j = 0; j < 4; j++)
+				sortedLessons[i][j] = data[i][j];
+		for(int i = 1; i < sortedLessons.length; i++)
+		{
+			for(int j = i; j < sortedLessons.length-1; j++)
+			{
+				if(Integer.parseInt(sortedLessons[j][2]) < Integer.parseInt(sortedLessons[j+1][2]))
+				{
+					String[] temp = sortedLessons[j];
+					sortedLessons[j] = sortedLessons[j+1];
+					sortedLessons[j+1] = temp;
+				}
+			}
+		}
+	}
+	protected void SortChallenges()
+	{
+		sortedChallenges = new String[data.length][4];
+		for(int i = 0; i < data.length; i++)
+			for(int j = 0; j < 4; j++)
+				sortedChallenges[i][j] = data[i][j];
+		for(int i = 1; i < sortedLessons.length; i++)
+		{
+			for(int j = i; j < sortedChallenges.length-1; j++)
+			{
+				if(Integer.parseInt(sortedChallenges[j][3]) < Integer.parseInt(sortedChallenges[j+1][3]))
+				{
+					String[] temp = sortedChallenges[j];
+					sortedChallenges[j] = sortedChallenges[j+1];
+					sortedChallenges[j+1] = temp;
+				}
+			}
+		}
 	}
 
 }
