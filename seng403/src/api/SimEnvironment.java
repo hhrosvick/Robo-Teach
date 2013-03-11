@@ -14,6 +14,9 @@ public class SimEnvironment extends iRobotCreate.simulator.Environment{
 		// TODO Auto-generated constructor stub
 	}
 	
+	/**
+	 * Ensures the environment loads without a second window interface.
+	 */
 	@Override
 	protected TransientAgentInternalFrame makeDefaultInternalFrame(TransientAgent agent, String title, Container aFrame) {
 		return null;

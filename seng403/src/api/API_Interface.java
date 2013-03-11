@@ -50,4 +50,10 @@ public interface API_Interface {
 	 */
 	public RobotControl loadRobotController();
 	
+	/**
+	 * Loads the simulator control interface, and returns it's instance
+	 * @return a RobotControl instance
+	 */
+	public RobotControl loadSimulatorController();
+	
 }

@@ -151,13 +151,20 @@ public class API implements API_Interface {
 		return new RobotControl(Robot);
 	}
 	
+	@Override
+	public RobotControl loadSimulatorController() {
+		loadEnvironment();
+		loadSimulatorAgent();
+		return new RobotControl(Robot);
+	}
+	
 	
 	/**
 	 * Starts a robot agent with appropriate options.<br>
 	 * Access to the robot is provided through the 'Robot' variable.
 	 */
 	private void loadRobotAgent(){
-		Robot = (Robot) CASAProcess.startAgent(UI, Simulator.class,
+		Robot = (Robot) CASAProcess.startAgent(UI, Robot.class,
 				"Dayton",
 				RobotPort,
 				"LAC", "9000",
@@ -176,7 +183,7 @@ public class API implements API_Interface {
 	 * Access to the robot is provided through the 'Robot' variable.
 	 */
 	private void loadRobotAgent_WithConsole(){
-		Robot = (Robot) CASAProcess.startAgent(UI, Simulator.class,
+		Robot = (Robot) CASAProcess.startAgent(UI, Robot.class,
 				"Dayton",
 				RobotPort,
 				"LAC", "9000",
