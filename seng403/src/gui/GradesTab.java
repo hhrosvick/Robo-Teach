@@ -27,52 +27,32 @@ import java.awt.event.KeyListener;
 
 public class GradesTab {
 
-	private JFrame frame;
+	private JPanel GradesTab;
 	private JTextField SearchBox;
 	private JTable table;
 	private String[][] data = {
-        	{"00000000", "Average", "", ""},	
-            {"10012345", "David Ryan", "", ""},
-            {"Tea", "", "", ""},
-            {"Cofee", "", "", ""}
-        };
+			{"00000000", "Class Average", "1.5", "2"},	
+            {"10012345", "David Ryan", "1", "3"},
+            {"12345678", "Henry", "2", "3"},
+            {"87654321", "Marshall", "3", "1"},
+            {"12312399", "Bob", "0", "0"}};
 	private String[][] d2;
-	private String[][] d3;
-	private int entries;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GradesTab window = new GradesTab();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
-	public GradesTab() {
-		initialize();
+	public GradesTab() 
+	{
+		GradesTab = new JPanel();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
+	 * @return 
 	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		JPanel GradesTab = new JPanel();
-		frame.getContentPane().add(GradesTab, BorderLayout.CENTER);
+	public JPanel initialize() {
+		GradesTab.setBounds(100, 100, 450, 300);
 		GradesTab.setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
 				FormFactory.BUTTON_COLSPEC,
@@ -134,36 +114,38 @@ public class GradesTab {
 	    table = new JTable(model);
 		scrollPane.setViewportView(table);
 		
-		
+		return GradesTab;
 	}
 
-	protected void refreshTable() {
+	protected void refreshTable() 
+	{
 		String[] cn = {"Student ID", "Student Name", "Chapters Competed", "Challenges Completed" };
 	    DefaultTableModel m = new DefaultTableModel(this.data, cn);
 	    table.setModel(m);
 		
 	}
 
-	public void updateTable(String s) {
+	protected void updateTable(String s) 
+	{
 		String[] cn = {"Student ID", "Student Name", "Chapters Completed", "Challenges Completed"};
 		int matches = 0;
 		int index = 0;
 		for(int i = 0; i < this.data.length; i++)
-			if(this.data[i][1].contains(s))
+			if((this.data[i][1].toLowerCase()).contains(s.toLowerCase()))
 				matches++;
-		this.d3 = new String[matches][4];
+		this.d2 = new String[matches][4];
 		for(int i = 0; i < this.data.length; i++)
 		{
-			if(this.data[i][1].contains(s))
+			if((this.data[i][1].toLowerCase()).contains(s.toLowerCase()))
 			{
 				for(int j = 0; j < 4; j++)
 				{
-					this.d3[index][j] = this.data[i][j];
+					this.d2[index][j] = this.data[i][j];
 				}
 				index++;
 			}
 		}
-		DefaultTableModel m = new DefaultTableModel(d3, cn);
+		DefaultTableModel m = new DefaultTableModel(d2, cn);
 		table.setModel(m);
 		
 	}

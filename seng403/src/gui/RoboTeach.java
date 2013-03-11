@@ -291,5 +291,13 @@ public class RoboTeach{
 		ChallengesTab newChallengeTab = new ChallengesTab();
 		ChallengeTab1 = newChallengeTab.initialize();
 		TabPage.addTab("Challenges", null, ChallengeTab1, null);
+		
+/*****************************************************************************************************************************************
+* ChallengeTab initialization and components
+******************************************************************************************************************************************/			
+		JPanel GradesTab1;
+		GradesTab newGradesTab = new GradesTab();
+		GradesTab1 = newGradesTab.initialize();
+		TabPage.addTab("Progress", null, GradesTab1, null);
 	}
 }
