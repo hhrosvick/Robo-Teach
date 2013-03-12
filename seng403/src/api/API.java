@@ -2,6 +2,7 @@ package api;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Map;
 
 import casa.CASAProcess;
 import casa.ProcessOptions;
@@ -11,25 +12,38 @@ import casa.ui.StandardOutAgentUI;
 
 public class API implements API_Interface {
 
-	// CASA Object variables
+	/* 
+	 * CASA Object variables
+	 */
 	private CASAProcess CASA = null;
 	private TransientAgent Environment = null;
 	private AbstractRobot Robot = null;
 	private AgentUI UI = null;
 		
-	// Options
+	/*
+	 * Option variables
+	 */
 	private static String tracetags ="info5,warning,msg,iRobot,-boundSymbols,-policies9,-commitments,-eventqueue,-conversations";
 	private static String SerialLocation = "/dev/rfcomm0";
 	private static int EnvironmentPort = 5780;
 	private static int RobotPort = 5781;
 	
-	// TESTING MAIN... SHOULD NOT BE USED IN PRODUCTION
+	/*
+	 *  TESTING MAIN... SHOULD NOT BE USED IN PRODUCTION
+	 */
 	public static void main(String[] args) {
 		
+		System.err.println("API runtime testing function called...");
 		API api = new API();
 		api.loadToSimulator("example.lisp");
 		
 	}
+	
+	/*
+	 *****************************
+	 * INITIALIZATION            *
+	 *****************************
+	 */
 	
 	/**
 	 * Constructor. Calls initialize() on itself.
@@ -39,11 +53,12 @@ public class API implements API_Interface {
 	}
 	
 	/**
-	 * Gets and stores the CASAProcess instance
-	 * @return true if the instance is returned, false for an error.
+	 * Checks if the API has been initialized<br>
+	 * If not, it will be initialized.<br>
+	 * The CASA process will be stared.
+	 * @return true if the API is initialized, false if there is an error
 	 */
-	@Override
-	public boolean initialize()	{
+	private boolean initialize()	{
 		try {
 			
 			CASA = CASAProcess.getInstance();
@@ -63,11 +78,41 @@ public class API implements API_Interface {
 		}
 	}
 
+	/*
+	 *****************************
+	 * DATABASE / USER FUNCTIONS *
+	 *****************************
+	 */
+	
 	@Override
-	public boolean authenticate_user(String user_name, String password) {
+	public int authenticate_user(String user_name, String password) {
 		return Authenticator.auth(user_name, password);
 	}
+	
+	@Override
+	public int getUserType(int UserID){
+		
+		return 0;
+	}
+	
+	@Override
+	public Map<String, String> getUserProgress(int UserID){
+		
+		return null;
+	}
+	
+	@Override
+	public Map<Integer, Map<String, String>> getAllUserProgress(){
+		
+		return null;
+	}
 
+	/*
+	 *****************************
+	 * ROBOT FUNCTIONS           *
+	 *****************************
+	 */
+	
 	@Override
 	public String loadToRobot(String filepath) {
 		
@@ -116,6 +161,27 @@ public class API implements API_Interface {
 		return "Translation not yet implemented";
 	}
 	
+	@Override
+	public RobotControl loadRobotController() {
+		loadRobotAgent_WithConsole();
+		return new RobotControl(Robot);
+	}
+	
+	@Override
+	public RobotControl loadSimulatorController() {
+		loadEnvironment();
+		loadSimulatorAgent();
+		return new RobotControl(Robot);
+	}
+	
+	
+	/*
+	 *****************************
+	 * PACKAGE FUNCTIONS         *
+	 *****************************
+	 */
+	
+	
 	/**
 	 * Reads the file at the file path and returns the contents as a string<br>
 	 * Accessible at the package level.
@@ -145,19 +211,12 @@ public class API implements API_Interface {
 		
 	}
 
-	@Override
-	public RobotControl loadRobotController() {
-		loadRobotAgent_WithConsole();
-		return new RobotControl(Robot);
-	}
 	
-	@Override
-	public RobotControl loadSimulatorController() {
-		loadEnvironment();
-		loadSimulatorAgent();
-		return new RobotControl(Robot);
-	}
-	
+	/*
+	 *****************************
+	 * PRIVATE FUNCTIONS         *
+	 *****************************
+	 */
 	
 	/**
 	 * Starts a robot agent with appropriate options.<br>

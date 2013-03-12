@@ -2,11 +2,11 @@ package api;
 
 public class Authenticator {
 
-	public static boolean auth(String user, String pass){
+	public static int auth(String user, String pass){
 		
 		// TODO Implement authentication check to external system
-		if(user == "test" && pass == "1234") return true;
-		return false;
+		if(user == "test" && pass == "1234") return 1;
+		return 0;
 	}
 	
 }

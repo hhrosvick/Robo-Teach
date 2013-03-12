@@ -10,19 +10,6 @@ import api.API_Interface;
 public class API_InterfaceTest {
 
 	/**
-	 * initialize tests
-	 */
-	@Test
-	public void initializetestnotReturningNull() {
-		API_Interface api = new API();
-		assertNotNull(api.initialize());
-	}
-	@Test
-	public void initializetestnotReturningFalse() {
-		API_Interface api = new API();
-		assertSame(api.initialize(), true);
-	}
-	/**
 	 * authenticate_user negative tests
 	 */
 	@Test
