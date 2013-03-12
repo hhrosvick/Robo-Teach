@@ -3,6 +3,9 @@ package api;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.Map;
+import java.util.Vector;
+
+import javax.swing.ImageIcon;
 
 import casa.CASAProcess;
 import casa.ProcessOptions;
@@ -105,6 +108,26 @@ public class API implements API_Interface {
 	public Map<Integer, Map<String, String>> getAllUserProgress(){
 		
 		return null;
+	}
+	
+	@Override
+	public Vector<Integer> getAllUserIDs(){
+		
+		return null;
+	}
+	
+	@Override
+	public ImageIcon getLesson(int Chapter, int Lesson){
+		return null;
+	}
+	
+	public void setUserChapter(int UserID, int progress){
+		
+	}
+	
+
+	public void setUserChallenge(int UserID, int progress){
+		
 	}
 
 	/*

@@ -3,6 +3,8 @@ package api;
 import java.util.Map;
 import java.util.Vector;
 
+import javax.swing.ImageIcon;
+
 public interface API_Interface {
 	
 
@@ -80,6 +82,28 @@ public interface API_Interface {
 	 * @return Vector of user ids.
 	 */
 	public Vector<Integer> getAllUserIDs();
+	
+	
+	/**
+	 * Returns an ImageIcon object for the specified chapter and lesson.
+	 * @param Chapter
+	 * @param Lesson
+	 * @return the ImageIcon object
+	 */
+	public ImageIcon getLesson(int Chapter, int Lesson);
+	
+	/**
+	 * Sets the chapter progress for the user with specified UserID.
+	 * @param progress the new progress number
+	 */
+	public void setUserChapter(int UserID, int progress);
+	
+	/**
+	 * Sets the challenge progress for the user with specified UserID.
+	 * @param progress the new progress number
+	 */
+	public void setUserChallenge(int UserID, int progress);
+	
 	
 	
 	/*
