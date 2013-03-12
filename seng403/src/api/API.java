@@ -2,6 +2,7 @@ package api;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
 
@@ -89,45 +90,107 @@ public class API implements API_Interface {
 	
 	@Override
 	public int authenticate_user(String user_name, String password) {
+		
+		// TODO Add actual database functions.
 		return Authenticator.auth(user_name, password);
 	}
 	
 	@Override
 	public int getUserType(int UserID){
 		
-		return 0;
+		// TODO Add actual database functions.
+		if(UserID == 0)
+			return 1;
+		else
+			return 2;
 	}
 	
 	@Override
 	public Map<String, String> getUserProgress(int UserID){
 		
-		return null;
+		// TODO Add actual database functions.
+		Map<String,String> m = new HashMap<String, String>();
+		
+		if(UserID == 111111){
+			m.put("id","111111");
+			m.put("name","Alice");
+			m.put("chapter","3");
+			m.put("challenge","1");
+			m.put("avgchapter","2.5");
+			m.put("avgchallenge","1.5");
+		}
+		else if(UserID == 222222){
+			m.put("id","111111");
+			m.put("name","Bob");
+			m.put("chapter","2");
+			m.put("challenge","2");
+			m.put("avgchapter","2.5");
+			m.put("avgchallenge","1.5");
+		}
+		else {
+			m.put("id","000000");
+			m.put("name","average");
+			m.put("chapter","0");
+			m.put("challenge","0");
+			m.put("avgchapter","2.5");
+			m.put("avgchallenge","1.5");
+		}
+		
+		return m;
 	}
 	
 	@Override
 	public Map<Integer, Map<String, String>> getAllUserProgress(){
 		
-		return null;
+		// TODO Add actual database functions.
+		Map<Integer, Map<String,String>> m = new HashMap<Integer, Map<String, String>>();
+		Map<String,String> a = new HashMap<String, String>();
+		Map<String,String> b = new HashMap<String, String>();
+		Map<String,String> c = new HashMap<String, String>();
+		
+		a.put("name","Alice");
+		a.put("chapter","3");
+		a.put("challenge","1");
+	
+		b.put("name","Bob");
+		b.put("chapter","2");
+		b.put("challenge","2");
+
+		c.put("name","average");
+		c.put("chapter","2.5");
+		c.put("challenge","1.5");
+		
+		m.put(111111, a);
+		m.put(222222, b);
+		m.put(0, c);
+		
+		return m;
 	}
 	
 	@Override
 	public Vector<Integer> getAllUserIDs(){
 		
-		return null;
+		// TODO Add actual database functions.
+		Vector<Integer> v = new Vector<Integer>();
+		v.add(111111);
+		v.add(222222);
+			
+		return v;
 	}
 	
 	@Override
 	public ImageIcon getLesson(int Chapter, int Lesson){
+		// TODO Complete image retrieval.
 		return null;
 	}
 	
 	public void setUserChapter(int UserID, int progress){
-		
+		// TODO Add setter functions.
 	}
 	
 
 	public void setUserChallenge(int UserID, int progress){
-		
+		// TODO Add setter functions.
 	}
 
 	/*
