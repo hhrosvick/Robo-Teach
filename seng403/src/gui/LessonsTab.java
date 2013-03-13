@@ -32,6 +32,14 @@ public class LessonsTab {
 	private int Chapter;
 	private int Lesson;
 	private boolean LessonSelected;
+	private final int L1=11;
+	private final int L2=8;
+	private final int L3=15;
+	private final int L4=15;
+	private final int L5=10;
+	private final int L6=6;
+	private final int L7=9;
+	private final int L8=5;
 
 	/**
 	 * Create the application.
@@ -133,6 +141,10 @@ public class LessonsTab {
 					node_1 = new DefaultMutableTreeNode("Chapter 3");
 						node_1.add(new DefaultMutableTreeNode("Lesson V"));
 						node_1.add(new DefaultMutableTreeNode("Lesson VI"));
+					add(node_1);
+					node_1 = new DefaultMutableTreeNode("Chapter 4");
+						node_1.add(new DefaultMutableTreeNode("Lesson VII"));
+						node_1.add(new DefaultMutableTreeNode("Lesson VIII"));
 					add(node_1);
 				}
 			}
