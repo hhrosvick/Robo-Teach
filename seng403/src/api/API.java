@@ -20,10 +20,17 @@ public class API implements API_Interface {
 	 * CASA Object variables
 	 */
 	private CASAProcess CASA = null;
+	@SuppressWarnings("unused")
 	private TransientAgent Environment = null;
 	private AbstractRobot Robot = null;
 	private AgentUI UI = null;
 		
+	/*
+	 * User and Database Information
+	 */
+	private int UserID;
+	private Database DB;
+	
 	/*
 	 * Option variables
 	 */
@@ -35,7 +42,7 @@ public class API implements API_Interface {
 	/*
 	 *  TESTING MAIN... SHOULD NOT BE USED IN PRODUCTION
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		System.err.println("API runtime testing function called...");
 		API api = new API();
@@ -51,9 +58,13 @@ public class API implements API_Interface {
 	
 	/**
 	 * Constructor. Calls initialize() on itself.
+	 * @throws Exception 
 	 */
-	public API() {
-		this.initialize();
+	public API() throws Exception {
+		if(this.initialize() == false)
+		{
+			throw new Exception("API Initialization Failed.");
+		}
 	}
 	
 	/**
@@ -75,6 +86,8 @@ public class API implements API_Interface {
 			
 			UI = new StandardOutAgentUI();
 			
+			DB = Database.getInstance();
+						
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -91,14 +104,20 @@ public class API implements API_Interface {
 	@Override
 	public int authenticate_user(String user_name, String password) {
 		
-		// TODO Add actual database functions.
-		return Authenticator.auth(user_name, password);
+		// TODO Database functions as needed.
+		UserID = Authenticator.auth(user_name, password);
+		
+		// Check is the user exists in the database, create an entry if not.
+		
+		return UserID;
 	}
 	
 	@Override
 	public int getUserType(int UserID){
 		
 		// TODO Add actual database functions.
+		
+		// FAKED OUTPUT
 		if(UserID == 0)
 			return 1;
 		else
@@ -109,6 +128,8 @@ public class API implements API_Interface {
 	public Map<String, String> getUserProgress(int UserID){
 		
 		// TODO Add actual database functions.
+		
+		// FAKED OUTPUT
 		Map<String,String> m = new HashMap<String, String>();
 		
 		if(UserID == 111111){
@@ -143,6 +164,8 @@ public class API implements API_Interface {
 	public Map<Integer, Map<String, String>> getAllUserProgress(){
 		
 		// TODO Add actual database functions.
+		
+		// FAKED OUTPUT
 		Map<Integer, Map<String,String>> m = new HashMap<Integer, Map<String, String>>();
 		Map<String,String> a = new HashMap<String, String>();
 		Map<String,String> b = new HashMap<String, String>();
@@ -171,6 +194,8 @@ public class API implements API_Interface {
 	public Vector<Integer> getAllUserIDs(){
 		
 		// TODO Add actual database functions.
+		
+		// FAKED OUTPUT
 		Vector<Integer> v = new Vector<Integer>();
 		v.add(111111);
 		v.add(222222);
