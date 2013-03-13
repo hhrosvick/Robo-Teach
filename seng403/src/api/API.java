@@ -104,7 +104,7 @@ public class API implements API_Interface {
 	@Override
 	public int authenticate_user(String user_name, String password) {
 		
-		// TODO Database functions as needed.
+		// TODO ITER 2: Database functions as needed.
 		UserID = Authenticator.auth(user_name, password);
 		
 		// Check is the user exists in the database, create an entry if not.
@@ -115,7 +115,7 @@ public class API implements API_Interface {
 	@Override
 	public int getUserType(int UserID){
 		
-		// TODO Add actual database functions.
+		// TODO ITER 2: Add actual database functions.
 		
 		// FAKED OUTPUT
 		if(UserID == 0)
@@ -127,7 +127,7 @@ public class API implements API_Interface {
 	@Override
 	public Map<String, String> getUserProgress(int UserID){
 		
-		// TODO Add actual database functions.
+		// TODO ITER 2: Add actual database functions.
 		
 		// FAKED OUTPUT
 		Map<String,String> m = new HashMap<String, String>();
@@ -163,7 +163,7 @@ public class API implements API_Interface {
 	@Override
 	public Map<Integer, Map<String, String>> getAllUserProgress(){
 		
-		// TODO Add actual database functions.
+		// TODO ITER 2: Add actual database functions.
 		
 		// FAKED OUTPUT
 		Map<Integer, Map<String,String>> m = new HashMap<Integer, Map<String, String>>();
@@ -193,7 +193,7 @@ public class API implements API_Interface {
 	@Override
 	public Vector<Integer> getAllUserIDs(){
 		
-		// TODO Add actual database functions.
+		// TODO ITER 2: Add actual database functions.
 		
 		// FAKED OUTPUT
 		Vector<Integer> v = new Vector<Integer>();
@@ -205,17 +205,17 @@ public class API implements API_Interface {
 	
 	@Override
 	public ImageIcon getLesson(int Chapter, int Lesson){
-		// TODO Complete image retrieval.
+		// TODO ITER 2: Complete image retrieval.
 		return null;
 	}
 	
 	public void setUserChapter(int UserID, int progress){
-		// TODO Add setter functions.
+		// TODO ITER 2: Add setter functions.
 	}
 	
 
 	public void setUserChallenge(int UserID, int progress){
-		// TODO Add setter functions.
+		// TODO ITER 2: Add setter functions.
 	}
 
 	/*

@@ -16,6 +16,7 @@ public class Database {
 	private static final String CONNECTION_PASSWORD = "fB7%gH8*"; 
 	private static final String CONNECTION_DATABASE = "sql24765"; // This is also the user name
 	
+	// TODO ITER 2: Setup database and create tables.
 	
 	/**
 	 * Private constructor
@@ -41,7 +42,7 @@ public class Database {
 	 * Connects to the database at CONNECTION_LOCATION
 	 */
 	private void connect(){
-		// TODO Connect to database at CONNECTION_LOCATION
+		// TODO ITER 2: Connect to database at CONNECTION_LOCATION
 		
 		/*
 		 * CURRENT INFORMATION:
@@ -57,7 +58,7 @@ public class Database {
 	 */
 	public Object query(String query){
 		
-		// TODO Query the database with String (after cleaning input), and return the result.
+		// TODO ITER 2: Query the database with String (after cleaning input), and return the result.
 		// NOTE: this does not necessarily need to return an object file. we can map it here as well. 
 		
 		return null;
@@ -65,7 +66,7 @@ public class Database {
 	
 	public void close(){
 		
-		// TODO Disconnect the database, then destroy the instance.
+		// TODO ITER 2: Disconnect the database, then destroy the instance.
 		DB = null;
 	}
 }
