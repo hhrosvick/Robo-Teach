@@ -34,7 +34,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.Vector;
 
-public class GradesTab {
+public class GradesTab 
+{
 
 	private JPanel GradesTab;
 	private JTextField SearchBox;
