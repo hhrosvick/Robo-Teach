@@ -45,7 +45,7 @@ public class GradesTab {
 	private boolean sName = false;
 	private String[][] sortedID;
 	private boolean sID = false;
-	private final JButton btnNewButton = new JButton("New button");
+	private final JButton SortByNameButton = new JButton("New button");
 	
 	public GradesTab() 
 	{
@@ -145,25 +145,31 @@ public class GradesTab {
 				table.setModel(sc);
 			}
 		});
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		GradesTab.add(btnNewButton, "2, 10");
 		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton SortByNameButton = new JButton("Sort by Name");
+		SortByNameButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		GradesTab.add(btnNewButton_1, "2, 12");
+		GradesTab.add(SortByNameButton, "2, 10");
 		
-		JButton btnNewButton_2 = new JButton("New button");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton SortByIDButton = new JButton("Sort by ID");
+		SortByIDButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		GradesTab.add(btnNewButton_2, "2, 14");
+		GradesTab.add(SortByIDButton, "2, 12");
+		
+		JButton RefreshTableButton = new JButton("Refresh");
+		RefreshTableButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				refreshTable();
+				String[] cn = {"Student ID", "Student Name", "Chapters Completed", "Challenges Completed"};
+				DefaultTableModel sc = new DefaultTableModel(data, cn);
+				table.setModel(sc);
+			}
+		});
+		GradesTab.add(RefreshTableButton, "2, 14");
 		
 		JScrollPane scrollPane = new JScrollPane();
 		GradesTab.add(scrollPane, "4, 2, 3, 15, fill, fill");
@@ -178,10 +184,7 @@ public class GradesTab {
 
 	protected void refreshTable() 
 	{
-		String[] cn = {"Student ID", "Student Name", "Chapters Competed", "Challenges Completed" };
-	    DefaultTableModel m = new DefaultTableModel(this.data, cn);
-	    table.setModel(m);
-		
+
 	}
 
 	protected void updateTable(String s) 
@@ -232,7 +235,7 @@ public class GradesTab {
 		for(int i = 0; i < data.length; i++)
 			for(int j = 0; j < 4; j++)
 				sortedChallenges[i][j] = data[i][j];
-		for(int i = 1; i < sortedLessons.length; i++)
+		for(int i = 1; i < sortedChallenges.length; i++)
 		{
 			for(int j = i; j < sortedChallenges.length-1; j++)
 			{
@@ -245,5 +248,61 @@ public class GradesTab {
 			}
 		}
 	}
-
+	protected void SortName()
+	{
+		sortedName = new String[data.length][4];
+		for(int i = 0; i < data.length; i++)
+			for(int j = 0; j < 4; j++)
+				sortedName[i][j] = data[i][j];
+		for(int i = 1; i < sortedName.length; i++)
+		{
+			for(int j = i; j < sortedName.length-1; j++)
+			{
+				if(Integer.parseInt(sortedName[j][2]) < Integer.parseInt(sortedName[j+1][2]))
+				{
+					String[] temp = sortedName[j];
+					sortedName[j] = sortedName[j+1];
+					sortedName[j+1] = temp;
+				}
+			}
+		}
+	}
+	protected void SortID()
+	{
+		sortedID = new String[data.length][4];
+		for(int i = 0; i < data.length; i++)
+			for(int j = 0; j < 4; j++)
+				sortedID[i][j] = data[i][j];
+		for(int i = 1; i < sortedID.length; i++)
+		{
+			for(int j = i; j < sortedID.length-1; j++)
+			{
+				if(Integer.parseInt(sortedID[j][2]) < Integer.parseInt(sortedID[j+1][2]))
+				{
+					String[] temp = sortedID[j];
+					sortedID[j] = sortedID[j+1];
+					sortedID[j+1] = temp;
+				}
+			}
+		}
+	}
+	protected void Sort(String[][] sortMatrix, int sortType)
+	{
+		sortMatrix = new String[data.length][4];
+		for(int i = 0; i < data.length; i++)
+			for(int j = 0; j < 4; j++)
+				sortMatrix[i][j] = data[i][j];
+		for(int i = 1; i < sortMatrix.length; i++)
+		{
+			for(int j = i; j < sortMatrix.length-1; j++)
+			{
+				if(Integer.parseInt(sortMatrix[j][sortType]) < Integer.parseInt(sortMatrix[j+1][sortType]))
+				{
+					String[] temp = sortMatrix[j];
+					sortMatrix[j] = sortMatrix[j+1];
+					sortMatrix[j+1] = temp;
+				}
+			}
+		}
+	}
 }
