@@ -1,5 +1,7 @@
 package api;
 
+import java.sql.*;
+
 /**
  * Singleton class to ensure only one database connection exists.
  * @author Henry
@@ -15,6 +17,8 @@ public class Database {
 	private static final String CONNECTION_LOCATION = "sql2.freemysqlhosting.net";
 	private static final String CONNECTION_PASSWORD = "fB7%gH8*"; 
 	private static final String CONNECTION_DATABASE = "sql24765"; // This is also the user name
+	
+	private static Connection con = null;
 	
 	// TODO ITER 2: Setup database and create tables.
 	
@@ -40,15 +44,21 @@ public class Database {
 	
 	/**
 	 * Connects to the database at CONNECTION_LOCATION
+	 * @throws Exception 
 	 */
-	private void connect(){
+	private void connect() throws Exception{
 		// TODO ITER 2: Connect to database at CONNECTION_LOCATION
 		
-		/*
-		 * CURRENT INFORMATION:
-		 * Host: 
-		 * 
-		 */
+		try {
+			con = DriverManager.getConnection(CONNECTION_LOCATION, CONNECTION_DATABASE, CONNECTION_PASSWORD);
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new Exception("Database connection failed: " + e.getMessage());
+		}
+		
 	}
 	
 	/**
