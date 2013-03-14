@@ -40,12 +40,7 @@ public class GradesTab {
 	private JTextField SearchBox;
 	private JTable table;
 	private String[] title = {"Student ID", "Student Name", "Chapters Completed", "Challenges Completed"}; 
-	private String[][] data = {
-			{"00000000", "Class Average", "1.5", "2"},	
-            {"10012345", "David Ryan", "1", "3"},
-            {"12345678", "Henry", "4", "3"},
-            {"87654321", "Marshall", "2", "1"},
-            {"12312399", "Bob", "5", "0"}};
+	private String[][] data;
 	private String[][] d2;
 	
 	private String[][] sortedLessons;
@@ -66,6 +61,7 @@ public class GradesTab {
 		{
 			api = new API();
 		} catch (Exception e) {}
+		refreshTable();
 		initialize();
 	}
 
@@ -186,7 +182,6 @@ public class GradesTab {
 		RefreshTableButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				refreshTable();
-				String[] cn = {"Student ID", "Student Name", "Chapters Completed", "Challenges Completed"};
 				DefaultTableModel sc = new DefaultTableModel(data, title);
 				table.setModel(sc);
 			}
@@ -205,27 +200,23 @@ public class GradesTab {
 
 	protected void refreshTable() 
 	{
-		
 		Map<Integer, Map<String, String>> progress = api.getAllUserProgress();
-		Object[] arr = (Object[]) ((Map<Integer, Map<String, String>>) progress).values().toArray();
 		
 		Vector<Integer> userData = api.getAllUserIDs();
 		Object[] users = userData.toArray();
-		
-		
-		for(int i = 0; i < users.length; i++)
-			System.out.println(users[i].toString() + progress.get(users[i]).toString());
 		
 		Object name = "name";
 		Object chapter = "chapter";
 		Object challenge = "challenge";
 		data = new String[users.length+1][4];
-		/*
-		data[0][0] = "000000";
-		data[0][1] = "Class Average";
-		data[0][2] = progress.get(users[0]).remove("avgchapter");
-		data[0][3] = progress.get(users[0]).remove("avgchallenge");
-		*/
+
+		Map<String, String> average = api.getUserProgress(000000);
+		
+		data[0][0] = average.get("id");
+		data[0][1] = average.get("name");
+		data[0][2] = average.get("avgchapter");
+		data[0][3] = average.get("avgchallenge");
+
 		for(int i = 0; i < users.length; i++)
 		{
 			data[i+1][0] = users[i].toString();
@@ -233,11 +224,6 @@ public class GradesTab {
 			data[i+1][2] = progress.get(users[i]).remove(chapter);
 			data[i+1][3] = progress.get(users[i]).remove(challenge);
 		}
-		//(progress.get(arr2[0]).remove(key));
-		for(int i = 0; i < data.length; i++)
-			for(int j = 0; j < 4; j++)
-				System.out.println(data[i][j]);
-		
 	}
 
 	protected void fullTable() 
