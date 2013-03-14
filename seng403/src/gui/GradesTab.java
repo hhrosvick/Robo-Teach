@@ -30,12 +30,13 @@ public class GradesTab {
 	private JPanel GradesTab;
 	private JTextField SearchBox;
 	private JTable table;
+	private String[] title = {"Student ID", "Student Name", "Chapters Completed", "Challenges Completed"}; 
 	private String[][] data = {
 			{"00000000", "Class Average", "1.5", "2"},	
-            {"10012345", "David Ryan", "3", "3"},
-            {"12345678", "Henry", "0", "3"},
+            {"10012345", "David Ryan", "1", "3"},
+            {"12345678", "Henry", "4", "3"},
             {"87654321", "Marshall", "2", "1"},
-            {"12312399", "Bob", "1", "0"}};
+            {"12312399", "Bob", "5", "0"}};
 	private String[][] d2;
 	private String[][] sortedLessons;
 	private boolean sLessons = false;
@@ -45,7 +46,6 @@ public class GradesTab {
 	private boolean sName = false;
 	private String[][] sortedID;
 	private boolean sID = false;
-	private final JButton SortByNameButton = new JButton("New button");
 	
 	public GradesTab() 
 	{
@@ -97,7 +97,7 @@ public class GradesTab {
 					updateTable(s);
 				}
 				else
-					refreshTable();
+					fullTable();
 			}
 			@Override
 			public void keyReleased(KeyEvent e) {
@@ -107,7 +107,7 @@ public class GradesTab {
 					updateTable(s);
 				}
 				else
-					refreshTable();
+					fullTable();
 			}
 			@Override
 			public void keyPressed(KeyEvent e) {
@@ -117,38 +117,40 @@ public class GradesTab {
 					updateTable(s);
 				}
 				else
-					refreshTable();
+					fullTable();
 			}
 		});
 		SearchBox.setColumns(10);
 		
 		JButton SortLessons = new JButton("Sort by Lessons");
-		GradesTab.add(SortLessons, "2, 6");
 		SortLessons.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(!sLessons)
 					SortLessons();
-				String[] cn = {"Student ID", "Student Name", "Chapters Completed", "Challenges Completed"};
-				DefaultTableModel sl = new DefaultTableModel(sortedLessons, cn);
-				table.setModel(sl);
+				DefaultTableModel tm = new DefaultTableModel(sortedLessons, title);
+				table.setModel(tm);
 			}
 		});
+		GradesTab.add(SortLessons, "2, 6");
 		
 		JButton SortChallenges = new JButton("Sort by Challenges");
-		GradesTab.add(SortChallenges, "2, 8");
 		SortChallenges.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(!sChallenges)
 					SortChallenges();
-				String[] cn = {"Student ID", "Student Name", "Chapters Completed", "Challenges Completed"};
-				DefaultTableModel sc = new DefaultTableModel(sortedChallenges, cn);
-				table.setModel(sc);
+				DefaultTableModel tm = new DefaultTableModel(sortedChallenges, title);
+				table.setModel(tm);
 			}
 		});
+		GradesTab.add(SortChallenges, "2, 8");
 		
 		JButton SortByNameButton = new JButton("Sort by Name");
 		SortByNameButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(!sName)
+					SortName();
+				DefaultTableModel tm = new DefaultTableModel(sortedName, title);
+				table.setModel(tm);
 			}
 		});
 		GradesTab.add(SortByNameButton, "2, 10");
@@ -156,6 +158,10 @@ public class GradesTab {
 		JButton SortByIDButton = new JButton("Sort by ID");
 		SortByIDButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(!sID)
+					SortID();
+				DefaultTableModel tm = new DefaultTableModel(sortedID, title);
+				table.setModel(tm);
 			}
 		});
 		GradesTab.add(SortByIDButton, "2, 12");
@@ -165,7 +171,7 @@ public class GradesTab {
 			public void actionPerformed(ActionEvent e) {
 				refreshTable();
 				String[] cn = {"Student ID", "Student Name", "Chapters Completed", "Challenges Completed"};
-				DefaultTableModel sc = new DefaultTableModel(data, cn);
+				DefaultTableModel sc = new DefaultTableModel(data, title);
 				table.setModel(sc);
 			}
 		});
@@ -174,17 +180,22 @@ public class GradesTab {
 		JScrollPane scrollPane = new JScrollPane();
 		GradesTab.add(scrollPane, "4, 2, 3, 15, fill, fill");
 		
-		String[] columnNames = {"Student ID", "Student Name", "Chapters Competed", "Challenges Completed" };
-	    DefaultTableModel model = new DefaultTableModel(data, columnNames);
+	    DefaultTableModel model = new DefaultTableModel(data, title);
 	    table = new JTable(model);
 		scrollPane.setViewportView(table);
 		
 		return GradesTab;
 	}
 
-	protected void refreshTable() 
-	{
+	protected void refreshTable() {
+		// TODO Auto-generated method stub
+		
+	}
 
+	protected void fullTable() 
+	{
+	    DefaultTableModel model = new DefaultTableModel(data, title);
+	    table.setModel(model);
 	}
 
 	protected void updateTable(String s) 
@@ -216,15 +227,15 @@ public class GradesTab {
 		for(int i = 0; i < data.length; i++)
 			for(int j = 0; j < 4; j++)
 				sortedLessons[i][j] = data[i][j];
-		for(int i = 1; i < sortedLessons.length; i++)
+		for(int i = 0; i < sortedLessons.length; i++)
 		{
-			for(int j = i; j < sortedLessons.length-1; j++)
+			for(int j = 1; j < sortedLessons.length-i; j++)
 			{
-				if(Integer.parseInt(sortedLessons[j][2]) < Integer.parseInt(sortedLessons[j+1][2]))
+				if(Float.parseFloat(sortedLessons[j-1][2]) < Float.parseFloat(sortedLessons[j][2]))
 				{
-					String[] temp = sortedLessons[j];
-					sortedLessons[j] = sortedLessons[j+1];
-					sortedLessons[j+1] = temp;
+					String[] temp = sortedLessons[j-1];
+					sortedLessons[j-1] = sortedLessons[j];
+					sortedLessons[j] = temp;
 				}
 			}
 		}
@@ -235,15 +246,15 @@ public class GradesTab {
 		for(int i = 0; i < data.length; i++)
 			for(int j = 0; j < 4; j++)
 				sortedChallenges[i][j] = data[i][j];
-		for(int i = 1; i < sortedChallenges.length; i++)
+		for(int i = 0; i < sortedChallenges.length; i++)
 		{
-			for(int j = i; j < sortedChallenges.length-1; j++)
+			for(int j = 1; j < sortedChallenges.length-i; j++)
 			{
-				if(Integer.parseInt(sortedChallenges[j][3]) < Integer.parseInt(sortedChallenges[j+1][3]))
+				if(Float.parseFloat(sortedChallenges[j-1][3]) < Float.parseFloat(sortedChallenges[j][3]))
 				{
-					String[] temp = sortedChallenges[j];
-					sortedChallenges[j] = sortedChallenges[j+1];
-					sortedChallenges[j+1] = temp;
+					String[] temp = sortedChallenges[j-1];
+					sortedChallenges[j-1] = sortedChallenges[j];
+					sortedChallenges[j] = temp;
 				}
 			}
 		}
@@ -254,15 +265,15 @@ public class GradesTab {
 		for(int i = 0; i < data.length; i++)
 			for(int j = 0; j < 4; j++)
 				sortedName[i][j] = data[i][j];
-		for(int i = 1; i < sortedName.length; i++)
+		for(int i = 0; i < sortedName.length; i++)
 		{
-			for(int j = i; j < sortedName.length-1; j++)
+			for(int j = 1; j < sortedName.length-i; j++)
 			{
-				if(Integer.parseInt(sortedName[j][2]) < Integer.parseInt(sortedName[j+1][2]))
+				if((sortedName[j-1][1]).compareTo(sortedName[j][1]) > 0)
 				{
-					String[] temp = sortedName[j];
-					sortedName[j] = sortedName[j+1];
-					sortedName[j+1] = temp;
+					String[] temp = sortedName[j-1];
+					sortedName[j-1] = sortedName[j];
+					sortedName[j] = temp;
 				}
 			}
 		}
@@ -273,34 +284,15 @@ public class GradesTab {
 		for(int i = 0; i < data.length; i++)
 			for(int j = 0; j < 4; j++)
 				sortedID[i][j] = data[i][j];
-		for(int i = 1; i < sortedID.length; i++)
+		for(int i = 0; i < sortedID.length; i++)
 		{
-			for(int j = i; j < sortedID.length-1; j++)
+			for(int j = 1; j < sortedID.length-i; j++)
 			{
-				if(Integer.parseInt(sortedID[j][2]) < Integer.parseInt(sortedID[j+1][2]))
+				if((sortedID[j-1][0]).compareTo(sortedID[j][0]) > 0)
 				{
-					String[] temp = sortedID[j];
-					sortedID[j] = sortedID[j+1];
-					sortedID[j+1] = temp;
-				}
-			}
-		}
-	}
-	protected void Sort(String[][] sortMatrix, int sortType)
-	{
-		sortMatrix = new String[data.length][4];
-		for(int i = 0; i < data.length; i++)
-			for(int j = 0; j < 4; j++)
-				sortMatrix[i][j] = data[i][j];
-		for(int i = 1; i < sortMatrix.length; i++)
-		{
-			for(int j = i; j < sortMatrix.length-1; j++)
-			{
-				if(Integer.parseInt(sortMatrix[j][sortType]) < Integer.parseInt(sortMatrix[j+1][sortType]))
-				{
-					String[] temp = sortMatrix[j];
-					sortMatrix[j] = sortMatrix[j+1];
-					sortMatrix[j+1] = temp;
+					String[] temp = sortedID[j-1];
+					sortedID[j-1] = sortedID[j];
+					sortedID[j] = temp;
 				}
 			}
 		}
