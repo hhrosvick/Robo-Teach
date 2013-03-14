@@ -209,6 +209,12 @@ public class API implements API_Interface {
 		return null;
 	}
 	
+	@Override
+	public ImageIcon getChallenge(int tier, int number){
+		// TODO ITER 2: Complete image retrieval.
+		return null;
+	}
+	
 	public void setUserChapter(int UserID, int progress){
 		// TODO ITER 2: Add setter functions.
 	}

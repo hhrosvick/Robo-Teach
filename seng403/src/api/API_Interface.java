@@ -94,6 +94,14 @@ public interface API_Interface {
 	public ImageIcon getLesson(int Chapter, int Lesson);
 	
 	/**
+	 * Returns an ImageIcon object for the specified challenge.
+	 * @param tier
+	 * @param number
+	 * @return the ImageIcon object
+	 */
+	public ImageIcon getChallenge(int tier, int number);
+	
+	/**
 	 * Sets the chapter progress for the user with specified UserID.
 	 * @param progress the new progress number
 	 */
