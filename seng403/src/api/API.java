@@ -74,6 +74,7 @@ public class API implements API_Interface {
 	 * @return true if the API is initialized, false if there is an error
 	 */
 	private boolean initialize()	{
+		/*
 		try {
 			
 			CASA = CASAProcess.getInstance();
@@ -93,6 +94,8 @@ public class API implements API_Interface {
 			e.printStackTrace();
 			return false;
 		}
+		*/
+		return true;
 	}
 
 	/*
@@ -141,7 +144,7 @@ public class API implements API_Interface {
 			m.put("avgchallenge","1.5");
 		}
 		else if(UserID == 222222){
-			m.put("id","111111");
+			m.put("id","222222");
 			m.put("name","Bob");
 			m.put("chapter","2");
 			m.put("challenge","2");

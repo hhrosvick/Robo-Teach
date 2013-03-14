@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+
+import api.API;
+import api.API_Interface;
+
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
@@ -24,6 +28,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.Vector;
 
 public class GradesTab {
 
@@ -38,6 +47,7 @@ public class GradesTab {
             {"87654321", "Marshall", "2", "1"},
             {"12312399", "Bob", "5", "0"}};
 	private String[][] d2;
+	
 	private String[][] sortedLessons;
 	private boolean sLessons = false;
 	private String[][] sortedChallenges;
@@ -47,9 +57,15 @@ public class GradesTab {
 	private String[][] sortedID;
 	private boolean sID = false;
 	
+	private API_Interface api;
+	
 	public GradesTab() 
 	{
 		GradesTab = new JPanel();
+		try 
+		{
+			api = new API();
+		} catch (Exception e) {}
 		initialize();
 	}
 
@@ -187,8 +203,40 @@ public class GradesTab {
 		return GradesTab;
 	}
 
-	protected void refreshTable() {
-		// TODO Auto-generated method stub
+	protected void refreshTable() 
+	{
+		
+		Map<Integer, Map<String, String>> progress = api.getAllUserProgress();
+		Object[] arr = (Object[]) ((Map<Integer, Map<String, String>>) progress).values().toArray();
+		
+		Vector<Integer> userData = api.getAllUserIDs();
+		Object[] users = userData.toArray();
+		
+		
+		for(int i = 0; i < users.length; i++)
+			System.out.println(users[i].toString() + progress.get(users[i]).toString());
+		
+		Object name = "name";
+		Object chapter = "chapter";
+		Object challenge = "challenge";
+		data = new String[users.length+1][4];
+		/*
+		data[0][0] = "000000";
+		data[0][1] = "Class Average";
+		data[0][2] = progress.get(users[0]).remove("avgchapter");
+		data[0][3] = progress.get(users[0]).remove("avgchallenge");
+		*/
+		for(int i = 0; i < users.length; i++)
+		{
+			data[i+1][0] = users[i].toString();
+			data[i+1][1] = progress.get(users[i]).remove(name);
+			data[i+1][2] = progress.get(users[i]).remove(chapter);
+			data[i+1][3] = progress.get(users[i]).remove(challenge);
+		}
+		//(progress.get(arr2[0]).remove(key));
+		for(int i = 0; i < data.length; i++)
+			for(int j = 0; j < 4; j++)
+				System.out.println(data[i][j]);
 		
 	}
 
