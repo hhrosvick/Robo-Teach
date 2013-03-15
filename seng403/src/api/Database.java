@@ -47,13 +47,8 @@ public class Database {
 	 * @throws Exception 
 	 */
 	private void connect() throws Exception{
-		// TODO ITER 2: Connect to database at CONNECTION_LOCATION
-		
 		try {
 			con = DriverManager.getConnection(CONNECTION_LOCATION, CONNECTION_DATABASE, CONNECTION_PASSWORD);
-			
-			
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new Exception("Database connection failed: " + e.getMessage());
@@ -69,8 +64,11 @@ public class Database {
 	public ResultSet query(String query){
 		
 		// TODO ITER 2: Query the database with String (after cleaning input), and return the result.
-		// NOTE: this does not necessarily need to return an object file. we can map it here as well. 
 		
+		// Take a look at the 'java.sql.*' javadocs online.
+		// Basically, create a PreparedStatement using con.prepareStatement("query")
+		// and return the executeQuery() result
+
 		return null;
 	}
 	
