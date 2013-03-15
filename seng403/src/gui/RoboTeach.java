@@ -280,4 +280,8 @@ public class RoboTeach{
 		GradesTab1 = newGradesTab.initialize();
 		TabPage.addTab("Progress", null, GradesTab1, null);
 	}
+	public void setUserID(int id)
+	{
+		UserID = id;
+	}
 }

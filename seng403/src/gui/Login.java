@@ -75,6 +75,7 @@ public class Login extends JFrame {
 				if(uname.equals("test") && pass.equals("1234")) {
 					//enable main frame now
 					frame.setEnabled(true);
+					frame.setUserID(Integer.parseInt(uname));
 					dispose();
 				} 
 				else 
