@@ -36,7 +36,7 @@ public class LessonsTab {
 	/**
 	 * Create the application.
 	 */
-	public LessonsTab() 
+	public LessonsTab(int UserID) 
 	{
 		LessonsTab = new JPanel();
 		initialize();

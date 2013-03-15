@@ -1,51 +1,31 @@
 package gui;
 
 import java.awt.EventQueue;
-import javax.swing.text.Element;
 import javax.swing.JFrame;
-
-import casa.CASAProcess;
-import casa.Status;
-
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
-
 import javax.swing.JPanel;
 import java.awt.CardLayout;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JTextArea;
-import javax.swing.ScrollPaneConstants;
-
 import java.awt.Panel;
 import java.awt.BorderLayout;
-
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JCheckBox;
 import javax.swing.JScrollPane;
-import javax.swing.JTextPane;
-
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.TextArea;
-import java.awt.ScrollPane;
-import java.awt.Label;
-import java.awt.Scrollbar;
 import java.awt.Toolkit;
-
 
 public class RoboTeach{
 
 	private JFrame frmRoboteach;
+	private int UserID;
 
 	/**
 	 * Launch the application.
@@ -270,7 +250,7 @@ public class RoboTeach{
 * LessonsTab initialization and components
 ******************************************************************************************************************************************/	
 		JPanel LessonsTab1;
-		LessonsTab newLessonsTab = new LessonsTab();
+		LessonsTab newLessonsTab = new LessonsTab(UserID);
 		LessonsTab1 = newLessonsTab.initialize();
 		TabPage.addTab("Lessons", null, LessonsTab1, null);
 
@@ -288,7 +268,7 @@ public class RoboTeach{
 * ChallengeTab initialization and components
 ******************************************************************************************************************************************/			
 		JPanel ChallengeTab1;
-		ChallengesTab newChallengeTab = new ChallengesTab();
+		ChallengesTab newChallengeTab = new ChallengesTab(UserID);
 		ChallengeTab1 = newChallengeTab.initialize();
 		TabPage.addTab("Challenges", null, ChallengeTab1, null);
 		
@@ -296,7 +276,7 @@ public class RoboTeach{
 * ChallengeTab initialization and components
 ******************************************************************************************************************************************/			
 		JPanel GradesTab1;
-		GradesTab newGradesTab = new GradesTab();
+		GradesTab newGradesTab = new GradesTab(UserID);
 		GradesTab1 = newGradesTab.initialize();
 		TabPage.addTab("Progress", null, GradesTab1, null);
 	}

@@ -36,7 +36,7 @@ public class ChallengesTab {
 	/**
 	 * Create the application.
 	 */
-	public ChallengesTab() 
+	public ChallengesTab(int UserID) 
 	{
 		ChallengesTab = new JPanel();
 		initialize();

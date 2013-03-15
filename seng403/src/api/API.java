@@ -94,8 +94,8 @@ public class API implements API_Interface {
 			e.printStackTrace();
 			return false;
 		}
-		*/
-		return true;
+		
+		*/return true;
 	}
 
 	/*
@@ -153,7 +153,7 @@ public class API implements API_Interface {
 		}
 		else {
 			m.put("id","000000");
-			m.put("name","average");
+			m.put("name","Class Average");
 			m.put("chapter","0");
 			m.put("challenge","0");
 			m.put("avgchapter","2.5");

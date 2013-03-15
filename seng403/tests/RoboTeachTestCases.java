@@ -23,7 +23,7 @@ public class RoboTeachTestCases {
 	}
 	@Test
 	public void LessonsTabInitializationTest() {
-		LessonsTab lessonsTestTab = new LessonsTab();
+		LessonsTab lessonsTestTab = new LessonsTab(0);
 		assert(lessonsTestTab != null);
 	}
 	@Test

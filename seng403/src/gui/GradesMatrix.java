@@ -2,9 +2,6 @@ package gui;
 
 import java.util.Map;
 import java.util.Vector;
-
-import javax.swing.table.DefaultTableModel;
-
 import api.API;
 import api.API_Interface;
 
@@ -33,8 +30,26 @@ public class GradesMatrix
 			api = new API();
 		} catch (Exception e) {}
 		userID = id;
+		data = refreshMatrix();
 	}
-
+	public String[][] getMatrix()
+	{
+		
+		return data;
+		
+	}
+	public String[][] refreshMatrix()
+	{
+		
+		if(api.getUserType(userID) == 1)
+			createClassMatrix();
+		else
+			createStudentMatrix();
+		
+		sLessons = sChallenges = sName = sID = false;
+		return data;
+		
+	}
 	private void createStudentMatrix()
 	{
 		data = new String[2][4];
@@ -51,7 +66,6 @@ public class GradesMatrix
 		data[1][2] = userData.get("chapter");
 		data[1][3] = userData.get("challenge");
 	}
-	
 	private void createClassMatrix() 
 	{
 		Map<Integer, Map<String, String>> progress = api.getAllUserProgress();
@@ -84,12 +98,12 @@ public class GradesMatrix
 		int matches = 0;
 		int index = 0;
 		for(int i = 0; i < this.data.length; i++)
-			if((this.data[i][1].toLowerCase()).contains(s.toLowerCase()))
+			if((this.data[i][0].contains(s)) || (this.data[i][1].toLowerCase()).contains(s.toLowerCase()) || (this.data[i][2].contains(s)) || (this.data[i][3].contains(s)))
 				matches++;
 		this.d2 = new String[matches][4];
 		for(int i = 0; i < this.data.length; i++)
 		{
-			if((this.data[i][1].toLowerCase()).contains(s.toLowerCase()))
+			if((this.data[i][0].contains(s)) || (this.data[i][1].toLowerCase()).contains(s.toLowerCase()) || (this.data[i][2].contains(s)) || (this.data[i][3].contains(s)))
 			{
 				for(int j = 0; j < 4; j++)
 				{
@@ -102,81 +116,97 @@ public class GradesMatrix
 	}
 	public String[][] SortLessons()
 	{
-		sortedLessons = new String[data.length][4];
-		for(int i = 0; i < data.length; i++)
-			for(int j = 0; j < 4; j++)
-				sortedLessons[i][j] = data[i][j];
-		for(int i = 0; i < sortedLessons.length; i++)
+		if(!sLessons)
 		{
-			for(int j = 1; j < sortedLessons.length-i; j++)
+			sortedLessons = new String[data.length][4];
+			for(int i = 0; i < data.length; i++)
+				for(int j = 0; j < 4; j++)
+					sortedLessons[i][j] = data[i][j];
+			for(int i = 0; i < sortedLessons.length; i++)
 			{
-				if(Float.parseFloat(sortedLessons[j-1][2]) < Float.parseFloat(sortedLessons[j][2]))
+				for(int j = 1; j < sortedLessons.length-i; j++)
 				{
-					String[] temp = sortedLessons[j-1];
-					sortedLessons[j-1] = sortedLessons[j];
-					sortedLessons[j] = temp;
+					if(Float.parseFloat(sortedLessons[j-1][2]) < Float.parseFloat(sortedLessons[j][2]))
+					{
+						String[] temp = sortedLessons[j-1];
+						sortedLessons[j-1] = sortedLessons[j];
+						sortedLessons[j] = temp;
+					}
 				}
 			}
+			sLessons = true;
 		}
 		return sortedLessons;
 	}
 	public String[][] SortChallenges()
 	{
-		sortedChallenges = new String[data.length][4];
-		for(int i = 0; i < data.length; i++)
-			for(int j = 0; j < 4; j++)
-				sortedChallenges[i][j] = data[i][j];
-		for(int i = 0; i < sortedChallenges.length; i++)
+		if(!sChallenges)
 		{
-			for(int j = 1; j < sortedChallenges.length-i; j++)
+			sortedChallenges = new String[data.length][4];
+			for(int i = 0; i < data.length; i++)
+				for(int j = 0; j < 4; j++)
+					sortedChallenges[i][j] = data[i][j];
+			for(int i = 0; i < sortedChallenges.length; i++)
 			{
-				if(Float.parseFloat(sortedChallenges[j-1][3]) < Float.parseFloat(sortedChallenges[j][3]))
+				for(int j = 1; j < sortedChallenges.length-i; j++)
 				{
-					String[] temp = sortedChallenges[j-1];
-					sortedChallenges[j-1] = sortedChallenges[j];
-					sortedChallenges[j] = temp;
+					if(Float.parseFloat(sortedChallenges[j-1][3]) < Float.parseFloat(sortedChallenges[j][3]))
+					{
+						String[] temp = sortedChallenges[j-1];
+						sortedChallenges[j-1] = sortedChallenges[j];
+						sortedChallenges[j] = temp;
+					}
 				}
 			}
+			sChallenges = true;
 		}
 		return sortedChallenges;
 	}
 	public String[][] SortName()
 	{
-		sortedName = new String[data.length][4];
-		for(int i = 0; i < data.length; i++)
-			for(int j = 0; j < 4; j++)
-				sortedName[i][j] = data[i][j];
-		for(int i = 0; i < sortedName.length; i++)
+		if(!sName)
 		{
-			for(int j = 1; j < sortedName.length-i; j++)
+			sortedName = new String[data.length][4];
+			for(int i = 0; i < data.length; i++)
+				for(int j = 0; j < 4; j++)
+					sortedName[i][j] = data[i][j];
+			for(int i = 0; i < sortedName.length; i++)
 			{
-				if((sortedName[j-1][1]).compareTo(sortedName[j][1]) > 0)
+				for(int j = 1; j < sortedName.length-i; j++)
 				{
-					String[] temp = sortedName[j-1];
-					sortedName[j-1] = sortedName[j];
-					sortedName[j] = temp;
+					if((sortedName[j-1][1]).compareTo(sortedName[j][1]) > 0)
+					{
+						String[] temp = sortedName[j-1];
+						sortedName[j-1] = sortedName[j];
+						sortedName[j] = temp;
+					}
 				}
 			}
+			sName = true;
 		}
 		return sortedName;
 	}
 	public String[][] SortID()
 	{
-		sortedID = new String[data.length][4];
-		for(int i = 0; i < data.length; i++)
-			for(int j = 0; j < 4; j++)
-				sortedID[i][j] = data[i][j];
-		for(int i = 0; i < sortedID.length; i++)
+		if(!sID)
 		{
-			for(int j = 1; j < sortedID.length-i; j++)
+			sortedID = new String[data.length][4];
+			for(int i = 0; i < data.length; i++)
+				for(int j = 0; j < 4; j++)
+					sortedID[i][j] = data[i][j];
+			for(int i = 0; i < sortedID.length; i++)
 			{
-				if((sortedID[j-1][0]).compareTo(sortedID[j][0]) > 0)
+				for(int j = 1; j < sortedID.length-i; j++)
 				{
-					String[] temp = sortedID[j-1];
-					sortedID[j-1] = sortedID[j];
-					sortedID[j] = temp;
+					if((sortedID[j-1][0]).compareTo(sortedID[j][0]) > 0)
+					{
+						String[] temp = sortedID[j-1];
+						sortedID[j-1] = sortedID[j];
+						sortedID[j] = temp;
+					}
 				}
 			}
+			sID = true;
 		}
 		return sortedID;
 	}
