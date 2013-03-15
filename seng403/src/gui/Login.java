@@ -1,6 +1,10 @@
 package gui;
 
 import javax.swing.*;
+
+import api.API;
+import api.API_Interface;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -8,18 +12,28 @@ import java.awt.event.*;
 public class Login extends JFrame {
 
 	public static void main(String[] args) {
-		Login frameTable = new Login(new JFrame());
+		Login frameTable = new Login(new JFrame(), new RoboTeach());
 	}
 
+	API_Interface api = null;
+	int UserID;
 	JFrame frame;
+	RoboTeach myRobot;
 	JButton btnLogin = new JButton("Login");
 	JPanel panel = new JPanel();
 	JTextField userName = new JTextField(15);
 	JPasswordField password = new JPasswordField(15);
 	
-	Login(JFrame frame1){
+	Login(JFrame frame1, RoboTeach myProg) {
 		super("Login");
 		
+		myRobot = myProg;
+		try {
+			api = new API();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//to disable the main frame
 		frame = frame1;
 		frame.setEnabled(false);
@@ -71,16 +85,21 @@ public class Login extends JFrame {
 				String uname = userName.getText();
 				String pass = password.getText();
 				
+				UserID = api.authenticate_user(uname,pass);
+				
 				//CHECKING VALID USERNAME AND PASSWORD
-				if(uname.equals("test") && pass.equals("1234")) {
+				if(UserID != 0) {
 					//enable main frame now
 					frame.setEnabled(true);
-					frame.setUserID(Integer.parseInt(uname));
+					//main.setUserID(Integer.parseInt(uname));
+					
+					//temporary set up
+					//once API is done, should change to -> myRobot.setUserID(UserID);
+					myRobot.setUserID(222222);
 					dispose();
 				} 
 				else 
 				{
-					System.out.println("hello");
 					JOptionPane.showMessageDialog(panel,"Incorrect Username / Password!");
 					userName.setText("");
 					password.setText("");

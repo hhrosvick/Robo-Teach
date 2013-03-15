@@ -41,9 +41,9 @@ public class GradesMatrix
 	public String[][] refreshMatrix()
 	{
 		
-		if(api.getUserType(userID) == 1)
-			createClassMatrix();
-		else
+		//if(api.getUserType(userID) == 1)
+			//createClassMatrix();
+		//else
 			createStudentMatrix();
 		
 		sLessons = sChallenges = sName = sID = false;

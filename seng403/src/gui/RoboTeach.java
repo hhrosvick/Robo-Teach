@@ -26,6 +26,7 @@ public class RoboTeach{
 
 	private JFrame frmRoboteach;
 	private int UserID;
+	private LessonsTab newLessonsTab;
 
 	/**
 	 * Launch the application.
@@ -74,7 +75,7 @@ public class RoboTeach{
 		frmRoboteach.setLocation(x,y);
 		
 		//USER LOGIN
-		new Login(frmRoboteach);
+		new Login(frmRoboteach, this);
 		
 		//Creating the base panel
 		final JPanel BasePanel = new JPanel();
@@ -250,7 +251,7 @@ public class RoboTeach{
 * LessonsTab initialization and components
 ******************************************************************************************************************************************/	
 		JPanel LessonsTab1;
-		LessonsTab newLessonsTab = new LessonsTab(UserID);
+		newLessonsTab = new LessonsTab(UserID);
 		LessonsTab1 = newLessonsTab.initialize();
 		TabPage.addTab("Lessons", null, LessonsTab1, null);
 
@@ -280,8 +281,12 @@ public class RoboTeach{
 		GradesTab1 = newGradesTab.initialize();
 		TabPage.addTab("Progress", null, GradesTab1, null);
 	}
+	
 	public void setUserID(int id)
 	{
 		UserID = id;
+		//need to set it up again bec it sets it to 0 during the first initialization
+		newLessonsTab.setUserID(id);
 	}
+
 }

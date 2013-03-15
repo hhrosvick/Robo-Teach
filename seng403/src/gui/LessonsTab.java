@@ -4,6 +4,10 @@ import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+
+import api.API;
+import api.API_Interface;
+
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
@@ -11,6 +15,7 @@ import com.jgoodies.forms.factories.FormFactory;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
@@ -24,6 +29,7 @@ import javax.swing.tree.TreeNode;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
+import java.util.Map;
 
 public class LessonsTab {
 
@@ -32,19 +38,32 @@ public class LessonsTab {
 	private int Chapter;
 	private int Lesson;
 	private boolean LessonSelected;
+	private Map<String,String> currentProgress;
+	private int userChapter;
+	private int UserID;
+	API_Interface api = null;
 
 	/**
 	 * Create the application.
 	 */
 	public LessonsTab(int UserID) 
 	{
+		this.UserID = UserID;
 		LessonsTab = new JPanel();
+		
+		try {
+			api = new API();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		initialize();
 	}
 
 	/**
 	 * Initialiyze the contents of the frame.
 	 * @return 
+	 * 
 	 */
 	public JPanel initialize() {
 		LessonsTab.setBounds(100, 100, 450, 300);
@@ -90,12 +109,47 @@ public class LessonsTab {
 				FormFactory.DEFAULT_ROWSPEC,}));
 		// Sends request for lesson slides to database
 		JButton StartLessonButton = new JButton("Start Lesson");
+		
 		StartLessonButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(LessonSelected)
+				
+				//constantly track user progresss
+				currentProgress = api.getUserProgress(UserID);
+				userChapter = Integer.parseInt(currentProgress.get("chapter"));
+				
+				//THIS PART HAS TO BE UNCOMMENTED ONCE getUserType is done
+				/*if(LessonSelected && api.getUserType(UserID) == 1) //if a teacher
 				{
 					LessonWindow NewWindow = new LessonWindow(Chapter, Lesson, Selection);
 					NewWindow.OpenWindow();
+				}
+				else if(LessonSelected && api.getUserType(UserID) == 2 )*/ //if a student
+				
+				//replacement
+				if(LessonSelected)
+				{
+					if(Chapter <= (userChapter-1))
+					{
+						LessonWindow NewWindow = new LessonWindow(Chapter, Lesson, Selection);
+						NewWindow.OpenWindow();
+					}
+					else
+					{
+						//JOptionPane.showMessageDialog(LessonsTab,"Lesson Currently Not Available!");
+						//Custom button text
+						Object[] options = {"Quiz",
+						                    "Teacher's Approval",
+						                    "Cancel"};
+						int n = JOptionPane.showOptionDialog(LessonsTab,
+						    "Lesson Currently Not Available! \nWhat would you like to do?",
+						    "Information",
+						    JOptionPane.YES_NO_CANCEL_OPTION,
+						    JOptionPane.QUESTION_MESSAGE,
+						    null,
+						    options,
+						    null);
+					
+					}
 				}
 			}
 		});
@@ -153,6 +207,7 @@ public class LessonsTab {
 				
 				//Creates the integers for lesson selection for communication with API
 				LessonSelected = true;
+				
 				try
 				{
 				Chapter = ((node.getParent()).getParent()).getIndex(node.getParent());
@@ -163,5 +218,10 @@ public class LessonsTab {
 			}
 		});
 		return LessonsTab;
+	}
+	
+	public void setUserID(int id)
+	{
+		UserID = id;
 	}
 }
