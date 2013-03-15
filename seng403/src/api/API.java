@@ -2,6 +2,7 @@ package api;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
@@ -218,13 +219,21 @@ public class API implements API_Interface {
 		return null;
 	}
 	
-	public void setUserChapter(int UserID, int progress){
-		// TODO ITER 2: Add setter functions.
+	public void setUserChapter(int UserID, int progress) throws Exception{
+		
+		String query = "UPDATE 'users' SET 'lesson_complete'=" + String.valueOf(progress) + " WHERE 'student_ID'=" + String.valueOf(UserID);
+		ResultSet response = DB.query(query);
+		if(response.next() && response.getInt(1) == 0)
+			throw new Exception("No user with the ID " + UserID);
 	}
 	
 
-	public void setUserChallenge(int UserID, int progress){
-		// TODO ITER 2: Add setter functions.
+	public void setUserChallenge(int UserID, int progress) throws Exception{
+		
+		String query = "UPDATE 'users' SET 'challenge_complete'=" + String.valueOf(progress) + " WHERE 'student_ID'=" + String.valueOf(UserID);
+		ResultSet response = DB.query(query);
+		if(response.next() && response.getInt(1) == 0)
+			throw new Exception("No user with the ID " + UserID);
 	}
 
 	/*

@@ -66,7 +66,7 @@ public class Database {
 	 * @param query the query String
 	 * @return the resultant object
 	 */
-	public Object query(String query){
+	public ResultSet query(String query){
 		
 		// TODO ITER 2: Query the database with String (after cleaning input), and return the result.
 		// NOTE: this does not necessarily need to return an object file. we can map it here as well. 

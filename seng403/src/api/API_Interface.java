@@ -104,14 +104,16 @@ public interface API_Interface {
 	/**
 	 * Sets the chapter progress for the user with specified UserID.
 	 * @param progress the new progress number
+	 * @throws Exception 
 	 */
-	public void setUserChapter(int UserID, int progress);
+	public void setUserChapter(int UserID, int progress) throws Exception;
 	
 	/**
 	 * Sets the challenge progress for the user with specified UserID.
 	 * @param progress the new progress number
+	 * @throws Exception 
 	 */
-	public void setUserChallenge(int UserID, int progress);
+	public void setUserChallenge(int UserID, int progress) throws Exception;
 	
 	
 	
