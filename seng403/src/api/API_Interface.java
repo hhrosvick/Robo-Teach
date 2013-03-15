@@ -30,7 +30,7 @@ public interface API_Interface {
 	 * 	Zero will be returned if the user id is invalid.
 	 * @throws Exception 
 	 */
-	public int getUserType(int UserID) throws Exception;
+	public int getUserType(int UserID);
 	
 	/**
 	 * Returns a associative array for a single user's progress.<br>

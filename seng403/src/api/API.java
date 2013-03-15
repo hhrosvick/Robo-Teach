@@ -3,6 +3,7 @@ package api;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Vector;
@@ -117,15 +118,20 @@ public class API implements API_Interface {
 	}
 	
 	@Override
-	public int getUserType(int UserID) throws Exception{
+	public int getUserType(int UserID){
 		
 		String query = "SELECT 'type' FROM 'users' WHERE 'student_ID'=" + String.valueOf(UserID);
 		ResultSet response = DB.query(query);
-		if(response.next() && response.getInt(1) == 0)
-			throw new Exception("No user with the ID " + UserID);
+		String type = "";
 		
-		String type = response.getString(1);
-
+		try {
+			if(response.next() && response.getInt(1) == 0)
+				return 0;
+			type = response.getString(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		if(type.compareTo("teacher") == 0)
 			return 1;
 		else if(type.compareTo("student") == 0)
