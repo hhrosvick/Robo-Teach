@@ -117,15 +117,21 @@ public class API implements API_Interface {
 	}
 	
 	@Override
-	public int getUserType(int UserID){
+	public int getUserType(int UserID) throws Exception{
 		
-		// TODO ITER 2: Add actual database functions.
+		String query = "SELECT 'type' FROM 'users' WHERE 'student_ID'=" + String.valueOf(UserID);
+		ResultSet response = DB.query(query);
+		if(response.next() && response.getInt(1) == 0)
+			throw new Exception("No user with the ID " + UserID);
 		
-		// FAKED OUTPUT
-		if(UserID == 0)
+		String type = response.getString(1);
+
+		if(type.compareTo("teacher") == 0)
 			return 1;
-		else
+		else if(type.compareTo("student") == 0)
 			return 2;
+		else
+			return 0;
 	}
 	
 	@Override

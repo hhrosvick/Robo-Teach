@@ -28,8 +28,9 @@ public interface API_Interface {
 	 * @param UserID and user id as an integer
 	 * @return user type as an int (teacher = 1, student = 2)<br>
 	 * 	Zero will be returned if the user id is invalid.
+	 * @throws Exception 
 	 */
-	public int getUserType(int UserID);
+	public int getUserType(int UserID) throws Exception;
 	
 	/**
 	 * Returns a associative array for a single user's progress.<br>
