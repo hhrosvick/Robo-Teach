@@ -122,17 +122,17 @@ public class ChallengesTab {
 			new DefaultMutableTreeNode("Challenges") {
 				{
 					DefaultMutableTreeNode node_1;
-					node_1 = new DefaultMutableTreeNode("Easy Tier");
-						node_1.add(new DefaultMutableTreeNode("Challenge I"));
-						node_1.add(new DefaultMutableTreeNode("Challenge II"));
+					node_1 = new DefaultMutableTreeNode("Easy");
+						node_1.add(new DefaultMutableTreeNode("Arena Tag"));
+						node_1.add(new DefaultMutableTreeNode("Hide & Seek"));
 					add(node_1);
-					node_1 = new DefaultMutableTreeNode("Challenging Tier");
-						node_1.add(new DefaultMutableTreeNode("Challenge III"));
-						node_1.add(new DefaultMutableTreeNode("Challenge IV"));
+					node_1 = new DefaultMutableTreeNode("Medium");
+						node_1.add(new DefaultMutableTreeNode("Race Course"));
+						node_1.add(new DefaultMutableTreeNode("New Challenge"));
 					add(node_1);
-					node_1 = new DefaultMutableTreeNode("Difficult Tier");
-						node_1.add(new DefaultMutableTreeNode("Challenge V"));
-						node_1.add(new DefaultMutableTreeNode("Challenge VI"));
+					node_1 = new DefaultMutableTreeNode("Hard");
+						node_1.add(new DefaultMutableTreeNode("Musical iRobots"));
+						node_1.add(new DefaultMutableTreeNode("New Challenge"));
 					add(node_1);
 				}
 			}
