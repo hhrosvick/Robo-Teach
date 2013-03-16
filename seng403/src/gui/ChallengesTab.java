@@ -148,6 +148,7 @@ public class ChallengesTab {
 				Object nodeInfo = node.getUserObject();
 				Selection = nodeInfo.toString();
 				String imgStr = "Challenges/" + Selection + ".png";
+				System.out.println(imgStr);
 				final ImageIcon LessonPreview = new ImageIcon(imgStr);
 				LessonPreviewLabel.setIcon(LessonPreview);
 				// Marshall
