@@ -148,10 +148,10 @@ public class ChallengesTab {
 				Object nodeInfo = node.getUserObject();
 				Selection = nodeInfo.toString();
 				String imgStr = "Challenges/" + Selection + ".png";
-				System.out.println(imgStr);
+				// Testing
+				// System.out.println(imgStr);
 				final ImageIcon LessonPreview = new ImageIcon(imgStr);
 				LessonPreviewLabel.setIcon(LessonPreview);
-				// Marshall
 				//Creates the integers for challenge selection for communication with API
 				ChallengeSelected = true;
 				try
