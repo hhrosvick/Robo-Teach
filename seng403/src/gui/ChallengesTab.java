@@ -127,7 +127,7 @@ public class ChallengesTab {
 						node_1.add(new DefaultMutableTreeNode("Hide & Seek"));
 					add(node_1);
 					node_1 = new DefaultMutableTreeNode("Medium");
-						node_1.add(new DefaultMutableTreeNode("Race Course"));
+						node_1.add(new DefaultMutableTreeNode("iRobot Racing"));
 						node_1.add(new DefaultMutableTreeNode("New Challenge"));
 					add(node_1);
 					node_1 = new DefaultMutableTreeNode("Hard");
