@@ -150,7 +150,7 @@ public class ChallengesTab {
 				String imgStr = "Challenges/" + Selection + ".png";
 				final ImageIcon LessonPreview = new ImageIcon(imgStr);
 				LessonPreviewLabel.setIcon(LessonPreview);
-				
+				// Marshall
 				//Creates the integers for challenge selection for communication with API
 				ChallengeSelected = true;
 				try
