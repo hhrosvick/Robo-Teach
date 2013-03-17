@@ -42,9 +42,9 @@ public class GradesMatrix
 	{
 		
 		//if(api.getUserType(userID) == 1)
-			//createClassMatrix();
+			createClassMatrix();
 		//else
-			createStudentMatrix();
+			//createStudentMatrix();
 		
 		sLessons = sChallenges = sName = sID = false;
 		return data;
