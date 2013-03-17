@@ -186,6 +186,10 @@ public class API implements API_Interface {
 		Map<String,String> a = new HashMap<String, String>();
 		Map<String,String> b = new HashMap<String, String>();
 		Map<String,String> c = new HashMap<String, String>();
+		Map<String,String> D = new HashMap<String, String>();
+		Map<String,String> J = new HashMap<String, String>();
+		Map<String,String> M = new HashMap<String, String>();
+		Map<String,String> S = new HashMap<String, String>();
 		
 		a.put("name","Alice");
 		a.put("chapter","3");
@@ -195,12 +199,32 @@ public class API implements API_Interface {
 		b.put("chapter","2");
 		b.put("challenge","2");
 
-		c.put("name","average");
-		c.put("chapter","2.5");
+		c.put("name","Class Average");
+		c.put("chapter","2.2");
 		c.put("challenge","1.5");
+		
+		D.put("name","David");
+		D.put("chapter","1");
+		D.put("challenge","0");
+		
+		J.put("name","Jobelle");
+		J.put("chapter","2");
+		J.put("challenge","1");
+		
+		M.put("name","Marshall");
+		M.put("chapter","1");
+		M.put("challenge","2");
+		
+		S.put("name","Sonny");
+		S.put("chapter","4");
+		S.put("challenge","4");
 		
 		m.put(111111, a);
 		m.put(222222, b);
+		m.put(333333, D);
+		m.put(444444, J);
+		m.put(555555, M);
+		m.put(666666, S);
 		m.put(0, c);
 		
 		return m;
@@ -215,6 +239,10 @@ public class API implements API_Interface {
 		Vector<Integer> v = new Vector<Integer>();
 		v.add(111111);
 		v.add(222222);
+		v.add(333333);
+		v.add(444444);
+		v.add(555555);
+		v.add(666666);
 			
 		return v;
 	}
