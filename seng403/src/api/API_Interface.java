@@ -163,5 +163,7 @@ public interface API_Interface {
 	 * @return a RobotControl instance
 	 */
 	public RobotControl loadSimulatorController();
+
+	public boolean initialize() throws Exception;
 	
 }
