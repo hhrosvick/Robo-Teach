@@ -248,15 +248,19 @@ public class API implements API_Interface {
 	}
 	
 	@Override
-	public ImageIcon getLesson(int Chapter, int Lesson){
-		// TODO ITER 2: Complete image retrieval.
-		return null;
+	public ImageIcon getLesson(int Chapter, int Lesson, int Slide){
+
+		String imgStr = "Lessons/Chapter 1.png";
+		
+		return new ImageIcon(imgStr);
 	}
 	
 	@Override
-	public ImageIcon getChallenge(int tier, int number){
-		// TODO ITER 2: Complete image retrieval.
-		return null;
+	public ImageIcon getChallenge(int tier, int number, int Slide){
+
+		String imgStr = "Challenges/iRobot Racing.png";
+				
+		return new ImageIcon(imgStr);
 	}
 	
 	public void setUserChapter(int UserID, int progress) throws Exception{

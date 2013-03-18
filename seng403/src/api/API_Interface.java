@@ -88,19 +88,21 @@ public interface API_Interface {
 	
 	/**
 	 * Returns an ImageIcon object for the specified chapter and lesson.
-	 * @param Chapter
-	 * @param Lesson
+	 * @param Chapter The number of the chapter needed. Pass 0 (zero) into all other parameters if just the chapter imaged is needed.
+	 * @param Lesson The number of the lesson needed. Pass 0 (zero) into the slide parameter if just the chapter/lesson imaged is needed.
+	 * @param Slide The number of the slide needed. 
 	 * @return the ImageIcon object
 	 */
-	public ImageIcon getLesson(int Chapter, int Lesson);
+	public ImageIcon getLesson(int Chapter, int Lesson, int Slide);
 	
 	/**
 	 * Returns an ImageIcon object for the specified challenge.
-	 * @param tier
-	 * @param number
+	 * @param Tier The number of the Tier needed. Pass 0 (zero) into all other parameters if just the tier imaged is needed.
+	 * @param Number The challenge number needed. Pass 0 (zero) into the slide parameter if just the Tier/Number imaged is needed.
+	 * @param Slide The number of the slide needed.
 	 * @return the ImageIcon object
 	 */
-	public ImageIcon getChallenge(int tier, int number);
+	public ImageIcon getChallenge(int Tier, int Number, int Slide);
 	
 	/**
 	 * Sets the chapter progress for the user with specified UserID.
