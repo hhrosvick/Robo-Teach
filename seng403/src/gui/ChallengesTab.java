@@ -118,7 +118,7 @@ public class ChallengesTab {
 				{
 					if(Tier <= (userChapter-1))
 					{
-						ChallengeWindow NewWindow = new ChallengeWindow(Tier, Challenge, Selection);
+						ChallengeWindow NewWindow = new ChallengeWindow(Tier, Challenge, Selection, api);
 						NewWindow.OpenWindow();
 					}
 				}

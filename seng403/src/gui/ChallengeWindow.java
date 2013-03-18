@@ -20,17 +20,12 @@ public class ChallengeWindow {
 	private int Tier;
 	private int Challenge;
 	// constructor takes lesson name argument
-	public ChallengeWindow(int t, int c, String CN) 
+	public ChallengeWindow(int t, int c, String CN, API_Interface a) 
 	{
 		ChallengeName = CN;
 		Challenge = c;
 		Tier = t;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		api = a;
 		initialize();
 	}
 // creates the new window

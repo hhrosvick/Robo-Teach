@@ -37,7 +37,7 @@ public class GradesTab
 		{
 			api = a;
 		} catch (Exception e) {}
-		GM = new GradesMatrix(id);
+		GM = new GradesMatrix(id, api);
 		this.id = id;
 		initialize();
 	}

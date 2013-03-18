@@ -23,12 +23,9 @@ public class GradesMatrix
 	
 	private API_Interface api;
 	
-	public GradesMatrix(int id)
+	public GradesMatrix(int id, API_Interface a)
 	{
-		try 
-		{
-			api = new API();
-		} catch (Exception e) {}
+		api = a;
 		userID = id;
 		data = refreshMatrix();
 	}

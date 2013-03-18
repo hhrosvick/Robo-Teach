@@ -133,7 +133,7 @@ public class LessonsTab {
 				{
 					if(Chapter <= (userChapter-1))
 					{
-						LessonWindow NewWindow = new LessonWindow(Chapter, Lesson, Selection);
+						LessonWindow NewWindow = new LessonWindow(Chapter, Lesson, Selection, api);
 						NewWindow.OpenWindow();
 					}
 					else
