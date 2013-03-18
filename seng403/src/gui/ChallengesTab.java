@@ -24,7 +24,10 @@ import javax.swing.tree.TreeNode;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
+import java.util.Map;
+
 import api.API;
+import api.API_Interface;
 
 public class ChallengesTab {
 
@@ -33,13 +36,24 @@ public class ChallengesTab {
 	private int Tier;
 	private int Challenge;
 	private boolean ChallengeSelected;
+	private API_Interface api;
+	private int UserID;
+	private int userChapter;
+	Map<String, String> currentProgress;
 
 	/**
 	 * Create the application.
 	 */
-	public ChallengesTab(int UserID) 
+	public ChallengesTab(int id) 
 	{
 		ChallengesTab = new JPanel();
+		try {
+			api = new API();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		UserID = id;
 		initialize();
 	}
 
@@ -93,10 +107,20 @@ public class ChallengesTab {
 		JButton StartLessonButton = new JButton("Start Challenge");
 		StartLessonButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(ChallengeSelected)
+				//THIS PART HAS TO BE UNCOMMENTED ONCE getUserType is done
+				/*if(ChallengeSelected && api.getUserType(UserID) == 1) //if a teacher
 				{
 					ChallengeWindow NewWindow = new ChallengeWindow(Tier, Challenge, Selection);
 					NewWindow.OpenWindow();
+				}
+				else if(ChallengeSelected && api.getUserType(UserID) == 2 )*/ //if a student
+				if(ChallengeSelected)
+				{
+					if(Tier <= (userChapter-1))
+					{
+						ChallengeWindow NewWindow = new ChallengeWindow(Tier, Challenge, Selection);
+						NewWindow.OpenWindow();
+					}
 				}
 			}
 		});
@@ -145,6 +169,11 @@ public class ChallengesTab {
 				
 				DefaultMutableTreeNode node = (DefaultMutableTreeNode) LessonsTree.getLastSelectedPathComponent();	
 				
+				
+				//constantly track user progresss
+				currentProgress = api.getUserProgress(UserID);
+				userChapter = Integer.parseInt(currentProgress.get("chapter"));
+				
 				//Creates the string for challenge preview, preview will be local for quick response time
 				Object nodeInfo = node.getUserObject();
 				Selection = nodeInfo.toString();
@@ -170,10 +199,14 @@ public class ChallengesTab {
 				Tier = ((node.getParent()).getParent()).getIndex(node.getParent());
 				Challenge = (node.getParent()).getIndex(node);	
 				}catch(NullPointerException NPE){ ChallengeSelected = false; }
-				if(ChallengeSelected)
-					System.out.println(Tier + "." + Challenge);
 			}
 		});
 		return ChallengesTab;
+	}
+
+	public void setUserID(int id) 
+	{
+		UserID = id;
+		
 	}
 }

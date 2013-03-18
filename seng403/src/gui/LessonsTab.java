@@ -259,7 +259,7 @@ public class LessonsTab {
 				
 				if(LessonSelected)
 				{
-					System.out.println(Chapter + "." + Lesson);
+					System.out.println(UserID);
 				}
 				else
 				{

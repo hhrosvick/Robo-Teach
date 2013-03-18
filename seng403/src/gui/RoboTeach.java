@@ -27,6 +27,7 @@ public class RoboTeach {
 	private JFrame frmRoboteach;
 	private int UserID;
 	private LessonsTab newLessonsTab;
+	private ChallengesTab newChallengeTab;
 
 	/**
 	 * Launch the application.
@@ -269,7 +270,7 @@ public class RoboTeach {
 * ChallengeTab initialization and components
 ******************************************************************************************************************************************/			
 		JPanel ChallengeTab1;
-		ChallengesTab newChallengeTab = new ChallengesTab(UserID);
+		newChallengeTab = new ChallengesTab(UserID);
 		ChallengeTab1 = newChallengeTab.initialize();
 		TabPage.addTab("Challenges", null, ChallengeTab1, null);
 		
@@ -287,6 +288,7 @@ public class RoboTeach {
 		UserID = id;
 		//need to set it up again bec it sets it to 0 during the first initialization
 		newLessonsTab.setUserID(id);
+		newChallengeTab.setUserID(id);
 	}
 
 }
