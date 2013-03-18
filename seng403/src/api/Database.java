@@ -48,7 +48,7 @@ public class Database {
 	 * Connects to the database at CONNECTION_LOCATION
 	 * @throws Exception 
 	 */
-	private void connect() throws Exception{
+	private Connection connect() throws Exception{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection(CONNECTION_LOCATION, CONNECTION_DATABASE, CONNECTION_PASSWORD);
@@ -67,7 +67,9 @@ public class Database {
 	 * @param query the query String
 	 * @return the resultant object
 	 */
-	public ResultSet query(String query){
+	public ResultSet query(String query) throws SQLException{
+		
+		res = null;
 		
 		statement = con.prepareStatement(query);
 		
