@@ -187,7 +187,7 @@ public class ChallengesTab {
 				
 				// "Start Challenge" button selected:
 				// - Displays a PNG describing the instructions of the challenge
-				//final ImageIcon ChallengePreview = API.getChallenge(1,0,0);
+				//final ImageIcon ChallengePreview = API.getChallenge(1,0,0) potentially called;
 				
 				System.out.println(imgStr);
 				final ImageIcon LessonPreview = new ImageIcon(imgStr);
