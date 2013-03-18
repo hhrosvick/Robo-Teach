@@ -250,7 +250,19 @@ public class API implements API_Interface {
 	@Override
 	public ImageIcon getLesson(int Chapter, int Lesson, int Slide){
 
-		String imgStr = "Lessons/Chapter 1.png";
+		String imgStr = "Lessons/";
+		
+		if(Chapter == 0)
+			return null;
+		
+		if(Lesson == 0)
+			imgStr += "Chapter " + Chapter;
+		else if(Slide == 0)
+			imgStr += "Lesson " + Chapter + "-" + Lesson;
+		else
+			imgStr += "LessonSlides/Lesson " + Lesson + "-" + Slide;
+		
+		imgStr += ".png";
 		
 		return new ImageIcon(imgStr);
 	}
@@ -258,7 +270,19 @@ public class API implements API_Interface {
 	@Override
 	public ImageIcon getChallenge(int tier, int number, int Slide){
 
-		String imgStr = "Challenges/iRobot Racing.png";
+		String imgStr = "Challenges/";
+		
+		if(tier == 0)
+			return null;
+		
+		if(number == 0)
+			imgStr += "Tier " + tier;
+		else if(Slide == 0)
+			imgStr += tier + "-" + number;
+		else
+			imgStr += "ChallengeSlides/Challenge " + number + "-" + Slide;
+		
+		imgStr += ".png";
 				
 		return new ImageIcon(imgStr);
 	}
