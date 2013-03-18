@@ -97,12 +97,12 @@ public interface API_Interface {
 	
 	/**
 	 * Returns an ImageIcon object for the specified challenge.
-	 * @param Tier The number of the Tier needed. Pass 0 (zero) into all other parameters if just the tier imaged is needed.
-	 * @param Number The challenge number needed. Pass 0 (zero) into the slide parameter if just the Tier/Number imaged is needed.
+	 * @param Tier The number of the Tier needed. Pass 0 (zero) or false into all other parameters if just the tier imaged is needed.
+	 * @param Number The challenge number needed. Pass false into the slide parameter if just the Tier/Number imaged is needed.
 	 * @param Slide The number of the slide needed.
 	 * @return the ImageIcon object
 	 */
-	public ImageIcon getChallenge(int Tier, int Number, int Slide);
+	public ImageIcon getChallenge(int Tier, int Number, boolean Slide);
 	
 	/**
 	 * Sets the chapter progress for the user with specified UserID.

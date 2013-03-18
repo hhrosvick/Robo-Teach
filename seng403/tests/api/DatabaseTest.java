@@ -35,24 +35,25 @@ public class DatabaseTest {
 	
 	/// Null String
 	@Test (expected=IllegalArgumentException.class)
-	public void NullStringQuery(){
+	public void NullStringQuery() throws SQLException{
 		DB.query(null);
 	}
 	/// Blank String
 	@Test (expected=IllegalArgumentException.class)
-	public void EmptyStringQuery(){
+	public void EmptyStringQuery() throws SQLException{
 		DB.query("");
 	}
 	/// Random String
 	@Test (expected=IllegalArgumentException.class)
-	public void RandomStringQuery(){
+	public void RandomStringQuery() throws SQLException{
 		DB.query("adblksd soreo");
 	}
 	/// Select a table that doesn't exist
 	@Test
 	public void TableDoesntExistQuery(){
-		ResultSet rs = DB.query("SELECT Name FROM Country");
+		
 		try {
+			ResultSet rs = DB.query("SELECT Name FROM Country");
 			if(rs.next())
 				Assert.fail();
 		} catch (SQLException e) {
@@ -65,8 +66,9 @@ public class DatabaseTest {
 	// This test is not correct. Change query
 	@Test
 	public void TableDoesExistQuery(){
-		ResultSet rs = DB.query("SELECT Name FROM XYZ");
+		
 		try {
+			ResultSet rs = DB.query("SELECT Name FROM XYZ");
 			if(!rs.next())
 				Assert.fail();
 		} catch (SQLException e) {

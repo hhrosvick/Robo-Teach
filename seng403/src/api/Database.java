@@ -22,8 +22,6 @@ public class Database {
 	private Statement statement = null;
 	private ResultSet res = null;
 	
-	// TODO ITER 2: Setup database and create tables.
-	
 	/**
 	 * Private constructor
 	 */
