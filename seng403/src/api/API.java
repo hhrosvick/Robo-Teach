@@ -63,9 +63,9 @@ public class API implements API_Interface {
 	 * @throws Exception 
 	 */
 	public API() throws Exception {
-		if(this.initialize() == false)
+		//if(this.initialize() == false)
 		{
-			throw new Exception("API Initialization Failed.");
+			//throw new Exception("API Initialization Failed.");
 		}
 	}
 	
@@ -74,9 +74,9 @@ public class API implements API_Interface {
 	 * If not, it will be initialized.<br>
 	 * The CASA process will be stared.
 	 * @return true if the API is initialized, false if there is an error
+	 * @throws Exception 
 	 */
-	private boolean initialize()	{
-		/*
+	public boolean initialize() throws Exception{
 		try {
 			
 			CASA = CASAProcess.getInstance();
@@ -92,12 +92,13 @@ public class API implements API_Interface {
 			DB = Database.getInstance();
 						
 			return true;
-		} catch (Exception e) {
+		} catch (Exception e) 
+		{
 			e.printStackTrace();
-			return false;
+			throw new Exception("API Initialization Failed.");
+			//return false;
 		}
 		
-		*/return true;
 	}
 
 	/*
