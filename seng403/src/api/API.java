@@ -260,7 +260,7 @@ public class API implements API_Interface {
 		else if(Slide == 0)
 			imgStr += "Lesson " + Chapter + "-" + Lesson;
 		else
-			imgStr += "LessonSlides/Lesson " + Lesson + "-" + Slide;
+			imgStr += "LessonSlides/Lesson "+ Chapter + "-" + Lesson + "-" + Slide;
 		
 		imgStr += ".png";
 		
@@ -278,7 +278,7 @@ public class API implements API_Interface {
 		if(number == 0)
 			imgStr += "Tier " + tier;
 		else if(Slide == 0)
-			imgStr += tier + "-" + number;
+			imgStr += "Challenger " + tier + "-" + number;
 		else
 			imgStr += "ChallengeSlides/Challenge " + number + "-" + Slide;
 		
