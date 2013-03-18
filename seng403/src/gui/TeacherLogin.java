@@ -15,7 +15,6 @@ public class TeacherLogin extends Login
 {
 	private int Chapter;
 	private LessonsTab tab;
-	private JFrame jframe;
 	
 	TeacherLogin(JFrame frame1, RoboTeach myProg) {
 		super(frame1, myProg);
@@ -27,24 +26,9 @@ public class TeacherLogin extends Login
 	{
 		super(frame, myProg);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		super.addWindowListener(new WindowAdapter() {
-			@Override
-			public void windowClosing(WindowEvent e) {
-				setVisible(false);
-		        jframe.enable();
-		        jframe.toFront();
-			}
-			@Override
-			public void windowClosed(WindowEvent e) {
-				setVisible(false);
-		        jframe.enable();
-		        jframe.toFront();
-			}
-		});
 		
 		this.Chapter = Chapter;
 		this.tab = tab;
-		jframe = frame;
 		
 	}
 	
@@ -68,8 +52,8 @@ public class TeacherLogin extends Login
 					
 					if(type == 1)
 					{
-						jframe.enable();
-		        		jframe.toFront();
+						frame.enable();
+						frame.toFront();
 		        		dispose();
 						tab.result2();
 					}
