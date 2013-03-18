@@ -149,7 +149,7 @@ public class ChallengesTab {
 				Object nodeInfo = node.getUserObject();
 				Selection = nodeInfo.toString();
 				String imgStr = "Challenges/" + Selection + ".png";
-				// Depending on what is selected:
+				// Information regarding PNG images, depending on what is selected:
 				// Folder selected Challenges/Easy, Challenges/Medium, Challenges/Hard
 				// - Displays a PNG describing the difficulty of the challenges
 				
