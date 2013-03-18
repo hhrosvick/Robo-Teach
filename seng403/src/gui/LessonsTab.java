@@ -202,6 +202,7 @@ public class LessonsTab {
 				Object nodeInfo = node.getUserObject();
 				Selection = nodeInfo.toString();
 				String imgStr = "Lessons/" + Selection + ".png";
+				System.out.println(imgStr);
 				final ImageIcon LessonPreview = new ImageIcon(imgStr);
 				LessonPreviewLabel.setIcon(LessonPreview);
 				
