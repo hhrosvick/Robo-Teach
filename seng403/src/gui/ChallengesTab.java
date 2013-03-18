@@ -44,11 +44,11 @@ public class ChallengesTab {
 	/**
 	 * Create the application.
 	 */
-	public ChallengesTab(int id) 
+	public ChallengesTab(int id, API_Interface a) 
 	{
 		ChallengesTab = new JPanel();
 		try {
-			api = new API();
+			api = a;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

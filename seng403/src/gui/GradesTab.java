@@ -30,12 +30,12 @@ public class GradesTab
 	private GradesMatrix GM;
 	private int id;
 	
-	public GradesTab(int id) 
+	public GradesTab(int id, API_Interface a) 
 	{
 		GradesTab = new JPanel();
 		try 
 		{
-			api = new API();
+			api = a;
 		} catch (Exception e) {}
 		GM = new GradesMatrix(id);
 		this.id = id;

@@ -26,7 +26,7 @@ public class TeacherLogin extends Login
 	TeacherLogin(int Chapter, JFrame frame, RoboTeach myProg, LessonsTab tab)
 	{
 		super(frame, myProg);
-		
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		super.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -45,6 +45,7 @@ public class TeacherLogin extends Login
 		this.Chapter = Chapter;
 		this.tab = tab;
 		jframe = frame;
+		
 	}
 	
 	@SuppressWarnings("deprecation")

@@ -53,7 +53,7 @@ public class LessonsTab {
 	/**
 	 * Create the application.
 	 */
-	public LessonsTab(int UserID, JFrame frame) 
+	public LessonsTab(int UserID, JFrame frame, API_Interface a) 
 	{
 		jframe = frame;
 		
@@ -61,7 +61,7 @@ public class LessonsTab {
 		LessonsTab = new JPanel();
 		
 		try {
-			api = new API();
+			api = a;
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

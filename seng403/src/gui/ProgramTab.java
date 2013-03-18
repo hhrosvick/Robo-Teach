@@ -51,7 +51,7 @@ public class ProgramTab implements ActionListener {
 	private API_Interface api;
 	
 	
-	public ProgramTab()
+	public ProgramTab(API_Interface a)
 	{
 		ProgramTab = new JPanel();
 		fc = new JFileChooser();
@@ -60,7 +60,7 @@ public class ProgramTab implements ActionListener {
 		filePath = null;
 		try 
 		{
-			api = new API();
+			api = a;
 		} catch (Exception e) {}
 		//UNCOMMENT THIS IS IF YOU WANTED TO SEE THE GUI ON THE DESIGN TAB
 		//initialize();
