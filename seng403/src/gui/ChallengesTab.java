@@ -24,6 +24,7 @@ import javax.swing.tree.TreeNode;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
+import api.API;
 
 public class ChallengesTab {
 
@@ -148,8 +149,18 @@ public class ChallengesTab {
 				Object nodeInfo = node.getUserObject();
 				Selection = nodeInfo.toString();
 				String imgStr = "Challenges/" + Selection + ".png";
-				// Testing
-				// System.out.println(imgStr);
+				// Depending on what is selected:
+				// Folder selected Challenges/Easy, Challenges/Medium, Challenges/Hard
+				// - Displays a PNG describing the difficulty of the challenges
+				
+				// Challenge selected Challenges/Arena Tag Challenges/Hide & Seek
+				// - Displays a PNG describing the challenge
+				
+				// "Start Challenge" button selected:
+				// - Displays a PNG describing the instructions of the challenge
+				//final ImageIcon ChallengePreview = API.getChallenge(1,0,0);
+				
+				System.out.println(imgStr);
 				final ImageIcon LessonPreview = new ImageIcon(imgStr);
 				LessonPreviewLabel.setIcon(LessonPreview);
 				//Creates the integers for challenge selection for communication with API
