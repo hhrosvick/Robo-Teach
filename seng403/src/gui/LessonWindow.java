@@ -30,15 +30,12 @@ public class LessonWindow {
 	/**
 	 * Create the application.
 	 */
-	public LessonWindow(int c, int l, String ln) 
+	public LessonWindow(int c, int l, String ln, API_Interface a) 
 	{
 		LessonName = ln;
 		Chapter = c;
 		Lesson = l;
-		try 
-		{
-			api = new API();
-		} catch (Exception e) {}
+		api = a;
 		initialize();
 	}
 

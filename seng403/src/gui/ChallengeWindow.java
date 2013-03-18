@@ -20,17 +20,12 @@ public class ChallengeWindow {
 	private int Tier;
 	private int Challenge;
 	// constructor takes lesson name argument
-	public ChallengeWindow(int t, int c, String CN) 
+	public ChallengeWindow(int t, int c, String CN, API_Interface a) 
 	{
 		ChallengeName = CN;
 		Challenge = c;
 		Tier = t;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		api = a;
 		initialize();
 	}
 // creates the new window
@@ -52,7 +47,7 @@ public class ChallengeWindow {
 		setFrame(new JFrame());
 		getFrame().setBounds(100, 100, 450, 300);
 		// creates the image string and image icon
-		final ImageIcon ChallengePicture = api.getChallenge(Tier, Challenge, 0);
+		final ImageIcon ChallengePicture = api.getChallenge(Tier, Challenge, false);
 		// loads the scrollPane
 		JScrollPane scrollPane = new JScrollPane();
 		getFrame().getContentPane().add(scrollPane, BorderLayout.CENTER);

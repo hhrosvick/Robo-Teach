@@ -28,12 +28,7 @@ public class Login extends JFrame {
 		super("Login");
 		
 		myRobot = myProg;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		api = myRobot.getAPI_Interface();
 		//to disable the main frame
 		frame = frame1;
 		frame.setEnabled(false);
