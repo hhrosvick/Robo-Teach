@@ -63,10 +63,7 @@ public class API implements API_Interface {
 	 * @throws Exception 
 	 */
 	public API() throws Exception {
-		//if(this.initialize() == false)
-		{
-			//throw new Exception("API Initialization Failed.");
-		}
+		this.initialize();
 	}
 	
 	/**
@@ -96,7 +93,6 @@ public class API implements API_Interface {
 		{
 			e.printStackTrace();
 			throw new Exception("API Initialization Failed.");
-			//return false;
 		}
 		
 	}
@@ -122,10 +118,10 @@ public class API implements API_Interface {
 	public int getUserType(int UserID){
 		
 		String query = "SELECT 'type' FROM 'users' WHERE 'student_ID'=" + String.valueOf(UserID);
-		ResultSet response = DB.query(query);
 		String type = "";
 		
 		try {
+			ResultSet response = DB.query(query);
 			if(response.next() && response.getInt(1) == 0)
 				return 0;
 			type = response.getString(1);
@@ -143,109 +139,210 @@ public class API implements API_Interface {
 	
 	@Override
 	public Map<String, String> getUserProgress(int UserID){
+		Map<String,String> m = new HashMap<String,String>();
 		
-		// TODO ITER 2: Add actual database functions.
+		try {			
+			String q = "SELECT '*' FROM 'users'";
+			ResultSet r1 = DB.query(q);
+			
+			String query = "SELECT '*' FROM 'users' WHERE 'student_ID' =" + String.valueOf(UserID);
+			ResultSet response = DB.query(query);
+			
 		
-		// FAKED OUTPUT
-		Map<String,String> m = new HashMap<String, String>();
-		
-		if(UserID == 111111){
-			m.put("id","111111");
-			m.put("name","Alice");
-			m.put("chapter","3");
-			m.put("challenge","1");
-			m.put("avgchapter","2.5");
-			m.put("avgchallenge","1.5");
-		}
-		else if(UserID == 222222){
-			m.put("id","222222");
-			m.put("name","Bob");
-			m.put("chapter","2");
-			m.put("challenge","2");
-			m.put("avgchapter","2.5");
-			m.put("avgchallenge","1.5");
-		}
-		else {
-			m.put("id","000000");
-			m.put("name","Class Average");
-			m.put("chapter","0");
-			m.put("challenge","0");
-			m.put("avgchapter","2.5");
-			m.put("avgchallenge","1.5");
+			if(response.next() && response.getInt(1) == 0)
+				return null;
+			int chpt = 0;
+			int cl = 0;
+			int size = 0;
+			
+			while(!r1.isAfterLast()){
+				
+				chpt+=r1.getInt(5);
+				cl+=r1.getInt(6);
+				size++;
+				r1.next();
+			}
+			
+			double avgchpt = chpt/size;
+			double avgcl = cl/size;
+			
+			
+			m.put("id",String.valueOf(response.getInt(3)));
+			m.put("name",response.getString(2));
+			m.put("chapter", String.valueOf((int)response.getInt(5)));
+			m.put("challenge", String.valueOf((int)response.getInt(6)));
+			m.put("avgchapter", String.valueOf((double)avgchpt));
+			m.put("avgchallenge", String.valueOf((double)avgcl));
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		
 		return m;
+		
+		
+//		// FAKED OUTPUT
+//		Map<String,String> m = new HashMap<String, String>();
+//		
+//		if(UserID == 111111){
+//			m.put("id","111111");
+//			m.put("name","Alice");
+//			m.put("chapter","3");
+//			m.put("challenge","1");
+//			m.put("avgchapter","2.5");
+//			m.put("avgchallenge","1.5");
+//		}
+//		else if(UserID == 222222){
+//			m.put("id","222222");
+//			m.put("name","Bob");
+//			m.put("chapter","2");
+//			m.put("challenge","2");
+//			m.put("avgchapter","2.5");
+//			m.put("avgchallenge","1.5");
+//		}
+//		else {
+//			m.put("id","000000");
+//			m.put("name","Class Average");
+//			m.put("chapter","0");
+//			m.put("challenge","0");
+//			m.put("avgchapter","2.5");
+//			m.put("avgchallenge","1.5");
+//		}
+//		
+//		return m;
 	}
 	
 	@Override
 	public Map<Integer, Map<String, String>> getAllUserProgress(){
 		
-		// TODO ITER 2: Add actual database functions.
+		Map<Integer, Map<String,String>> m = new HashMap<Integer, Map<String,String>>();
+		Map<String,String> average = new HashMap<String, String>();
 		
-		// FAKED OUTPUT
-		Map<Integer, Map<String,String>> m = new HashMap<Integer, Map<String, String>>();
-		Map<String,String> a = new HashMap<String, String>();
-		Map<String,String> b = new HashMap<String, String>();
-		Map<String,String> c = new HashMap<String, String>();
-		Map<String,String> D = new HashMap<String, String>();
-		Map<String,String> J = new HashMap<String, String>();
-		Map<String,String> M = new HashMap<String, String>();
-		Map<String,String> S = new HashMap<String, String>();
+		String query = "SELECT '*' FROM 'users'";
+		try {
+			ResultSet response = DB.query(query);
+			
+			if(response.next() && response.getInt(1) == 0)
+				return null;
+			
+			int chpt = 0;
+			int cl = 0;
+			int size = 0;
 		
-		a.put("name","Alice");
-		a.put("chapter","3");
-		a.put("challenge","1");
-	
-		b.put("name","Bob");
-		b.put("chapter","2");
-		b.put("challenge","2");
-
-		c.put("name","Class Average");
-		c.put("chapter","2.2");
-		c.put("challenge","1.5");
-		
-		D.put("name","David");
-		D.put("chapter","1");
-		D.put("challenge","0");
-		
-		J.put("name","Jobelle");
-		J.put("chapter","2");
-		J.put("challenge","1");
-		
-		M.put("name","Marshall");
-		M.put("chapter","1");
-		M.put("challenge","2");
-		
-		S.put("name","Sonny");
-		S.put("chapter","4");
-		S.put("challenge","4");
-		
-		m.put(111111, a);
-		m.put(222222, b);
-		m.put(333333, D);
-		m.put(444444, J);
-		m.put(555555, M);
-		m.put(666666, S);
-		m.put(0, c);
+			while(!response.isAfterLast()){
+					
+				chpt+=response.getInt(5);
+				cl+=response.getInt(6);
+				size++;
+					
+				
+				Map<String,String> d = new HashMap<String, String>();
+					
+				d.put("name", response.getString(2));
+				d.put("chapter", String.valueOf((int)response.getInt(5)));			//d.put("chapter",lesson_complete)
+				d.put("challenge", String.valueOf((int)response.getInt(6)));		//d.put("challenge", challenge_complete)
+				
+				m.put(response.getInt(3), d);		//m.put(student_ID, Map object)
+				response.next();
+			}
+			
+			double avgchpt = chpt/size;
+			double avgcl = cl/size;
+			
+			average.put("name","average");
+			average.put("chapter",String.valueOf((double)avgchpt));
+			average.put("challenge",String.valueOf((double)avgcl));
+			
+			m.put(0,average);
+			
+		}catch (SQLException e){
+			e.printStackTrace();
+		}
 		
 		return m;
+		
+//		// FAKED OUTPUT
+//		Map<Integer, Map<String,String>> m = new HashMap<Integer, Map<String, String>>();
+//		Map<String,String> a = new HashMap<String, String>();
+//		Map<String,String> b = new HashMap<String, String>();
+//		Map<String,String> c = new HashMap<String, String>();
+//		Map<String,String> D = new HashMap<String, String>();
+//		Map<String,String> J = new HashMap<String, String>();
+//		Map<String,String> M = new HashMap<String, String>();
+//		Map<String,String> S = new HashMap<String, String>();
+//		
+//		a.put("name","Alice");
+//		a.put("chapter","3");
+//		a.put("challenge","1");
+//	
+//		b.put("name","Bob");
+//		b.put("chapter","2");
+//		b.put("challenge","2");
+//
+//		c.put("name","Class Average");
+//		c.put("chapter","2.2");
+//		c.put("challenge","1.5");
+//		
+//		D.put("name","David");
+//		D.put("chapter","1");
+//		D.put("challenge","0");
+//		
+//		J.put("name","Jobelle");
+//		J.put("chapter","2");
+//		J.put("challenge","1");
+//		
+//		M.put("name","Marshall");
+//		M.put("chapter","1");
+//		M.put("challenge","2");
+//		
+//		S.put("name","Sonny");
+//		S.put("chapter","4");
+//		S.put("challenge","4");
+//		
+//		m.put(111111, a);
+//		m.put(222222, b);
+//		m.put(333333, D);
+//		m.put(444444, J);
+//		m.put(555555, M);
+//		m.put(666666, S);
+//		m.put(0, c);
+//		
+//		return m;
 	}
 	
 	@Override
 	public Vector<Integer> getAllUserIDs(){
 		
-		// TODO ITER 2: Add actual database functions.
-		
-		// FAKED OUTPUT
 		Vector<Integer> v = new Vector<Integer>();
-		v.add(111111);
-		v.add(222222);
-		v.add(333333);
-		v.add(444444);
-		v.add(555555);
-		v.add(666666);
+		String query = "SELECT 'student_ID' FROM 'users'";
+		try {
+			ResultSet response = DB.query(query);
 			
+			if(response.next() && response.getInt(1) == 0)
+				return null;
+			
+			while(!response.isAfterLast()){
+					
+				v.add(response.getInt(1));
+				response.next();
+				
+			}
+			}catch (SQLException e){
+				e.printStackTrace();
+			}
+
 		return v;
+		
+//		// FAKED OUTPUT
+//		Vector<Integer> v = new Vector<Integer>();
+//		v.add(111111);
+//		v.add(222222);
+//		v.add(333333);
+//		v.add(444444);
+//		v.add(555555);
+//		v.add(666666);
+//			
+//		return v;
 	}
 	
 	@Override
