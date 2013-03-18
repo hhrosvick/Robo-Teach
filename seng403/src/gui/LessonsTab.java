@@ -158,7 +158,7 @@ public class LessonsTab {
 						}
 						else if(n == 1)
 						{
-							approval();
+							approval(Chapter);
 						}
 					
 					}
@@ -180,7 +180,7 @@ public class LessonsTab {
 						}
 						else if(n == 1)
 						{
-							approval();
+							approval(Chapter);
 						}
 					}
 				
@@ -307,9 +307,26 @@ public class LessonsTab {
 		}
 	}
 	
-	private void approval() {
+	public void result2()
+	{
+			StartLessonButton.setText("Start Lesson");
+			
+			JOptionPane.showMessageDialog(LessonsTab,"Access to Chapter " + (Chapter+1) + " granted! ");
+			try {
+				api.setUserChapter(UserID, Chapter+1);
+			} catch (NullPointerException e) {
+				// TODO Auto-generated catch block
+				//e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+	
+	
+	private void approval(int ch) {
 		// TODO Auto-generated method stub
-		
+		new TeacherLogin(ch, jframe, null, this);
 	}
 	
 	public void setUserID(int id)

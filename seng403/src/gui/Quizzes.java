@@ -798,17 +798,17 @@ public class Quizzes extends JFrame {
 		radioPanel.setLayout(new GridLayout(0, 1));
 		
 		//Create the radio buttons.
-        first = new JRadioButton("Yes, it is an output Stream");
+        first = new JRadioButton("(irobot.rotate-deg -270)");
         first.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
         first.setSelected(true);
 
-        second = new JRadioButton("No");
+        second = new JRadioButton("(irobot.rotate-deg -30)");
         second.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
 
-        third = new JRadioButton("Yes, it is an input Stream");
+        third = new JRadioButton("(irobot.rotate-mm 270)");
         third.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
 
-        fourth = new JRadioButton("Depends on the browser");
+        fourth = new JRadioButton("(irobot.rotate-mm 90)");
         fourth.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
 
         first.setActionCommand("1");
@@ -837,14 +837,14 @@ public class Quizzes extends JFrame {
         txtpnQuestion.setForeground(new Color(160, 82, 45));
         txtpnQuestion.setBackground(SystemColor.control);
         txtpnQuestion.setEditable(false);
-        txtpnQuestion.setText("Question 1: \r\n\r\nIs a web browser considered an example of a stream?");
+        txtpnQuestion.setText("Question 1: \r\n\r\nIf you wish to rotate the iRobot by 270 degrees, \r\nwhich one of the following options is a valid approach:");
         txtpnQuestion.setBounds(12, 13, 384, 100);
         getContentPane().add(txtpnQuestion);
         
         JButton btnNext = new JButton("SUBMIT");
         btnNext.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
-        		if (group.getSelection().getActionCommand().equals("1"))
+        		if (group.getSelection().getActionCommand().equals("2"))
         			nCorrect++;
         		Chapter12();
         	}
@@ -864,17 +864,17 @@ public class Quizzes extends JFrame {
 		radioPanel.setLayout(new GridLayout(0, 1));
 		
 		//Create the radio buttons.
-        first = new JRadioButton("Standard Input");
+        first = new JRadioButton("0");
         first.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
         first.setSelected(true);
 
-        second = new JRadioButton("Standard Output");
+        second = new JRadioButton("99");
         second.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
 
-        third = new JRadioButton("Terminal IO");
+        third = new JRadioButton("69");
         third.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
 
-        fourth = new JRadioButton("Terminal OI");
+        fourth = new JRadioButton("255");
         fourth.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
    	 
         first.setActionCommand("1");
@@ -903,14 +903,14 @@ public class Quizzes extends JFrame {
         txtpnQuestion.setForeground(new Color(160, 82, 45));
         txtpnQuestion.setBackground(SystemColor.control);
         txtpnQuestion.setEditable(false);
-        txtpnQuestion.setText("Question 2: \r\n\r\nWithin the standard mechanism of READ, which is the default for the stream");
+        txtpnQuestion.setText("Question 2: \r\n\r\nIn order to set up the iRobot’s LED color to red; which integer value can be used?");
         txtpnQuestion.setBounds(12, 13, 384, 100);
         getContentPane().add(txtpnQuestion);
         
         JButton btnNext = new JButton("SUBMIT");
         btnNext.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
-        		if (group.getSelection().getActionCommand().equals("1"))
+        		if (group.getSelection().getActionCommand().equals("4"))
         			nCorrect++;
         		Chapter13();
         	}
@@ -930,17 +930,17 @@ public class Quizzes extends JFrame {
 		radioPanel.setLayout(new GridLayout(0, 1));
 		
 		//Create the radio buttons.
-        first = new JRadioButton("It is comparable to a single-dimensional array");
+        first = new JRadioButton("-2000 – 2000");
         first.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
         first.setSelected(true);
 
-        second = new JRadioButton("It is comparable to a multi-dimensional array");
+        second = new JRadioButton("0-1000");
         second.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
 
-        third = new JRadioButton("There is no such thing in LISP");
+        third = new JRadioButton("0- 100");
         third.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
 
-        fourth = new JRadioButton("Only Java and C++ supports hash tables");
+        fourth = new JRadioButton("-100 – 100");
         fourth.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
    	 
         first.setActionCommand("1");
@@ -969,7 +969,7 @@ public class Quizzes extends JFrame {
         txtpnQuestion.setForeground(new Color(160, 82, 45));
         txtpnQuestion.setBackground(SystemColor.control);
         txtpnQuestion.setEditable(false);
-        txtpnQuestion.setText("Question 3: \r\n\r\nWhat is a hash table?");
+        txtpnQuestion.setText("Question 3: \r\n\r\nWhat is the range within the drive’s parameter radius?");
         txtpnQuestion.setBounds(12, 13, 384, 100);
         getContentPane().add(txtpnQuestion);
         
@@ -996,17 +996,17 @@ public class Quizzes extends JFrame {
 		radioPanel.setLayout(new GridLayout(0, 1));
 		
 		//Create the radio buttons.
-        first = new JRadioButton("Set");
+        first = new JRadioButton("Luther, Isabelle, Sonny, Patrick (LISP’s developers)");
         first.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
         first.setSelected(true);
 
-        second = new JRadioButton("Let");
+        second = new JRadioButton("List Processing");
         second.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
 
-        third = new JRadioButton("Setq");
+        third = new JRadioButton("Louisiana Institute Secret Project");
         third.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
 
-        fourth = new JRadioButton("Setf");
+        fourth = new JRadioButton("Louis I Saint-Pierre");
         fourth.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
    	 
         first.setActionCommand("1");
@@ -1035,14 +1035,14 @@ public class Quizzes extends JFrame {
         txtpnQuestion.setForeground(new Color(160, 82, 45));
         txtpnQuestion.setBackground(SystemColor.control);
         txtpnQuestion.setEditable(false);
-        txtpnQuestion.setText("Question 4: \r\n\r\nIn order to set entries in a hash table, what operators are needed?");
+        txtpnQuestion.setText("Question 4: \r\n\r\nWhat does LISP stands for?");
         txtpnQuestion.setBounds(12, 13, 384, 100);
         getContentPane().add(txtpnQuestion);
         
         JButton btnNext = new JButton("SUBMIT");
         btnNext.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
-        		if (group.getSelection().getActionCommand().equals("4"))
+        		if (group.getSelection().getActionCommand().equals("2"))
         			nCorrect++;
         		Chapter15();
         	}
@@ -1062,17 +1062,17 @@ public class Quizzes extends JFrame {
 		radioPanel.setLayout(new GridLayout(0, 1));
 		
 		//Create the radio buttons.
-        first = new JRadioButton("Make-structure");
+        first = new JRadioButton("Values have types, but variables do not");
         first.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
         first.setSelected(true);
 
-        second = new JRadioButton("Let-structure");
+        second = new JRadioButton("Values do not have types, but variables do");
         second.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
 
-        third = new JRadioButton("Defstruct");
+        third = new JRadioButton("Values and variables do not have types");
         third.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
 
-        fourth = new JRadioButton("aref");
+        fourth = new JRadioButton("Both values and variables have types");
         fourth.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
    	 
         first.setActionCommand("1");
@@ -1101,7 +1101,7 @@ public class Quizzes extends JFrame {
         txtpnQuestion.setForeground(new Color(160, 82, 45));
         txtpnQuestion.setBackground(SystemColor.control);
         txtpnQuestion.setEditable(false);
-        txtpnQuestion.setText("Question 5: \r\n\r\nStructures are defined with the macro:");
+        txtpnQuestion.setText("Question 5: \r\n\r\nIn CL:");
         txtpnQuestion.setBounds(12, 13, 384, 100);
         getContentPane().add(txtpnQuestion);
         
@@ -1109,7 +1109,7 @@ public class Quizzes extends JFrame {
         btnNext.addActionListener(new ActionListener() {
         	@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
-        		if (group.getSelection().getActionCommand().equals("3"))
+        		if (group.getSelection().getActionCommand().equals("1"))
         			nCorrect++;
         		setVisible(false);
         		isDone = true;
