@@ -25,7 +25,8 @@ public class RoboTeachTestCases {
 	}
 	@Test
 	public void LessonsTabInitializationTest() {
-		LessonsTab lessonsTestTab = new LessonsTab(0);
+		JFrame DummyWindow = new JFrame();
+		LessonsTab lessonsTestTab = new LessonsTab(0, DummyWindow);
 		assert(lessonsTestTab != null);
 	}
 	@Test

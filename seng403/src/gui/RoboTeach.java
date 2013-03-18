@@ -22,7 +22,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
-public class RoboTeach{
+public class RoboTeach {
 
 	private JFrame frmRoboteach;
 	private int UserID;
@@ -251,7 +251,7 @@ public class RoboTeach{
 * LessonsTab initialization and components
 ******************************************************************************************************************************************/	
 		JPanel LessonsTab1;
-		newLessonsTab = new LessonsTab(UserID);
+		newLessonsTab = new LessonsTab(UserID, frmRoboteach);
 		LessonsTab1 = newLessonsTab.initialize();
 		TabPage.addTab("Lessons", null, LessonsTab1, null);
 
