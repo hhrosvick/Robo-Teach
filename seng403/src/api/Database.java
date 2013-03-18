@@ -14,11 +14,13 @@ public class Database {
 	/*
 	 * Access the database at www.phpmyadmin.co with the information below.
 	 */
-	private static final String CONNECTION_LOCATION = "sql2.freemysqlhosting.net";
+	private static final String CONNECTION_LOCATION = "jdbc:mysql://sql2.freemysqlhosting.net";
 	private static final String CONNECTION_PASSWORD = "fB7%gH8*"; 
 	private static final String CONNECTION_DATABASE = "sql24765"; // This is also the user name
 	
 	private static Connection con = null;
+	private Statement statement = null;
+	private ResultSet res = null;
 	
 	// TODO ITER 2: Setup database and create tables.
 	
@@ -48,11 +50,15 @@ public class Database {
 	 */
 	private void connect() throws Exception{
 		try {
+			Class.forName("com.mysql.jdbc.Driver");
 			con = DriverManager.getConnection(CONNECTION_LOCATION, CONNECTION_DATABASE, CONNECTION_PASSWORD);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new Exception("Database connection failed: " + e.getMessage());
 		}
+		
+		return con;
 		
 	}
 	
@@ -63,13 +69,15 @@ public class Database {
 	 */
 	public ResultSet query(String query){
 		
-		// TODO ITER 2: Query the database with String (after cleaning input), and return the result.
+		statement = con.prepareStatement(query);
+		
+		res = statement.executeQuery(query);
 		
 		// Take a look at the 'java.sql.*' javadocs online.
 		// Basically, create a PreparedStatement using con.prepareStatement("query")
 		// and return the executeQuery() result
 
-		return null;
+		return res;
 	}
 	
 	public void close(){
