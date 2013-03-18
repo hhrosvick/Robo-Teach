@@ -106,7 +106,6 @@ public class API implements API_Interface {
 	@Override
 	public int authenticate_user(String user_name, String password) {
 		
-		// TODO ITER 2: Database functions as needed.
 		UserID = Authenticator.auth(user_name, password);
 		
 		// Check is the user exists in the database, create an entry if not.
@@ -351,7 +350,7 @@ public class API implements API_Interface {
 		String imgStr = "Lessons/";
 		
 		if(Chapter == 0)
-			return null;
+			return new ImageIcon("Usermanual/UM " + Slide + ".png");
 		
 		if(Lesson == 0)
 			imgStr += "Chapter " + Chapter;
@@ -366,7 +365,7 @@ public class API implements API_Interface {
 	}
 	
 	@Override
-	public ImageIcon getChallenge(int tier, int number, int Slide){
+	public ImageIcon getChallenge(int tier, int number, boolean Slide){
 
 		String imgStr = "Challenges/";
 		
@@ -375,8 +374,8 @@ public class API implements API_Interface {
 		
 		if(number == 0)
 			imgStr += "Tier " + tier;
-		else if(Slide == 0)
-			imgStr += "Challenger " + tier + "-" + number;
+		else if(!Slide)
+			imgStr += "Challenge " + tier + "-" + number;
 		else
 			imgStr += "ChallengeSlides/Challenge " + number + "-" + Slide;
 		
