@@ -47,7 +47,7 @@ public class ChallengeWindow {
 		setFrame(new JFrame());
 		getFrame().setBounds(100, 100, 450, 300);
 		// creates the image string and image icon
-		final ImageIcon ChallengePicture = api.getChallenge(Tier, Challenge, 0);
+		final ImageIcon ChallengePicture = api.getChallenge(Tier, Challenge, false);
 		// loads the scrollPane
 		JScrollPane scrollPane = new JScrollPane();
 		getFrame().getContentPane().add(scrollPane, BorderLayout.CENTER);
