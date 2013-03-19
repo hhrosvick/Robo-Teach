@@ -116,7 +116,7 @@ public class API implements API_Interface {
 	@Override
 	public int getUserType(int UserID){
 		
-		String query = "SELECT 'type' FROM 'users' WHERE 'student_ID'=" + String.valueOf(UserID);
+		String query = "SELECT 'type' FROM sql24765.users WHERE 'student_ID'=" + String.valueOf(UserID);
 		String type = "";
 		
 		try {
@@ -141,10 +141,10 @@ public class API implements API_Interface {
 		Map<String,String> m = new HashMap<String,String>();
 		
 		try {			
-			String q = "SELECT * FROM 'users'";
+			String q = "SELECT * FROM sql24765.users";
 			ResultSet r1 = DB.query(q);
-			
-			String query = "SELECT * FROM 'users' WHERE 'student_ID' =" + String.valueOf(UserID);
+			r1.next();
+			String query = "SELECT * FROM sql24765.users WHERE 'student_ID' =" + String.valueOf(UserID);
 			ResultSet response = DB.query(query);
 			
 		
@@ -217,7 +217,7 @@ public class API implements API_Interface {
 		Map<Integer, Map<String,String>> m = new HashMap<Integer, Map<String,String>>();
 		Map<String,String> average = new HashMap<String, String>();
 		
-		String query = "SELECT * FROM 'users'";
+		String query = "SELECT * FROM sql24765.users";
 		try {
 			ResultSet response = DB.query(query);
 			
@@ -313,16 +313,16 @@ public class API implements API_Interface {
 	public Vector<Integer> getAllUserIDs(){
 		
 		Vector<Integer> v = new Vector<Integer>();
-		String query = "SELECT 'student_ID' FROM 'users'";
+		String query = "SELECT * FROM sql24765.users";
 		try {
 			ResultSet response = DB.query(query);
-			
-			if(response.next() && response.getInt(1) == 0)
+			response.next();
+			if(response.getInt("student_ID") == 0)
 				return null;
 			
 			while(!response.isAfterLast()){
-					
-				v.add(response.getInt(1));
+				
+				v.add(response.getInt("student_ID"));
 				response.next();
 				
 			}
@@ -386,7 +386,7 @@ public class API implements API_Interface {
 	
 	public void setUserChapter(int UserID, int progress) throws Exception{
 		
-		String query = "UPDATE 'users' SET 'lesson_complete'=" + String.valueOf(progress) + " WHERE 'student_ID'=" + String.valueOf(UserID);
+		String query = "UPDATE sql24765.users SET 'lesson_complete'=" + String.valueOf(progress) + " WHERE 'student_ID'=" + String.valueOf(UserID);
 		ResultSet response = DB.query(query);
 		if(response.next() && response.getInt(1) == 0)
 			throw new Exception("No user with the ID " + UserID);
@@ -395,7 +395,7 @@ public class API implements API_Interface {
 
 	public void setUserChallenge(int UserID, int progress) throws Exception{
 		
-		String query = "UPDATE 'users' SET 'challenge_complete'=" + String.valueOf(progress) + " WHERE 'student_ID'=" + String.valueOf(UserID);
+		String query = "UPDATE sql24765.users SET 'challenge_complete'=" + String.valueOf(progress) + " WHERE 'student_ID'=" + String.valueOf(UserID);
 		ResultSet response = DB.query(query);
 		if(response.next() && response.getInt(1) == 0)
 			throw new Exception("No user with the ID " + UserID);
