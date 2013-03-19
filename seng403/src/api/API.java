@@ -141,10 +141,10 @@ public class API implements API_Interface {
 		Map<String,String> m = new HashMap<String,String>();
 		
 		try {			
-			String q = "SELECT '*' FROM 'users'";
+			String q = "SELECT * FROM 'users'";
 			ResultSet r1 = DB.query(q);
 			
-			String query = "SELECT '*' FROM 'users' WHERE 'student_ID' =" + String.valueOf(UserID);
+			String query = "SELECT * FROM 'users' WHERE 'student_ID' =" + String.valueOf(UserID);
 			ResultSet response = DB.query(query);
 			
 		
@@ -217,7 +217,7 @@ public class API implements API_Interface {
 		Map<Integer, Map<String,String>> m = new HashMap<Integer, Map<String,String>>();
 		Map<String,String> average = new HashMap<String, String>();
 		
-		String query = "SELECT '*' FROM 'users'";
+		String query = "SELECT * FROM 'users'";
 		try {
 			ResultSet response = DB.query(query);
 			
