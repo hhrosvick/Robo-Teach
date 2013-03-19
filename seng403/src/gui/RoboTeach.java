@@ -161,6 +161,7 @@ public class RoboTeach{
 		JButton UserManualButton = new JButton("User Manual");
 		UserManualButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				UserManualWindow newWindow = new UserManualWindow(api);
 			}
 		});
 		
