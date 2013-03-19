@@ -96,6 +96,13 @@ public interface API_Interface {
 	public ImageIcon getLesson(int Chapter, int Lesson, int Slide);
 	
 	/**
+	 * Returns an ImageIcon object for the user manual.
+	 * @param Slide The number of the slide needed.
+	 * @return the ImageIcon object
+	 */
+	public ImageIcon getUserManual(int Slide);
+	
+	/**
 	 * Returns an ImageIcon object for the specified challenge.
 	 * @param Tier The number of the Tier needed. Pass 0 (zero) or false into all other parameters if just the tier imaged is needed.
 	 * @param Number The challenge number needed. Pass false into the slide parameter if just the Tier/Number imaged is needed.

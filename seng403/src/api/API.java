@@ -363,7 +363,12 @@ public class API implements API_Interface {
 		
 		return new ImageIcon(imgStr);
 	}
-	
+	@Override
+	public ImageIcon getUserManual(int Slide)
+	{
+		return null;
+		
+	}
 	@Override
 	public ImageIcon getChallenge(int tier, int number, boolean Slide){
 

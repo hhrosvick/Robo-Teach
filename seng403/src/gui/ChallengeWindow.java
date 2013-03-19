@@ -28,7 +28,7 @@ public class ChallengeWindow {
 		api = a;
 		initialize();
 	}
-// creates the new window
+	// creates the new window
 	public static void OpenWindow() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -47,7 +47,7 @@ public class ChallengeWindow {
 		setFrame(new JFrame());
 		getFrame().setBounds(100, 100, 450, 300);
 		// creates the image string and image icon
-		final ImageIcon ChallengePicture = api.getChallenge(Tier, Challenge, false);
+		final ImageIcon ChallengePicture = api.getChallenge(Tier, Challenge, true);
 		// loads the scrollPane
 		JScrollPane scrollPane = new JScrollPane();
 		getFrame().getContentPane().add(scrollPane, BorderLayout.CENTER);
