@@ -313,6 +313,7 @@ public class API implements API_Interface {
 	public Vector<Integer> getAllUserIDs(){
 		
 		Vector<Integer> v = new Vector<Integer>();
+		v.add(0);
 		String query = "SELECT * FROM sql24765.users";
 		try {
 			ResultSet response = DB.query(query);
@@ -329,7 +330,7 @@ public class API implements API_Interface {
 			}catch (SQLException e){
 				e.printStackTrace();
 			}
-
+			
 		return v;
 		
 //		// FAKED OUTPUT

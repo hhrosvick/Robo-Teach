@@ -73,21 +73,14 @@ public class GradesMatrix
 		Object name = "name";
 		Object chapter = "chapter";
 		Object challenge = "challenge";
-		data = new String[users.length+1][4];
-	
-		Map<String, String> average = api.getUserProgress(000000);
-		
-		data[0][0] = average.get("id");
-		data[0][1] = average.get("name");
-		data[0][2] = average.get("avgchapter");
-		data[0][3] = average.get("avgchallenge");
+		data = new String[users.length][4];
 	
 		for(int i = 0; i < users.length; i++)
 		{
-			data[i+1][0] = users[i].toString();
-			data[i+1][1] = progress.get(users[i]).remove(name);
-			data[i+1][2] = progress.get(users[i]).remove(chapter);
-			data[i+1][3] = progress.get(users[i]).remove(challenge);
+			data[i][0] = users[i].toString();
+			data[i][1] = progress.get(users[i]).remove(name);
+			data[i][2] = progress.get(users[i]).remove(chapter);
+			data[i][3] = progress.get(users[i]).remove(challenge);
 		}
 	}
 	public String[][] updateMatrix(String s) 
