@@ -1,13 +1,14 @@
+package api;
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-
-public class MyRobotTestCases {
+public class RobotControlTest {
 
 	@Test
 	public void test() {
-		fail("No idea how to test this system quite yet.");
+		fail("Not yet implemented");
 	}
 
 }

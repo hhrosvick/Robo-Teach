@@ -1,51 +1,38 @@
 package gui;
 
 import java.awt.EventQueue;
-import javax.swing.text.Element;
 import javax.swing.JFrame;
 
-import casa.CASAProcess;
-import casa.Status;
+import api.API;
+import api.API_Interface;
 
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
-
 import javax.swing.JPanel;
 import java.awt.CardLayout;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JTextArea;
-import javax.swing.ScrollPaneConstants;
-
 import java.awt.Panel;
 import java.awt.BorderLayout;
-
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JCheckBox;
 import javax.swing.JScrollPane;
-import javax.swing.JTextPane;
-
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.TextArea;
-import java.awt.ScrollPane;
-import java.awt.Label;
-import java.awt.Scrollbar;
 import java.awt.Toolkit;
-
 
 public class RoboTeach{
 
 	private JFrame frmRoboteach;
+	private int UserID;
+	private LessonsTab newLessonsTab;
+	private ChallengesTab newChallengeTab;
+	private static API_Interface api;
 
 	/**
 	 * Launch the application.
@@ -54,6 +41,7 @@ public class RoboTeach{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					api = new API();
 					RoboTeach window = new RoboTeach();
 					window.frmRoboteach.setVisible(true);
 				} catch (Exception e) {
@@ -94,7 +82,7 @@ public class RoboTeach{
 		frmRoboteach.setLocation(x,y);
 		
 		//USER LOGIN
-		new Login(frmRoboteach);
+		new Login(frmRoboteach, this);
 		
 		//Creating the base panel
 		final JPanel BasePanel = new JPanel();
@@ -173,6 +161,7 @@ public class RoboTeach{
 		JButton UserManualButton = new JButton("User Manual");
 		UserManualButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				UserManualWindow newWindow = new UserManualWindow(api);
 			}
 		});
 		
@@ -270,7 +259,7 @@ public class RoboTeach{
 * LessonsTab initialization and components
 ******************************************************************************************************************************************/	
 		JPanel LessonsTab1;
-		LessonsTab newLessonsTab = new LessonsTab();
+		newLessonsTab = new LessonsTab(UserID, frmRoboteach, api);
 		LessonsTab1 = newLessonsTab.initialize();
 		TabPage.addTab("Lessons", null, LessonsTab1, null);
 
@@ -279,7 +268,7 @@ public class RoboTeach{
 ******************************************************************************************************************************************/	
 		
 		JPanel ProgramTab1;
-		ProgramTab newTab = new ProgramTab();
+		ProgramTab newTab = new ProgramTab(api);
 		ProgramTab1 = newTab.initialize();
 		TabPage.addTab("Program", null, ProgramTab1, null);
 		
@@ -288,7 +277,7 @@ public class RoboTeach{
 * ChallengeTab initialization and components
 ******************************************************************************************************************************************/			
 		JPanel ChallengeTab1;
-		ChallengesTab newChallengeTab = new ChallengesTab();
+		newChallengeTab = new ChallengesTab(UserID, api);
 		ChallengeTab1 = newChallengeTab.initialize();
 		TabPage.addTab("Challenges", null, ChallengeTab1, null);
 		
@@ -296,8 +285,21 @@ public class RoboTeach{
 * ChallengeTab initialization and components
 ******************************************************************************************************************************************/			
 		JPanel GradesTab1;
-		GradesTab newGradesTab = new GradesTab();
+		GradesTab newGradesTab = new GradesTab(UserID, api);
 		GradesTab1 = newGradesTab.initialize();
 		TabPage.addTab("Progress", null, GradesTab1, null);
 	}
+	
+	public void setUserID(int id)
+	{
+		UserID = id;
+		//need to set it up again bec it sets it to 0 during the first initialization
+		newLessonsTab.setUserID(id);
+		newChallengeTab.setUserID(id);
+	}
+	public API_Interface getAPI_Interface()
+	{
+		return api;
+	}
+
 }

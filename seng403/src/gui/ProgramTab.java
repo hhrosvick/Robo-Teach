@@ -51,14 +51,17 @@ public class ProgramTab implements ActionListener {
 	private API_Interface api;
 	
 	
-	public ProgramTab()
+	public ProgramTab(API_Interface a)
 	{
 		ProgramTab = new JPanel();
 		fc = new JFileChooser();
 	    FileNameExtensionFilter filter = new FileNameExtensionFilter("LISP Files", "lisp");
 	    fc.setFileFilter(filter);
 		filePath = null;
-		//api = new API();
+		try 
+		{
+			api = a;
+		} catch (Exception e) {}
 		//UNCOMMENT THIS IS IF YOU WANTED TO SEE THE GUI ON THE DESIGN TAB
 		//initialize();
 		
@@ -163,8 +166,11 @@ public class ProgramTab implements ActionListener {
         //Handle start emulator button action.
         if (e.getSource() == btnStartEmulator) 
         {
-        	System.out.println("ButtonPressed");
-        	
+        	try 
+        	{
+				api.initialize();
+			} catch (Exception e1) {}
+        	// Returned initialize because other classes must create instances of api
         	// Now done at at the creation of API. No longer needed.
         	// api.initalize();
         	

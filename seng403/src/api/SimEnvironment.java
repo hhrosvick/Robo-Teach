@@ -11,7 +11,6 @@ public class SimEnvironment extends iRobotCreate.simulator.Environment{
 
 	public SimEnvironment(ParamsMap params, AgentUI ui) throws Exception {
 		super(params, ui);
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**

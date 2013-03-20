@@ -15,7 +15,8 @@ public interface API_Interface {
 	 */
 	
 	/**
-	 * Checks a username / password combination against a database or external system.
+	 * Checks a username / password combination against a database or external system.<br>
+	 * The implementing class should store the User's identifier for later use. (Persistent user) 
 	 * @param user_name login name
 	 * @param password login password (preferably the password has already been encrypted)
 	 * @return will be a User ID if the user is valid, zero otherwise.
@@ -27,6 +28,7 @@ public interface API_Interface {
 	 * @param UserID and user id as an integer
 	 * @return user type as an int (teacher = 1, student = 2)<br>
 	 * 	Zero will be returned if the user id is invalid.
+	 * @throws Exception 
 	 */
 	public int getUserType(int UserID);
 	
@@ -86,23 +88,42 @@ public interface API_Interface {
 	
 	/**
 	 * Returns an ImageIcon object for the specified chapter and lesson.
-	 * @param Chapter
-	 * @param Lesson
+	 * @param Chapter The number of the chapter needed. Pass 0 (zero) into all other parameters if just the chapter imaged is needed.
+	 * @param Lesson The number of the lesson needed. Pass 0 (zero) into the slide parameter if just the chapter/lesson imaged is needed.
+	 * @param Slide The number of the slide needed. 
 	 * @return the ImageIcon object
 	 */
-	public ImageIcon getLesson(int Chapter, int Lesson);
+	public ImageIcon getLesson(int Chapter, int Lesson, int Slide);
+	
+	/**
+	 * Returns an ImageIcon object for the user manual.
+	 * @param Slide The number of the slide needed.
+	 * @return the ImageIcon object
+	 */
+	public ImageIcon getUserManual(int Slide);
+	
+	/**
+	 * Returns an ImageIcon object for the specified challenge.
+	 * @param Tier The number of the Tier needed. Pass 0 (zero) or false into all other parameters if just the tier imaged is needed.
+	 * @param Number The challenge number needed. Pass false into the slide parameter if just the Tier/Number imaged is needed.
+	 * @param Slide The number of the slide needed.
+	 * @return the ImageIcon object
+	 */
+	public ImageIcon getChallenge(int Tier, int Number, boolean Slide);
 	
 	/**
 	 * Sets the chapter progress for the user with specified UserID.
 	 * @param progress the new progress number
+	 * @throws Exception 
 	 */
-	public void setUserChapter(int UserID, int progress);
+	public void setUserChapter(int UserID, int progress) throws Exception;
 	
 	/**
 	 * Sets the challenge progress for the user with specified UserID.
 	 * @param progress the new progress number
+	 * @throws Exception 
 	 */
-	public void setUserChallenge(int UserID, int progress);
+	public void setUserChallenge(int UserID, int progress) throws Exception;
 	
 	
 	
@@ -149,5 +170,7 @@ public interface API_Interface {
 	 * @return a RobotControl instance
 	 */
 	public RobotControl loadSimulatorController();
+
+	public boolean initialize() throws Exception;
 	
 }

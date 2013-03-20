@@ -1,3 +1,4 @@
+package api;
 
 
 import static org.junit.Assert.*;
@@ -11,44 +12,45 @@ public class API_InterfaceTest {
 
 	/**
 	 * authenticate_user negative tests
+	 * @throws Exception 
 	 */
 	@Test
-	public void authenticate_userTestArg1Null() {
+	public void authenticate_userTestArg1Null() throws Exception {
 		API_Interface api = new API();
 		assertSame(api.authenticate_user(null, "abcd"), false);
 	}
 	@Test
-	public void authenticate_userTestArg1Empty() {
+	public void authenticate_userTestArg1Empty() throws Exception {
 		API_Interface api = new API();
 		assertSame(api.authenticate_user("", "abcd"), false);
 	}
 	@Test
-	public void authenticate_userTestArg2Null() {
+	public void authenticate_userTestArg2Null() throws Exception {
 		API_Interface api = new API();
 		assertSame(api.authenticate_user("abcd", null), false);
 	}
 	@Test
-	public void authenticate_userTestArg2Empty() {
+	public void authenticate_userTestArg2Empty() throws Exception {
 		API_Interface api = new API();
 		assertSame(api.authenticate_user("abcd",""), false);
 	}
 	@Test
-	public void authenticate_userTestArgbothNull() {
+	public void authenticate_userTestArgbothNull() throws Exception {
 		API_Interface api = new API();
 		assertSame(api.authenticate_user(null, null), false);
 	}
 	@Test
-	public void authenticate_userTestArgbothEmpty() {
+	public void authenticate_userTestArgbothEmpty() throws Exception {
 		API_Interface api = new API();
 		assertSame(api.authenticate_user("",""), false);
 	}
 	@Test
-	public void authenticate_userTestArgNullEmpty() {
+	public void authenticate_userTestArgNullEmpty() throws Exception {
 		API_Interface api = new API();
 		assertSame(api.authenticate_user(null, ""), false);
 	}
 	@Test
-	public void authenticate_userTestArgEmptyNull() {
+	public void authenticate_userTestArgEmptyNull() throws Exception {
 		API_Interface api = new API();
 		assertSame(api.authenticate_user("", null), false);
 	}
@@ -56,12 +58,12 @@ public class API_InterfaceTest {
 	 * loadToRobot negative tests
 	 */
 	@Test
-	public void loadToRobotTestArgNull() {
+	public void loadToRobotTestArgNull() throws Exception {
 		API_Interface api = new API();
 		assertSame(api.loadToRobot(null), "Error");
 	}
 	@Test
-	public void loadToRobotTestArgEmpty() {
+	public void loadToRobotTestArgEmpty() throws Exception {
 		API_Interface api = new API();
 		assertSame(api.loadToRobot(""), "Error");
 	}
@@ -69,12 +71,12 @@ public class API_InterfaceTest {
 	 * loadToSimulator negative tests
 	 */
 	@Test
-	public void loadToSimulatorTestArgNull() {
+	public void loadToSimulatorTestArgNull() throws Exception {
 		API_Interface api = new API();
 		assertSame(api.loadToSimulator(null), "Error");
 	}
 	@Test
-	public void loadToSimulatorTestArgEmpty() {
+	public void loadToSimulatorTestArgEmpty() throws Exception {
 		API_Interface api = new API();
 		assertSame(api.loadToSimulator(""), "Error");
 	}
@@ -82,12 +84,12 @@ public class API_InterfaceTest {
 	 * translateLoadToRobot negative tests
 	 */
 	@Test
-	public void translateLoadToRobotTestArgNull() {
+	public void translateLoadToRobotTestArgNull() throws Exception {
 		API_Interface api = new API();
 		assertSame(api.translateLoadToRobot(null), "Error");
 	}
 	@Test
-	public void trasnlateloadToRobotTestArgEmpty() {
+	public void trasnlateloadToRobotTestArgEmpty() throws Exception {
 		API_Interface api = new API();
 		assertSame(api.translateLoadToRobot(""), "Error");
 	}

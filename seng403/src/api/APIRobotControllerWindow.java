@@ -11,7 +11,7 @@ import javax.swing.*;
 public class APIRobotControllerWindow extends JFrame {
 
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		APIRobotControllerWindow Controller = new APIRobotControllerWindow();
 		API api = new API();

@@ -1,44 +1,41 @@
 package gui;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
+import api.API;
+import api.API_Interface;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
 import javax.swing.JPanel;
-
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.BorderLayout;
 import java.awt.Window;
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JScrollPane;
 
 public class LessonWindow {
 
-	private static int MaxSlide;
 	private static JFrame frame;
 	private static String LessonName;
 	private final JLabel SlideLabel = new JLabel("");
 	private int Chapter;
 	private int Lesson;
-	private int Slide;
+	private int Slide = 0;
+	private API_Interface api;
 	/**
 	 * Create the application.
 	 */
-	public LessonWindow(int c, int l, String ln) 
+	public LessonWindow(int c, int l, String ln, API_Interface a) 
 	{
 		LessonName = ln;
 		Chapter = c;
 		Lesson = l;
+		api = a;
 		initialize();
 	}
 
@@ -71,8 +68,7 @@ public class LessonWindow {
 		
 		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.WHITE);
-		String imgStr = "Lessons/" + LessonName + ".png";
-		final ImageIcon LessonPicture = new ImageIcon(imgStr);
+		final ImageIcon LessonPicture = api.getLesson(Chapter, Lesson, Slide);
 		
 		JPanel SlidePanel = new JPanel();
 		frame.getContentPane().add(SlidePanel, "2, 2, 1, 13, fill, fill");
@@ -90,11 +86,11 @@ public class LessonWindow {
 		JButton PreviousButton = new JButton("Previous");
 		PreviousButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//if(sectionNumber > 1)
-					//sectionNumber--;
-				//String imgStr = "Lessons/" + LessonName + sectionNumber + ".png";
-				//final ImageIcon LessonPicture = new ImageIcon(imgStr);
-				//SlideLabel.setIcon(LessonPicture);
+				if(Slide > 0)
+				{
+					ImageIcon image = api.getLesson(Chapter, Lesson, --Slide);
+					SlideLabel.setIcon(image);
+				}	
 			}
 		});
 		ButtonPanel.add(PreviousButton);
@@ -102,11 +98,11 @@ public class LessonWindow {
 		JButton NextButton = new JButton("Next");
 		NextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//if(sectionNumber < MAX_SECTION)
-					//sectionNumber++;
-				//String imgStr = "Lessons/" + LessonName + sectionNumber + ".png";
-				//final ImageIcon LessonPicture = new ImageIcon(imgStr);
-				//SlideLabel.setIcon(LessonPicture);
+				ImageIcon image = api.getLesson(Chapter, Lesson, ++Slide);
+				if(image != null)
+					SlideLabel.setIcon(image);
+				else
+					Slide--;
 			}
 		});
 		ButtonPanel.add(NextButton);

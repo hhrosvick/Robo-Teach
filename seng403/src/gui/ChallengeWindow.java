@@ -9,17 +9,26 @@ import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 
+import api.API;
+import api.API_Interface;
+
 public class ChallengeWindow {
 
 	private static JFrame frame;
 	private static String ChallengeName;
-// constructor takes lesson name argument
-	public ChallengeWindow(int t, int c, String CN) 
+	private API_Interface api;
+	private int Tier;
+	private int Challenge;
+	// constructor takes lesson name argument
+	public ChallengeWindow(int t, int c, String CN, API_Interface a) 
 	{
 		ChallengeName = CN;
+		Challenge = c;
+		Tier = t;
+		api = a;
 		initialize();
 	}
-// creates the new window
+	// creates the new window
 	public static void OpenWindow() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -38,8 +47,7 @@ public class ChallengeWindow {
 		setFrame(new JFrame());
 		getFrame().setBounds(100, 100, 450, 300);
 		// creates the image string and image icon
-		String imgStr = "Challenges/" + ChallengeName + ".png";
-		final ImageIcon ChallengePicture = new ImageIcon(imgStr);
+		final ImageIcon ChallengePicture = api.getChallenge(Tier, Challenge, true);
 		// loads the scrollPane
 		JScrollPane scrollPane = new JScrollPane();
 		getFrame().getContentPane().add(scrollPane, BorderLayout.CENTER);
