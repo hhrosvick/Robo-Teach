@@ -76,13 +76,13 @@ public class API implements API_Interface {
 	public boolean initialize() throws Exception{
 		try {
 			
-//			CASA = CASAProcess.getInstance();
-//			
-//			ProcessOptions options = new ProcessOptions(CASA);
-//			options.traceTags = tracetags;
-//			options.tracing = true;
-//			
-//			CASA.setOptions(options);
+			CASA = CASAProcess.getInstance();
+			
+			ProcessOptions options = new ProcessOptions(CASA);
+			options.traceTags = tracetags;
+			options.tracing = true;
+			
+			CASA.setOptions(options);
 			
 			UI = new StandardOutAgentUI();
 			

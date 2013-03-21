@@ -172,12 +172,12 @@ public class ChallengesTab {
 				
 				//constantly track user progresss
 				currentProgress = api.getUserProgress(UserID);
-				userChapter = Integer.parseInt(currentProgress.get("chapter"));
+				if(currentProgress != null)
+					userChapter = Integer.parseInt(currentProgress.get("chapter"));
+				else
+					userChapter = 100;
 				
-				//Creates the string for challenge preview, preview will be local for quick response time
-				Object nodeInfo = node.getUserObject();
-				Selection = nodeInfo.toString();
-				String imgStr = "Challenges/" + Selection + ".png";
+				
 				// Information regarding PNG images, depending on what is selected:
 				// Folder selected Challenges/Easy, Challenges/Medium, Challenges/Hard
 				// - Displays a PNG describing the difficulty of the challenges
@@ -189,16 +189,38 @@ public class ChallengesTab {
 				// - Displays a PNG describing the instructions of the challenge
 				//final ImageIcon ChallengePreview = API.getChallenge(1,0,0) potentially called;
 				
-				System.out.println(imgStr);
-				final ImageIcon LessonPreview = new ImageIcon(imgStr);
-				LessonPreviewLabel.setIcon(LessonPreview);
 				//Creates the integers for challenge selection for communication with API
 				ChallengeSelected = true;
 				try
 				{
-				Tier = ((node.getParent()).getParent()).getIndex(node.getParent());
-				Challenge = (node.getParent()).getIndex(node);	
+					Tier = ((node.getParent()).getParent()).getIndex(node.getParent());
+					Challenge = (node.getParent()).getIndex(node);
+					
+					final ImageIcon LessonPreview = api.getChallenge(Tier+1, Challenge+1, false);
+					LessonPreviewLabel.setIcon(LessonPreview);
+				
 				}catch(NullPointerException NPE){ ChallengeSelected = false; }
+				
+				if(ChallengeSelected)
+				{
+					
+					final ImageIcon LessonPreview = api.getChallenge(Tier+1, Challenge+1, false);
+					LessonPreviewLabel.setIcon(LessonPreview);
+				}
+				else
+				{
+					try
+					
+					{
+						Tier = node.getParent().getIndex(node);
+						final ImageIcon LessonPreview = api.getChallenge(Tier+1, 0, false);
+						LessonPreviewLabel.setIcon(LessonPreview);
+						
+					}catch(NullPointerException NPE){ 
+						final ImageIcon LessonPreview = new ImageIcon("Challenges/Challenges.png");
+						LessonPreviewLabel.setIcon(LessonPreview);
+					}
+				}
 			}
 		});
 		return ChallengesTab;
