@@ -76,13 +76,13 @@ public class API implements API_Interface {
 	public boolean initialize() throws Exception{
 		try {
 			
-			CASA = CASAProcess.getInstance();
-			
-			ProcessOptions options = new ProcessOptions(CASA);
-			options.traceTags = tracetags;
-			options.tracing = true;
-			
-			CASA.setOptions(options);
+//			CASA = CASAProcess.getInstance();
+//			
+//			ProcessOptions options = new ProcessOptions(CASA);
+//			options.traceTags = tracetags;
+//			options.tracing = true;
+//			
+//			CASA.setOptions(options);
 			
 			UI = new StandardOutAgentUI();
 			
@@ -148,8 +148,15 @@ public class API implements API_Interface {
 			ResultSet response = DB.query(query);
 			
 		
-			if(response.next() && response.getInt(1) == 0)
+			if(response.next())
+			{
+				if(response.getInt(1) == 0)
+					return null;
+			}	
+			else
 				return null;
+			
+			
 			int chpt = 0;
 			int cl = 0;
 			int size = 0;
@@ -178,37 +185,6 @@ public class API implements API_Interface {
 		}
 		
 		return m;
-		
-		
-//		// FAKED OUTPUT
-//		Map<String,String> m = new HashMap<String, String>();
-//		
-//		if(UserID == 111111){
-//			m.put("id","111111");
-//			m.put("name","Alice");
-//			m.put("chapter","3");
-//			m.put("challenge","1");
-//			m.put("avgchapter","2.5");
-//			m.put("avgchallenge","1.5");
-//		}
-//		else if(UserID == 222222){
-//			m.put("id","222222");
-//			m.put("name","Bob");
-//			m.put("chapter","2");
-//			m.put("challenge","2");
-//			m.put("avgchapter","2.5");
-//			m.put("avgchallenge","1.5");
-//		}
-//		else {
-//			m.put("id","000000");
-//			m.put("name","Class Average");
-//			m.put("chapter","0");
-//			m.put("challenge","0");
-//			m.put("avgchapter","2.5");
-//			m.put("avgchallenge","1.5");
-//		}
-//		
-//		return m;
 	}
 	
 	@Override
@@ -259,54 +235,6 @@ public class API implements API_Interface {
 		}
 		
 		return m;
-		
-//		// FAKED OUTPUT
-//		Map<Integer, Map<String,String>> m = new HashMap<Integer, Map<String, String>>();
-//		Map<String,String> a = new HashMap<String, String>();
-//		Map<String,String> b = new HashMap<String, String>();
-//		Map<String,String> c = new HashMap<String, String>();
-//		Map<String,String> D = new HashMap<String, String>();
-//		Map<String,String> J = new HashMap<String, String>();
-//		Map<String,String> M = new HashMap<String, String>();
-//		Map<String,String> S = new HashMap<String, String>();
-//		
-//		a.put("name","Alice");
-//		a.put("chapter","3");
-//		a.put("challenge","1");
-//	
-//		b.put("name","Bob");
-//		b.put("chapter","2");
-//		b.put("challenge","2");
-//
-//		c.put("name","Class Average");
-//		c.put("chapter","2.2");
-//		c.put("challenge","1.5");
-//		
-//		D.put("name","David");
-//		D.put("chapter","1");
-//		D.put("challenge","0");
-//		
-//		J.put("name","Jobelle");
-//		J.put("chapter","2");
-//		J.put("challenge","1");
-//		
-//		M.put("name","Marshall");
-//		M.put("chapter","1");
-//		M.put("challenge","2");
-//		
-//		S.put("name","Sonny");
-//		S.put("chapter","4");
-//		S.put("challenge","4");
-//		
-//		m.put(111111, a);
-//		m.put(222222, b);
-//		m.put(333333, D);
-//		m.put(444444, J);
-//		m.put(555555, M);
-//		m.put(666666, S);
-//		m.put(0, c);
-//		
-//		return m;
 	}
 	
 	@Override
@@ -332,22 +260,11 @@ public class API implements API_Interface {
 			}
 			
 		return v;
-		
-//		// FAKED OUTPUT
-//		Vector<Integer> v = new Vector<Integer>();
-//		v.add(111111);
-//		v.add(222222);
-//		v.add(333333);
-//		v.add(444444);
-//		v.add(555555);
-//		v.add(666666);
-//			
-//		return v;
 	}
 	
 	@Override
 	public ImageIcon getLesson(int Chapter, int Lesson, int Slide){
-
+				
 		String imgStr = "Lessons/";
 		
 		if(Chapter == 0)
@@ -362,6 +279,7 @@ public class API implements API_Interface {
 		
 		imgStr += ".png";
 		
+		System.out.println(Chapter + " " + Lesson + " " + Slide + " " +imgStr);
 		return new ImageIcon(imgStr);
 	}
 	@Override

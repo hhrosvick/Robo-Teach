@@ -249,15 +249,14 @@ public class LessonsTab {
 				
 				//constantly track user progresss
 				currentProgress = api.getUserProgress(UserID);
-				userChapter = Integer.parseInt(currentProgress.get("chapter"));
+				if(currentProgress != null)
+					userChapter = Integer.parseInt(currentProgress.get("chapter"));
+				else
+					userChapter = 100;
 				
 				//Creates the string for lesson preview, preview will be local for quick response time
-				Object nodeInfo = node.getUserObject();
-				Selection = nodeInfo.toString();
-				String imgStr = "Lessons/" + Selection + ".png";
-				System.out.println(imgStr);
-				final ImageIcon LessonPreview = new ImageIcon(imgStr);
-				LessonPreviewLabel.setIcon(LessonPreview);
+				
+				
 				
 				//Creates the integers for lesson selection for communication with API
 				LessonSelected = true;
@@ -265,7 +264,7 @@ public class LessonsTab {
 				
 				try
 				{
-				Chapter = ((node.getParent()).getParent()).getIndex(node.getParent());
+				Chapter = node.getParent().getParent().getIndex(node.getParent());
 				Lesson = (node.getParent()).getIndex(node);	
 				}catch(NullPointerException NPE){ 
 					LessonSelected = false; 
@@ -274,6 +273,9 @@ public class LessonsTab {
 				if(LessonSelected)
 				{
 					System.out.println(UserID);
+					
+					final ImageIcon LessonPreview = api.getLesson(Chapter+1, Lesson+1, 0);
+					LessonPreviewLabel.setIcon(LessonPreview);
 				}
 				else
 				{
@@ -281,10 +283,15 @@ public class LessonsTab {
 					{
 						Chapter = node.getParent().getIndex(node);
 						System.out.println("try " + Chapter);
+						
+						final ImageIcon LessonPreview = api.getLesson(Chapter+1, 0, 0);
+						LessonPreviewLabel.setIcon(LessonPreview);
+						
 						if( Chapter > (userChapter-1))
 							StartLessonButton.setText("Quiz/Teacher's Approval");
 					}catch(NullPointerException NPE){ 
-						LessonSelected = false; 
+						final ImageIcon LessonPreview = new ImageIcon("Lessons/Lessons.png");
+						LessonPreviewLabel.setIcon(LessonPreview);
 					}
 				}	
 
