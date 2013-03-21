@@ -350,8 +350,10 @@ public class API implements API_Interface {
 		
 		// Run code found in file at file path, if one exists.
 		if(filepath != null && filepath != "")
+		{
 			Robot.abclEval(fileRead(filepath), null);
-				
+		}
+			
 		return null;		
 	}	
 	
@@ -441,7 +443,9 @@ public class API implements API_Interface {
 	 * Access to the robot is provided through the 'Robot' variable.
 	 */
 	private void loadRobotAgent(){
-		Robot = (Robot) CASAProcess.startAgent(UI, Robot.class,
+		
+		if(Robot == null)
+			Robot = (Robot) CASAProcess.startAgent(UI, Robot.class,
 				"Dayton",
 				RobotPort,
 				"LAC", "9000",
@@ -460,7 +464,9 @@ public class API implements API_Interface {
 	 * Access to the robot is provided through the 'Robot' variable.
 	 */
 	private void loadRobotAgent_WithConsole(){
-		Robot = (Robot) CASAProcess.startAgent(UI, Robot.class,
+		
+		if(Robot == null)
+			Robot = (Robot) CASAProcess.startAgent(UI, Robot.class,
 				"Dayton",
 				RobotPort,
 				"LAC", "9000",
@@ -478,7 +484,8 @@ public class API implements API_Interface {
 	 * Access to the robot is provided through the 'Robot' variable.
 	 */
 	private void loadSimulatorAgent(){
-		Robot = (Simulator) CASAProcess.startAgent(UI, Simulator.class,
+		if(Robot == null)
+			Robot = (Simulator) CASAProcess.startAgent(UI, Simulator.class,
 				"Cutesy",
 				RobotPort,
 				"LAC", "9000",
@@ -497,7 +504,9 @@ public class API implements API_Interface {
 	 * Access to the robot is provided through the 'Environment' variable.
 	 */
 	private void loadEnvironment(){
-		Environment = CASAProcess.startAgent(UI, SimEnvironment.class,
+		
+		if(Environment == null)
+			Environment = CASAProcess.startAgent(UI, SimEnvironment.class,
 				"SimEnvironment",
 				EnvironmentPort,
 				"LAC", "9000",

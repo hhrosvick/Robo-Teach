@@ -14,4 +14,5 @@ public class Robot extends AbstractRobot {
 	public Robot(ParamsMap params, AgentUI ui) throws Exception {
 		super(params, ui);
 	}
+
 }
