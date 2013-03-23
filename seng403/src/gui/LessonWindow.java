@@ -33,8 +33,8 @@ public class LessonWindow {
 	public LessonWindow(int c, int l, String ln, API_Interface a) 
 	{
 		LessonName = ln;
-		Chapter = c;
-		Lesson = l;
+		Chapter = c+1;
+		Lesson = l+1;
 		api = a;
 		initialize();
 	}

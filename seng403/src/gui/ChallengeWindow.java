@@ -23,8 +23,8 @@ public class ChallengeWindow {
 	public ChallengeWindow(int t, int c, String CN, API_Interface a) 
 	{
 		ChallengeName = CN;
-		Challenge = c;
-		Tier = t;
+		Challenge = c+1;
+		Tier = t+1;
 		api = a;
 		initialize();
 	}
