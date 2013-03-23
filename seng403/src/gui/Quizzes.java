@@ -529,7 +529,7 @@ public class Quizzes extends JFrame {
         third = new JRadioButton("False");
         third.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
 
-        fourth = new JRadioButton("It’s not possible to leave it out");
+        fourth = new JRadioButton("It's not possible to leave it out");
         fourth.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
    	 
         first.setActionCommand("1");
@@ -903,7 +903,7 @@ public class Quizzes extends JFrame {
         txtpnQuestion.setForeground(new Color(160, 82, 45));
         txtpnQuestion.setBackground(SystemColor.control);
         txtpnQuestion.setEditable(false);
-        txtpnQuestion.setText("Question 2: \r\n\r\nIn order to set up the iRobot’s LED color to red; which integer value can be used?");
+        txtpnQuestion.setText("Question 2: \r\n\r\nIn order to set up the iRobot's LED color to red; which integer value can be used?");
         txtpnQuestion.setBounds(12, 13, 384, 100);
         getContentPane().add(txtpnQuestion);
         
@@ -930,7 +930,7 @@ public class Quizzes extends JFrame {
 		radioPanel.setLayout(new GridLayout(0, 1));
 		
 		//Create the radio buttons.
-        first = new JRadioButton("-2000 – 2000");
+        first = new JRadioButton("-2000 - 2000");
         first.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
         first.setSelected(true);
 
@@ -940,7 +940,7 @@ public class Quizzes extends JFrame {
         third = new JRadioButton("0- 100");
         third.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
 
-        fourth = new JRadioButton("-100 – 100");
+        fourth = new JRadioButton("-100 - 100");
         fourth.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
    	 
         first.setActionCommand("1");
@@ -969,7 +969,7 @@ public class Quizzes extends JFrame {
         txtpnQuestion.setForeground(new Color(160, 82, 45));
         txtpnQuestion.setBackground(SystemColor.control);
         txtpnQuestion.setEditable(false);
-        txtpnQuestion.setText("Question 3: \r\n\r\nWhat is the range within the drive’s parameter radius?");
+        txtpnQuestion.setText("Question 3: \r\n\r\nWhat is the range within the drive's parameter radius?");
         txtpnQuestion.setBounds(12, 13, 384, 100);
         getContentPane().add(txtpnQuestion);
         
@@ -996,7 +996,7 @@ public class Quizzes extends JFrame {
 		radioPanel.setLayout(new GridLayout(0, 1));
 		
 		//Create the radio buttons.
-        first = new JRadioButton("Luther, Isabelle, Sonny, Patrick (LISP’s developers)");
+        first = new JRadioButton("Luther, Isabelle, Sonny, Patrick (LISP's developers)");
         first.setFont(new Font("Microsoft YaHei", Font.PLAIN, 14));
         first.setSelected(true);
 
