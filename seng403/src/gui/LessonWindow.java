@@ -39,6 +39,7 @@ public class LessonWindow {
 		initialize();
 	}
 
+
 	/**
 	 * Initialize the contents of the frame.
 	 */

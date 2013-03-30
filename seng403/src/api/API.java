@@ -22,7 +22,6 @@ public class API implements API_Interface {
 	 * CASA Object variables
 	 */
 	private CASAProcess CASA = null;
-	@SuppressWarnings("unused")
 	private TransientAgent Environment = null;
 	private AbstractRobot Robot = null;
 	private AgentUI UI = null;

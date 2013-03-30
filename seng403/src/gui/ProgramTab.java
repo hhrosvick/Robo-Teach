@@ -168,7 +168,8 @@ public class ProgramTab implements ActionListener {
         {
         	try 
         	{
-				api.initialize();
+        		// Now done at at the creation of API. No longer needed.
+				// api.initialize();
 			} catch (Exception e1) {}
         	// Returned initialize because other classes must create instances of api
         	// Now done at at the creation of API. No longer needed.

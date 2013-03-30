@@ -28,6 +28,7 @@ public class ChallengeWindow {
 		api = a;
 		initialize();
 	}
+
 	// creates the new window
 	public static void OpenWindow() {
 		EventQueue.invokeLater(new Runnable() {
