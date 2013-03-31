@@ -30,6 +30,8 @@ public class API implements API_Interface {
 	 * User and Database Information
 	 */
 	private int UserID;
+	private String UserName;
+	private String UserType;
 	private Database DB;
 	
 	/*
@@ -75,15 +77,15 @@ public class API implements API_Interface {
 	public boolean initialize() throws Exception{
 		try {
 			
-			CASA = CASAProcess.getInstance();
-			
-			ProcessOptions options = new ProcessOptions(CASA);
-			options.traceTags = tracetags;
-			options.tracing = true;
-			
-			CASA.setOptions(options);
-			
-			UI = new StandardOutAgentUI();
+//			CASA = CASAProcess.getInstance();
+//			
+//			ProcessOptions options = new ProcessOptions(CASA);
+//			options.traceTags = tracetags;
+//			options.tracing = true;
+//			
+//			CASA.setOptions(options);
+//			
+//			UI = new StandardOutAgentUI();
 			
 			DB = Database.getInstance();
 						
@@ -107,15 +109,37 @@ public class API implements API_Interface {
 		
 		UserID = Authenticator.auth(user_name, password);
 		
-		// Check is the user exists in the database, create an entry if not.
+		String query = "SELECT * FROM sql24765.user WHERE 'id_number'=" + String.valueOf(UserID);
 		
+		try {
+			ResultSet response = DB.query(query);
+			
+			if(!response.next())
+				return createUser(UserID, user_name);
+
+			UserName = response.getString("name");
+			UserType = response.getString("type");
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return UserID;
+	}
+	
+	private int createUser(int id, String user_name) throws SQLException {
+		
+		String query = "INSERT INTO sql24765.user (name, id_number, type) VALUES ('" + user_name + "', '"+ id +"', 'student')";
+		
+		DB.query(query);
+	
 		return UserID;
 	}
 	
 	@Override
 	public int getUserType(int UserID){
 		
-		String query = "SELECT 'type' FROM sql24765.users WHERE 'student_ID'=" + String.valueOf(UserID);
+		String query = "SELECT 'type' FROM sql24765.user WHERE 'id_number'=" + String.valueOf(UserID);
 		String type = "";
 		
 		try {
@@ -140,42 +164,29 @@ public class API implements API_Interface {
 		Map<String,String> m = new HashMap<String,String>();
 		
 		try {			
-			String q = "SELECT * FROM sql24765.users";
-			ResultSet r1 = DB.query(q);
-			r1.next();
-			String query = "SELECT * FROM sql24765.users WHERE 'student_ID' =" + String.valueOf(UserID);
+			String query = "SELECT user.name, user.id_number, completion.lesson. completion.challenge FROM sql24765.users, sql24765.completion WHERE user.id_number = completion.id AND user.type = 'student' AND user.id_number = '"+ UserID +"'";
 			ResultSet response = DB.query(query);
-			
-		
+					
 			if(response.next())
 			{
-				if(response.getInt(1) == 0)
+				if(response.getInt("id_number") == 0)
 					return null;
 			}	
 			else
 				return null;
 			
+			query = "SELECT AVG(lesson), AVG(challenge) FROM sql24765.completion";
+			ResultSet avg = DB.query(query);
 			
-			int chpt = 0;
-			int cl = 0;
-			int size = 0;
+			avg.next();
+					
+			double avgchpt = avg.getDouble(1);
+			double avgcl = avg.getDouble(2);
 			
-			while(!r1.isAfterLast()){
-				
-				chpt+=r1.getInt(5);
-				cl+=r1.getInt(6);
-				size++;
-				r1.next();
-			}
-			
-			double avgchpt = chpt/size;
-			double avgcl = cl/size;
-			
-			
-			m.put("id",String.valueOf(response.getInt(3)));
-			m.put("name",response.getString(2));
-			m.put("chapter", String.valueOf((int)response.getInt(5)));
-			m.put("challenge", String.valueOf((int)response.getInt(6)));
+			m.put("id",String.valueOf(response.getInt("id_number")));
+			m.put("name",response.getString("name"));
+			m.put("chapter", String.valueOf((int)response.getInt("lesson")));
+			m.put("challenge", String.valueOf((int)response.getInt("challenge")));
 			m.put("avgchapter", String.valueOf((double)avgchpt));
 			m.put("avgchallenge", String.valueOf((double)avgcl));
 			
@@ -219,6 +230,8 @@ public class API implements API_Interface {
 				m.put(response.getInt(3), d);		//m.put(student_ID, Map object)
 				response.next();
 			}
+			
+			// SELECT AVG(lesson), AVG(challenge) FROM sql24765.completion
 			
 			double avgchpt = chpt/size;
 			double avgcl = cl/size;

@@ -63,6 +63,7 @@ public class GradesMatrix
 		data[1][2] = userData.get("chapter");
 		data[1][3] = userData.get("challenge");
 	}
+	
 	private void createClassMatrix() 
 	{
 		Map<Integer, Map<String, String>> progress = api.getAllUserProgress();
