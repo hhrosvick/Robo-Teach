@@ -26,16 +26,14 @@ public class LessonWindow {
 	private int Chapter;
 	private int Lesson;
 	private int Slide = 0;
-	private API_Interface api;
 	/**
 	 * Create the application.
 	 */
-	public LessonWindow(int c, int l, String ln, API_Interface a) 
+	public LessonWindow(int c, int l, String ln) 
 	{
 		LessonName = ln;
 		Chapter = c+1;
 		Lesson = l+1;
-		api = a;
 		initialize();
 	}
 
@@ -69,7 +67,7 @@ public class LessonWindow {
 		
 		frame.setResizable(false);
 		frame.getContentPane().setBackground(Color.WHITE);
-		final ImageIcon LessonPicture = api.getLesson(Chapter, Lesson, Slide);
+		final ImageIcon LessonPicture = RoboTeach.getAPI_Interface().getLesson(Chapter, Lesson, Slide);
 		
 		JPanel SlidePanel = new JPanel();
 		frame.getContentPane().add(SlidePanel, "2, 2, 1, 13, fill, fill");
@@ -89,7 +87,7 @@ public class LessonWindow {
 			public void actionPerformed(ActionEvent arg0) {
 				if(Slide > 0)
 				{
-					ImageIcon image = api.getLesson(Chapter, Lesson, --Slide);
+					ImageIcon image = RoboTeach.getAPI_Interface().getLesson(Chapter, Lesson, --Slide);
 					SlideLabel.setIcon(image);
 				}	
 			}
@@ -99,7 +97,7 @@ public class LessonWindow {
 		JButton NextButton = new JButton("Next");
 		NextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ImageIcon image = api.getLesson(Chapter, Lesson, ++Slide);
+				ImageIcon image = RoboTeach.getAPI_Interface().getLesson(Chapter, Lesson, ++Slide);
 				if(image != null)
 					SlideLabel.setIcon(image);
 				else

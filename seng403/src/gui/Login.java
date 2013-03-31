@@ -89,6 +89,8 @@ public class Login extends JFrame {
 					//main.setUserID(Integer.parseInt(uname));
 					
 					myRobot.setUserID(UserID);
+					
+					GradesMatrix.instance.refreshMatrix();
 					dispose();
 				} 
 				else 

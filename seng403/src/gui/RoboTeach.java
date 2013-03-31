@@ -29,7 +29,7 @@ import java.awt.Toolkit;
 public class RoboTeach{
 
 	private JFrame frmRoboteach;
-	private int UserID;
+	private static int UserID;
 	private LessonsTab newLessonsTab;
 	private ChallengesTab newChallengeTab;
 	private static API_Interface api;
@@ -259,7 +259,7 @@ public class RoboTeach{
 * LessonsTab initialization and components
 ******************************************************************************************************************************************/	
 		JPanel LessonsTab1;
-		newLessonsTab = new LessonsTab(UserID, frmRoboteach, api);
+		newLessonsTab = new LessonsTab(frmRoboteach);
 		LessonsTab1 = newLessonsTab.initialize();
 		TabPage.addTab("Lessons", null, LessonsTab1, null);
 
@@ -268,7 +268,7 @@ public class RoboTeach{
 ******************************************************************************************************************************************/	
 		
 		JPanel ProgramTab1;
-		ProgramTab newTab = new ProgramTab(api);
+		ProgramTab newTab = new ProgramTab();
 		ProgramTab1 = newTab.initialize();
 		TabPage.addTab("Program", null, ProgramTab1, null);
 		
@@ -277,7 +277,7 @@ public class RoboTeach{
 * ChallengeTab initialization and components
 ******************************************************************************************************************************************/			
 		JPanel ChallengeTab1;
-		newChallengeTab = new ChallengesTab(UserID, api);
+		newChallengeTab = new ChallengesTab();
 		ChallengeTab1 = newChallengeTab.initialize();
 		TabPage.addTab("Challenges", null, ChallengeTab1, null);
 		
@@ -285,7 +285,7 @@ public class RoboTeach{
 * ChallengeTab initialization and components
 ******************************************************************************************************************************************/			
 		JPanel GradesTab1;
-		GradesTab newGradesTab = new GradesTab(UserID, api);
+		GradesTab newGradesTab = new GradesTab();
 		GradesTab1 = newGradesTab.initialize();
 		TabPage.addTab("Progress", null, GradesTab1, null);
 	}
@@ -294,12 +294,15 @@ public class RoboTeach{
 	{
 		UserID = id;
 		//need to set it up again bec it sets it to 0 during the first initialization
-		newLessonsTab.setUserID(id);
-		newChallengeTab.setUserID(id);
 	}
-	public API_Interface getAPI_Interface()
+	
+	public static API_Interface getAPI_Interface()
 	{
 		return api;
 	}
 
+	public static int getUserID()
+	{
+		return UserID;
+	}
 }

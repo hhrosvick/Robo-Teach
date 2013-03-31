@@ -48,20 +48,16 @@ public class ProgramTab implements ActionListener {
 	private JButton btnTestConnection;
 	private JButton btnRunOnEmulator;
 	private JButton btnRunOnRobot;
-	private API_Interface api;
 	
 	
-	public ProgramTab(API_Interface a)
+	public ProgramTab()
 	{
 		ProgramTab = new JPanel();
 		fc = new JFileChooser();
 	    FileNameExtensionFilter filter = new FileNameExtensionFilter("LISP Files", "lisp");
 	    fc.setFileFilter(filter);
 		filePath = null;
-		try 
-		{
-			api = a;
-		} catch (Exception e) {}
+		
 		//UNCOMMENT THIS IS IF YOU WANTED TO SEE THE GUI ON THE DESIGN TAB
 		//initialize();
 		
@@ -182,11 +178,11 @@ public class ProgramTab implements ActionListener {
         }
         else if (e.getSource() == btnRunOnEmulator)
         {
-        	api.loadToSimulator(filePath);
+        	RoboTeach.getAPI_Interface().loadToSimulator(filePath);
         }
         else if (e.getSource() == btnRunOnRobot)
         {
-        	api.loadToRobot(filePath);
+        	RoboTeach.getAPI_Interface().loadToRobot(filePath);
         }
         else if (e.getSource() == btnTestConnection)
         {

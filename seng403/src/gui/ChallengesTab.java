@@ -36,24 +36,15 @@ public class ChallengesTab {
 	private int Tier;
 	private int Challenge;
 	private boolean ChallengeSelected;
-	private API_Interface api;
-	private int UserID;
 	private int userChapter;
 	Map<String, String> currentProgress;
 
 	/**
 	 * Create the application.
 	 */
-	public ChallengesTab(int id, API_Interface a) 
+	public ChallengesTab() 
 	{
 		ChallengesTab = new JPanel();
-		try {
-			api = a;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		UserID = id;
 		initialize();
 	}
 
@@ -118,7 +109,7 @@ public class ChallengesTab {
 				{
 					if(Tier <= (userChapter-1))
 					{
-						ChallengeWindow NewWindow = new ChallengeWindow(Tier, Challenge, Selection, api);
+						ChallengeWindow NewWindow = new ChallengeWindow(Tier, Challenge, Selection);
 						NewWindow.OpenWindow();
 					}
 				}
@@ -171,7 +162,7 @@ public class ChallengesTab {
 				
 				
 				//constantly track user progresss
-				currentProgress = api.getUserProgress(UserID);
+				currentProgress = RoboTeach.getAPI_Interface().getUserProgress(RoboTeach.getUserID());
 				if(currentProgress != null)
 					userChapter = Integer.parseInt(currentProgress.get("chapter"));
 				else
@@ -196,7 +187,7 @@ public class ChallengesTab {
 					Tier = ((node.getParent()).getParent()).getIndex(node.getParent());
 					Challenge = (node.getParent()).getIndex(node);
 					
-					final ImageIcon LessonPreview = api.getChallenge(Tier+1, Challenge+1, false);
+					final ImageIcon LessonPreview = RoboTeach.getAPI_Interface().getChallenge(Tier+1, Challenge+1, false);
 					LessonPreviewLabel.setIcon(LessonPreview);
 				
 				}catch(NullPointerException NPE){ ChallengeSelected = false; }
@@ -204,7 +195,7 @@ public class ChallengesTab {
 				if(ChallengeSelected)
 				{
 					
-					final ImageIcon LessonPreview = api.getChallenge(Tier+1, Challenge+1, false);
+					final ImageIcon LessonPreview = RoboTeach.getAPI_Interface().getChallenge(Tier+1, Challenge+1, false);
 					LessonPreviewLabel.setIcon(LessonPreview);
 				}
 				else
@@ -213,7 +204,7 @@ public class ChallengesTab {
 					
 					{
 						Tier = node.getParent().getIndex(node);
-						final ImageIcon LessonPreview = api.getChallenge(Tier+1, 0, false);
+						final ImageIcon LessonPreview = RoboTeach.getAPI_Interface().getChallenge(Tier+1, 0, false);
 						LessonPreviewLabel.setIcon(LessonPreview);
 						
 					}catch(NullPointerException NPE){ 
@@ -224,11 +215,5 @@ public class ChallengesTab {
 			}
 		});
 		return ChallengesTab;
-	}
-
-	public void setUserID(int id) 
-	{
-		UserID = id;
-		
 	}
 }

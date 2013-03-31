@@ -26,19 +26,12 @@ public class GradesTab
 	private JTable table;
 	private String[] title = {"Student ID", "Student Name", "Chapters Completed", "Challenges Completed"}; 
 	
-	private API_Interface api;
 	private GradesMatrix GM;
-	private int id;
 	
-	public GradesTab(int id, API_Interface a) 
+	public GradesTab() 
 	{
 		GradesTab = new JPanel();
-		try 
-		{
-			api = a;
-		} catch (Exception e) {}
-		GM = new GradesMatrix(id, api);
-		this.id = id;
+		GM = new GradesMatrix();
 		initialize();
 	}
 
