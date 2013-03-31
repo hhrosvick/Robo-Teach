@@ -41,7 +41,7 @@ public class GradesMatrix
 		//if(api.getUserType(userID) == 1)
 			createClassMatrix();
 		//else
-			//createStudentMatrix();
+		//	createStudentMatrix();
 		
 		sLessons = sChallenges = sName = sID = false;
 		return data;
@@ -52,8 +52,7 @@ public class GradesMatrix
 		data = new String[2][4];
 		
 		Map<String, String> userData = api.getUserProgress(userID);
-		
-		data[0][0] = ("000000");
+		data[0][0] = ("0");
 		data[0][1] = ("Class Average");
 		data[0][2] = userData.get("avgchapter");
 		data[0][3] = userData.get("avgchallenge");
@@ -62,6 +61,7 @@ public class GradesMatrix
 		data[1][1] = userData.get("name");
 		data[1][2] = userData.get("chapter");
 		data[1][3] = userData.get("challenge");
+	
 	}
 	
 	private void createClassMatrix() 
@@ -79,6 +79,7 @@ public class GradesMatrix
 		for(int i = 0; i < users.length; i++)
 		{
 			data[i][0] = users[i].toString();
+			System.out.println(users[i].toString());
 			data[i][1] = progress.get(users[i]).remove(name);
 			data[i][2] = progress.get(users[i]).remove(chapter);
 			data[i][3] = progress.get(users[i]).remove(challenge);
