@@ -30,8 +30,6 @@ public class API implements API_Interface {
 	 * User and Database Information
 	 */
 	private int UserID;
-	private String UserName;
-	private String UserType;
 	private Database DB;
 	
 	/*
@@ -77,15 +75,15 @@ public class API implements API_Interface {
 	public boolean initialize() throws Exception{
 		try {
 			
-//			CASA = CASAProcess.getInstance();
-//			
-//			ProcessOptions options = new ProcessOptions(CASA);
-//			options.traceTags = tracetags;
-//			options.tracing = true;
-//			
-//			CASA.setOptions(options);
-//			
-//			UI = new StandardOutAgentUI();
+			CASA = CASAProcess.getInstance();
+			
+			ProcessOptions options = new ProcessOptions(CASA);
+			options.traceTags = tracetags;
+			options.tracing = true;
+			
+			CASA.setOptions(options);
+			
+			UI = new StandardOutAgentUI();
 			
 			DB = Database.getInstance();
 						
@@ -116,9 +114,6 @@ public class API implements API_Interface {
 			
 			if(!response.last())
 				return createUser(UserID, user_name);
-			
-			UserName = response.getString("name");
-			UserType = response.getString("type");
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
