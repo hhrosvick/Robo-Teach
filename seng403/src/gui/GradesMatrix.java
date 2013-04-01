@@ -49,7 +49,6 @@ public class GradesMatrix
 	private void createStudentMatrix()
 	{
 		data = new String[2][4];
-		System.out.println(RoboTeach.getUserID());
 		Map<String, String> userData = RoboTeach.getAPI_Interface().getUserProgress(RoboTeach.getUserID());
 		data[0][0] = ("0");
 		data[0][1] = ("Class Average");
@@ -78,7 +77,6 @@ public class GradesMatrix
 		for(int i = 0; i < users.length; i++)
 		{
 			data[i][0] = users[i].toString();
-			System.out.println(users[i].toString());
 			data[i][1] = progress.get(users[i]).remove(name);
 			data[i][2] = progress.get(users[i]).remove(chapter);
 			data[i][3] = progress.get(users[i]).remove(challenge);
