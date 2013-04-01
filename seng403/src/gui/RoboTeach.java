@@ -162,6 +162,7 @@ public class RoboTeach{
 		UserManualButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				UserManualWindow newWindow = new UserManualWindow(api);
+				newWindow.OpenWindow();
 			}
 		});
 		
