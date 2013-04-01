@@ -98,7 +98,6 @@ public class ChallengesTab {
 		JButton StartLessonButton = new JButton("Start Challenge");
 		StartLessonButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//THIS PART HAS TO BE UNCOMMENTED ONCE getUserType is done
 				if(ChallengeSelected && RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 1) //if a teacher
 				{
 					ChallengeWindow NewWindow = new ChallengeWindow(Tier, Challenge, Selection);
