@@ -56,7 +56,6 @@ public class LessonsTab {
 	private JButton StartLessonButton;
 	private int result = 0;
 	private Quizzes q = null;
-	API_Interface api = null;
 
 
 	/**
@@ -123,12 +122,12 @@ public class LessonsTab {
 			public void actionPerformed(ActionEvent e) {
 				
 				//THIS PART HAS TO BE UNCOMMENTED ONCE getUserType is done
-				/*if(LessonSelected && api.getUserType(UserID) == 1) //if a teacher
+				if(LessonSelected && RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 1) //if a teacher
 				{
 					LessonWindow NewWindow = new LessonWindow(Chapter, Lesson, Selection);
 					NewWindow.OpenWindow();
 				}
-				else if(LessonSelected && api.getUserType(UserID) == 2 )*/ //if a student
+				else if(LessonSelected && RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 2 ) //if a student
 				if(LessonSelected)
 				{
 					if(Chapter <= (userChapter-1))
@@ -238,7 +237,10 @@ public class LessonsTab {
 				DefaultMutableTreeNode node = (DefaultMutableTreeNode) LessonsTree.getLastSelectedPathComponent();
 				
 				//constantly track user progresss
-				currentProgress = RoboTeach.getAPI_Interface().getUserProgress(RoboTeach.getUserID());
+				if(RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 2)
+					currentProgress = RoboTeach.getAPI_Interface().getUserProgress(RoboTeach.getUserID());
+				else
+					currentProgress = null;
 				if(currentProgress != null)
 					userChapter = Integer.parseInt(currentProgress.get("chapter"));
 				else
