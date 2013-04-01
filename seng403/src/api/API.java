@@ -107,7 +107,6 @@ public class API implements API_Interface {
 	public int authenticate_user(String user_name, String password) {
 		
 		UserID = Authenticator.auth(user_name, password);
-		System.out.println(UserID);
 		String query = "SELECT * FROM sql24765.user WHERE id_number=" + String.valueOf(UserID);
 		
 		try {
