@@ -301,7 +301,7 @@ public class API implements API_Interface {
 		else if(!Slide)
 			imgStr += "Challenge " + tier + "-" + number;
 		else
-			imgStr += "ChallengeSlides/Challenge " + number + "-" + Slide;
+			imgStr += "ChallengeSlides/Challenge " + tier + " - " + number;
 		
 		imgStr += ".png";
 				
