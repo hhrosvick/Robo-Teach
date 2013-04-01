@@ -113,7 +113,7 @@ public class API implements API_Interface {
 			ResultSet response = DB.query(query);
 			
 			if(!response.last())
-				return createUser(UserID, user_name);
+				return 0; //createUser(UserID, user_name);
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
