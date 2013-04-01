@@ -161,7 +161,7 @@ public class ChallengesTab {
 				
 				
 				//constantly track user progresss
-				if(RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 1)
+				if(RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 2)
 					currentProgress = RoboTeach.getAPI_Interface().getUserProgress(RoboTeach.getUserID());
 				else
 					currentProgress = null;
