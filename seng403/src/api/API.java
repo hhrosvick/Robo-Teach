@@ -311,8 +311,8 @@ public class API implements API_Interface {
 	public void setUserChapter(int UserID, int progress) throws Exception{
 		
 		String query = "UPDATE sql24765.completion SET lesson=" + String.valueOf(progress) + " WHERE id=" + String.valueOf(UserID);
-		ResultSet response = DB.query(query);
-		if(response.next() && response.getInt("id") == 0)
+		boolean response = DB.execute(query);
+		if(!response)
 			throw new Exception("No user with the ID " + UserID);
 	}
 	
@@ -320,8 +320,8 @@ public class API implements API_Interface {
 	public void setUserChallenge(int UserID, int progress) throws Exception{
 		
 		String query = "UPDATE sql24765.completion SET challenge=" + String.valueOf(progress) + " WHERE id=" + String.valueOf(UserID);
-		ResultSet response = DB.query(query);
-		if(response.next() && response.getInt("id") == 0)
+		boolean response = DB.execute(query);
+		if(!response)
 			throw new Exception("No user with the ID " + UserID);
 	}
 
