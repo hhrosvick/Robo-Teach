@@ -49,6 +49,7 @@ public class ProgramTab implements ActionListener {
 	private JButton btnRunOnEmulator;
 	private JButton btnRunOnRobot;
 	
+	private File tempFile;
 	
 	public ProgramTab()
 	{
@@ -58,6 +59,12 @@ public class ProgramTab implements ActionListener {
 	    fc.setFileFilter(filter);
 		filePath = null;
 		
+		try {
+			tempFile = new File("./robotemp.lisp");
+			tempFile.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		//UNCOMMENT THIS IS IF YOU WANTED TO SEE THE GUI ON THE DESIGN TAB
 		//initialize();
 		
@@ -107,13 +114,13 @@ public class ProgramTab implements ActionListener {
 		
 		textArea = new JTextArea();
 		
-		btnStartEmulator = new JButton("Emulator Mode");
-		btnStartEmulator.addActionListener(this);
-		ProgramTab.add(btnStartEmulator, "2, 2");
-		
-		btnTestConnection = new JButton("Robot Mode");
-		btnTestConnection.addActionListener(this);
-		ProgramTab.add(btnTestConnection, "2, 4");
+//		btnStartEmulator = new JButton("Emulator Mode");
+//		btnStartEmulator.addActionListener(this);
+//		ProgramTab.add(btnStartEmulator, "2, 2");
+//		
+//		btnTestConnection = new JButton("Robot Mode");
+//		btnTestConnection.addActionListener(this);
+//		ProgramTab.add(btnTestConnection, "2, 4");
 		
 		btnNewFile = new JButton("New File");
 		btnNewFile.addActionListener(this);
@@ -160,37 +167,39 @@ public class ProgramTab implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		 
         //Handle start emulator button action.
-        if (e.getSource() == btnStartEmulator) 
+//        if (e.getSource() == btnStartEmulator) 
+//        {
+//        	try 
+//        	{
+//        		// Now done at at the creation of API. No longer needed.
+//				// api.initialize();
+//			} catch (Exception e1) {}
+//        	// Returned initialize because other classes must create instances of api
+//        	// Now done at at the creation of API. No longer needed.
+//        	// api.initalize();
+//        	
+//        	Font f = new Font("Tahoma", Font.BOLD, 13);
+//        	btnStartEmulator.setFont(f);
+//        	btnTestConnection.setFont(new Font("Tahoma", Font.PLAIN, 13));
+//			//Status p = CASAProcess.getInstance().abclEval("(load\"scripts/sim.lisp\")", null);
+//        }
+        if (e.getSource() == btnRunOnEmulator)
         {
-        	try 
-        	{
-        		// Now done at at the creation of API. No longer needed.
-				// api.initialize();
-			} catch (Exception e1) {}
-        	// Returned initialize because other classes must create instances of api
-        	// Now done at at the creation of API. No longer needed.
-        	// api.initalize();
-        	
-        	Font f = new Font("Tahoma", Font.BOLD, 13);
-        	btnStartEmulator.setFont(f);
-        	btnTestConnection.setFont(new Font("Tahoma", Font.PLAIN, 13));
-			//Status p = CASAProcess.getInstance().abclEval("(load\"scripts/sim.lisp\")", null);
-        }
-        else if (e.getSource() == btnRunOnEmulator)
-        {
-        	RoboTeach.getAPI_Interface().loadToSimulator(filePath);
+        	writeToTemp();
+        	RoboTeach.getAPI_Interface().loadToSimulator(tempFile.getAbsolutePath());
         }
         else if (e.getSource() == btnRunOnRobot)
         {
-        	RoboTeach.getAPI_Interface().loadToRobot(filePath);
+        	writeToTemp();
+        	RoboTeach.getAPI_Interface().loadToRobot(tempFile.getAbsolutePath());
         }
-        else if (e.getSource() == btnTestConnection)
-        {
-        	//test connection
-        	Font f = new Font("Tahoma", Font.BOLD, 13);
-        	btnTestConnection.setFont(f);
-        	btnStartEmulator.setFont(new Font("Tahoma", Font.PLAIN, 13));
-        }
+//        else if (e.getSource() == btnTestConnection)
+//        {
+//        	//test connection
+//        	Font f = new Font("Tahoma", Font.BOLD, 13);
+//        	btnTestConnection.setFont(f);
+//        	btnStartEmulator.setFont(new Font("Tahoma", Font.PLAIN, 13));
+//        }
         //Handle new button action.
         else if (e.getSource() == btnNewFile)
         {
@@ -304,6 +313,22 @@ public class ProgramTab implements ActionListener {
 		}
 	}
 
+	private void writeToTemp() {
+		
+		BufferedWriter outFile;
+		try {
+			
+			outFile = new BufferedWriter( new FileWriter( tempFile ) );
+	        //outFile.write( textArea.getText() ); //put in text file
+	        textArea.write(outFile);
+	        outFile.flush( ); 
+	        outFile.close( );
+	        
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
 	
 	class MyDocumentListener implements DocumentListener {
 		public String getText()
@@ -334,5 +359,7 @@ public class ProgramTab implements ActionListener {
 			lines.setText(getText());
 		}
 	}
+	
+	
 		
 }
