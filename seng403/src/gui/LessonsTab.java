@@ -1,18 +1,11 @@
 package gui;
 
 import java.awt.Color;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-
-import api.API;
-import api.API_Interface;
-
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -20,14 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import javax.swing.JLabel;
-import javax.swing.SwingUtilities;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreeNode;
-import javax.swing.tree.TreePath;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
@@ -264,8 +253,6 @@ public class LessonsTab {
 				
 				if(LessonSelected)
 				{
-					System.out.println(RoboTeach.getUserID());
-					
 					final ImageIcon LessonPreview = RoboTeach.getAPI_Interface().getLesson(Chapter+1, Lesson+1, 0);
 					LessonPreviewLabel.setIcon(LessonPreview);
 				}
@@ -274,7 +261,6 @@ public class LessonsTab {
 					try
 					{
 						Chapter = node.getParent().getIndex(node);
-						System.out.println("try " + Chapter);
 						
 						final ImageIcon LessonPreview = RoboTeach.getAPI_Interface().getLesson(Chapter+1, 0, 0);
 						LessonPreviewLabel.setIcon(LessonPreview);
