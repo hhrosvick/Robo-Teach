@@ -1,6 +1,7 @@
 package api;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -279,8 +280,12 @@ public class API implements API_Interface {
 		
 		imgStr += ".png";
 		
-		System.out.println(Chapter + " " + Lesson + " " + Slide + " " +imgStr);
-		return new ImageIcon(imgStr);
+		File image = new File(imgStr);
+		
+		if(image.exists())
+			return new ImageIcon(imgStr);
+		else
+			return null;
 	}
 	@Override
 	public ImageIcon getUserManual(int Slide)
@@ -305,7 +310,12 @@ public class API implements API_Interface {
 		
 		imgStr += ".png";
 
-		return new ImageIcon(imgStr);
+		File image = new File(imgStr);
+		
+		if(image.exists())
+			return new ImageIcon(imgStr);
+		else
+			return null;
 	}
 	
 	public void setUserChapter(int UserID, int progress) throws Exception{
