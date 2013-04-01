@@ -98,13 +98,12 @@ public class ChallengesTab {
 		JButton StartLessonButton = new JButton("Start Challenge");
 		StartLessonButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//THIS PART HAS TO BE UNCOMMENTED ONCE getUserType is done
-				/*if(ChallengeSelected && api.getUserType(UserID) == 1) //if a teacher
+				if(ChallengeSelected && RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 1) //if a teacher
 				{
 					ChallengeWindow NewWindow = new ChallengeWindow(Tier, Challenge, Selection);
 					NewWindow.OpenWindow();
 				}
-				else if(ChallengeSelected && api.getUserType(UserID) == 2 )*/ //if a student
+				else if(ChallengeSelected && RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 2 ) //if a student
 				if(ChallengeSelected)
 				{
 					if(Tier <= (userChapter-1))
@@ -162,7 +161,10 @@ public class ChallengesTab {
 				
 				
 				//constantly track user progresss
-				currentProgress = RoboTeach.getAPI_Interface().getUserProgress(RoboTeach.getUserID());
+				if(RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 2)
+					currentProgress = RoboTeach.getAPI_Interface().getUserProgress(RoboTeach.getUserID());
+				else
+					currentProgress = null;
 				if(currentProgress != null)
 					userChapter = Integer.parseInt(currentProgress.get("chapter"));
 				else

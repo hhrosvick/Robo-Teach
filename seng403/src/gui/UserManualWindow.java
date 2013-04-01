@@ -22,7 +22,7 @@ public class UserManualWindow {
 
 	private static JFrame frame;
 	private final JLabel SlideLabel = new JLabel("");
-	private int Slide = 0;
+	private int Slide = 1;
 	private API_Interface api;
 	/**
 	 * Create the application.
