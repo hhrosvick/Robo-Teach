@@ -65,19 +65,19 @@ public class Database {
 	 * @param query the query String
 	 * @return the resultant object
 	 */
-	public ResultSet query(String query) throws SQLException{
+	public ResultSet query(String query) throws SQLException {
 		
 		res = null;
 		
 		statement = con.prepareStatement(query);
-		
 		res = statement.executeQuery(query);
-		
-		// Take a look at the 'java.sql.*' javadocs online.
-		// Basically, create a PreparedStatement using con.prepareStatement("query")
-		// and return the executeQuery() result
 
 		return res;
+	}
+	
+	public boolean execute(String query) throws SQLException {
+		
+		return statement.execute(query);
 	}
 	
 	public void close(){

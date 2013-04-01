@@ -16,16 +16,14 @@ public class ChallengeWindow {
 
 	private static JFrame frame;
 	private static String ChallengeName;
-	private API_Interface api;
 	private int Tier;
 	private int Challenge;
 	// constructor takes lesson name argument
-	public ChallengeWindow(int t, int c, String CN, API_Interface a) 
+	public ChallengeWindow(int t, int c, String CN) 
 	{
 		ChallengeName = CN;
 		Challenge = c+1;
 		Tier = t+1;
-		api = a;
 		initialize();
 	}
 
@@ -48,7 +46,7 @@ public class ChallengeWindow {
 		setFrame(new JFrame());
 		getFrame().setBounds(100, 100, 450, 300);
 		// creates the image string and image icon
-		final ImageIcon ChallengePicture = api.getChallenge(Tier, Challenge, true);
+		final ImageIcon ChallengePicture = RoboTeach.getAPI_Interface().getChallenge(Tier, Challenge, true);
 		// loads the scrollPane
 		JScrollPane scrollPane = new JScrollPane();
 		getFrame().getContentPane().add(scrollPane, BorderLayout.CENTER);

@@ -7,6 +7,8 @@ import api.API_Interface;
 
 public class GradesMatrix 
 {
+	public static GradesMatrix instance = null;
+	
 	private String[][] data;
 	private String[][] d2;
 	
@@ -19,15 +21,11 @@ public class GradesMatrix
 	private String[][] sortedID;
 	private boolean sID = false;
 	
-	private int userID;
-	
-	private API_Interface api;
-	
-	public GradesMatrix(int id, API_Interface a)
+	public GradesMatrix()
 	{
-		api = a;
-		userID = id;
-		data = refreshMatrix();
+		GradesMatrix.instance = this;
+		// Commented out to correct timing.
+		// data = refreshMatrix();
 	}
 	public String[][] getMatrix()
 	{
@@ -38,22 +36,22 @@ public class GradesMatrix
 	public String[][] refreshMatrix()
 	{
 		
-		//if(api.getUserType(userID) == 1)
+		if(RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 1)
 			createClassMatrix();
-		//else
-			//createStudentMatrix();
+		else
+			createStudentMatrix();
 		
 		sLessons = sChallenges = sName = sID = false;
 		return data;
 		
 	}
+	
 	private void createStudentMatrix()
 	{
 		data = new String[2][4];
-		
-		Map<String, String> userData = api.getUserProgress(userID);
-		
-		data[0][0] = ("000000");
+		System.out.println(RoboTeach.getUserID());
+		Map<String, String> userData = RoboTeach.getAPI_Interface().getUserProgress(RoboTeach.getUserID());
+		data[0][0] = ("0");
 		data[0][1] = ("Class Average");
 		data[0][2] = userData.get("avgchapter");
 		data[0][3] = userData.get("avgchallenge");
@@ -62,12 +60,14 @@ public class GradesMatrix
 		data[1][1] = userData.get("name");
 		data[1][2] = userData.get("chapter");
 		data[1][3] = userData.get("challenge");
+	
 	}
+	
 	private void createClassMatrix() 
 	{
-		Map<Integer, Map<String, String>> progress = api.getAllUserProgress();
+		Map<Integer, Map<String, String>> progress = RoboTeach.getAPI_Interface().getAllUserProgress();
 		
-		Vector<Integer> userData = api.getAllUserIDs();
+		Vector<Integer> userData = RoboTeach.getAPI_Interface().getAllUserIDs();
 		Object[] users = userData.toArray();
 		
 		Object name = "name";
@@ -78,6 +78,7 @@ public class GradesMatrix
 		for(int i = 0; i < users.length; i++)
 		{
 			data[i][0] = users[i].toString();
+			System.out.println(users[i].toString());
 			data[i][1] = progress.get(users[i]).remove(name);
 			data[i][2] = progress.get(users[i]).remove(chapter);
 			data[i][3] = progress.get(users[i]).remove(challenge);

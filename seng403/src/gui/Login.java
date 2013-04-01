@@ -88,9 +88,9 @@ public class Login extends JFrame {
 					frame.setEnabled(true);
 					//main.setUserID(Integer.parseInt(uname));
 					
-					//temporary set up
-					//once API is done, should change to -> myRobot.setUserID(UserID);
-					myRobot.setUserID(222222);
+					myRobot.setUserID(UserID);
+					
+					GradesMatrix.instance.refreshMatrix();
 					dispose();
 				} 
 				else 
