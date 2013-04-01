@@ -2,8 +2,6 @@ package gui;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
-import api.API;
-import api.API_Interface;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
@@ -98,10 +96,9 @@ public class LessonWindow {
 		NextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ImageIcon image = RoboTeach.getAPI_Interface().getLesson(Chapter, Lesson, ++Slide);
-				if(image != null)
-					SlideLabel.setIcon(image);
-				else
-					Slide--;
+				if(image == null)
+					image = RoboTeach.getAPI_Interface().getLesson(Chapter, Lesson, --Slide);
+				SlideLabel.setIcon(image);
 			}
 		});
 		ButtonPanel.add(NextButton);
