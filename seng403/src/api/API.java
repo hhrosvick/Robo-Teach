@@ -16,6 +16,7 @@ import casa.ProcessOptions;
 import casa.TransientAgent;
 import casa.ui.AgentUI;
 import casa.ui.StandardOutAgentUI;
+import casa.util.PropertyException;
 
 public class API implements API_Interface {
 
@@ -360,7 +361,13 @@ public class API implements API_Interface {
 		// Run code found in file at file path, if one exists.
 		if(filepath != null && filepath != "")
 		{
+			if(!Robot.ABbreathing()){
+				System.out.println("Robot not Breathing");
+				Robot.stopMotor();
+			}
+			
 			Robot.abclEval(fileRead(filepath), null);
+
 		}
 			
 		return null;		

@@ -6,6 +6,8 @@ import casa.TransientAgent;
 import casa.abcl.ParamsMap;
 import casa.ui.AgentUI;
 import casa.ui.TransientAgentInternalFrame;
+//import casa.Agent;
+//import casa.ui.AgentInternalFrame;
 
 public class SimEnvironment extends iRobotCreate.simulator.Environment{
 
