@@ -40,17 +40,17 @@ public class RoboTeachTestCases {
 	@Test
 	public void LessonsTabInitializationTest() {
 		JFrame DummyWindow = new JFrame();
-		LessonsTab lessonsTestTab = new LessonsTab(0, DummyWindow, api);
+		LessonsTab lessonsTestTab = new LessonsTab(DummyWindow);
 		assert(lessonsTestTab != null);
 	}
 	@Test
 	public void ProgramTabInitializationTest() {
-		ProgramTab programTestTab = new ProgramTab(api);
+		ProgramTab programTestTab = new ProgramTab();
 		assert(programTestTab != null);
 	}
 	@Test
 	public void ChallengesTabInitializationTest() {
-		ProgramTab challengesTestTab = new ProgramTab(api);
+		ProgramTab challengesTestTab = new ProgramTab();
 		assert(challengesTestTab != null);
 	}
 	/*
@@ -63,22 +63,22 @@ public class RoboTeachTestCases {
 	*/
 	@Test
 	public void LessonWindowInitializationTest() {
-		LessonWindow lessonTestWindow = new LessonWindow(0, 0, "test", api);
+		LessonWindow lessonTestWindow = new LessonWindow(0, 0, "test");
 		assert(lessonTestWindow != null);
 	}
 	@Test
 	public void ChallengeWindowInitializationTest() {
-		ChallengeWindow challengeTestWindow = new ChallengeWindow(0, 0, "test", api);
+		ChallengeWindow challengeTestWindow = new ChallengeWindow(0, 0, "test");
 		assert(challengeTestWindow != null);
 	}
 	@Test
 	public void LessonWindowStringTest() {
-		LessonWindow lessonTestWindow = new LessonWindow(0, 0, "StringTest", api);
+		LessonWindow lessonTestWindow = new LessonWindow(0, 0, "StringTest");
 		assert(((Frame) lessonTestWindow.getFrame()).getTitle().compareTo("StringTest") == 0);
 	}
 	@Test
 	public void ChallengeWindowStringTest() {
-		ChallengeWindow challengeTestWindow = new ChallengeWindow(0, 0, "StringTest", api);
+		ChallengeWindow challengeTestWindow = new ChallengeWindow(0, 0, "StringTest");
 		assert(challengeTestWindow.getFrame().getTitle().compareTo("StringTest") == 0);
 	}
 }
