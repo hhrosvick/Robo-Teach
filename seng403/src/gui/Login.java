@@ -90,6 +90,7 @@ public class Login extends JFrame {
 					myRobot.setUserID(UserID);
 					
 					GradesMatrix.instance.refreshMatrix();
+					//call other function
 					dispose();
 				} 
 				else 

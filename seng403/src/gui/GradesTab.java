@@ -59,7 +59,7 @@ public class GradesTab
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("fill:default:grow"),}));
 		
-		if(RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 1)
+		if(true) //RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 1)
 		{
 			JLabel SearchLabel = new JLabel("Search:");
 			GradesTab.add(SearchLabel, "2, 2");
