@@ -139,6 +139,7 @@ public class GradesTab
 			});
 			GradesTab.add(RefreshTableButton, "2, 14");
 		}
+		
 		JScrollPane scrollPane = new JScrollPane();
 		GradesTab.add(scrollPane, "4, 2, 3, 15, fill, fill");
 		
