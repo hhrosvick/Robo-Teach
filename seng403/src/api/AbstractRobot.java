@@ -12,6 +12,7 @@ abstract public class AbstractRobot extends iRobotCreate {
 	  }
 	
 	boolean error = false;
+	int inJava = 0;
 	
 	public AbstractRobot(ParamsMap params, AgentUI ui) throws Exception {
 		super(params, ui);
@@ -42,6 +43,12 @@ abstract public class AbstractRobot extends iRobotCreate {
 	public void stopMotor() {
 		
 		this.stopMotors();
+	}
+	
+	@LispAccessible(name="iRobot.count",help="blarg",
+			arguments={@LispAccessible.Argument(name="inRobot", help="blarg")})
+	public void count(int inRobot) {
+		System.out.println((inJava++) + "\t" + inRobot);
 	}
 	
 	@LispAccessible(name="iRobot.error",help="returns true if there is a error")
