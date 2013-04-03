@@ -29,14 +29,10 @@ import java.awt.Toolkit;
 public class RoboTeach{
 
 	private JFrame frmRoboteach;
-	private static int UserID;
-	private LessonsTab newLessonsTab;
-	private ChallengesTab newChallengeTab;
+	
 	private static API_Interface api;
-
-	/**
-	 * Launch the application.
-	 */
+	private static int UserID;
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -49,19 +45,13 @@ public class RoboTeach{
 				}
 			}
 		});
-		
 	}
 
-	/**
-	 * Create the application.
-	 */
-	public RoboTeach() {
+	public RoboTeach() 
+	{
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	public void initialize() {
 /*****************************************************************************************************************************************
 * Main Page initialization and components
@@ -88,6 +78,7 @@ public class RoboTeach{
 		final JPanel BasePanel = new JPanel();
 		frmRoboteach.getContentPane().add(BasePanel, "name_20408249708069");
 		BasePanel.setLayout(new CardLayout(0, 0));
+		
 		//Data needed for resizing
 		JPanel TitlePage = new JPanel();
 		BasePanel.add(TitlePage, "TitlePage");
@@ -141,15 +132,18 @@ public class RoboTeach{
 		//Title screen picture, add picture to folder and change file name here
 		String imgStr = "Pictures/TitlePicture.png";
 		ImageIcon TitlePicture = new ImageIcon(imgStr);
+		
 		//Creating the picture panel
 		Panel TitleLabelPanel = new Panel();
 		TitlePage.add(TitleLabelPanel, "2, 2, 25, 9, fill, fill");
 		TitleLabelPanel.setLayout(new BorderLayout(0, 0));
 		JLabel TitleLabel = new JLabel(" ", TitlePicture, JLabel.CENTER);
+		
 		//Creating the button panel
 		JPanel TitleButtonPanel = new JPanel();
 		TitlePage.add(TitleButtonPanel, "2, 12, 25, 3, fill, fill");
 		TitleButtonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
 		//Start Button Activity
 		JButton StartButton = new JButton("Start");
 		StartButton.addActionListener(new ActionListener() {
@@ -157,6 +151,7 @@ public class RoboTeach{
 				((CardLayout) BasePanel.getLayout()).show(BasePanel, "TabPage");
 			}
 		});
+		
 		//User Manual Button Activity
 		JButton UserManualButton = new JButton("User Manual");
 		UserManualButton.addActionListener(new ActionListener() {
@@ -260,25 +255,23 @@ public class RoboTeach{
 * LessonsTab initialization and components
 ******************************************************************************************************************************************/	
 		JPanel LessonsTab1;
-		newLessonsTab = new LessonsTab(frmRoboteach);
+		LessonsTab newLessonsTab = new LessonsTab(frmRoboteach);
 		LessonsTab1 = newLessonsTab.initialize();
 		TabPage.addTab("Lessons", null, LessonsTab1, null);
 
 /*****************************************************************************************************************************************
 * ProgramTab initialization and components
 ******************************************************************************************************************************************/	
-		
 		JPanel ProgramTab1;
 		ProgramTab newTab = new ProgramTab();
 		ProgramTab1 = newTab.initialize();
 		TabPage.addTab("Program", null, ProgramTab1, null);
 		
-		
 /*****************************************************************************************************************************************
 * ChallengeTab initialization and components
 ******************************************************************************************************************************************/			
 		JPanel ChallengeTab1;
-		newChallengeTab = new ChallengesTab();
+		ChallengesTab newChallengeTab = new ChallengesTab();
 		ChallengeTab1 = newChallengeTab.initialize();
 		TabPage.addTab("Challenges", null, ChallengeTab1, null);
 		

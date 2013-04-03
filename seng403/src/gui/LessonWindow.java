@@ -24,9 +24,7 @@ public class LessonWindow {
 	private int Chapter;
 	private int Lesson;
 	private int Slide = 0;
-	/**
-	 * Create the application.
-	 */
+
 	public LessonWindow(int c, int l, String ln) 
 	{
 		LessonName = ln;
@@ -34,11 +32,6 @@ public class LessonWindow {
 		Lesson = l+1;
 		initialize();
 	}
-
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1000, 825);
@@ -103,8 +96,8 @@ public class LessonWindow {
 		});
 		ButtonPanel.add(NextButton);
 	}
-
-	public static void OpenWindow() {
+	public void OpenWindow() 
+	{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -117,8 +110,8 @@ public class LessonWindow {
 			}
 		});
 	}
-
-	public static Window getFrame() {
+	public static Window getFrame() 
+	{
 		return frame;
 	}
 }

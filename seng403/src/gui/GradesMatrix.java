@@ -2,8 +2,6 @@ package gui;
 
 import java.util.Map;
 import java.util.Vector;
-import api.API;
-import api.API_Interface;
 
 public class GradesMatrix 
 {
@@ -29,9 +27,7 @@ public class GradesMatrix
 	}
 	public String[][] getMatrix()
 	{
-		
 		return data;
-		
 	}
 	public String[][] refreshMatrix()
 	{
@@ -45,7 +41,6 @@ public class GradesMatrix
 		return data;
 		
 	}
-	
 	private void createStudentMatrix()
 	{
 		data = new String[2][4];
@@ -61,7 +56,6 @@ public class GradesMatrix
 		data[1][3] = userData.get("challenge");
 	
 	}
-	
 	private void createClassMatrix() 
 	{
 		Map<Integer, Map<String, String>> progress = RoboTeach.getAPI_Interface().getAllUserProgress();

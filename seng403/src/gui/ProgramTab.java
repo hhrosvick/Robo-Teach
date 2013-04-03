@@ -1,7 +1,6 @@
 package gui;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -11,7 +10,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -23,18 +21,10 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.Element;
-
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.RowSpec;
-
-import api.API;
-import api.API_Interface;
-
-import casa.CASAProcess;
-import casa.Status;
-import javax.swing.JLabel;
 
 public class ProgramTab implements ActionListener {
 	
@@ -43,9 +33,8 @@ public class ProgramTab implements ActionListener {
 	private JTextArea lines;
 	private JFileChooser fc;
 	private File f;
-	private JButton btnNewFile, btnStartEmulator, btnOpen, btnSave;
+	private JButton btnNewFile, btnOpen, btnSave;
 	private String filePath;
-	private JButton btnTestConnection;
 	private JButton btnRunOnEmulator;
 	private JButton btnRunOnRobot;
 	
@@ -114,14 +103,6 @@ public class ProgramTab implements ActionListener {
 		
 		textArea = new JTextArea();
 		
-//		btnStartEmulator = new JButton("Emulator Mode");
-//		btnStartEmulator.addActionListener(this);
-//		ProgramTab.add(btnStartEmulator, "2, 2");
-//		
-//		btnTestConnection = new JButton("Robot Mode");
-//		btnTestConnection.addActionListener(this);
-//		ProgramTab.add(btnTestConnection, "2, 4");
-		
 		btnNewFile = new JButton("New File");
 		btnNewFile.addActionListener(this);
 		ProgramTab.add(btnNewFile, "2, 6");
@@ -164,25 +145,9 @@ public class ProgramTab implements ActionListener {
 		return ProgramTab;
 	}
 	
-	public void actionPerformed(ActionEvent e) {
-		 
-        //Handle start emulator button action.
-//        if (e.getSource() == btnStartEmulator) 
-//        {
-//        	try 
-//        	{
-//        		// Now done at at the creation of API. No longer needed.
-//				// api.initialize();
-//			} catch (Exception e1) {}
-//        	// Returned initialize because other classes must create instances of api
-//        	// Now done at at the creation of API. No longer needed.
-//        	// api.initalize();
-//        	
-//        	Font f = new Font("Tahoma", Font.BOLD, 13);
-//        	btnStartEmulator.setFont(f);
-//        	btnTestConnection.setFont(new Font("Tahoma", Font.PLAIN, 13));
-//			//Status p = CASAProcess.getInstance().abclEval("(load\"scripts/sim.lisp\")", null);
-//        }
+	public void actionPerformed(ActionEvent e) 
+	{
+		
         if (e.getSource() == btnRunOnEmulator)
         {
         	writeToTemp();
@@ -193,13 +158,6 @@ public class ProgramTab implements ActionListener {
         	writeToTemp();
         	RoboTeach.getAPI_Interface().loadToRobot(tempFile.getAbsolutePath());
         }
-//        else if (e.getSource() == btnTestConnection)
-//        {
-//        	//test connection
-//        	Font f = new Font("Tahoma", Font.BOLD, 13);
-//        	btnTestConnection.setFont(f);
-//        	btnStartEmulator.setFont(new Font("Tahoma", Font.PLAIN, 13));
-//        }
         //Handle new button action.
         else if (e.getSource() == btnNewFile)
         {
@@ -221,7 +179,6 @@ public class ProgramTab implements ActionListener {
 				try {
 					br = new BufferedReader(new FileReader(f));
 				} catch (FileNotFoundException f) {
-					// TODO Auto-generated catch block
 					f.printStackTrace();
 				}
 				
@@ -232,7 +189,6 @@ public class ProgramTab implements ActionListener {
 						textArea.append(st + "\n");
 					}
 				} catch (IOException f) {
-					// TODO Auto-generated catch block
 					f.printStackTrace();
 				}
 		        
@@ -255,7 +211,6 @@ public class ProgramTab implements ActionListener {
 	                
 	                JOptionPane.showMessageDialog(null, "File Successfully Saved!");
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
         	}
@@ -264,7 +219,6 @@ public class ProgramTab implements ActionListener {
         		try {
 					saveButtonNewFile();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
         	}

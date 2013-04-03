@@ -2,15 +2,11 @@ package gui;
 
 import java.awt.Color;
 import java.awt.EventQueue;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
-
-import api.API;
-import api.API_Interface;
 
 public class ChallengeWindow {
 
@@ -26,9 +22,8 @@ public class ChallengeWindow {
 		Tier = t+1;
 		initialize();
 	}
-
 	// creates the new window
-	public static void OpenWindow() {
+	public void OpenWindow() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -41,7 +36,7 @@ public class ChallengeWindow {
 			}
 		});
 	}
-// initializes components
+	// initializes components
 	private void initialize() {
 		setFrame(new JFrame());
 		getFrame().setBounds(100, 100, 450, 300);
@@ -57,10 +52,12 @@ public class ChallengeWindow {
 		ChallengeLabel.setBackground(white);
 		scrollPane.setViewportView(ChallengeLabel);
 	}
-	public static JFrame getFrame() {
+	public static JFrame getFrame() 
+	{
 		return frame;
 	}
-	public static void setFrame(JFrame frame) {
+	public static void setFrame(JFrame frame) 
+	{
 		ChallengeWindow.frame = frame;
 	}
 }

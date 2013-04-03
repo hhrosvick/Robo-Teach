@@ -1,14 +1,10 @@
 package gui;
 
 import java.awt.Color;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
 import com.jgoodies.forms.factories.FormFactory;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -19,15 +15,10 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
-import javax.swing.tree.TreeNode;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
 import java.util.Map;
-
-import api.API;
-import api.API_Interface;
 
 public class ChallengesTab {
 
@@ -39,19 +30,12 @@ public class ChallengesTab {
 	private int userChapter;
 	Map<String, String> currentProgress;
 
-	/**
-	 * Create the application.
-	 */
 	public ChallengesTab() 
 	{
 		ChallengesTab = new JPanel();
 		initialize();
 	}
-
-	/**
-	 * Initialiyze the contents of the frame.
-	 * @return 
-	 */
+	@SuppressWarnings("serial")
 	public JPanel initialize() {
 		ChallengesTab.setBounds(100, 100, 450, 300);
 		ChallengesTab.setLayout(new FormLayout(new ColumnSpec[] {

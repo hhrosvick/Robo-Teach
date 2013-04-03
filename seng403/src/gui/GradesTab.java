@@ -1,8 +1,6 @@
 package gui;
 
 import javax.swing.JPanel;
-import api.API;
-import api.API_Interface;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
@@ -24,21 +22,16 @@ public class GradesTab
 	private JPanel GradesTab;
 	private JTextField SearchBox;
 	private JTable table;
-	private String[] title = {"Student ID", "Student Name", "Chapters Completed", "Challenges Completed"}; 
-	
-	private GradesMatrix GM;
+
+	private GradesMatrix Matrix;
+	private String[] TITLE = {"Student ID", "Student Name", "Chapters Completed", "Challenges Completed"}; 
 	
 	public GradesTab() 
 	{
 		GradesTab = new JPanel();
-		GM = new GradesMatrix();
+		Matrix = new GradesMatrix();
 		initialize();
 	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 * @return 
-	 */
 	public JPanel initialize() {
 		GradesTab.setBounds(100, 100, 450, 300);
 		GradesTab.setLayout(new FormLayout(new ColumnSpec[] {
@@ -65,7 +58,8 @@ public class GradesTab
 				FormFactory.DEFAULT_ROWSPEC,
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("fill:default:grow"),}));
-		if(true)//api.getUserType(id) == 1)
+		
+		if(RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 1)
 		{
 			JLabel SearchLabel = new JLabel("Search:");
 			GradesTab.add(SearchLabel, "2, 2");
@@ -77,30 +71,30 @@ public class GradesTab
 					String s = SearchBox.getText();
 					if(s.compareTo("") != 0)
 					{
-						table.setModel(new DefaultTableModel(GM.updateMatrix(s), title));
+						table.setModel(new DefaultTableModel(Matrix.updateMatrix(s), TITLE));
 					}
 					else
-						table.setModel(new DefaultTableModel(GM.getMatrix(), title));
+						table.setModel(new DefaultTableModel(Matrix.getMatrix(), TITLE));
 				}
 				@Override
 				public void keyReleased(KeyEvent e) {
 					String s = SearchBox.getText();
 					if(s.compareTo("") != 0)
 					{
-						table.setModel(new DefaultTableModel(GM.updateMatrix(s), title));
+						table.setModel(new DefaultTableModel(Matrix.updateMatrix(s), TITLE));
 					}
 					else
-						table.setModel(new DefaultTableModel(GM.getMatrix(), title));
+						table.setModel(new DefaultTableModel(Matrix.getMatrix(), TITLE));
 				}
 				@Override
 				public void keyPressed(KeyEvent e) {
 					String s = SearchBox.getText();
 					if(s.compareTo("") != 0)
 					{
-						table.setModel(new DefaultTableModel(GM.updateMatrix(s), title));
+						table.setModel(new DefaultTableModel(Matrix.updateMatrix(s), TITLE));
 					}
 					else
-						table.setModel(new DefaultTableModel(GM.getMatrix(), title));
+						table.setModel(new DefaultTableModel(Matrix.getMatrix(), TITLE));
 				}
 			});
 			SearchBox.setColumns(10);
@@ -108,7 +102,7 @@ public class GradesTab
 			JButton SortLessons = new JButton("Sort by Lessons");
 			SortLessons.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					table.setModel(new DefaultTableModel(GM.SortLessons(), title));
+					table.setModel(new DefaultTableModel(Matrix.SortLessons(), TITLE));
 				}
 			});
 			GradesTab.add(SortLessons, "2, 6");
@@ -116,7 +110,7 @@ public class GradesTab
 			JButton SortChallenges = new JButton("Sort by Challenges");
 			SortChallenges.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					table.setModel(new DefaultTableModel(GM.SortChallenges(), title));
+					table.setModel(new DefaultTableModel(Matrix.SortChallenges(), TITLE));
 				}
 			});
 			GradesTab.add(SortChallenges, "2, 8");
@@ -124,7 +118,7 @@ public class GradesTab
 			JButton SortByNameButton = new JButton("Sort by Name");
 			SortByNameButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					table.setModel(new DefaultTableModel(GM.SortName(), title));
+					table.setModel(new DefaultTableModel(Matrix.SortName(), TITLE));
 				}
 			});
 			GradesTab.add(SortByNameButton, "2, 10");
@@ -132,7 +126,7 @@ public class GradesTab
 			JButton SortByIDButton = new JButton("Sort by ID");
 			SortByIDButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					table.setModel(new DefaultTableModel(GM.SortID(), title));
+					table.setModel(new DefaultTableModel(Matrix.SortID(), TITLE));
 				}
 			});
 			GradesTab.add(SortByIDButton, "2, 12");
@@ -140,7 +134,7 @@ public class GradesTab
 			JButton RefreshTableButton = new JButton("Refresh");
 			RefreshTableButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					table.setModel(new DefaultTableModel(GM.refreshMatrix(), title));
+					table.setModel(new DefaultTableModel(Matrix.refreshMatrix(), TITLE));
 				}
 			});
 			GradesTab.add(RefreshTableButton, "2, 14");
@@ -148,7 +142,7 @@ public class GradesTab
 		JScrollPane scrollPane = new JScrollPane();
 		GradesTab.add(scrollPane, "4, 2, 3, 15, fill, fill");
 		
-	    DefaultTableModel model = new DefaultTableModel(GM.getMatrix(), title);
+	    DefaultTableModel model = new DefaultTableModel(Matrix.getMatrix(), TITLE);
 	    table = new JTable(model);
 		scrollPane.setViewportView(table);
 		

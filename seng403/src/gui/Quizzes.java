@@ -2,32 +2,23 @@ package gui;
 
 import java.awt.GridLayout;
 
-import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
-import javax.swing.ButtonModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.WindowConstants;
-
-import java.awt.BorderLayout;
-import javax.swing.JLabel;
-import javax.swing.JPopupMenu;
 import javax.swing.JTextPane;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.SystemColor;
 import java.awt.Font;
 import java.awt.Toolkit;
-
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.awt.event.WindowStateListener;
 import java.awt.event.WindowAdapter;
 
+@SuppressWarnings("serial")
 public class Quizzes extends JFrame {
 	
 	private JRadioButton first;
@@ -439,7 +430,6 @@ public class Quizzes extends JFrame {
 		
 	}
 	
-	
 	public void Chapter3()
 	{
 		getContentPane().removeAll();
@@ -507,9 +497,8 @@ public class Quizzes extends JFrame {
         getContentPane().add(btnNext);
 	}
 	
-
-	public void Chapter32() {
-		// TODO Auto-generated method stub
+	public void Chapter32() 
+	{
 		getContentPane().removeAll();
 		getContentPane().repaint();
 		revalidate();
@@ -644,9 +633,8 @@ public class Quizzes extends JFrame {
         getContentPane().add(btnNext);
 	}
 	
-	public void Chapter34() {
-		// TODO Auto-generated method stub
-		
+	public void Chapter34() 
+	{
 		getContentPane().removeAll();
 		getContentPane().repaint();
 		revalidate();
@@ -714,8 +702,8 @@ public class Quizzes extends JFrame {
 		
 	}
 	
-	public void Chapter35() {
-		// TODO Auto-generated method stub
+	public void Chapter35() 
+	{
 		getContentPane().removeAll();
 		getContentPane().repaint();
 		revalidate();

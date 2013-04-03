@@ -2,26 +2,22 @@ package gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import api.Authenticator;
 
 
+@SuppressWarnings("serial")
 public class TeacherLogin extends Login
 {
 	private int Chapter;
 	private LessonsTab tab;
 	
-	TeacherLogin(JFrame frame1, RoboTeach myProg) {
+	TeacherLogin(JFrame frame1, RoboTeach myProg) 
+	{
 		super(frame1, myProg);
-		// TODO Auto-generated constructor stub
 	}
-	
-	@SuppressWarnings("deprecation")
 	TeacherLogin(int Chapter, JFrame frame, RoboTeach myProg, LessonsTab tab)
 	{
 		super(frame, myProg);
@@ -31,7 +27,6 @@ public class TeacherLogin extends Login
 		this.tab = tab;
 		
 	}
-	
 	@SuppressWarnings("deprecation")
 	public void actionlogin(){
 		btnLogin.addActionListener(new ActionListener() {

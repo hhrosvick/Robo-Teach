@@ -2,7 +2,6 @@ package gui;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
-import api.API;
 import api.API_Interface;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -34,7 +33,7 @@ public class UserManualWindow {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialise the contents of the frame.
 	 */
 	private void initialize() {
 		frame = new JFrame();
@@ -102,7 +101,7 @@ public class UserManualWindow {
 		ButtonPanel.add(NextButton);
 	}
 
-	public static void OpenWindow() {
+	public void OpenWindow() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

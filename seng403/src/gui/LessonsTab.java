@@ -20,7 +20,6 @@ import javax.swing.tree.DefaultTreeModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
 public class LessonsTab {
@@ -46,22 +45,13 @@ public class LessonsTab {
 	private int result = 0;
 	private Quizzes q = null;
 
-
-	/**
-	 * Create the application.
-	 */
 	public LessonsTab(JFrame frame) 
 	{
 		jframe = frame;
 		LessonsTab = new JPanel();
 		initialize();
 	}
-
-	/**
-	 * Initialiyze the contents of the frame.
-	 * @return 
-	 * 
-	 */
+	@SuppressWarnings("serial")
 	public JPanel initialize() {
 		LessonsTab.setBounds(100, 100, 450, 300);
 		LessonsTab.setLayout(new FormLayout(new ColumnSpec[] {
@@ -278,8 +268,8 @@ public class LessonsTab {
 		return LessonsTab;
 	}
 	
-	public void doQuiz(int ch) {
-		// TODO Auto-generated method stub
+	public void doQuiz(int ch) 
+	{
 		 q = new Quizzes(ch, jframe, this);
 	}
 
@@ -294,37 +284,29 @@ public class LessonsTab {
 			StartLessonButton.setText("Start Lesson");
 			
 			JOptionPane.showMessageDialog(LessonsTab,"Access to Chapter " + (Chapter+1) + " granted! You got " + r + " out of the 5 questions correctly. ");
-			try {
+			try 
+			{
 				RoboTeach.getAPI_Interface().setUserChapter(RoboTeach.getUserID(), Chapter+1);
-			} catch (NullPointerException e) {
-				// TODO Auto-generated catch block
-				//e.printStackTrace();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			} 
+			catch (NullPointerException e) {e.printStackTrace();} 
+			catch (Exception e) {e.printStackTrace();}
 		}
 	}
 	
 	public void result2()
 	{
-			StartLessonButton.setText("Start Lesson");
-			
-			JOptionPane.showMessageDialog(LessonsTab,"Access to Chapter " + (Chapter+1) + " granted! ");
-			try {
-				RoboTeach.getAPI_Interface().setUserChapter(RoboTeach.getUserID(), Chapter+1);
-			} catch (NullPointerException e) {
-				// TODO Auto-generated catch block
-				//e.printStackTrace();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		StartLessonButton.setText("Start Lesson");
+		
+		JOptionPane.showMessageDialog(LessonsTab,"Access to Chapter " + (Chapter+1) + " granted! ");
+		try 
+		{
+			RoboTeach.getAPI_Interface().setUserChapter(RoboTeach.getUserID(), Chapter+1);
+		} 
+		catch (NullPointerException e) {e.printStackTrace();} 
+		catch (Exception e) {e.printStackTrace();}
 	}
-	
-	
-	private void approval(int ch) {
-		// TODO Auto-generated method stub
+	private void approval(int ch) 
+	{
 		new TeacherLogin(ch, jframe, null, this);
 	}
 }
