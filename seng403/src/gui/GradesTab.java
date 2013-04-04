@@ -18,7 +18,6 @@ import java.awt.event.KeyListener;
 
 public class GradesTab 
 {
-
 	private JPanel GradesTab;
 	private JTable table;
 
