@@ -225,7 +225,7 @@ public class API implements API_Interface {
 			double avgchpt = avg.getDouble(1);
 			double avgcl = avg.getDouble(2);
 			
-			average.put("name","average");
+			average.put("name","Class Average");
 			average.put("chapter",String.valueOf((double)avgchpt));
 			average.put("challenge",String.valueOf((double)avgcl));
 			

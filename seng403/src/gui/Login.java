@@ -91,6 +91,8 @@ public class Login extends JFrame {
 					
 					GradesMatrix.instance.refreshMatrix();
 					//call other function
+					if(api.getUserType(UserID) == 2)
+							GradesTab.RemoveButtonsForStudents();
 					dispose();
 				} 
 				else 
