@@ -21,6 +21,9 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.Element;
+
+import api.APIRobotControllerWindow;
+
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
@@ -39,6 +42,7 @@ public class ProgramTab implements ActionListener {
 	private JButton btnRunOnRobot;
 	
 	private File tempFile;
+	private JButton btnStartRemote;
 	
 	public ProgramTab()
 	{
@@ -123,6 +127,10 @@ public class ProgramTab implements ActionListener {
 		btnRunOnRobot.addActionListener(this);
 		ProgramTab.add(btnRunOnRobot, "2, 14");
 		
+		btnStartRemote = new JButton("Start Remote");
+		btnStartRemote.addActionListener(this);
+		ProgramTab.add(btnStartRemote, "2, 16");
+		
 		JScrollPane scrollPane1 = new JScrollPane();
 		scrollPane1.setBounds(113, 0, 298, 209);
 		
@@ -152,6 +160,12 @@ public class ProgramTab implements ActionListener {
         {
         	writeToTemp();
         	RoboTeach.getAPI_Interface().loadToSimulator(tempFile.getAbsolutePath());
+        }
+        else if (e.getSource() == btnStartRemote)
+        {
+        	Remote r = new Remote();
+        	r.OpenWindow();
+        	////////////////////////////////////////////////////////////////////////////////////////////////////
         }
         else if (e.getSource() == btnRunOnRobot)
         {

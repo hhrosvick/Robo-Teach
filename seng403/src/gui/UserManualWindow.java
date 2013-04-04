@@ -38,6 +38,7 @@ public class UserManualWindow {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1000, 825);
+		frame.setResizable(false);
 		frame.getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
 				FormFactory.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"),},
