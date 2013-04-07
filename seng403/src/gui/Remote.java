@@ -34,7 +34,7 @@ public class Remote {
 	 */
 	public Remote() 
 	{
-		Remote.robot = RoboTeach.getAPI_Interface().loadRobotController();
+		Remote.robot = RoboTeach.getAPI_Interface().loadSimulatorController();
 		initialize();
 	}
 

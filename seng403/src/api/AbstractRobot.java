@@ -3,6 +3,7 @@ package api;
 import casa.LispAccessible;
 import casa.abcl.ParamsMap;
 import casa.ui.AgentUI;
+import iRobotCreate.iRobotCommands;
 import iRobotCreate.iRobotCreate;
 
 abstract public class AbstractRobot extends iRobotCreate {
@@ -12,7 +13,6 @@ abstract public class AbstractRobot extends iRobotCreate {
 	  }
 	
 	boolean error = false;
-	int inJava = 0;
 	
 	public AbstractRobot(ParamsMap params, AgentUI ui) throws Exception {
 		super(params, ui);
@@ -23,7 +23,7 @@ abstract public class AbstractRobot extends iRobotCreate {
 	 * @param speed The speed to drive at. Must be within -500 to +500.
 	 */
 	public void drive(int speed){
-		drive((short)speed);
+		drive((short)speed, iRobotCommands.P_Straight, true, true);
 	}
 	
 	/**
@@ -32,7 +32,7 @@ abstract public class AbstractRobot extends iRobotCreate {
 	 * @param radius The turning radius. Must be within -2000 to 2000 (mm).
 	 */
 	public void drive_turn(int speed, int radius){
-		drive((short)speed, (short)radius);		
+		drive((short)speed, (short)radius, true, true);		
 	}
 	
 	public boolean ABbreathing(){
@@ -45,20 +45,19 @@ abstract public class AbstractRobot extends iRobotCreate {
 		this.stopMotors();
 	}
 	
-	@LispAccessible(name="iRobot.count",help="blarg",
-			arguments={@LispAccessible.Argument(name="inRobot", help="blarg")})
-	public void count(int inRobot) {
-		System.out.println((inJava++) + "\t" + inRobot);
-	}
-	
 	@LispAccessible(name="iRobot.error",help="returns true if there is a error")
 	public boolean error() {
+		
+		error = getSensorBumps()!=0 || getSensorWheelOvercurrent()!=0;
+		
 		if(error){
-			error = false;
+			System.out.println("true");
 			return true;
 		}
-		else
+		else{
+			System.out.println("false");
 			return false;
+		}
 	}
 	
 	@Override
