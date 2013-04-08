@@ -290,8 +290,22 @@ public class API implements API_Interface {
 	@Override
 	public ImageIcon getUserManual(int Slide)
 	{
-		return null;
+		String imgStr = "UserManual/";
 		
+		
+		if(Slide == 0)
+			return null;
+		else
+			imgStr += "UserManual " + Slide;
+		
+		imgStr += ".png";
+
+		File image = new File(imgStr);
+		
+		if(image.exists())
+			return new ImageIcon(imgStr);
+		else
+			return null;		
 	}
 	@Override
 	public ImageIcon getChallenge(int tier, int number, boolean Slide){
