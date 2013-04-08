@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class UserManualWindow {
 
@@ -46,26 +47,17 @@ public class UserManualWindow {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),
 				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
-				FormFactory.DEFAULT_ROWSPEC,
-				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
-		frame.setResizable(false);
+		frame.setResizable(true);
 		frame.getContentPane().setBackground(Color.WHITE);
 		final ImageIcon LessonPicture = api.getUserManual(Slide);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		frame.getContentPane().add(scrollPane, "2, 2, fill, fill");
+		
 		JPanel SlidePanel = new JPanel();
-		frame.getContentPane().add(SlidePanel, "2, 2, 1, 13, fill, fill");
+		scrollPane.setViewportView(SlidePanel);
 		SlidePanel.setBackground(Color.WHITE);
 		SlidePanel.add(SlideLabel);
 		SlideLabel.setOpaque(true);
@@ -74,7 +66,7 @@ public class UserManualWindow {
 		
 		JPanel ButtonPanel = new JPanel();
 		ButtonPanel.setBackground(Color.WHITE);
-		frame.getContentPane().add(ButtonPanel, "2, 16, fill, fill");
+		frame.getContentPane().add(ButtonPanel, "2, 4, fill, fill");
 		ButtonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JButton PreviousButton = new JButton("Previous");
