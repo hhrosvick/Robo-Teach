@@ -35,5 +35,11 @@ public class AuthenticatorTest {
 		
 		assertEquals("User: invalid ", 0, Authenticator.auth("invlaid_user", "invalid_password"));
 	}
+	
+	@Test
+	public void testAuthNullInput() {
+		
+		assertEquals("User: null ", 0, Authenticator.auth(null, null));
+	}
 
 }
