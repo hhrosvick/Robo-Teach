@@ -92,14 +92,14 @@ public class API_InterfaceTest {
 	/**
 	 * loadToSimulator negative tests
 	 */
-	@Test (expected=IllegalArgumentException.class)
+	@Test
 	public void loadToSimulatorTestArgNull() {
-		api.loadToSimulator(null);
+		assertEquals(api.loadToSimulator(null), null);
 	}
 	
-	@Test (expected=IllegalArgumentException.class)
+	@Test
 	public void loadToSimulatorTestArgEmpty() {
-		api.loadToSimulator("");
+		assertEquals(api.loadToSimulator(""), null);
 	}
 	
 	
@@ -119,7 +119,7 @@ public class API_InterfaceTest {
 	public void getUserProgressBadInput(){
 		
 		Map<String, String> result = api.getUserProgress(-1);	
-		assertSame(result, 0);
+		assertEquals(result, null);
 	}
 	
 	// get All User Progress tests
@@ -139,54 +139,54 @@ public class API_InterfaceTest {
 	}
 	
 	// get Lessons tests
-	@Test (expected=IllegalArgumentException.class)
+	@Test
 	public void getLessonAll3BadInput(){
 		
-		api.getLesson(-1, -2, -3);	
+		assertNull(api.getLesson(-1, -2, -3));	
 	}
 	
-	@Test (expected=IllegalArgumentException.class)
+	@Test
 	public void getLesson1stBadInput(){
 		
-		api.getLesson(-1, 0, 0);	
+		assertNull(api.getLesson(-1, 0, 0));	
 	}
 	
-	@Test (expected=IllegalArgumentException.class)
+	@Test
 	public void getLesson2ndBadInput(){
 	
-		api.getLesson(0, -1, 0);	
+		assertNotNull(api.getLesson(0, -1, 0));	
 	}
 	
-	@Test (expected=IllegalArgumentException.class)
+	@Test
 	public void getLesson3rdBadInput(){
 		
-		api.getLesson(0, 0, -1);	
+		assertNotNull(api.getLesson(0, 0, -1));	
 	}
 	
 	// get User Manual tests
-	@Test (expected=IllegalArgumentException.class)
+	@Test
 	public void getUserManualBadInput(){
 	
-		api.getUserManual(-1);	
+		assertNull(api.getUserManual(-1));	
 	}
 	
 	// get Challenge tests
-	@Test (expected=IllegalArgumentException.class)
+	@Test
 	public void getChallengeFirst2BadInput(){
 		
-		api.getChallenge(-1, -2, false);	
+		assertNull(api.getChallenge(-1, -2, false));	
 	}
 	
-	@Test (expected=IllegalArgumentException.class)
+	@Test
 	public void getChallenge1stBadInput(){
 	
-		api.getChallenge(-1, 0, true);	
+		assertNull(api.getChallenge(-1, 0, true));	
 	}
 	
-	@Test (expected=IllegalArgumentException.class)
+	@Test
 	public void getChallenge2ndBadInput(){
 		
-		api.getChallenge(0, -1, false);	
+		assertNull(api.getChallenge(0, -1, false));	
 	}
 	
 	// set User Chapter tests
@@ -266,14 +266,14 @@ public class API_InterfaceTest {
 	 * Package function Tests
 	 */
 	// translate Load To Simulator tests
-	@Test (expected=IllegalArgumentException.class)
+	@Test
 	public void fileReadNullInput(){
-		API.fileRead(null);	
+		assertNull(API.fileRead(null));	
 	}
 	
-	@Test (expected=IllegalArgumentException.class)
+	@Test
 	public void fileReadEmptyInput(){
-		API.fileRead("");	
+		assertNull(API.fileRead(""));	
 	}
 	
 	

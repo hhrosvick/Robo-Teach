@@ -159,7 +159,7 @@ public class API implements API_Interface {
 	@Override
 	public Map<String, String> getUserProgress(int UserID){
 		
-		if(UserID == 0) return null;
+		if(UserID <= 0) return null;
 		
 		Map<String,String> m = new HashMap<String,String>();
 		
