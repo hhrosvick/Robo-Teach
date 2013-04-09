@@ -94,7 +94,7 @@ public class Quizzes extends JFrame {
 		}
 		else if(Chapter == 3)
 		{
-			openFile(Chapter);
+			openFile(1);
 		}
 		
 		Chapter();
