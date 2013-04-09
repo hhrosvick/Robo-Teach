@@ -16,7 +16,6 @@ import casa.ProcessOptions;
 import casa.TransientAgent;
 import casa.ui.AgentUI;
 import casa.ui.StandardOutAgentUI;
-import casa.util.PropertyException;
 
 public class API implements API_Interface {
 
@@ -123,6 +122,7 @@ public class API implements API_Interface {
 		return UserID;
 	}
 	
+	@SuppressWarnings("unused")
 	private int createUser(int id, String user_name) throws SQLException {
 		
 		String query = "INSERT INTO sql24765.user (name, id_number, type) VALUES ('" + user_name + "', '"+ id +"', 'student')";
