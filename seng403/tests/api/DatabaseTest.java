@@ -1,7 +1,5 @@
 package api;
 
-import static org.junit.Assert.*;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -35,23 +33,35 @@ public class DatabaseTest {
 	
 	/// Null String
 	@Test (expected=IllegalArgumentException.class)
-	public void NullStringQuery() throws SQLException{
-		DB.query(null);
+	public void NullStringQuery1(){
+		try {
+			DB.query(null);
+		} catch (SQLException e) {
+			Assert.fail();
+		}
 	}
 	/// Blank String
 	@Test (expected=IllegalArgumentException.class)
-	public void EmptyStringQuery() throws SQLException{
-		DB.query("");
+	public void EmptyStringQuery1(){
+		try {
+			DB.query("");
+		} catch (SQLException e) {
+			Assert.fail();
+		}
 	}
 	/// Random String
 	@Test (expected=IllegalArgumentException.class)
-	public void RandomStringQuery() throws SQLException{
-		DB.query("adblksd soreo");
+	public void RandomStringQuery1(){
+		try {
+			DB.query("adblksd soreo");
+		} catch (SQLException e) {
+			Assert.fail();
+		}
 	}
+
 	/// Select a table that doesn't exist
 	@Test
 	public void TableDoesntExistQuery(){
-		
 		try {
 			ResultSet rs = DB.query("SELECT Name FROM Country");
 			if(rs.next())
@@ -63,10 +73,9 @@ public class DatabaseTest {
 		
 	}
 	/// Select a table that does exist
-	// This test is not correct. Change query
+	// This test will pass as long as there is an entry in the table
 	@Test
 	public void TableDoesExistQuery(){
-		
 		try {
 			ResultSet rs = DB.query("SELECT Name FROM XYZ");
 			if(!rs.next())
@@ -84,5 +93,59 @@ public class DatabaseTest {
 		Assert.assertNull(DB);
 	}
 	
+	// Execute Tests
 	
+	/// Null String
+	@Test (expected=IllegalArgumentException.class)
+	public void NullStringexecute1(){
+		try {
+			DB.execute(null);
+		} catch (SQLException e) {
+			Assert.fail();
+		}
+	}
+	/// Blank String
+	@Test (expected=IllegalArgumentException.class)
+	public void EmptyStringexecute1(){
+		try {
+			DB.execute("");
+		} catch (SQLException e) {
+			Assert.fail();
+		}
+	}
+	/// Random String
+	@Test (expected=IllegalArgumentException.class)
+	public void RandomStringexecute1(){
+		try {
+			DB.execute("adblksd soreo");
+		} catch (SQLException e) {
+			Assert.fail();
+		}
+	}
+
+	/// Select a table that doesn't exist
+	@Test
+	public void TableDoesntExistexecute(){
+		try {
+			DB.execute("SELECT Name FROM Country");
+
+		} catch (SQLException e) {
+			Assert.fail();
+		}
+		Assert.assertTrue(true);
+		
+	}
+	/// Select a table that does exist
+	// This test will pass as long as there is an entry in the table
+	@Test
+	public void TableDoesExistexecute(){
+		try {
+			DB.execute("SELECT Name FROM XYZ");
+
+		} catch (SQLException e) {
+			Assert.fail();
+		}
+		Assert.assertTrue(true);
+		
+	}
 }

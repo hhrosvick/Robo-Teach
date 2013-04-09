@@ -106,7 +106,7 @@ public interface API_Interface {
 	 * Returns an ImageIcon object for the specified challenge.
 	 * @param Tier The number of the Tier needed. Pass 0 (zero) or false into all other parameters if just the tier imaged is needed.
 	 * @param Number The challenge number needed. Pass false into the slide parameter if just the Tier/Number imaged is needed.
-	 * @param Slide The number of the slide needed.
+	 * @param Slide true is the slide should be returned, false otherwise.
 	 * @return the ImageIcon object
 	 */
 	public ImageIcon getChallenge(int Tier, int Number, boolean Slide);
