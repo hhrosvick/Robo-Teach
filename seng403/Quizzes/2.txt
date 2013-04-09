@@ -1,0 +1,30 @@
+Question 1: What result can we expect from the command      (+2  2) within LISP?
+2
+22
+Syntax Error
+4
+4
+Question 2: What will be the result of the following LISP code: USER(57): (defun square(x)\r\t(* x x))\r     \tSQUARE\rUSER(58): (square 5)
+5
+10
+25
+Syntax Error
+3
+Question 3: When testing whether or not an object is a list, what does "(listp nil)" will return?
+T
+True
+NIL
+False
+1
+Question 4: What does the command 'rest' returns as a list?
+Rest returns NIL
+Rest returns True
+Rest returns a list consisting of all but the first of its argument
+Rest returns a list consisting of all but the repeated arguments
+3
+Question 5: What does the function "(null'(a b c)" returns?
+True
+NIL
+False
+A
+2

@@ -1,0 +1,30 @@
+Question 1: What are arguments that the IF macro takes?
+first a test-form and second an else-form
+first a then-form and second an else-form
+first a test-form, second a then-form, and the third else-form
+first a test-form, second an else-form, and the third is then-form
+3
+Question 2: If the else-form within the IF macro is left out, what is the default value?
+NIL
+True
+False
+It's not possible to leave it out
+1
+Question 3: WHEN macro is similar to IF macro, but you use WHEN macro only when:
+The else clause is not NIL
+The then clause is NIL
+The else clause is NIL
+The list is empty
+3
+Question 4: In CL, a function is actually a kind of:
+Method
+Variable
+List
+Object
+4
+Question 5: What is the output of the following code:\rUSER(23): (defun greeting-list (&optional (username "Sonny"))\r(list 'what's up' username))\rGREETING-LIST\rUSER(24): (greeting-list)\r\r
+What's up
+What's up Sonny
+Sonny
+Greeting- list
+4

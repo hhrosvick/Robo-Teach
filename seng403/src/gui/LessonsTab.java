@@ -20,6 +20,7 @@ import javax.swing.tree.DefaultTreeModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
+import java.io.IOException;
 import java.util.Map;
 
 public class LessonsTab {
@@ -132,7 +133,7 @@ public class LessonsTab {
 						
 						if(n==0)
 						{
-							doQuiz(Chapter);
+								doQuiz(Chapter);
 						}
 						else if(n == 1)
 						{
@@ -154,7 +155,7 @@ public class LessonsTab {
 					
 						if(n==0)
 						{
-							doQuiz(Chapter);
+								doQuiz(Chapter);
 						}
 						else if(n == 1)
 						{
@@ -268,9 +269,14 @@ public class LessonsTab {
 		return LessonsTab;
 	}
 	
-	public void doQuiz(int ch) 
+	public void doQuiz(int ch)
 	{
-		 q = new Quizzes(ch, jframe, this);
+		 try {
+			q = new Quizzes(ch, jframe, this);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void result(int r)
