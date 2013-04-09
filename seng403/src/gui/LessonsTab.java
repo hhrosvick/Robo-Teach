@@ -271,6 +271,7 @@ public class LessonsTab {
 	
 	public void doQuiz(int ch)
 	{
+		//try catch
 		 try {
 			q = new Quizzes(ch, jframe, this);
 		} catch (IOException e) {
