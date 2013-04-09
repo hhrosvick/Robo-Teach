@@ -41,6 +41,7 @@ public class ProgramTab implements ActionListener {
 	
 	private File tempFile;
 	private JButton btnStartRemote;
+	private JButton btnRobotRemote;
 	
 	public ProgramTab()
 	{
@@ -58,6 +59,8 @@ public class ProgramTab implements ActionListener {
 		}
 		//UNCOMMENT THIS IS IF YOU WANTED TO SEE THE GUI ON THE DESIGN TAB
 		//initialize();
+		
+
 		
 
 	}
@@ -125,9 +128,13 @@ public class ProgramTab implements ActionListener {
 		btnRunOnRobot.addActionListener(this);
 		ProgramTab.add(btnRunOnRobot, "2, 14");
 		
-		btnStartRemote = new JButton("Start Remote");
+		btnStartRemote = new JButton("Emulator Remote");
 		btnStartRemote.addActionListener(this);
 		ProgramTab.add(btnStartRemote, "2, 16");
+		
+		btnRobotRemote = new JButton("Robot Remote");
+		btnRobotRemote.addActionListener(this);
+		ProgramTab.add(btnRobotRemote, "2, 18");
 		
 		JScrollPane scrollPane1 = new JScrollPane();
 		scrollPane1.setBounds(113, 0, 298, 209);
@@ -161,9 +168,14 @@ public class ProgramTab implements ActionListener {
         }
         else if (e.getSource() == btnStartRemote)
         {
-        	Remote r = new Remote();
+        	Remote r = new Remote(true);
         	r.OpenWindow();
         	////////////////////////////////////////////////////////////////////////////////////////////////////
+        }
+        else if (e.getSource() == btnRobotRemote)
+        {
+        	Remote r = new Remote(false);
+        	r.OpenWindow();
         }
         else if (e.getSource() == btnRunOnRobot)
         {
