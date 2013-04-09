@@ -4,6 +4,8 @@ public class Authenticator {
 
 	public static int auth(String user, String pass){
 		
+		if(user == null || pass == null) return 0;
+		
 		if(user.equals("test") && pass.equals("1234")) return 1;
 		if(user.equals("bob") && pass.equals("1234")) return 111111;
 		if(user.equals("frank") && pass.equals("1234")) return 222222;

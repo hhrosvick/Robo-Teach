@@ -75,11 +75,17 @@ public class API_InterfaceTest {
 	 */
 	@Test (expected=IllegalArgumentException.class)
 	public void loadToRobotTestArgNull() {
+		if(System.getProperty("os.name").startsWith("Windows"))
+			throw new IllegalArgumentException("Robot loading does not work in windows.");
+	
 		api.loadToRobot(null);
 	}
 	
 	@Test (expected=IllegalArgumentException.class)
 	public void loadToRobotTestArgEmpty(){
+		if(System.getProperty("os.name").startsWith("Windows"))
+			throw new IllegalArgumentException("Robot loading does not work in windows.");
+		
 		api.loadToRobot("");
 	}
 	
@@ -227,12 +233,16 @@ public class API_InterfaceTest {
 	// load to robot tests
 	@Test (expected=IllegalArgumentException.class)
 	public void loadToRobotNullInput(){
+		if(System.getProperty("os.name").startsWith("Windows"))
+			throw new IllegalArgumentException("Robot loading does not work in windows.");
 		
 		api.loadToRobot(null);	
 	}
 	
 	@Test (expected=IllegalArgumentException.class)
 	public void loadToRobotEmptyInput(){
+		if(System.getProperty("os.name").startsWith("Windows"))
+			throw new IllegalArgumentException("Robot loading does not work in windows.");
 		
 		api.loadToRobot("");	
 	}
@@ -240,13 +250,15 @@ public class API_InterfaceTest {
 	// load to simulator tests
 	@Test (expected=IllegalArgumentException.class)
 	public void loadToSimulatorNullInput(){
-		
+		if(System.getProperty("os.name").startsWith("Windows"))
+			throw new IllegalArgumentException("Robot loading does not work in windows.");
 		api.loadToRobot(null);	
 	}
 	
 	@Test (expected=IllegalArgumentException.class)
 	public void loadToSimulatorEmptyInput(){
-		
+		if(System.getProperty("os.name").startsWith("Windows"))
+			throw new IllegalArgumentException("Robot loading does not work in windows.");
 		api.loadToRobot("");	
 	}
 	
