@@ -32,9 +32,12 @@ public class Remote {
 	/**
 	 * Create the application.
 	 */
-	public Remote() 
+	public Remote(boolean sim) 
 	{
-		Remote.robot = RoboTeach.getAPI_Interface().loadSimulatorController();
+		if(sim)
+			Remote.robot = RoboTeach.getAPI_Interface().loadSimulatorController();
+		else
+			Remote.robot = RoboTeach.getAPI_Interface().loadRobotController();
 		initialize();
 	}
 
