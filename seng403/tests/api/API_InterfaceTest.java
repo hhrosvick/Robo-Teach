@@ -8,6 +8,7 @@ import java.util.Vector;
 
 import javax.swing.ImageIcon;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import api.API;
@@ -15,159 +16,87 @@ import api.API_Interface;
 
 public class API_InterfaceTest {
 
+	public API_Interface api = null;
+	
+	@BeforeClass
+	public void beforeTestClassSetup() {
+		try {
+			api = new API();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * authenticate_user negative tests
 	 * @throws Exception 
 	 */
 	@Test
 	public void authenticate_userTestArg1Null() {
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		assertSame(api.authenticate_user(null, "abcd"), false);
+		assertEquals(api.authenticate_user(null, "abcd"), 0);
 	}
+	
 	@Test
 	public void authenticate_userTestArg1Empty(){
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		assertSame(api.authenticate_user("", "abcd"), false);
+		assertEquals(api.authenticate_user("", "abcd"), 0);
 	}
 	@Test
 	public void authenticate_userTestArg2Null()  {
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		assertSame(api.authenticate_user("abcd", null), false);
+		
+		assertEquals(api.authenticate_user("abcd", null), 0);
 	}
 	@Test
 	public void authenticate_userTestArg2Empty() {
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		assertSame(api.authenticate_user("abcd",""), false);
+		assertEquals(api.authenticate_user("abcd",""), 0);
 	}
 	@Test
 	public void authenticate_userTestArgbothNull()  {
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		assertSame(api.authenticate_user(null, null), false);
+
+		assertEquals(api.authenticate_user(null, null), 0);
 	}
 	@Test
 	public void authenticate_userTestArgbothEmpty()  {
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		assertSame(api.authenticate_user("",""), false);
+
+		assertEquals(api.authenticate_user("",""), 0);
 	}
 	@Test
 	public void authenticate_userTestArgNullEmpty(){
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		assertSame(api.authenticate_user(null, ""), false);
+
+		assertEquals(api.authenticate_user(null, ""), 0);
 	}
 	@Test
 	public void authenticate_userTestArgEmptyNull(){
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		assertSame(api.authenticate_user("", null), false);
+
+		assertEquals(api.authenticate_user("", null), 0);
 	}
+	
 	/**
 	 * loadToRobot negative tests
 	 */
 	@Test (expected=IllegalArgumentException.class)
 	public void loadToRobotTestArgNull() {
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		//assertSame(api.loadToRobot(null), "Error");
+		api.loadToRobot(null);
 	}
+	
 	@Test (expected=IllegalArgumentException.class)
 	public void loadToRobotTestArgEmpty(){
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		//assertSame(api.loadToRobot(""), "Error");
+		api.loadToRobot("");
 	}
+	
 	/**
 	 * loadToSimulator negative tests
 	 */
 	@Test (expected=IllegalArgumentException.class)
 	public void loadToSimulatorTestArgNull() {
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		//assertSame(api.loadToSimulator(null), "Error");
+		api.loadToSimulator(null);
 	}
+	
 	@Test (expected=IllegalArgumentException.class)
 	public void loadToSimulatorTestArgEmpty() {
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		//assertSame(api.loadToSimulator(""), "Error");
+		api.loadToSimulator("");
 	}
-	/**
-	 * translateLoadToRobot negative tests
-	 */
-	@Test (expected=IllegalArgumentException.class)
-	public void translateLoadToRobotTestArgNull() {
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		//assertSame(api.translateLoadToRobot(null), "Error");
-	}
-	@Test (expected=IllegalArgumentException.class)
-	public void trasnlateloadToRobotTestArgEmpty() {
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		//assertSame(api.translateLoadToRobot(""), "Error");
-	}
+	
+	
 	/**
 	 * Database access function Tests
 	 */
@@ -429,51 +358,6 @@ public class API_InterfaceTest {
 			fail();
 		}
 		api.loadToRobot("");	
-	}
-	// translate Load To Robot tests
-	@Test (expected=IllegalArgumentException.class)
-	public void translateLoadToRobotNullInput(){
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		api.translateLoadToRobot(null);	
-	}
-	
-	@Test (expected=IllegalArgumentException.class)
-	public void translateLoadToRobotEmptyInput(){
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		api.translateLoadToRobot("");	
-	}
-	
-	// translate Load To Simulator tests
-	@Test (expected=IllegalArgumentException.class)
-	public void translateLoadToSimulatorNullInput(){
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		api.translateLoadToSimulator(null);	
-	}
-	
-	@Test (expected=IllegalArgumentException.class)
-	public void translateLoadToSimulatorEmptyInput(){
-		API_Interface api = null;
-		try {
-			api = new API();
-		} catch (Exception e) {
-			fail();
-		}
-		api.translateLoadToSimulator("");	
 	}
 	
 	/**

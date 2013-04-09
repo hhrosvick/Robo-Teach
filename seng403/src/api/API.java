@@ -388,30 +388,6 @@ public class API implements API_Interface {
 	}	
 	
 	@Override
-	public String translateLoadToRobot(String filepath) {
-		
-		loadRobotAgent();
-		
-		if(filepath != null && filepath != "")
-			Robot.abclEval(fileRead(Translator.translateFile(filepath)), null);
-
-		
-		return "Translation not yet implemented";
-	}
-
-	@Override
-	public String translateLoadToSimulator(String filepath) {
-
-		loadEnvironment();
-		loadSimulatorAgent();
-		
-		if(filepath != null && filepath != "")
-			Robot.abclEval(fileRead(Translator.translateFile(filepath)), null);
-		
-		return "Translation not yet implemented";
-	}
-	
-	@Override
 	public RobotControl loadRobotController() {
 		loadRobotAgent_WithConsole();
 		return new RobotControl(Robot);

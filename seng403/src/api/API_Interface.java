@@ -146,20 +146,6 @@ public interface API_Interface {
 	public String loadToSimulator(String filepath);
 	
 	/**
-	 * Translates the code found at 'filepath', then loads it into the robot.
-	 * @param filepath
-	 * @return String containing any error messages related to the translation. Null if translation was successful.
-	 */
-	public String translateLoadToRobot(String filepath);
-	
-	/**
-	 * Translates the code found at 'filepath', then loads it into the simulator.
-	 * @param filepath
-	 * @return String containing any error messages related to the translation. Null if translation was successful.
-	 */
-	public String translateLoadToSimulator(String filepath);
-	
-	/**
 	 * Loads the robot control interface, and returns it's instance
 	 * @return a RobotControl instance
 	 */
