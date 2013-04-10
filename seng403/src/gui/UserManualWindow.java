@@ -72,7 +72,7 @@ public class UserManualWindow {
 		JButton PreviousButton = new JButton("Previous");
 		PreviousButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(Slide > 0)
+				if(Slide > 1)
 				{
 					ImageIcon image = api.getUserManual(--Slide);
 					SlideLabel.setIcon(image);
