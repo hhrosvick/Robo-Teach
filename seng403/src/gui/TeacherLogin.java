@@ -41,9 +41,9 @@ public class TeacherLogin extends Login
 				//CHECKING VALID USERNAME AND PASSWORD
 				if(UserID != 0) {
 					
-					//int type = api.getUserType(UserID);
+					int type = api.getUserType(UserID);
 					//SHOULD BE CHANGED TO int type = api.getUserType(UserID);
-					int type = Authenticator.auth(uname, pass);
+					//int type = Authenticator.auth(uname, pass);
 					
 					if(type == 1)
 					{
