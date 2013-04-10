@@ -117,7 +117,8 @@ public class Quizzes extends JFrame {
 	{
 		getContentPane().removeAll();
 		getContentPane().repaint();
-		revalidate();
+		//revalidate();
+		validate();
 		
 		JTextPane txtpnQuestion = new JTextPane();
         txtpnQuestion.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 15));
