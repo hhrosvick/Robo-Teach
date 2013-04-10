@@ -1,8 +1,8 @@
 Question 1: What are arguments that the IF macro takes?
 first a test-form and second an else-form
 first a then-form and second an else-form
-first a test-form, second a then-form, and the third else-form
-first a test-form, second an else-form, and the third is then-form
+first a test-form, second a then-form, third else-form
+first a test-form, second an else-form, third is then-form
 3
 Question 2: If the else-form within the IF macro is left out, what is the default value?
 NIL
