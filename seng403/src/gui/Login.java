@@ -11,6 +11,7 @@ public class Login extends JFrame {
 
 	public static void main(String[] args) 
 	{
+		@SuppressWarnings("unused")
 		Login frameTable = new Login(new JFrame(), new RoboTeach());
 	}
 
@@ -27,7 +28,7 @@ public class Login extends JFrame {
 		super("Login");
 		
 		myRobot = myProg;
-		api = myRobot.getAPI_Interface();
+		api = RoboTeach.getAPI_Interface();
 		//to disable the main frame
 		frame = frame1;
 		frame.setEnabled(false);

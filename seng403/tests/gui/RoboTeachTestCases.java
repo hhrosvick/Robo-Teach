@@ -1,7 +1,5 @@
 package gui;
 
-import static org.junit.Assert.*;
-
 import java.awt.Frame;
 
 import javax.swing.JFrame;
@@ -9,29 +7,14 @@ import javax.swing.JFrame;
 import gui.ChallengeWindow;
 import gui.LessonWindow;
 import gui.LessonsTab;
-import gui.Login;
 import gui.ProgramTab;
 import gui.RoboTeach;
 
 import org.junit.Test;
 
-import api.API;
-import api.API_Interface;
-
 
 public class RoboTeachTestCases {
 
-	private API_Interface api;
-	
-	public RoboTeachTestCases()
-	{
-		try {
-			api = new API();
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 	@Test
 	public void RoboTeachInitializationTest() {
 		RoboTeach roboTestWindow = new RoboTeach();
@@ -73,12 +56,12 @@ public class RoboTeachTestCases {
 	}
 	@Test
 	public void LessonWindowStringTest() {
-		LessonWindow lessonTestWindow = new LessonWindow(0, 0, "StringTest");
-		assert(((Frame) lessonTestWindow.getFrame()).getTitle().compareTo("StringTest") == 0);
+		new LessonWindow(0, 0, "StringTest");
+		assert(((Frame) LessonWindow.getFrame()).getTitle().compareTo("StringTest") == 0);
 	}
 	@Test
 	public void ChallengeWindowStringTest() {
-		ChallengeWindow challengeTestWindow = new ChallengeWindow(0, 0, "StringTest");
-		assert(challengeTestWindow.getFrame().getTitle().compareTo("StringTest") == 0);
+		new ChallengeWindow(0, 0, "StringTest");
+		assert(ChallengeWindow.getFrame().getTitle().compareTo("StringTest") == 0);
 	}
 }

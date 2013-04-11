@@ -1,17 +1,11 @@
 package gui;
 
 import java.awt.EventQueue;
-import java.awt.Image;
-
-import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.io.IOException;
-
 import javax.swing.JSlider;
 import javax.swing.JLabel;
 import javax.swing.event.ChangeListener;

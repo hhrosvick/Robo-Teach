@@ -5,13 +5,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import api.Authenticator;
-
-
 @SuppressWarnings("serial")
 public class TeacherLogin extends Login
 {
-	private int Chapter;
 	private LessonsTab tab;
 	
 	TeacherLogin(JFrame frame1, RoboTeach myProg) 
@@ -23,7 +19,6 @@ public class TeacherLogin extends Login
 		super(frame, myProg);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		
-		this.Chapter = Chapter;
 		this.tab = tab;
 		
 	}

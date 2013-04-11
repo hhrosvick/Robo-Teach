@@ -179,7 +179,8 @@ public class Quizzes extends JFrame {
         	btnNext = new JButton("NEXT");
         
         btnNext.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
+        	@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent arg0) {
         		count++;
         		try {
 					if (group.getSelection().getActionCommand().equals(br.readLine()))

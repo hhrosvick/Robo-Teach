@@ -23,6 +23,7 @@ import java.awt.FlowLayout;
 import java.io.IOException;
 import java.util.Map;
 
+@SuppressWarnings("unused")
 public class LessonsTab {
 
 	private JPanel LessonsTab;
@@ -31,6 +32,7 @@ public class LessonsTab {
 	private int Chapter;
 	private int Lesson;
 	private boolean LessonSelected;
+	
 	private final int L1=11;
 	private final int L2=8;
 	private final int L3=15;
