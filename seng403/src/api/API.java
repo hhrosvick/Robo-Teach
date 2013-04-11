@@ -44,13 +44,13 @@ public class API implements API_Interface {
 	/*
 	 *  TESTING MAIN... SHOULD NOT BE USED IN PRODUCTION
 	 */
-	public static void main(String[] args) throws Exception {
-		
-		System.err.println("API runtime testing function called...");
-		API api = new API();
-		api.loadToSimulator("example.lisp");
-		
-	}
+//	public static void main(String[] args) throws Exception {
+//		
+//		System.err.println("API runtime testing function called...");
+//		API api = new API();
+//		api.loadToSimulator("example.lisp");
+//		
+//	}
 	
 	/*
 	 *****************************
@@ -358,6 +358,9 @@ public class API implements API_Interface {
 	@Override
 	public String loadToRobot(String filepath) {
 		
+		if(System.getProperty("os.name").startsWith("Windows"))
+			return null;
+		
 		loadRobotAgent();
 		
 		if(filepath != null && filepath != "")
@@ -389,7 +392,11 @@ public class API implements API_Interface {
 	
 	@Override
 	public RobotControl loadRobotController() {
-		loadRobotAgent_WithConsole();
+		
+		if(System.getProperty("os.name").startsWith("Windows"))
+			return loadSimulatorController();
+		
+		loadRobotAgent();
 		return new RobotControl(Robot);
 	}
 	
@@ -450,6 +457,9 @@ public class API implements API_Interface {
 	 */
 	private void loadRobotAgent(){
 		
+		if(System.getProperty("os.name").startsWith("Windows"))
+			return;
+		
 		if(Robot == null)
 			Robot = (Robot) CASAProcess.startAgent(UI, Robot.class,
 				"Dayton",
@@ -469,7 +479,11 @@ public class API implements API_Interface {
 	 * Starts a robot agent with appropriate options.<br>
 	 * Access to the robot is provided through the 'Robot' variable.
 	 */
+	@SuppressWarnings("unused")
 	private void loadRobotAgent_WithConsole(){
+		
+		if(System.getProperty("os.name").startsWith("Windows"))
+			return;
 		
 		if(Robot == null)
 			Robot = (Robot) CASAProcess.startAgent(UI, Robot.class,
