@@ -1,85 +1,83 @@
-*** Started log at Wed Jan 30 17:02:23 MST 2013 ***
-[*17.02.25.465:Alice2:info:Alice2*] Loaded ontology iRobotCreate.iRobotCreate
-[*17.02.25.466:Alice2:info5:Alice2*] Can't find file java.lang.Object.init.lisp: java.io.IOException: Can't find resource initialization file: java.lang.Object.init.lisp
+*** Started log at Thu Feb 14 09:32:22 MST 2013 ***
+[*09.32.25.075:Alice2:info:Alice2*] Loaded ontology iRobotCreate.iRobotCreate
+[*09.32.25.076:Alice2:info5:Alice2*] Can't find file java.lang.Object.init.lisp: java.io.IOException: Can't find resource initialization file: java.lang.Object.init.lisp
 - Please put the file in one of the following search locations:
-    C:\Users\Henry\casa\dataFiles
+    C:\Users\David Ryan\casa\dataFiles
     .
-[*17.02.25.466:Alice2:info5:Alice2*] Can't find file java.lang.Thread.init.lisp: java.io.IOException: Can't find resource initialization file: java.lang.Thread.init.lisp
+[*09.32.25.077:Alice2:info5:Alice2*] Can't find file java.lang.Thread.init.lisp: java.io.IOException: Can't find resource initialization file: java.lang.Thread.init.lisp
 - Please put the file in one of the following search locations:
-    C:\Users\Henry\casa\dataFiles
+    C:\Users\David Ryan\casa\dataFiles
     .
-[*17.02.25.467:Alice2:info:Alice2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.AbstractProcess.init.lisp
-[*17.02.25.469:Alice2:info:Alice2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/defs.lisp
-[*17.02.25.478:Alice2:info:Alice2*] Defining policies for strategy: sc3
-[*17.02.25.478:Alice2:info:Alice2*] policies/sc3/defs.process.lisp file loading...
-[*17.02.25.479:Alice2:info:Alice2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.process.lisp
-[*17.02.25.481:Alice2:info:Alice2*] defs.process.lisp load started.
-[*17.02.25.510:Alice2:info:Alice2*] defs.process.lisp defining subscription-provider.
-[*17.02.25.513:Alice2:info:Alice2*] defs.process.lisp defining incomming-failure-policies.
-[*17.02.25.518:Alice2:info:Alice2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.process.lisp
-[*17.02.25.518:Alice2:info:Alice2*] policies/sc3/defs.process.lisp file loaded.
-[*17.02.25.518:Alice2:info:Alice2*] policies/sc3/defs.agent.lisp file loading...
-[*17.02.25.519:Alice2:info:Alice2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.agent.lisp
-[*17.02.25.521:Alice2:info:Alice2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/sc3/defs.agent.lisp
-[*17.02.25.522:Alice2:info:Alice2*] policies/sc3/defs.agent.lisp file loaded.
-[*17.02.25.522:Alice2:info:Alice2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/policies/defs.lisp
-[*17.02.25.522:Alice2:info:Alice2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.AbstractProcess.init.lisp
-[*17.02.25.523:Alice2:info:Alice2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.TransientAgent.init.lisp
-[*17.02.25.589:Alice2:info:Alice2*] FIPA-subscribes loaded.
-[*17.02.25.590:Alice2:info:Alice2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/casa.TransientAgent.init.lisp
-[*17.02.25.590:Alice2:info5:Alice2*] Can't find file casa.Agent.init.lisp: java.io.IOException: Can't find resource initialization file: casa.Agent.init.lisp
+[*09.32.25.078:Alice2:info:Alice2*] Loading file jar:file:/C:/Users/David%20Ryan/git/seng403-W2013/seng403/iRobotCreate3.jar!/casa.AbstractProcess.init.lisp
+[*09.32.25.080:Alice2:info:Alice2*] Loading file jar:file:/C:/Users/David%20Ryan/git/seng403-W2013/seng403/iRobotCreate3.jar!/policies/defs.lisp
+[*09.32.25.085:Alice2:info:Alice2*] Defining policies for strategy: sc3
+[*09.32.25.086:Alice2:info:Alice2*] policies/sc3/defs.process.lisp file loading...
+[*09.32.25.086:Alice2:info:Alice2*] Loading file jar:file:/C:/Users/David%20Ryan/git/seng403-W2013/seng403/iRobotCreate3.jar!/policies/sc3/defs.process.lisp
+[*09.32.25.090:Alice2:info:Alice2*] defs.process.lisp load started.
+[*09.32.25.144:Alice2:info:Alice2*] defs.process.lisp defining subscription-provider.
+[*09.32.25.149:Alice2:info:Alice2*] defs.process.lisp defining incomming-failure-policies.
+[*09.32.25.161:Alice2:info:Alice2*] Loaded file jar:file:/C:/Users/David%20Ryan/git/seng403-W2013/seng403/iRobotCreate3.jar!/policies/sc3/defs.process.lisp
+[*09.32.25.162:Alice2:info:Alice2*] policies/sc3/defs.process.lisp file loaded.
+[*09.32.25.162:Alice2:info:Alice2*] policies/sc3/defs.agent.lisp file loading...
+[*09.32.25.163:Alice2:info:Alice2*] Loading file jar:file:/C:/Users/David%20Ryan/git/seng403-W2013/seng403/iRobotCreate3.jar!/policies/sc3/defs.agent.lisp
+[*09.32.25.167:Alice2:info:Alice2*] Loaded file jar:file:/C:/Users/David%20Ryan/git/seng403-W2013/seng403/iRobotCreate3.jar!/policies/sc3/defs.agent.lisp
+[*09.32.25.168:Alice2:info:Alice2*] policies/sc3/defs.agent.lisp file loaded.
+[*09.32.25.168:Alice2:info:Alice2*] Loaded file jar:file:/C:/Users/David%20Ryan/git/seng403-W2013/seng403/iRobotCreate3.jar!/policies/defs.lisp
+[*09.32.25.168:Alice2:info:Alice2*] Loaded file jar:file:/C:/Users/David%20Ryan/git/seng403-W2013/seng403/iRobotCreate3.jar!/casa.AbstractProcess.init.lisp
+[*09.32.25.169:Alice2:info:Alice2*] Loading file jar:file:/C:/Users/David%20Ryan/git/seng403-W2013/seng403/iRobotCreate3.jar!/casa.TransientAgent.init.lisp
+[*09.32.25.223:Alice2:info:Alice2*] FIPA-subscribes loaded.
+[*09.32.25.223:Alice2:info:Alice2*] Loaded file jar:file:/C:/Users/David%20Ryan/git/seng403-W2013/seng403/iRobotCreate3.jar!/casa.TransientAgent.init.lisp
+[*09.32.25.224:Alice2:info5:Alice2*] Can't find file casa.Agent.init.lisp: java.io.IOException: Can't find resource initialization file: casa.Agent.init.lisp
 - Please put the file in one of the following search locations:
-    C:\Users\Henry\casa\dataFiles
+    C:\Users\David Ryan\casa\dataFiles
     .
-[*17.02.25.591:Alice2:info:Alice2*] Loading file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/iRobotCreate.iRobotCreate.init.lisp
-[*17.02.25.596:Alice2:info:Alice2*] Loaded file jar:file:/D:/Google%20Drive/School/SENG%20403%20Group%20Folder/iRobotCreate3.jar!/iRobotCreate.iRobotCreate.init.lisp
-[*17.02.25.597:Alice2:info5:Alice2*] Can't find file cpsc403.MyRobot.init.lisp: java.io.IOException: Can't find resource initialization file: cpsc403.MyRobot.init.lisp
+[*09.32.25.224:Alice2:info:Alice2*] Loading file jar:file:/C:/Users/David%20Ryan/git/seng403-W2013/seng403/iRobotCreate3.jar!/iRobotCreate.iRobotCreate.init.lisp
+[*09.32.25.228:Alice2:info:Alice2*] Loaded file jar:file:/C:/Users/David%20Ryan/git/seng403-W2013/seng403/iRobotCreate3.jar!/iRobotCreate.iRobotCreate.init.lisp
+[*09.32.25.228:Alice2:info5:Alice2*] Can't find file cpsc403.MyRobot.init.lisp: java.io.IOException: Can't find resource initialization file: cpsc403.MyRobot.init.lisp
 - Please put the file in one of the following search locations:
-    C:\Users\Henry\casa\dataFiles
+    C:\Users\David Ryan\casa\dataFiles
     .
-[*17.02.25.597:Alice2:info5:Alice2*] Can't find file Alice2.init.lisp: java.io.IOException: Can't find resource initialization file: Alice2.init.lisp
+[*09.32.25.228:Alice2:info5:Alice2*] Can't find file Alice2.init.lisp: java.io.IOException: Can't find resource initialization file: Alice2.init.lisp
 - Please put the file in one of the following search locations:
-    C:\Users\Henry\casa\dataFiles
+    C:\Users\David Ryan\casa\dataFiles
     .
-[*17.02.25.846:Alice2:iRobot:Alice2-commandQueueMonitor*] executeRaw(128 132 140 1 2 48 32 72 16 140 2 2 72 16 48 32 140 3 1 127 24 140 4 8 36 8 48 8 60 8 72 16 84 8 96 8 108 8 120 8 140 5 1 36 24 141 1 ) : Sending.
-[*17.02.25.848:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*17.02.25.856:Alice2:info:Alice2*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
-[*17.02.25.861:Alice2:msg:Alice2-subthread0*] Sending message (TCP/IP):
+[*09.32.25.350:Alice2:iRobot:Alice2-commandQueueMonitor*] executeRaw(128 132 140 1 2 48 32 72 16 140 2 2 72 16 48 32 140 3 1 127 24 140 4 8 36 8 48 8 60 8 72 16 84 8 96 8 108 8 120 8 140 5 1 36 24 141 1 ) : Sending.
+[*09.32.25.351:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.32.25.358:Alice2:info:Alice2*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*09.32.25.360:Alice2:msg:Alice2-subthread0*] Sending message (TCP/IP):
 ( request 
   :act register_instance 
-  :sender casa://Henry@10.11.25.153:9100/cpsc403/MyRobot/Alice2 
-  :receiver casa://Henry@10.11.25.153:9000 
-  :reply-by "Wed Jan 30 17:03:25 MST 2013" 
-  :reply-with casa://Henry@10.11.25.153:9100/cpsc403/MyRobot/Alice2--0 
-  :conversation-id casa://Henry@10.11.25.153:9100/cpsc403/MyRobot/Alice2--0 
+  :sender casa://David%20Ryan@10.11.3.164:5781/cpsc403/MyRobot/Alice2 
+  :receiver casa://David%20Ryan@10.11.3.164:9000 
+  :reply-by "Thu Feb 14 09:33:25 MST 2013" 
+  :reply-with casa://David%20Ryan@10.11.3.164:5781/cpsc403/MyRobot/Alice2--0 
+  :conversation-id casa://David%20Ryan@10.11.3.164:5781/cpsc403/MyRobot/Alice2--0 
   :language casa.* 
   :language-version 1.0 
-  :content "[\"(casa.URLDescriptor)\\\"casa://Henry@10.11.25.153:9100/cpsc403/MyRobot/Alice2\\\"\", \"(java.lang.Boolean)\\\"false\\\"\"]" 
+  :content "[\"(casa.URLDescriptor)\\\"casa://David%20Ryan@10.11.3.164:5781/cpsc403/MyRobot/Alice2\\\"\", \"(java.lang.Boolean)\\\"false\\\"\"]" 
   :priority 10 
   :timeout "Wed Dec 31 17:00:10 MST 1969" 
 )
-[*17.02.25.868:Alice2:info:Alice2*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*09.32.25.360:Alice2:info:Alice2*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
 >>>>>>>>>>>>>>>>>>>>>>>>> casa.AbstractProcess$2.run(AbstractProcess.java:992)
-[*17.02.26.918:Alice2:error:Alice2-subthread0*] Exception (java.net.ConnectException: Connection refused: connect) caught when sending message
+[*09.32.26.360:Alice2:error:Alice2-subthread0*] Exception (java.net.ConnectException: Connection refused: connect) caught when sending message
 ( request 
   :act register_instance 
-  :sender casa://Henry@10.11.25.153:9100/cpsc403/MyRobot/Alice2 
-  :receiver casa://Henry@10.11.25.153:9000 
-  :reply-by "Wed Jan 30 17:03:25 MST 2013" 
-  :reply-with casa://Henry@10.11.25.153:9100/cpsc403/MyRobot/Alice2--0 
-  :conversation-id casa://Henry@10.11.25.153:9100/cpsc403/MyRobot/Alice2--0 
+  :sender casa://David%20Ryan@10.11.3.164:5781/cpsc403/MyRobot/Alice2 
+  :receiver casa://David%20Ryan@10.11.3.164:9000 
+  :reply-by "Thu Feb 14 09:33:25 MST 2013" 
+  :reply-with casa://David%20Ryan@10.11.3.164:5781/cpsc403/MyRobot/Alice2--0 
+  :conversation-id casa://David%20Ryan@10.11.3.164:5781/cpsc403/MyRobot/Alice2--0 
   :language casa.* 
   :language-version 1.0 
-  :content "[\"(casa.URLDescriptor)\\\"casa://Henry@10.11.25.153:9100/cpsc403/MyRobot/Alice2\\\"\", \"(java.lang.Boolean)\\\"false\\\"\"]" 
+  :content "[\"(casa.URLDescriptor)\\\"casa://David%20Ryan@10.11.3.164:5781/cpsc403/MyRobot/Alice2\\\"\", \"(java.lang.Boolean)\\\"false\\\"\"]" 
   :priority 10 
   :timeout "Wed Dec 31 17:00:10 MST 1969" 
 ):
 java.net.ConnectException: Connection refused: connect
-	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
-	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(Unknown Source)
+	at java.net.PlainSocketImpl.connectToAddress(Unknown Source)
 	at java.net.PlainSocketImpl.connect(Unknown Source)
 	at java.net.SocksSocketImpl.connect(Unknown Source)
 	at java.net.Socket.connect(Unknown Source)
@@ -96,34 +94,32 @@ java.net.ConnectException: Connection refused: connect
 	at java.lang.Thread.run(Unknown Source)
 
 <<<<<<<<<<<<<<<<<<<<<<<<<
-[*17.02.27.848:Alice2:iRobot:Alice2-commandQueueMonitor*] executeRaw(139 0 0 127 155 1 139 0 16 127 155 1 139 0 32 127 155 1 139 0 48 127 155 1 139 0 64 127 155 1 139 0 80 127 155 1 139 0 96 127 155 1 139 0 112 127 155 1 139 0 128 127 155 1 139 0 144 127 155 1 139 0 160 127 155 1 139 0 176 127 155 1 139 0 192 127 155 1 139 0 208 127 155 1 139 0 224 127 155 1 139 0 240 127 155 1 ) : Sending.
-[*17.02.29.823:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*17.02.31.823:Alice2:iRobot:Alice2-commandQueueMonitor*] executeRaw(141 1 139 0 0 0 ) : Sending.
-[*17.02.32.025:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*17.02.34.232:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*17.02.36.449:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.32.30.494:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.32.32.495:Alice2:iRobot:Alice2-commandQueueMonitor*] executeRaw(139 0 0 127 155 1 139 0 16 127 155 1 139 0 32 127 155 1 139 0 48 127 155 1 139 0 64 127 155 1 139 0 80 127 155 1 139 0 96 127 155 1 139 0 112 127 155 1 139 0 128 127 155 1 139 0 144 127 155 1 139 0 160 127 155 1 139 0 176 127 155 1 139 0 192 127 155 1 139 0 208 127 155 1 139 0 224 127 155 1 139 0 240 127 155 1 ) : Sending.
+[*09.32.32.967:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.32.34.971:Alice2:iRobot:Alice2-commandQueueMonitor*] executeRaw(141 1 139 0 0 0 ) : Sending.
 >>>>>>>>>>>>> casa.CasaObservableObject.deleteObserver(CasaObservableObject.java:354)
-[*17.02.36.920:Alice2:warning:Alice2-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-204(event_SCPerformAction), Alice2, 0 observers, no params" when it isn't already an Observer.
+[*09.32.36.362:Alice2:warning:Alice2-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-170(event_SCPerformAction), Alice2, 0 observers, no params" when it isn't already an Observer.
 <<<<<<<<<<<<<
 >>>>>>>>>>>>> casa.CasaObservableObject.deleteObserver(CasaObservableObject.java:354)
-[*17.02.36.920:Alice2:warning:Alice2-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-205(event_SCPerformAction), Alice2, 0 observers, no params" when it isn't already an Observer.
+[*09.32.36.363:Alice2:warning:Alice2-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-171(event_SCPerformAction), Alice2, 0 observers, no params" when it isn't already an Observer.
 <<<<<<<<<<<<<
 >>>>>>>>>>>>> casa.CasaObservableObject.deleteObserver(CasaObservableObject.java:354)
-[*17.02.36.921:Alice2:warning:Alice2-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-206(event_SCPerformAction), Alice2, 0 observers, no params" when it isn't already an Observer.
+[*09.32.36.363:Alice2:warning:Alice2-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-172(event_SCPerformAction), Alice2, 0 observers, no params" when it isn't already an Observer.
 <<<<<<<<<<<<<
 >>>>>>>>>>>>> casa.CasaObservableObject.deleteObserver(CasaObservableObject.java:354)
-[*17.02.36.921:Alice2:warning:Alice2-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-207(event_SCPerformAction), Alice2, 0 observers, no params" when it isn't already an Observer.
+[*09.32.36.363:Alice2:warning:Alice2-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-173(event_SCPerformAction), Alice2, 0 observers, no params" when it isn't already an Observer.
 <<<<<<<<<<<<<
 >>>>>>>>>>>>> casa.CasaObservableObject.deleteObserver(CasaObservableObject.java:354)
-[*17.02.36.921:Alice2:warning:Alice2-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-208(event_SCPerformAction), Alice2, 0 observers, no params" when it isn't already an Observer.
+[*09.32.36.363:Alice2:warning:Alice2-subthread0*] Attempt to delete Observer "casa.AbstractProcess$1AbstractProcess_MsgObserverEvent-174(event_SCPerformAction), Alice2, 0 observers, no params" when it isn't already an Observer.
 <<<<<<<<<<<<<
 >>>>>>>>>>>>>>>>>>>>>>>>> casa.TransientAgent$58.run(TransientAgent.java:3523)
-[*17.02.36.922:Alice2:error:Alice2-subthread0*] TransientAgent failed to register with LAC: request timed out or failed (null return)
+[*09.32.36.363:Alice2:error:Alice2-subthread0*] TransientAgent failed to register with LAC: request timed out or failed (null return)
 <<<<<<<<<<<<<<<<<<<<<<<<<
-[*17.02.36.922:Alice2:info:Alice2*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+[*09.32.36.364:Alice2:info:Alice2*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
 >>>>>>>>>>>>>>>>>>>>>>>>> casa.util.CASAUtil.log(CASAUtil.java:1715)
-[*17.02.36.932:Alice2:error:Alice2*] CASAFilePropertiesMap.constructor: IOException opening file:
-casa.io.CASAIOException: file C:\Users\Henry\.casa\cpsc403\MyRobot\Alice2.casa for CASAInputStream is not a CASA file (CASAFile does not exist)
+[*09.32.36.374:Alice2:error:Alice2*] CASAFilePropertiesMap.constructor: IOException opening file:
+casa.io.CASAIOException: file C:\Users\David Ryan\.casa\cpsc403\MyRobot\Alice2.casa for CASAInputStream is not a CASA file (CASAFile does not exist)
 	at casa.io.CASAInputStream.<init>(CASAInputStream.java:48)
 	at casa.io.CASAInputStream.<init>(CASAInputStream.java:40)
 	at casa.io.CASAFilePropertiesMap.<init>(CASAFilePropertiesMap.java:60)
@@ -140,7 +136,45 @@ casa.io.CASAIOException: file C:\Users\Henry\.casa\cpsc403\MyRobot\Alice2.casa f
 
 <<<<<<<<<<<<<<<<<<<<<<<<<
 >>>>>>>>>>>>> casa.Agent.readPersistent(Agent.java:127)
-[*17.02.36.937:Alice2:warning:Alice2*] Agent.getPersistent(): readPersistentFromProperties(): Failed to read the following fields: dataFile, persistent, reqID
+[*09.32.36.381:Alice2:warning:Alice2*] Agent.getPersistent(): readPersistentFromProperties(): Failed to read the following fields: dataFile, persistent, reqID
 <<<<<<<<<<<<<
-[*17.02.38.630:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
-[*17.02.40.843:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.32.36.401:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.32.38.663:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.32.40.909:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.32.43.189:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.32.45.433:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.32.47.682:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.32.49.933:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.32.52.190:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.32.54.435:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.32.56.681:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.32.58.932:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.01.178:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.03.425:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.05.672:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.07.923:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.10.146:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.12.362:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.14.586:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.16.804:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.19.026:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.21.252:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.23.471:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.25.359:Alice2:info:Alice2*] AbstactProcess.run: interrupted in message loop wait: java.lang.InterruptedException
+>>>>>>>>>>>>>>>>>>>>>>>>> casa.TransientAgent$26.execute(TransientAgent.java:7678)
+[*09.33.25.365:Alice2:error:Alice2*] Unexpected conversation failure:#Newline( -1 "Lisp Opertator EVENT.GET-MSG: no message event in scope" "null" )
+<<<<<<<<<<<<<<<<<<<<<<<<<
+[*09.33.25.695:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.27.926:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.30.144:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.32.358:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.34.586:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.36.802:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.39.029:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.41.245:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.43.467:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.45.682:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.47.899:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.50.116:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.52.332:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.
+[*09.33.54.563:Alice2:iRobot:Alice2-robotMonitor*] executeRawBypass(142 6 ) : Sending.

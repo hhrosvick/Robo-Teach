@@ -1,0 +1,7 @@
+*.class
+*.in
+*.out
+*.log
+*.bin
+.metadata/**
+/seng403/bin/**

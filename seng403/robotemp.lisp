@@ -1,0 +1,5 @@
+(do ((i 0 (+ i 1)))((>= i 8))
+	(irobot.moveby 400)
+	(when (irobot.error) (irobot.moveby -50))
+	(irobot.rotate-deg 90)
+)
