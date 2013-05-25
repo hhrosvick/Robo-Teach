@@ -59,7 +59,7 @@ public class API {
 	private void initialize() throws Exception{
 		try {
 			if(Instance != null) throw new Exception("API Instance already exisits");
-		/*
+		
 			CASA = CASAProcess.getInstance();
 			
 			ProcessOptions options = new ProcessOptions(CASA);
@@ -69,7 +69,7 @@ public class API {
 			CASA.setOptions(options);
 			
 			UI = new StandardOutAgentUI();
-		**/	
+		
 			Database.getInstance();
 			
 		} catch (Exception e) 

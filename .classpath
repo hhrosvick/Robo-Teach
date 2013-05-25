@@ -2,11 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="tests"/>
-	<classpathentry kind="lib" path="C:/Users/Henry/Documents/SENG403/Repo/seng403-W2013/Robo-Teach/bluecove-2.1.1-SNAPSHOT.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Henry/Documents/SENG403/Repo/seng403-W2013/Robo-Teach/forms-1.3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Henry/Documents/SENG403/Repo/seng403-W2013/Robo-Teach/iRobotCreate3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Henry/Documents/SENG403/Repo/seng403-W2013/Robo-Teach/miglayout15-swing.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Henry/Documents/SENG403/Repo/seng403-W2013/Robo-Teach/mysql-connector-java-5.1.24-bin.jar"/>
+	<classpathentry kind="lib" path="Robo-Teach/bluecove-2.1.1-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="Robo-Teach/forms-1.3.0.jar"/>
+	<classpathentry kind="lib" path="Robo-Teach/iRobotCreate3.jar"/>
+	<classpathentry kind="lib" path="Robo-Teach/miglayout15-swing.jar"/>
+	<classpathentry kind="lib" path="Robo-Teach/mysql-connector-java-5.1.24-bin.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="output" path="seng403/bin"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>
