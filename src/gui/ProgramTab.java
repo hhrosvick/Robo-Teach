@@ -22,6 +22,8 @@ import javax.swing.event.DocumentListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.text.Element;
 
+import api.API;
+
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.FormLayout;
@@ -164,7 +166,7 @@ public class ProgramTab implements ActionListener {
         if (e.getSource() == btnRunOnEmulator)
         {
         	writeToTemp();
-        	RoboTeach.getAPI_Interface().loadToSimulator(tempFile.getAbsolutePath());
+        	API.getInstance().loadToSimulator(tempFile.getAbsolutePath());
         }
         else if (e.getSource() == btnStartRemote)
         {
@@ -180,7 +182,7 @@ public class ProgramTab implements ActionListener {
         else if (e.getSource() == btnRunOnRobot)
         {
         	writeToTemp();
-        	RoboTeach.getAPI_Interface().loadToRobot(tempFile.getAbsolutePath());
+        	API.getInstance().loadToRobot(tempFile.getAbsolutePath());
         }
         //Handle new button action.
         else if (e.getSource() == btnNewFile)

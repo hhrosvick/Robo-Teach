@@ -2,7 +2,9 @@ package gui;
 
 import java.awt.EventQueue;
 import javax.swing.JFrame;
-import api.API_Interface;
+
+import api.API;
+
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
@@ -23,13 +25,11 @@ public class UserManualWindow {
 	private static JFrame frame;
 	private final JLabel SlideLabel = new JLabel("");
 	private int Slide = 1;
-	private API_Interface api;
 	/**
 	 * Create the application.
 	 */
-	public UserManualWindow(API_Interface a) 
+	public UserManualWindow() 
 	{
-		api = a;
 		initialize();
 	}
 
@@ -51,7 +51,7 @@ public class UserManualWindow {
 		
 		frame.setResizable(true);
 		frame.getContentPane().setBackground(Color.WHITE);
-		final ImageIcon LessonPicture = api.getUserManual(Slide);
+		final ImageIcon LessonPicture = API.getInstance().getUserManual(Slide);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		frame.getContentPane().add(scrollPane, "2, 2, fill, fill");
@@ -74,7 +74,7 @@ public class UserManualWindow {
 			public void actionPerformed(ActionEvent arg0) {
 				if(Slide > 1)
 				{
-					ImageIcon image = api.getUserManual(--Slide);
+					ImageIcon image = API.getInstance().getUserManual(--Slide);
 					SlideLabel.setIcon(image);
 				}	
 			}
@@ -84,7 +84,7 @@ public class UserManualWindow {
 		JButton NextButton = new JButton("Next");
 		NextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ImageIcon image = api.getUserManual(++Slide);
+				ImageIcon image = API.getInstance().getUserManual(++Slide);
 				if(image != null)
 					SlideLabel.setIcon(image);
 				else

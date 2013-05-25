@@ -8,6 +8,8 @@ import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 
+import api.API;
+
 public class ChallengeWindow {
 
 	private static JFrame frame;
@@ -41,7 +43,7 @@ public class ChallengeWindow {
 		setFrame(new JFrame());
 		getFrame().setBounds(100, 100, 450, 300);
 		// creates the image string and image icon
-		final ImageIcon ChallengePicture = RoboTeach.getAPI_Interface().getChallenge(Tier, Challenge, true);
+		final ImageIcon ChallengePicture = API.getInstance().getChallenge(Tier, Challenge, true);
 		// loads the scrollPane
 		JScrollPane scrollPane = new JScrollPane();
 		getFrame().getContentPane().add(scrollPane, BorderLayout.CENTER);

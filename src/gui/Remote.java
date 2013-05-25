@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JSlider;
 import javax.swing.JLabel;
 import javax.swing.event.ChangeListener;
+
+import api.API;
 import api.RobotControl;
 import javax.swing.event.ChangeEvent;
 
@@ -29,9 +31,9 @@ public class Remote {
 	public Remote(boolean sim) 
 	{
 		if(sim)
-			Remote.robot = RoboTeach.getAPI_Interface().loadSimulatorController();
+			Remote.robot = API.getInstance().loadSimulatorController();
 		else
-			Remote.robot = RoboTeach.getAPI_Interface().loadRobotController();
+			Remote.robot = API.getInstance().loadRobotController();
 		initialize();
 	}
 

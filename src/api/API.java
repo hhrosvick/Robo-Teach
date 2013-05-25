@@ -3,11 +3,6 @@ package api;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Vector;
 
 import javax.swing.ImageIcon;
 
@@ -17,8 +12,14 @@ import casa.TransientAgent;
 import casa.ui.AgentUI;
 import casa.ui.StandardOutAgentUI;
 
-public class API implements API_Interface {
+public class API {
 
+	/*
+	 * Static variables
+	 */
+	
+	private static API Instance = null;
+	
 	/* 
 	 * CASA Object variables
 	 */
@@ -28,29 +29,12 @@ public class API implements API_Interface {
 	private AgentUI UI = null;
 		
 	/*
-	 * User and Database Information
-	 */
-	private int UserID;
-	private Database DB;
-	
-	/*
 	 * Option variables
 	 */
 	private static String tracetags ="info5,warning,msg,iRobot,-boundSymbols,-policies9,-commitments,-eventqueue,-conversations";
 	private static String SerialLocation = "/dev/rfcomm0";
 	private static int EnvironmentPort = 5780;
 	private static int RobotPort = 5781;
-	
-	/*
-	 *  TESTING MAIN... SHOULD NOT BE USED IN PRODUCTION
-	 */
-//	public static void main(String[] args) throws Exception {
-//		
-//		System.err.println("API runtime testing function called...");
-//		API api = new API();
-//		api.loadToSimulator("example.lisp");
-//		
-//	}
 	
 	/*
 	 *****************************
@@ -62,7 +46,7 @@ public class API implements API_Interface {
 	 * Constructor. Calls initialize() on itself.
 	 * @throws Exception 
 	 */
-	public API() throws Exception {
+	private API() throws Exception {
 		this.initialize();
 	}
 	
@@ -70,12 +54,12 @@ public class API implements API_Interface {
 	 * Checks if the API has been initialized<br>
 	 * If not, it will be initialized.<br>
 	 * The CASA process will be stared.
-	 * @return true if the API is initialized, false if there is an error
 	 * @throws Exception 
 	 */
-	public boolean initialize() throws Exception{
+	private void initialize() throws Exception{
 		try {
-			
+			if(Instance != null) throw new Exception("API Instance already exisits");
+		/*
 			CASA = CASAProcess.getInstance();
 			
 			ProcessOptions options = new ProcessOptions(CASA);
@@ -85,16 +69,27 @@ public class API implements API_Interface {
 			CASA.setOptions(options);
 			
 			UI = new StandardOutAgentUI();
+		**/	
+			Database.getInstance();
 			
-			DB = Database.getInstance();
-						
-			return true;
 		} catch (Exception e) 
 		{
 			e.printStackTrace();
 			throw new Exception("API Initialization Failed.");
 		}
 		
+		
+	}
+	
+	public static  API getInstance(){
+		if(Instance == null){
+			try {
+				Instance = new API();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return Instance;
 	}
 
 	/*
@@ -103,167 +98,17 @@ public class API implements API_Interface {
 	 *****************************
 	 */
 	
-	@Override
-	public int authenticate_user(String user_name, String password) {
-		
-		UserID = Authenticator.auth(user_name, password);
-		String query = "SELECT * FROM sql24765.user WHERE id_number=" + String.valueOf(UserID);
-		
-		try {
-			ResultSet response = DB.query(query);
-			
-			if(!response.last())
-				return 0; //createUser(UserID, user_name);
-		
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return UserID;
-	}
 	
-	@SuppressWarnings("unused")
-	private int createUser(int id, String user_name) throws SQLException {
-		
-		String query = "INSERT INTO sql24765.user (name, id_number, type) VALUES ('" + user_name + "', '"+ id +"', 'student')";
-		DB.execute(query);
-		query = "INSERT INTO sql24765.completion (id, lesson, challenge) VALUES ('"+ id +"', 0, 0)";
-		DB.execute(query);
 	
-		return UserID;
-	}
 	
-	@Override
-	public int getUserType(int UserID){
-		
-		String query = "SELECT type FROM sql24765.user WHERE id_number=" + String.valueOf(UserID);
-		String type = "";
-		
-		try {
-			ResultSet response = DB.query(query);
-			if(!response.last())
-				return 0;
-			type = response.getString("type");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		if(type.compareTo("teacher") == 0)
-			return 1;
-		else if(type.compareTo("student") == 0)
-			return 2;
-		else
-			return 0;
-	}
 	
-	@Override
-	public Map<String, String> getUserProgress(int UserID){
-		
-		if(UserID <= 0) return null;
-		
-		Map<String,String> m = new HashMap<String,String>();
-		
-		try {			
-			String query = "SELECT user.name, user.id_number, completion.lesson, completion.challenge FROM sql24765.user, sql24765.completion WHERE user.id_number = completion.id AND user.type = 'student' AND user.id_number = '"+ UserID +"'";
-			ResultSet response = DB.query(query);
-					
-			if(response.next() && response.getInt("id_number") == 0)
-					return null;
-
-			query = "SELECT AVG(lesson), AVG(challenge) FROM sql24765.completion";
-			ResultSet avg = DB.query(query);
-			
-			avg.next();
-					
-			double avgchpt = avg.getDouble(1);
-			double avgcl = avg.getDouble(2);
-					
-			m.put("id",String.valueOf(response.getInt("id_number")));
-			m.put("name",response.getString("name"));
-			m.put("chapter", String.valueOf((int)response.getInt("lesson")));
-			m.put("challenge", String.valueOf((int)response.getInt("challenge")));
-			m.put("avgchapter", String.valueOf((double)avgchpt));
-			m.put("avgchallenge", String.valueOf((double)avgcl));
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return m;
-	}
-	
-	@Override
-	public Map<Integer, Map<String, String>> getAllUserProgress(){
-		
-		Map<Integer, Map<String,String>> m = new HashMap<Integer, Map<String,String>>();
-		Map<String,String> average = new HashMap<String, String>();
-		
-		try {
-			String query = "SELECT user.name, user.id_number, completion.lesson, completion.challenge FROM sql24765.user, sql24765.completion WHERE user.id_number = completion.id AND user.type = 'student'";
-			ResultSet response = DB.query(query);
-			
-			if(response.next() && response.getInt("id_number") == 0)
-				return null;
-			
-			while(!response.isAfterLast()){
-	
-				Map<String,String> d = new HashMap<String, String>();
-					
-				d.put("name", response.getString("name"));
-				d.put("chapter", String.valueOf((int)response.getInt("lesson")));			//d.put("chapter",lesson_complete)
-				d.put("challenge", String.valueOf((int)response.getInt("challenge")));		//d.put("challenge", challenge_complete)
-				
-				m.put(response.getInt("id_number"), d);		//m.put(student_ID, Map object)
-				response.next();
-			}
-			
-			query = "SELECT AVG(lesson), AVG(challenge) FROM sql24765.completion";
-			ResultSet avg = DB.query(query);
-			
-			avg.next();
-					
-			double avgchpt = avg.getDouble(1);
-			double avgcl = avg.getDouble(2);
-			
-			average.put("name","Class Average");
-			average.put("chapter",String.valueOf((double)avgchpt));
-			average.put("challenge",String.valueOf((double)avgcl));
-			
-			m.put(0,average);
-			
-		}catch (SQLException e){
-			e.printStackTrace();
-		}
-		
-		return m;
-	}
-	
-	@Override
-	public Vector<Integer> getAllUserIDs(){
-		
-		Vector<Integer> v = new Vector<Integer>();
-		v.add(0);
-		String query = "SELECT * FROM sql24765.user WHERE type = 'student'";
-		try {
-			ResultSet response = DB.query(query);
-			response.next();
-			if(response.getInt("id_number") == 0)
-				return null;
-			
-			while(!response.isAfterLast()){
-				
-				v.add(response.getInt("id_number"));
-				response.next();
-				
-			}
-			}catch (SQLException e){
-				e.printStackTrace();
-			}
-			
-		return v;
-	}
-	
-	@Override
+	/**
+	 * Returns an ImageIcon object for the specified chapter and lesson.
+	 * @param Chapter The number of the chapter needed. Pass 0 (zero) into all other parameters if just the chapter imaged is needed.
+	 * @param Lesson The number of the lesson needed. Pass 0 (zero) into the slide parameter if just the chapter/lesson imaged is needed.
+	 * @param Slide The number of the slide needed. 
+	 * @return the ImageIcon object
+	 */
 	public ImageIcon getLesson(int Chapter, int Lesson, int Slide){
 				
 		String imgStr = "Lessons/";
@@ -287,7 +132,12 @@ public class API implements API_Interface {
 		else
 			return null;
 	}
-	@Override
+
+	/**
+	 * Returns an ImageIcon object for the user manual.
+	 * @param Slide The number of the slide needed.
+	 * @return the ImageIcon object
+	 */
 	public ImageIcon getUserManual(int Slide)
 	{
 		String imgStr = "UserManual/";
@@ -307,7 +157,14 @@ public class API implements API_Interface {
 		else
 			return null;		
 	}
-	@Override
+
+	/**
+	 * Returns an ImageIcon object for the specified challenge.
+	 * @param Tier The number of the Tier needed. Pass 0 (zero) or false into all other parameters if just the tier imaged is needed.
+	 * @param Number The challenge number needed. Pass false into the slide parameter if just the Tier/Number imaged is needed.
+	 * @param Slide true is the slide should be returned, false otherwise.
+	 * @return the ImageIcon object
+	 */
 	public ImageIcon getChallenge(int tier, int number, boolean Slide){
 
 		String imgStr = "Challenges/";
@@ -332,22 +189,6 @@ public class API implements API_Interface {
 			return null;
 	}
 	
-	public void setUserChapter(int UserID, int progress) throws Exception{
-		
-		String query = "UPDATE sql24765.completion SET lesson=" + String.valueOf(progress) + " WHERE id=" + String.valueOf(UserID);
-		boolean response = DB.execute(query);
-		if(!response)
-			throw new Exception("No user with the ID " + UserID);
-	}
-	
-
-	public void setUserChallenge(int UserID, int progress) throws Exception{
-		
-		String query = "UPDATE sql24765.completion SET challenge=" + String.valueOf(progress) + " WHERE id=" + String.valueOf(UserID);
-		boolean response = DB.execute(query);
-		if(!response)
-			throw new Exception("No user with the ID " + UserID);
-	}
 
 	/*
 	 *****************************
@@ -355,7 +196,10 @@ public class API implements API_Interface {
 	 *****************************
 	 */
 	
-	@Override
+	/**
+	 * Loads the code found at 'filepath' to the robot.
+	 * @param filepath
+	 */
 	public String loadToRobot(String filepath) {
 		
 		if(System.getProperty("os.name").startsWith("Windows"))
@@ -369,7 +213,10 @@ public class API implements API_Interface {
 		return null;		
 	}
 
-	@Override
+	/**
+	 * Loads the code found at 'filepath' to the simulator.
+	 * @param filepath
+	 */
 	public String loadToSimulator(String filepath) {
 		
 		loadEnvironment();
@@ -390,7 +237,10 @@ public class API implements API_Interface {
 		return null;		
 	}	
 	
-	@Override
+	/**
+	 * Loads the robot control interface, and returns it's instance
+	 * @return a RobotControl instance
+	 */
 	public RobotControl loadRobotController() {
 		
 		if(System.getProperty("os.name").startsWith("Windows"))
@@ -400,7 +250,10 @@ public class API implements API_Interface {
 		return new RobotControl(Robot);
 	}
 	
-	@Override
+	/**
+	 * Loads the simulator control interface, and returns it's instance
+	 * @return a RobotControl instance
+	 */
 	public RobotControl loadSimulatorController() {
 		loadEnvironment();
 		loadSimulatorAgent();

@@ -2,6 +2,10 @@ package gui;
 
 import java.awt.Color;
 import javax.swing.JFrame;
+
+import api.API;
+import api.User;
+
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
@@ -104,12 +108,12 @@ public class LessonsTab {
 			public void actionPerformed(ActionEvent e) {
 				
 				//THIS PART HAS TO BE UNCOMMENTED ONCE getUserType is done
-				if(LessonSelected && RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 1) //if a teacher
+				if(LessonSelected && User.getType() == 1) //if a teacher
 				{
 					LessonWindow NewWindow = new LessonWindow(Chapter, Lesson, Selection);
 					NewWindow.OpenWindow();
 				}
-				else if(LessonSelected && RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 2 ) //if a student
+				else if(LessonSelected && User.getType() == 2 ) //if a student
 				if(LessonSelected)
 				{
 					if(Chapter <= (userChapter-1))
@@ -219,8 +223,8 @@ public class LessonsTab {
 				DefaultMutableTreeNode node = (DefaultMutableTreeNode) LessonsTree.getLastSelectedPathComponent();
 				
 				//constantly track user progresss
-				if(RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 2)
-					currentProgress = RoboTeach.getAPI_Interface().getUserProgress(RoboTeach.getUserID());
+				if(User.getType() == 2)
+					currentProgress = User.getUserProgress();
 				else
 					currentProgress = null;
 				if(currentProgress != null)
@@ -246,7 +250,7 @@ public class LessonsTab {
 				
 				if(LessonSelected)
 				{
-					final ImageIcon LessonPreview = RoboTeach.getAPI_Interface().getLesson(Chapter+1, Lesson+1, 0);
+					final ImageIcon LessonPreview = API.getInstance().getLesson(Chapter+1, Lesson+1, 0);
 					LessonPreviewLabel.setIcon(LessonPreview);
 				}
 				else
@@ -255,7 +259,7 @@ public class LessonsTab {
 					{
 						Chapter = node.getParent().getIndex(node);
 						
-						final ImageIcon LessonPreview = RoboTeach.getAPI_Interface().getLesson(Chapter+1, 0, 0);
+						final ImageIcon LessonPreview = API.getInstance().getLesson(Chapter+1, 0, 0);
 						LessonPreviewLabel.setIcon(LessonPreview);
 						
 						if( Chapter > (userChapter-1))
@@ -277,7 +281,6 @@ public class LessonsTab {
 		 try {
 			q = new Quizzes(ch, jframe, this);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -295,7 +298,7 @@ public class LessonsTab {
 			JOptionPane.showMessageDialog(LessonsTab,"Access to Chapter " + (Chapter+1) + " granted! You got " + r + " out of the 5 questions correctly. ");
 			try 
 			{
-				RoboTeach.getAPI_Interface().setUserChapter(RoboTeach.getUserID(), Chapter+1);
+				User.setUserChapter(Chapter+1);
 			} 
 			catch (NullPointerException e) {e.printStackTrace();} 
 			catch (Exception e) {e.printStackTrace();}
@@ -309,7 +312,7 @@ public class LessonsTab {
 		JOptionPane.showMessageDialog(LessonsTab,"Access to Chapter " + (Chapter+1) + " granted! ");
 		try 
 		{
-			RoboTeach.getAPI_Interface().setUserChapter(RoboTeach.getUserID(), Chapter+1);
+			User.setUserChapter(Chapter+1);
 		} 
 		catch (NullPointerException e) {e.printStackTrace();} 
 		catch (Exception e) {e.printStackTrace();}

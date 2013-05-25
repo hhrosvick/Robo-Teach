@@ -157,6 +157,7 @@ public interface API_Interface {
 	 */
 	public RobotControl loadSimulatorController();
 
-	public boolean initialize() throws Exception;
+	public void initialize() throws Exception;
 	
+	public API_Interface getInstance();
 }

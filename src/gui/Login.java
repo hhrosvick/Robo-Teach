@@ -2,7 +2,8 @@ package gui;
 
 import javax.swing.*;
 
-import api.API_Interface;
+import api.User;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -12,26 +13,18 @@ public class Login extends JFrame {
 	public static void main(String[] args) 
 	{
 		@SuppressWarnings("unused")
-		Login frameTable = new Login(new JFrame(), new RoboTeach());
+		Login frameTable = new Login();
 	}
 
-	API_Interface api = null;
 	int UserID;
-	JFrame frame;
 	RoboTeach myRobot;
 	JButton btnLogin = new JButton("Login");
 	JPanel panel = new JPanel();
 	JTextField userName = new JTextField(15);
 	JPasswordField password = new JPasswordField(15);
 	
-	Login(JFrame frame1, RoboTeach myProg) {
+	Login() {
 		super("Login");
-		
-		myRobot = myProg;
-		api = RoboTeach.getAPI_Interface();
-		//to disable the main frame
-		frame = frame1;
-		frame.setEnabled(false);
 		
 		setAlwaysOnTop(true);
 		setResizable(false);
@@ -67,32 +60,27 @@ public class Login extends JFrame {
 		lblPassword.setBounds(23, 64, 74, 20);
 		panel.add(lblPassword);
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
 		actionlogin();
 	}
 	
-	@SuppressWarnings("deprecation")
 	public void actionlogin(){
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				
 				String uname = userName.getText();
-				String pass = password.getText();
+				char[] pass = password.getPassword();
 				
-				UserID = api.authenticate_user(uname,pass);
+				User.authenticate_user(uname,String.valueOf(pass));
 				
 				//CHECKING VALID USERNAME AND PASSWORD
-				if(UserID != 0) {
-					//enable main frame now
-					frame.setEnabled(true);
-					//main.setUserID(Integer.parseInt(uname));
-					
-					myRobot.setUserID(UserID);
-					
+				if(User.getID() != 0) {
+										
 					GradesMatrix.instance.refreshMatrix();
+					
 					//call other function
-					if(api.getUserType(UserID) == 2)
+					if(User.getType() != 2)
 							GradesTab.RemoveButtonsForStudents();
 					dispose();
 				} 

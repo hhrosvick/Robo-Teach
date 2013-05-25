@@ -4,7 +4,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 import api.API;
-import api.API_Interface;
 
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -30,14 +29,11 @@ public class RoboTeach{
 
 	private JFrame frmRoboteach;
 	
-	private static API_Interface api;
-	private static int UserID;
-	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					api = new API();
+					API.getInstance();
 					RoboTeach window = new RoboTeach();
 					window.frmRoboteach.setVisible(true);
 				} catch (Exception e) {
@@ -70,9 +66,6 @@ public class RoboTeach{
 		int x = (screenSize.width - frmRoboteach.getWidth()) / 2;  
 		int y = (screenSize.height - frmRoboteach.getHeight()) / 2; 
 		frmRoboteach.setLocation(x,y);
-		
-		//USER LOGIN
-		new Login(frmRoboteach, this);
 		
 		//Creating the base panel
 		final JPanel BasePanel = new JPanel();
@@ -156,15 +149,26 @@ public class RoboTeach{
 		JButton UserManualButton = new JButton("User Manual");
 		UserManualButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UserManualWindow newWindow = new UserManualWindow(api);
+				UserManualWindow newWindow = new UserManualWindow();
 				newWindow.OpenWindow();
+			}
+		});
+				
+		//User Login activity
+		JButton LoginButton = new JButton("Login");
+		LoginButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Login();
 			}
 		});
 		
 		//Put everything onto the title panel
+		TitleButtonPanel.add(LoginButton);
 		TitleButtonPanel.add(StartButton);
 		TitleLabelPanel.add(TitleLabel);
 		TitleButtonPanel.add(UserManualButton);
+		
+				
 		
 /*****************************************************************************************************************************************
 * TitlePage initialization and components
@@ -287,21 +291,5 @@ public class RoboTeach{
 		GradesTab newGradesTab = new GradesTab();
 		GradesTab1 = newGradesTab.initialize();
 		TabPage.addTab("Progress", null, GradesTab1, null);
-	}
-	
-	public void setUserID(int id)
-	{
-		UserID = id;
-		//need to set it up again bec it sets it to 0 during the first initialization
-	}
-	
-	public static API_Interface getAPI_Interface()
-	{
-		return api;
-	}
-
-	public static int getUserID()
-	{
-		return UserID;
 	}
 }

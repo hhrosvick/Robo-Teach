@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import api.User;
+
 @SuppressWarnings("serial")
 public class TeacherLogin extends Login
 {
@@ -12,39 +14,36 @@ public class TeacherLogin extends Login
 	
 	TeacherLogin(JFrame frame1, RoboTeach myProg) 
 	{
-		super(frame1, myProg);
+		super();
 	}
 	TeacherLogin(int Chapter, JFrame frame, RoboTeach myProg, LessonsTab tab)
 	{
-		super(frame, myProg);
+		super();
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		
 		this.tab = tab;
 		
 	}
-	@SuppressWarnings("deprecation")
+
 	public void actionlogin(){
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ae) {
 				
 				String uname = userName.getText();
-				String pass = password.getText();
+				char[] pass = password.getPassword();
 				
-				UserID = api.authenticate_user(uname,pass);
+				User.authenticate_user(uname,String.valueOf(pass));
 				System.out.println(UserID);
 				
 				//CHECKING VALID USERNAME AND PASSWORD
 				if(UserID != 0) {
 					
-					int type = api.getUserType(UserID);
 					//SHOULD BE CHANGED TO int type = api.getUserType(UserID);
 					//int type = Authenticator.auth(uname, pass);
 					
-					if(type == 1)
+					if(User.getType() == 1)
 					{
-						frame.enable();
-						frame.toFront();
-		        		dispose();
+						dispose();
 						tab.result2();
 					}
 					else
@@ -55,7 +54,6 @@ public class TeacherLogin extends Login
 				} 
 				else 
 				{
-					frame.setEnabled(true);
 					JOptionPane.showMessageDialog(panel,"Login Failed!");
 					dispose();
 				}

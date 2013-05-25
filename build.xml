@@ -1,4 +1,4 @@
-<project name="Robo-Teach" basedir="./seng403/">
+<project name="Robo-Teach" basedir="./Robo-Teach/">
 	<tstamp/>
 
 	<target name="build">

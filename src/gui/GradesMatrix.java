@@ -3,6 +3,8 @@ package gui;
 import java.util.Map;
 import java.util.Vector;
 
+import api.User;
+
 public class GradesMatrix 
 {
 	public static GradesMatrix instance = null;
@@ -32,7 +34,7 @@ public class GradesMatrix
 	public String[][] refreshMatrix()
 	{
 		
-		if(RoboTeach.getAPI_Interface().getUserType(RoboTeach.getUserID()) == 1)
+		if(User.getType() == 1)
 			createClassMatrix();
 		else
 			createStudentMatrix();
@@ -44,7 +46,7 @@ public class GradesMatrix
 	private void createStudentMatrix()
 	{
 		data = new String[2][4];
-		Map<String, String> userData = RoboTeach.getAPI_Interface().getUserProgress(RoboTeach.getUserID());
+		Map<String, String> userData = User.getUserProgress();
 		data[0][0] = ("0");
 		data[0][1] = ("Class Average");
 		data[0][2] = userData.get("avgchapter");
@@ -58,9 +60,9 @@ public class GradesMatrix
 	}
 	private void createClassMatrix() 
 	{
-		Map<Integer, Map<String, String>> progress = RoboTeach.getAPI_Interface().getAllUserProgress();
+		Map<Integer, Map<String, String>> progress = User.getAllUserProgress();
 		
-		Vector<Integer> userData = RoboTeach.getAPI_Interface().getAllUserIDs();
+		Vector<Integer> userData = User.getAllUserIDs();
 		Object[] users = userData.toArray();
 		
 		Object name = "name";
