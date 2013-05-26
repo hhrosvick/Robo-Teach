@@ -53,7 +53,7 @@ public class Remote {
 		radiusLabel.setBounds(267, 206, 109, 16);
 		frame.getContentPane().add(radiusLabel);
 			
-		ImageIcon stop = new ImageIcon("Pictures/STOP.png");
+		ImageIcon stop = new ImageIcon("images/Pictures/STOP.png");
 		JButton btnStop = new JButton(stop);
 		btnStop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -63,7 +63,7 @@ public class Remote {
 		btnStop.setBounds(180, 90, 75, 75);
 		frame.getContentPane().add(btnStop);
 		
-		ImageIcon rightTurn = new ImageIcon("Pictures/RightTurn.png");
+		ImageIcon rightTurn = new ImageIcon("images/Pictures/RightTurn.png");
 		JButton TurnRight = new JButton(rightTurn);
 		TurnRight.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -73,7 +73,7 @@ public class Remote {
 		TurnRight.setBounds(255, 90, 75, 75);
 		frame.getContentPane().add(TurnRight);
 		
-		ImageIcon leftTurn = new ImageIcon("Pictures/LeftTurn.png");
+		ImageIcon leftTurn = new ImageIcon("images/Pictures/LeftTurn.png");
 		JButton TurnLeft = new JButton(leftTurn);
 		TurnLeft.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -83,7 +83,7 @@ public class Remote {
 		TurnLeft.setBounds(105, 90, 75, 75);
 		frame.getContentPane().add(TurnLeft);
 		
-		ImageIcon GOB = new ImageIcon("Pictures/GOB.png");
+		ImageIcon GOB = new ImageIcon("images/Pictures/GOB.png");
 		JButton Down = new JButton(GOB);
 		Down.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -93,7 +93,7 @@ public class Remote {
 		Down.setBounds(180, 165, 75, 75);
 		frame.getContentPane().add(Down);
 		
-		ImageIcon GOF = new ImageIcon("Pictures/GOF.png");
+		ImageIcon GOF = new ImageIcon("images/Pictures/GOF.png");
 		JButton Up = new JButton(GOF);
 		Up.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -103,7 +103,7 @@ public class Remote {
 		Up.setBounds(180, 15, 75, 75);
 		frame.getContentPane().add(Up);
 		
-		ImageIcon RotateCCW = new ImageIcon("Pictures/RotateCCW.png");
+		ImageIcon RotateCCW = new ImageIcon("images/Pictures/RotateCCW.png");
 		JButton RotateLeft = new JButton(RotateCCW);
 		RotateLeft.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -123,7 +123,7 @@ public class RoboTeach{
 *****************************************************************************************************************************************/
 		
 		//Title screen picture, add picture to folder and change file name here
-		String imgStr = "Pictures/TitlePicture.png";
+		String imgStr = "images/Pictures/TitlePicture.png";
 		ImageIcon TitlePicture = new ImageIcon(imgStr);
 		
 		//Creating the picture panel
@@ -217,9 +217,9 @@ public class RoboTeach{
 				FormFactory.RELATED_GAP_ROWSPEC,
 				RowSpec.decode("default:grow"),}));
 		
-		String imgStr2 = "Pictures/WelcomePicture.png";
+		String imgStr2 = "images/Pictures/WelcomePicture.png";
 		final ImageIcon WelcomePicture = new ImageIcon(imgStr2);
-		String imgStr3 = "Pictures/GettingStartedPicture.png";
+		String imgStr3 = "images/Pictures/GettingStartedPicture.png";
 		final ImageIcon GettingStartedPicture = new ImageIcon(imgStr3);
 		
 		JScrollPane scrollPane = new JScrollPane();

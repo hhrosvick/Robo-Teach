@@ -14,10 +14,10 @@ public class Images {
 	 */
 	public static ImageIcon getLesson(int Chapter, int Lesson, int Slide){
 				
-		String imgStr = "Lessons/";
+		String imgStr = "images/Lessons/";
 		
 		if(Chapter == 0)
-			return new ImageIcon("Usermanual/UM " + Slide + ".png");
+			return new ImageIcon("images/Usermanual/UM " + Slide + ".png");
 		
 		if(Lesson == 0)
 			imgStr += "Chapter " + Chapter;
@@ -43,7 +43,7 @@ public class Images {
 	 */
 	public static ImageIcon getUserManual(int Slide)
 	{
-		String imgStr = "UserManual/";
+		String imgStr = "images/UserManual/";
 		
 		
 		if(Slide == 0)
@@ -70,7 +70,7 @@ public class Images {
 	 */
 	public static ImageIcon getChallenge(int tier, int number, boolean Slide){
 
-		String imgStr = "Challenges/";
+		String imgStr = "images/Challenges/";
 		
 		if(tier == 0)
 			return null;
