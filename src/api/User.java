@@ -26,7 +26,7 @@ public class User {
 	}
 
 	/**
-	 * Checks a username / password combination against a database or external system.<br>
+	 * Checks a user name / password combination against a database or external system.<br>
 	 * The implementing class should store the User's identifier for later use. (Persistent user) 
 	 * @param user_name login name
 	 * @param password login password (preferably the password has already been encrypted)

@@ -3,8 +3,6 @@ package gui;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 
-import api.API;
-
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
@@ -51,7 +49,7 @@ public class UserManualWindow {
 		
 		frame.setResizable(true);
 		frame.getContentPane().setBackground(Color.WHITE);
-		final ImageIcon LessonPicture = API.getInstance().getUserManual(Slide);
+		final ImageIcon LessonPicture = Images.getUserManual(Slide);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		frame.getContentPane().add(scrollPane, "2, 2, fill, fill");
@@ -74,7 +72,7 @@ public class UserManualWindow {
 			public void actionPerformed(ActionEvent arg0) {
 				if(Slide > 1)
 				{
-					ImageIcon image = API.getInstance().getUserManual(--Slide);
+					ImageIcon image = Images.getUserManual(--Slide);
 					SlideLabel.setIcon(image);
 				}	
 			}
@@ -84,7 +82,7 @@ public class UserManualWindow {
 		JButton NextButton = new JButton("Next");
 		NextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ImageIcon image = API.getInstance().getUserManual(++Slide);
+				ImageIcon image = Images.getUserManual(++Slide);
 				if(image != null)
 					SlideLabel.setIcon(image);
 				else

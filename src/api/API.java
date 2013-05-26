@@ -1,10 +1,7 @@
 package api;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
-
-import javax.swing.ImageIcon;
 
 import casa.CASAProcess;
 import casa.ProcessOptions;
@@ -15,32 +12,18 @@ import casa.ui.StandardOutAgentUI;
 public class API {
 
 	/*
-	 * Static variables
+	 ******************************************
+	 * Singleton Methods and Variables        *
+	 ******************************************
 	 */
 	
-	private static API Instance = null;
-	
-	/* 
-	 * CASA Object variables
-	 */
 	private CASAProcess CASA = null;
 	private TransientAgent Environment = null;
 	private AbstractRobot Robot = null;
 	private AgentUI UI = null;
-		
-	/*
-	 * Option variables
-	 */
-	private static String tracetags ="info5,warning,msg,iRobot,-boundSymbols,-policies9,-commitments,-eventqueue,-conversations";
-	private static String SerialLocation = "/dev/rfcomm0";
-	private static int EnvironmentPort = 5780;
-	private static int RobotPort = 5781;
 	
-	/*
-	 *****************************
-	 * INITIALIZATION            *
-	 *****************************
-	 */
+	private static API Instance = null;
+	private static String tracetags ="info5,warning,msg,iRobot,-boundSymbols,-policies9,-commitments,-eventqueue,-conversations";
 	
 	/**
 	 * Constructor. Calls initialize() on itself.
@@ -93,111 +76,46 @@ public class API {
 	}
 
 	/*
-	 *****************************
-	 * DATABASE / USER FUNCTIONS *
-	 *****************************
+	 ******************************************
+	 *   ROBOT FUNCTIONS                      *
+	 ******************************************
 	 */
 	
-	
-	
-	
+	private static String SerialLocation = "/dev/rfcomm0";
+	private static int EnvironmentPort = 5780;
+	private static int RobotPort = 5781;
 	
 	/**
-	 * Returns an ImageIcon object for the specified chapter and lesson.
-	 * @param Chapter The number of the chapter needed. Pass 0 (zero) into all other parameters if just the chapter imaged is needed.
-	 * @param Lesson The number of the lesson needed. Pass 0 (zero) into the slide parameter if just the chapter/lesson imaged is needed.
-	 * @param Slide The number of the slide needed. 
-	 * @return the ImageIcon object
+	 * Reads the file at the file path and returns the contents as a string<br>
+	 * Accessible at the package level.
+	 * @param filepath
+	 * @return a String of the file contents
 	 */
-	public ImageIcon getLesson(int Chapter, int Lesson, int Slide){
+	static String fileRead(String filepath){
 				
-		String imgStr = "Lessons/";
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(filepath));
+			StringBuilder builder = new StringBuilder();
+			String line = null;
+			
+			while((line = reader.readLine()) != null) { 
+				builder.append(line); 
+			}
+			
+			reader.close();
+			
+			return builder.toString();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+		return null;
 		
-		if(Chapter == 0)
-			return new ImageIcon("Usermanual/UM " + Slide + ".png");
-		
-		if(Lesson == 0)
-			imgStr += "Chapter " + Chapter;
-		else if(Slide == 0)
-			imgStr += "Lesson " + Chapter + "-" + Lesson;
-		else
-			imgStr += "LessonSlides/Lesson "+ Chapter + "-" + Lesson + "-" + Slide;
-		
-		imgStr += ".png";
-		
-		File image = new File(imgStr);
-		
-		if(image.exists())
-			return new ImageIcon(imgStr);
-		else
-			return null;
-	}
-
-	/**
-	 * Returns an ImageIcon object for the user manual.
-	 * @param Slide The number of the slide needed.
-	 * @return the ImageIcon object
-	 */
-	public ImageIcon getUserManual(int Slide)
-	{
-		String imgStr = "UserManual/";
-		
-		
-		if(Slide == 0)
-			return null;
-		else
-			imgStr += "UserManual " + Slide;
-		
-		imgStr += ".png";
-
-		File image = new File(imgStr);
-		
-		if(image.exists())
-			return new ImageIcon(imgStr);
-		else
-			return null;		
-	}
-
-	/**
-	 * Returns an ImageIcon object for the specified challenge.
-	 * @param Tier The number of the Tier needed. Pass 0 (zero) or false into all other parameters if just the tier imaged is needed.
-	 * @param Number The challenge number needed. Pass false into the slide parameter if just the Tier/Number imaged is needed.
-	 * @param Slide true is the slide should be returned, false otherwise.
-	 * @return the ImageIcon object
-	 */
-	public ImageIcon getChallenge(int tier, int number, boolean Slide){
-
-		String imgStr = "Challenges/";
-		
-		if(tier == 0)
-			return null;
-		
-		if(number == 0)
-			imgStr += "Tier " + tier;
-		else if(!Slide)
-			imgStr += "Challenge " + tier + "-" + number;
-		else
-			imgStr += "ChallengeSlides/Challenge " + tier + "-" + number;
-		
-		imgStr += ".png";
-
-		File image = new File(imgStr);
-		
-		if(image.exists())
-			return new ImageIcon(imgStr);
-		else
-			return null;
 	}
 	
-
-	/*
-	 *****************************
-	 * ROBOT FUNCTIONS           *
-	 *****************************
-	 */
-	
 	/**
-	 * Loads the code found at 'filepath' to the robot.
+	 * Loads the code found at file path to the robot.
 	 * @param filepath
 	 */
 	public String loadToRobot(String filepath) {
@@ -214,7 +132,7 @@ public class API {
 	}
 
 	/**
-	 * Loads the code found at 'filepath' to the simulator.
+	 * Loads the code found at file path to the simulator.
 	 * @param filepath
 	 */
 	public String loadToSimulator(String filepath) {
@@ -259,50 +177,6 @@ public class API {
 		loadSimulatorAgent();
 		return new RobotControl(Robot);
 	}
-	
-	
-	/*
-	 *****************************
-	 * PACKAGE FUNCTIONS         *
-	 *****************************
-	 */
-	
-	
-	/**
-	 * Reads the file at the file path and returns the contents as a string<br>
-	 * Accessible at the package level.
-	 * @param filepath
-	 * @return a String of the file contents
-	 */
-	static String fileRead(String filepath){
-				
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader(filepath));
-			StringBuilder builder = new StringBuilder();
-			String line = null;
-			
-			while((line = reader.readLine()) != null) { 
-				builder.append(line); 
-			}
-			
-			reader.close();
-			
-			return builder.toString();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	
-		return null;
-		
-	}
-
-	
-	/*
-	 *****************************
-	 * PRIVATE FUNCTIONS         *
-	 *****************************
-	 */
 	
 	/**
 	 * Starts a robot agent with appropriate options.<br>
@@ -389,7 +263,5 @@ public class API {
 				"MARKUP", "KQML"
 				);
 	}
-	
-	
 	
 }

@@ -2,7 +2,6 @@ package gui;
 
 import java.awt.Color;
 
-import api.API;
 import api.User;
 
 import com.jgoodies.forms.layout.FormLayout;
@@ -178,7 +177,7 @@ public class ChallengesTab {
 					Tier = ((node.getParent()).getParent()).getIndex(node.getParent());
 					Challenge = (node.getParent()).getIndex(node);
 					
-					final ImageIcon LessonPreview = API.getInstance().getChallenge(Tier+1, Challenge+1, false);
+					final ImageIcon LessonPreview = Images.getChallenge(Tier+1, Challenge+1, false);
 					LessonPreviewLabel.setIcon(LessonPreview);
 				
 				}catch(NullPointerException NPE){ ChallengeSelected = false; }
@@ -186,7 +185,7 @@ public class ChallengesTab {
 				if(ChallengeSelected)
 				{
 					
-					final ImageIcon LessonPreview = API.getInstance().getChallenge(Tier+1, Challenge+1, false);
+					final ImageIcon LessonPreview = Images.getChallenge(Tier+1, Challenge+1, false);
 					LessonPreviewLabel.setIcon(LessonPreview);
 				}
 				else
@@ -195,7 +194,7 @@ public class ChallengesTab {
 					
 					{
 						Tier = node.getParent().getIndex(node);
-						final ImageIcon LessonPreview = API.getInstance().getChallenge(Tier+1, 0, false);
+						final ImageIcon LessonPreview = Images.getChallenge(Tier+1, 0, false);
 						LessonPreviewLabel.setIcon(LessonPreview);
 						
 					}catch(NullPointerException NPE){ 

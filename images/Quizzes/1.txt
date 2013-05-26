@@ -1,0 +1,30 @@
+Question 1: If you wish to rotate the iRobot by 270 degrees, which one of the following options is a valid approach:
+(irobot.rotate-deg -270)
+(irobot.rotate-deg -30)
+(irobot.rotate-mm 270)
+(irobot.rotate-mm 90)
+2
+Question 2: In order to set up the iRobot's LED color to red; which integer value can be used?
+0
+99
+69
+255
+4
+Question 3: What is the range within the drive's parameter radius?
+-2000 - 2000
+0-1000
+0- 100
+-100 - 100
+1
+Question 4: What does LISP stands for?
+Luther, Isabelle, Sonny, Patrick (LISP's developers)
+List Processing
+Louisiana Institute Secret Project
+Louis I Saint-Pierre
+2
+Question 5: In CL:
+Values have types, but variables do not
+Values do not have types, but variables do
+Values and variables do not have types
+Both values and variables have types
+1

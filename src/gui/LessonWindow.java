@@ -3,8 +3,6 @@ package gui;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 
-import api.API;
-
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.layout.RowSpec;
@@ -50,7 +48,7 @@ public class LessonWindow {
 		
 		frame.setResizable(true);
 		frame.getContentPane().setBackground(Color.WHITE);
-		final ImageIcon LessonPicture = API.getInstance().getLesson(Chapter, Lesson, Slide);
+		final ImageIcon LessonPicture = Images.getLesson(Chapter, Lesson, Slide);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		frame.getContentPane().add(scrollPane, "2, 2, fill, fill");
@@ -73,7 +71,7 @@ public class LessonWindow {
 			public void actionPerformed(ActionEvent arg0) {
 				if(Slide > 0)
 				{
-					ImageIcon image = API.getInstance().getLesson(Chapter, Lesson, --Slide);
+					ImageIcon image = Images.getLesson(Chapter, Lesson, --Slide);
 					SlideLabel.setIcon(image);
 				}	
 			}
@@ -83,9 +81,9 @@ public class LessonWindow {
 		JButton NextButton = new JButton("Next");
 		NextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ImageIcon image = API.getInstance().getLesson(Chapter, Lesson, ++Slide);
+				ImageIcon image = Images.getLesson(Chapter, Lesson, ++Slide);
 				if(image == null)
-					image = API.getInstance().getLesson(Chapter, Lesson, --Slide);
+					image = Images.getLesson(Chapter, Lesson, --Slide);
 				SlideLabel.setIcon(image);
 			}
 		});

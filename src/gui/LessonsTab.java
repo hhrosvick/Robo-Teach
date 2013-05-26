@@ -250,7 +250,7 @@ public class LessonsTab {
 				
 				if(LessonSelected)
 				{
-					final ImageIcon LessonPreview = API.getInstance().getLesson(Chapter+1, Lesson+1, 0);
+					final ImageIcon LessonPreview = Images.getLesson(Chapter+1, Lesson+1, 0);
 					LessonPreviewLabel.setIcon(LessonPreview);
 				}
 				else
@@ -259,7 +259,7 @@ public class LessonsTab {
 					{
 						Chapter = node.getParent().getIndex(node);
 						
-						final ImageIcon LessonPreview = API.getInstance().getLesson(Chapter+1, 0, 0);
+						final ImageIcon LessonPreview = Images.getLesson(Chapter+1, 0, 0);
 						LessonPreviewLabel.setIcon(LessonPreview);
 						
 						if( Chapter > (userChapter-1))
