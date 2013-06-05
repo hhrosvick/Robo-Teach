@@ -10,7 +10,6 @@ public class User {
 	private static int UserID = 0;
 	private static int UserType = 0;
 	private static boolean authenticated = false;
-		
 	
 	public static int getID() {
 		return UserID;
@@ -23,6 +22,11 @@ public class User {
 	public static void logout(){
 		authenticated = false;
 		UserID = 0;
+		UserType = 0;
+	}
+	
+	public static boolean isAuthenticated() {
+		return authenticated;
 	}
 
 	/**

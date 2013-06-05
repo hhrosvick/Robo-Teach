@@ -23,7 +23,7 @@ public class API {
 	private AgentUI UI = null;
 	
 	private static API Instance = null;
-	private static String tracetags ="info5,warning,msg,iRobot,-boundSymbols,-policies9,-commitments,-eventqueue,-conversations";
+	private static final String tracetags ="info5,warning,msg,iRobot,-boundSymbols,-policies9,-commitments,-eventqueue,-conversations";
 	
 	/**
 	 * Constructor. Calls initialize() on itself.
@@ -64,7 +64,7 @@ public class API {
 		
 	}
 	
-	public static  API getInstance(){
+	public static API getInstance(){
 		if(Instance == null){
 			try {
 				Instance = new API();
@@ -81,9 +81,9 @@ public class API {
 	 ******************************************
 	 */
 	
-	private static String SerialLocation = "/dev/rfcomm0";
-	private static int EnvironmentPort = 5780;
-	private static int RobotPort = 5781;
+	private static final String SerialLocation = "/dev/rfcomm0";
+	private static final int EnvironmentPort = 5780;
+	private static final int RobotPort = 5781;
 	
 	/**
 	 * Reads the file at the file path and returns the contents as a string<br>
