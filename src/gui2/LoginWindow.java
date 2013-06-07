@@ -40,24 +40,34 @@ public class LoginWindow extends JFrame{
 		mainPanel.setLayout(null);
 		
 		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setBounds(151, 11, 133, 14);
+		lblUsername.setBounds(151, 8, 133, 14);
 		mainPanel.add(lblUsername);
 		
 		final JTextField textUsername = new JTextField(15);
-		textUsername.setBounds(151, 38, 133, 20);
+		textUsername.setBounds(151, 30, 133, 20);
 		mainPanel.add(textUsername);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(151, 71, 133, 14);
+		lblPassword.setBounds(151, 58, 133, 14);
 		mainPanel.add(lblPassword);
 		
 		final JPasswordField textPassword = new JPasswordField(15);
-		textPassword.setBounds(151, 98, 133, 20);
+		textPassword.setBounds(151, 80, 133, 20);
 		mainPanel.add(textPassword);
 		
 		JButton btnLogin = new JButton("Login");
-		btnLogin.setBounds(151, 131, 133, 23);
+		btnLogin.setBounds(151, 108, 133, 23);
 		mainPanel.add(btnLogin);
+		
+		JButton btnSkipLogin = new JButton("Skip...");
+		btnSkipLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				MainWindow.start();
+			}
+		});
+		btnSkipLogin.setBounds(151, 139, 133, 23);
+		mainPanel.add(btnSkipLogin);
 	
 		JLabel lblImage = new JLabel("Robo-Teach Logo");
 		lblImage.setHorizontalAlignment(SwingConstants.CENTER);
