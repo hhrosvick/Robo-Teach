@@ -25,65 +25,86 @@ public class EditorPane extends JTabbedPane {
         txtNewTab.setEditable(false);
         paneNewTab.setViewportView(txtNewTab);
 
-        addTab("+", paneNewTab);
+        final JPanel newTab = new JPanel();
+        add(newTab, paneNewTab);
+        
+        final NewTabIcon TabIcon = new NewTabIcon();
+        final JLabel lblNew = new JLabel(TabIcon);
+        lblNew.setFocusable(false);
+	    MouseListener listener = new MouseListener() {
+		    	private NewTabIcon icon = TabIcon;
+				public void mouseClicked(MouseEvent arg0) {}
+				public void mouseEntered(MouseEvent arg0) {
+					icon.mouseEnter();
+					lblNew.repaint();
+				}
+				public void mouseExited(MouseEvent arg0) {
+					icon.mouseExit();
+					lblNew.repaint();
+				}
+				public void mouseReleased(MouseEvent arg0) {
+					createTab();
+				}
+				public void mousePressed(MouseEvent arg0) {	}
+		    };	    
+		lblNew.addMouseListener(listener);
+        setTabComponentAt(0, lblNew);
+        setEnabledAt(0, false);
+                
+        createTab();
         createTab();
 	}	
 	
 	
-	private void createTab()
+	public void createTab(){
+		
+		createTab("untitled " + tabCount, "");
+	}
+	
+	private void createTab(String name, String contents)
 	{
 		
-		final Editor newEditor = new Editor(new JTextArea("New Tab" + tabCount));
+		final EditorTab newEditor = new EditorTab(new JTextArea(contents));
 		
 		add(newEditor, tabCount);
+		
 		int pos = indexOfComponent(newEditor);
 		
-		FlowLayout f = new FlowLayout(FlowLayout.CENTER, 5, 0);
-	    JPanel pnlTab = new JPanel(f);
+	    JPanel pnlTab = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 0));
 	    pnlTab.setOpaque(false);
 
-	    JLabel lblTitle = new JLabel("New Tab");
+	    JLabel lblTitle = new JLabel(name);
 
-	    JLabel lblClose = new JLabel("x");
-	    lblClose.setToolTipText("Close tab");
+	    final CloseIcon newCloseIcon = new CloseIcon();
+	    final JLabel lblClose = new JLabel(newCloseIcon);
 	    lblClose.setFocusable(false);
+	    MouseListener listener = new MouseListener() {
+		    	private CloseIcon icon = newCloseIcon;
+				public void mouseClicked(MouseEvent arg0) {}
+				public void mouseEntered(MouseEvent arg0) {
+					icon.mouseEnter();
+					lblClose.repaint();
+				}
+				public void mouseExited(MouseEvent arg0) {
+					icon.mouseExit();
+					lblClose.repaint();
+				}
+				public void mouseReleased(MouseEvent arg0) {
+					remove(newEditor);
+					tabCount--;
+				}
+				public void mousePressed(MouseEvent arg0) {	}
+		    };	    
+	    lblClose.addMouseListener(listener);
 	    
 	    pnlTab.add(lblTitle);
 	    pnlTab.add(lblClose);
-	    
-	    pnlTab.setBorder(BorderFactory.createEmptyBorder(2, 0, 0, 0));
+	    //pnlTab.setBorder(BorderFactory.createEmptyBorder(2, 0, 0, 0));
 
 	    setTabComponentAt(pos, pnlTab);
-	    
-	    MouseListener listener = new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent arg0) {}
-
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				((JLabel) arg0.getSource()).setText("X");
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				((JLabel) arg0.getSource()).setText("x");
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				remove(newEditor);
-				
-			}
-	    };
-	    lblClose.addMouseListener(listener);
-	    
 	    setSelectedComponent(newEditor);
 	    
 		tabCount++;
-	}
-	
+
+	}	
 }

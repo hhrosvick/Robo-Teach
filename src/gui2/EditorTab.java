@@ -4,9 +4,9 @@ import java.awt.*;
 import javax.swing.*;
 
 
-public class Editor extends JScrollPane{
+public class EditorTab extends JScrollPane{
 
-	Editor(Component arg0)
+	EditorTab(Component arg0)
 	{
 		super(arg0);
 	}
