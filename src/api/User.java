@@ -63,7 +63,7 @@ public class User {
 			authenticated = true;	
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println("User Authentication Failed: user '" + user_name +"' does not exisit.");
 		}
 	}
 	

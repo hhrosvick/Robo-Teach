@@ -39,34 +39,41 @@ public class LoginWindow extends JFrame{
 		getContentPane().add(mainPanel, BorderLayout.CENTER);
 		mainPanel.setLayout(null);
 		
+		final JLabel lblError = new JLabel();
+		lblError.setBounds(151, 5, 133, 14);
+		lblError.setForeground(Color.red);
+		lblError.setVisible(false);
+		mainPanel.add(lblError);
+		
 		JLabel lblUsername = new JLabel("Username");
-		lblUsername.setBounds(151, 8, 133, 14);
+		lblUsername.setBounds(151, 24, 133, 14);
 		mainPanel.add(lblUsername);
 		
 		final JTextField textUsername = new JTextField(15);
-		textUsername.setBounds(151, 30, 133, 20);
+		textUsername.setBounds(151, 43, 133, 20);
 		mainPanel.add(textUsername);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setBounds(151, 58, 133, 14);
+		lblPassword.setBounds(151, 68, 133, 14);
 		mainPanel.add(lblPassword);
 		
 		final JPasswordField textPassword = new JPasswordField(15);
-		textPassword.setBounds(151, 80, 133, 20);
+		textPassword.setBounds(151, 87, 133, 20);
 		mainPanel.add(textPassword);
 		
 		JButton btnLogin = new JButton("Login");
-		btnLogin.setBounds(151, 108, 133, 23);
+		btnLogin.setBounds(151, 112, 133, 23);
 		mainPanel.add(btnLogin);
 		
 		JButton btnSkipLogin = new JButton("Skip...");
 		btnSkipLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent event) {
 				
 				MainWindow.start();
+				((JFrame) ((JComponent) event.getSource()).getTopLevelAncestor()).dispose();
 			}
 		});
-		btnSkipLogin.setBounds(151, 139, 133, 23);
+		btnSkipLogin.setBounds(151, 140, 133, 23);
 		mainPanel.add(btnSkipLogin);
 	
 		JLabel lblImage = new JLabel("Robo-Teach Logo");
@@ -80,12 +87,20 @@ public class LoginWindow extends JFrame{
 
 			public void actionPerformed(ActionEvent event) {
 				
+				lblError.setVisible(false);
+				
 				User.authenticate_user(textUsername.getText(), String.valueOf(textPassword.getPassword()));
 				System.out.println(textUsername.getText()+ ", " + String.valueOf(textPassword.getPassword()) + " : " + User.isAuthenticated());
-				if(User.isAuthenticated())
+				if(User.isAuthenticated()){
+					
 					MainWindow.start();
+					((JFrame) ((JComponent) event.getSource()).getTopLevelAncestor()).dispose();
+				}
 				else
-					System.out.println("Error");
+				{
+					lblError.setVisible(true);
+					lblError.setText("Login Failed.");
+				}
 			}
 		}
 		
@@ -95,4 +110,5 @@ public class LoginWindow extends JFrame{
 		
 		setVisible(true);
 	}
+	
 }
