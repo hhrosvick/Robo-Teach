@@ -18,15 +18,36 @@ public class LoginWindow extends JFrame{
 		
 		new LoginWindow();
 	}
-	
+
 	LoginWindow()
+	{
+		this(JFrame.EXIT_ON_CLOSE);
+	}
+	
+	LoginWindow(int CloseOperation)
 	{
 		
 		//Frame setup
 		setTitle("Robo-Teach: Login");
 		setResizable(false);
 		setSize(300,200);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(CloseOperation);
+		
+		if(MainWindow.getInstance() != null)
+		{
+			this.addWindowListener(new WindowListener() {
+				public void windowActivated(WindowEvent arg0) {}
+				public void windowClosed(WindowEvent arg0) { 
+					MainWindow.start();
+				}
+				public void windowClosing(WindowEvent arg0) {}
+				public void windowDeactivated(WindowEvent arg0) {}
+				public void windowDeiconified(WindowEvent arg0) {}
+				public void windowIconified(WindowEvent arg0) {}
+				public void windowOpened(WindowEvent arg0) {}
+				});
+		}
+		
 		
 		Toolkit toolkit = Toolkit.getDefaultToolkit();  
 		Dimension screenSize = toolkit.getScreenSize(); 
@@ -69,6 +90,7 @@ public class LoginWindow extends JFrame{
 		btnSkipLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				
+				User.logout();
 				MainWindow.start();
 				((JFrame) ((JComponent) event.getSource()).getTopLevelAncestor()).dispose();
 			}
@@ -98,6 +120,7 @@ public class LoginWindow extends JFrame{
 				}
 				else
 				{
+					User.logout();
 					lblError.setVisible(true);
 					lblError.setText("Login Failed.");
 				}
