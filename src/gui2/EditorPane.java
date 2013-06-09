@@ -1,70 +1,82 @@
 package gui2;
 
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
 
 import javax.swing.*;
-import javax.swing.text.JTextComponent;
+import javax.swing.filechooser.*;
 
 public class EditorPane extends JTabbedPane {
 
 	private static final long serialVersionUID = 1L;
-	private JScrollPane paneNewTab;
-	private JTextComponent txtNewTab;
+
 	private int tabCount = 0;
+	private JFileChooser fileChooser = new JFileChooser();
+	private File tempFile;
 
 	EditorPane()
 	{
-		paneNewTab = new javax.swing.JScrollPane();
-        txtNewTab = new javax.swing.JTextArea();
+		fileChooser.setFileFilter(new FileNameExtensionFilter("LISP Files", "lisp"));
+		createTab();
+		
+		try {
+			tempFile = new File("./robotemp.lisp");
+			tempFile.createNewFile();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+// UNCOMMENT TO SHOW 'NEW TAB' TAB BUTTON
+		
+//	 JScrollPane paneNewTab;
+//	 JTextArea txtNewTab;
+		
+//		paneNewTab = new JScrollPane();
+//        txtNewTab = new JTextArea();
+//
+//        txtNewTab.setEditable(false);
+//        paneNewTab.setViewportView(txtNewTab);
 
-        txtNewTab.setEditable(false);
-        paneNewTab.setViewportView(txtNewTab);
 
-        final JPanel newTab = new JPanel();
-        add(newTab, paneNewTab);
-        
-        final NewTabIcon TabIcon = new NewTabIcon();
-        final JLabel lblNew = new JLabel(TabIcon);
-        lblNew.setFocusable(false);
-	    MouseListener listener = new MouseListener() {
-		    	private NewTabIcon icon = TabIcon;
-				public void mouseClicked(MouseEvent arg0) {}
-				public void mouseEntered(MouseEvent arg0) {
-					icon.mouseEnter();
-					lblNew.repaint();
-				}
-				public void mouseExited(MouseEvent arg0) {
-					icon.mouseExit();
-					lblNew.repaint();
-				}
-				public void mouseReleased(MouseEvent arg0) {
-					createTab();
-				}
-				public void mousePressed(MouseEvent arg0) {	}
-		    };	    
-		lblNew.addMouseListener(listener);
-        setTabComponentAt(0, lblNew);
-        setEnabledAt(0, false);
-                
-        createTab();
-        createTab();
+//        final JPanel newTab = new JPanel();
+//        add(newTab, paneNewTab);
+//        
+//        final NewTabIcon TabIcon = new NewTabIcon();
+//        final JLabel lblNew = new JLabel(TabIcon);
+//        lblNew.setFocusable(false);
+//	    MouseListener listener = new MouseListener() {
+//		    	private NewTabIcon icon = TabIcon;
+//				public void mouseClicked(MouseEvent arg0) {}
+//				public void mouseEntered(MouseEvent arg0) {
+//					icon.mouseEnter();
+//					lblNew.repaint();
+//				}
+//				public void mouseExited(MouseEvent arg0) {
+//					icon.mouseExit();
+//					lblNew.repaint();
+//				}
+//				public void mouseReleased(MouseEvent arg0) {
+//					createTab();
+//				}
+//				public void mousePressed(MouseEvent arg0) {	}
+//		    };	    
+//		lblNew.addMouseListener(listener);
+//        setTabComponentAt(0, lblNew);
+//        setEnabledAt(0, false);
+//                
 	}	
 	
 	
 	public void createTab(){
 		
-		createTab("untitled " + tabCount, "");
+		createTab("untitled " + tabCount, "", "");
 	}
 	
-	private void createTab(String name, String contents)
+	private void createTab(String name, String contents, String filePath)
 	{
 		
-		final EditorTab newEditor = new EditorTab(new JTextArea(contents));
+		final EditorTab newEditor = new EditorTab(contents, filePath);
 		
 		add(newEditor, tabCount);
 		
@@ -105,6 +117,69 @@ public class EditorPane extends JTabbedPane {
 	    setSelectedComponent(newEditor);
 	    
 		tabCount++;
-
 	}	
+	
+	public void openFile(){
+		
+		int returnVal = fileChooser.showOpenDialog(null);
+
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			
+			File file = fileChooser.getSelectedFile();
+			
+			int openedIndex = getOpenIndex(file.getAbsolutePath());
+			if(openedIndex >= 0)
+			{
+				this.setSelectedIndex(openedIndex);
+				return;
+			}
+			
+			try {
+				
+				BufferedReader reader = new BufferedReader(new FileReader(file));
+		
+				String temp = "";
+				StringBuilder content = new StringBuilder();
+				
+				while((temp = reader.readLine()) != null){
+					content.append(temp + "\n");
+				}
+				
+				createTab(file.getName(), content.toString(), file.getAbsolutePath());
+				
+				reader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void writeToTemp() {
+		
+		BufferedWriter outFile;
+		try {
+			
+			outFile = new BufferedWriter( new FileWriter( tempFile ) );
+	        ((EditorTab) this.getComponentAt(getSelectedIndex())).getTextArea().write(outFile);
+	        outFile.flush( ); 
+	        outFile.close( );
+	        
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	private int getOpenIndex(String path) {
+		
+		for(int i = 0; i < tabCount; i++)
+			if(((EditorTab) this.getComponentAt(i)).getFilePath().compareTo(path) == 0)
+				return i;
+		
+		return -1;
+	}
+	
+	public File getTempFile() {
+		return tempFile;
+	}
 }

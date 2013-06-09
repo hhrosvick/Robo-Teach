@@ -1,9 +1,10 @@
 package gui2;
 
-import javax.swing.*;
 import javax.swing.tree.*;
 
 public class ExamplesTreeModel extends DefaultTreeModel{
+
+	private static final long serialVersionUID = 1L;
 
 	public ExamplesTreeModel(TreeNode arg0) {
 		super(arg0);
@@ -12,7 +13,10 @@ public class ExamplesTreeModel extends DefaultTreeModel{
 	ExamplesTreeModel()
 	{
 		super(new DefaultMutableTreeNode("Robo-Teach")
-			{{	DefaultMutableTreeNode node_1;
+			{
+				private static final long serialVersionUID = 1L;
+
+			{	DefaultMutableTreeNode node_1;
 				node_1 = new DefaultMutableTreeNode("Basic Commands");
 				node_1.add(new DefaultMutableTreeNode("Drive"));
 				node_1.add(new DefaultMutableTreeNode("Stop"));
