@@ -34,12 +34,6 @@ public class MainWindow extends JFrame {
 		instance.setVisible(true);
 	}
 
-	
-
-	
-	
-	
-	
 	public JMenuBar getMenu() {
 		return menuBar;
 	}
