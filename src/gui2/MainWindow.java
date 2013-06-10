@@ -175,13 +175,8 @@ public class MainWindow extends JFrame {
 		instance.setVisible(true);
 	}
 
-<<<<<<< .merge_file_a01472
-	public JMenuBar getMenu() {
-		return menuBar;
-=======
 	public static JMenuBar getMenu() {
 		return instance.menuBar;
->>>>>>> .merge_file_a05808
 	}
 	
 	public static EditorPane getEditor() {
