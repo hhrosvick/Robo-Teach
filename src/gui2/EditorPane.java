@@ -18,7 +18,7 @@ public class EditorPane extends JTabbedPane {
 	EditorPane()
 	{
 		fileChooser.setFileFilter(new FileNameExtensionFilter("LISP Files", "lisp"));
-		createTab();
+		//createTab();
 		
 		try {
 			tempFile = new File("./robotemp.lisp");
@@ -75,8 +75,8 @@ public class EditorPane extends JTabbedPane {
 	
 	private void createTab(String name, String contents, String filePath)
 	{
-		
-		final EditorTab newEditor = new EditorTab(contents, filePath);
+		JLabel lblTitle = new JLabel(name);
+		final EditorTab newEditor = new EditorTab(contents, filePath, lblTitle);
 		
 		add(newEditor, tabCount);
 		
@@ -85,7 +85,6 @@ public class EditorPane extends JTabbedPane {
 	    JPanel pnlTab = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 0));
 	    pnlTab.setOpaque(false);
 
-	    JLabel lblTitle = new JLabel(name);
 
 	    final CloseIcon newCloseIcon = new CloseIcon();
 	    final JLabel lblClose = new JLabel(newCloseIcon);
@@ -121,8 +120,8 @@ public class EditorPane extends JTabbedPane {
 	
 	public void openFile(){
 		
-		int returnVal = fileChooser.showOpenDialog(null);
-
+		int returnVal = fileChooser.showOpenDialog(this.getParent());
+		
 		if (returnVal == JFileChooser.APPROVE_OPTION) {
 			
 			File file = fileChooser.getSelectedFile();
@@ -148,10 +147,45 @@ public class EditorPane extends JTabbedPane {
 				createTab(file.getName(), content.toString(), file.getAbsolutePath());
 				
 				reader.close();
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
+	}
+	
+	public void saveFile(){
+		
+		int returnVal = fileChooser.showSaveDialog(this.getParent());
+		
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			
+			writeToTemp();
+			
+			File file = fileChooser.getSelectedFile();
+			
+			try {
+				
+				String temp = "";
+				StringBuilder content = new StringBuilder();
+				BufferedReader reader = new BufferedReader(new FileReader(getTempFile()));
+				while((temp = reader.readLine()) != null){
+					content.append(temp + "\n");
+				}
+				reader.close();
+				
+				FileWriter writer = new FileWriter(file, false);
+				writer.write(content.toString());
+				writer.close();
+				
+				getSelectedTab().updateTabFile(file.getAbsolutePath(), file.getName());
+				this.doLayout();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 	
 	public void writeToTemp() {
@@ -160,7 +194,7 @@ public class EditorPane extends JTabbedPane {
 		try {
 			
 			outFile = new BufferedWriter( new FileWriter( tempFile ) );
-	        ((EditorTab) this.getComponentAt(getSelectedIndex())).getTextArea().write(outFile);
+			getSelectedTab().getTextArea().write(outFile);
 	        outFile.flush( ); 
 	        outFile.close( );
 	        
@@ -177,6 +211,10 @@ public class EditorPane extends JTabbedPane {
 				return i;
 		
 		return -1;
+	}
+	
+	private EditorTab getSelectedTab() {
+		return (EditorTab) this.getComponentAt(getSelectedIndex());
 	}
 	
 	public File getTempFile() {

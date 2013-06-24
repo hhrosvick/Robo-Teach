@@ -14,11 +14,13 @@ public class EditorTab extends JScrollPane{
 	private JTextArea linenumbers = new JTextArea("1");
 	private JTextArea content = new JTextArea();
 	private String filePath = "";
+	private JLabel title = null;
 
-	EditorTab(String text, String filePath)
+	EditorTab(String text, String filePath, JLabel title)
 	{
 		super();
-		this.filePath = filePath; 
+		this.filePath = filePath;
+		this.title = title;
 		linenumbers.setBackground(Color.LIGHT_GRAY);
 		linenumbers.setEditable(false);
 		content.getDocument().addDocumentListener(new LineNumberChangeListener());
@@ -30,7 +32,7 @@ public class EditorTab extends JScrollPane{
 	
 	EditorTab()
 	{
-		this("", null);
+		this("", null, null);
 	}
 	
 	public JTextArea getTextArea() {
@@ -41,6 +43,12 @@ public class EditorTab extends JScrollPane{
 		return filePath;
 	}
 
+	public void updateTabFile(String filePath, String title) {
+		this.filePath = filePath;
+		this.title.setText(title);
+	}
+	
+	
 	class LineNumberChangeListener implements DocumentListener {
 		
 		public String getText()
