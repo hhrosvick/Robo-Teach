@@ -147,7 +147,7 @@ public class MainWindow extends JFrame {
 		JMenuItem mntmSimControl = new JMenuItem("Simulator Remote Control");
 		mntmSimControl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				API.getInstance().loadSimulatorController();
+				new Remote(true).OpenWindow();
 			}
 		});
 		
@@ -162,7 +162,7 @@ public class MainWindow extends JFrame {
 		JMenuItem mntmRobotControl = new JMenuItem("Robot Remote Control");
 		mntmRobotControl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				API.getInstance().loadRobotController();
+				new Remote(false).OpenWindow();
 			}
 		});
 		
