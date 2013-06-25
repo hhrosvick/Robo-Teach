@@ -9,12 +9,17 @@ public class User {
 
 	private static int UserID = 0;
 	private static int UserType = 0;
+	private static String UserName = "";
 	private static boolean authenticated = false;
 	
 	public static int getID() {
 		return UserID;
 	}
 	
+	public static String getUserName() {
+		return UserName;
+	}
+
 	public static int getType() {
 		return UserType;
 	}
@@ -52,6 +57,7 @@ public class User {
 			
 			String type = "";
 			type = response.getString("type");
+			UserName = response.getString("name");
 			
 			if(type.compareTo("teacher") == 0)
 				UserType = 1;
@@ -63,7 +69,7 @@ public class User {
 			authenticated = true;	
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.err.println("User Authentication Failed: user '" + user_name +"' does not exisit.");
 		}
 	}
 	
