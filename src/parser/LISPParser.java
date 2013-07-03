@@ -1,7 +1,6 @@
-package api;
+package parser;
 
 import java.io.*;
-import java.nio.*;
 import java.util.*;
 
 public class LISPParser {
@@ -28,7 +27,10 @@ public class LISPParser {
 		p(lp.content);
 		p("Tokenizing...");
 		lp.generateTokens();
-		p(lp.rootForms.toString());
+		for(LISPForm f : lp.rootForms)
+			p(f.toString());
+		p("Creating Instruction Tree...");
+		
 		
 	}
 
@@ -96,7 +98,7 @@ public class LISPParser {
 			
 				case ' ':
 					if(last_was_brace) {
-						append = false;
+						append = true;
 						last_was_brace = false;
 					}
 					else if(first_space) first_space = false;
