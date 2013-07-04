@@ -5,18 +5,18 @@ import java.util.*;
 
 public class LISPParser {
 
-	private static boolean dev = true;
+	public static final boolean dev = true;
 	
 	private String content = "";
 	private ArrayList<LISPForm> rootForms;
 	
 	public static void main(String[] args) {
 		
-		LISPParser.parse("./robotemp.lisp");
+		LISPParser.parse("./robotemp.lisp", null);
 
 	}
 	
-	private static void parse(String filePath) {
+	public static void parse(String filePath, api.AbstractRobot robot) {
 		
 		LISPParser lp = new LISPParser();
 		
@@ -29,9 +29,11 @@ public class LISPParser {
 		lp.generateTokens();
 		for(LISPForm f : lp.rootForms)
 			p(f.toString());
-		p("Creating Instruction Tree...");
-		
-		
+		p("Evaluating...");
+		FormEvaluation.initialize(robot);
+		for(LISPForm f : lp.rootForms)
+			FormEvaluation.evaluate(f);
+		p(FormEvaluation.Variables.toString());
 	}
 
 	private void readFile(String filePath)
