@@ -30,10 +30,10 @@ public class LISPParser {
 		for(LISPForm f : lp.rootForms)
 			p(f.toString());
 		p("Evaluating...");
-		FormEvaluation.initialize(robot);
+		LISPFormEvaluation.initialize(robot);
 		for(LISPForm f : lp.rootForms)
-			FormEvaluation.evaluate(f);
-		p(FormEvaluation.Variables.toString());
+			LISPFormEvaluation.evaluate(f);
+		p(LISPFormEvaluation.Variables.toString());
 	}
 
 	private void readFile(String filePath)

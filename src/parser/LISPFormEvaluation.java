@@ -10,7 +10,7 @@ import java.util.*;
 	String name() default "";
 }
 
-public class FormEvaluation {
+public class LISPFormEvaluation {
 	
 	public static HashMap<String, Method> Instructions = new HashMap<String, Method>();
 	public static HashMap<String, Integer> Variables = new HashMap<String, Integer>();
@@ -35,7 +35,7 @@ public class FormEvaluation {
 		
 		p("In findFunctions..");
 		
-		Method[] methods = FormEvaluation.class.getMethods();
+		Method[] methods = LISPFormEvaluation.class.getMethods();
 		
 		for(Method method : methods)
 		{
@@ -204,7 +204,7 @@ public class FormEvaluation {
 	@LISPFunction (name="irobot")
 	public static Object INS_irobot(LISPForm form){
 		
-		if(form.function.endsWith("error"))
+		if(form.function.endsWith("error") && Robot != null)
 			return Robot.error();
 		
 		StringBuilder function = new StringBuilder();
@@ -222,9 +222,10 @@ public class FormEvaluation {
 		
 		p("iRobot function: " + function.toString());
 
-		Robot.abclEval(function.toString(), null);
-		while(!Robot.ABbreathing()){};
-		
+		if(Robot != null){
+			Robot.abclEval(function.toString(), null);
+			while(!Robot.ABbreathing()){};
+		}
 		return null;
 	}
 
