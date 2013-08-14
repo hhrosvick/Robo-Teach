@@ -190,6 +190,9 @@ public class EditorPane extends JTabbedPane {
 	
 	public void writeToTemp() {
 		
+		if(getSelectedTab() == null)
+			return;
+		
 		BufferedWriter outFile;
 		try {
 			
@@ -214,6 +217,10 @@ public class EditorPane extends JTabbedPane {
 	}
 	
 	private EditorTab getSelectedTab() {
+		
+		if(getSelectedIndex() == -1)
+			return null;
+		
 		return (EditorTab) this.getComponentAt(getSelectedIndex());
 	}
 	
