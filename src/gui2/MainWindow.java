@@ -137,32 +137,22 @@ public class MainWindow extends JFrame {
 		JMenu mnRobot = new JMenu("Robot");
 		
 		JMenuItem mntmRunSimulator = new JMenuItem("Run on Simulator");
-		mntmRunSimulator.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				getEditor().writeToTemp();
-				API.getInstance().loadToSimulator(getEditor().getTempFile().getAbsolutePath());
-			}
-		});
+		mntmRunSimulator.addActionListener(new RunToSimulator());
 		
 		JMenuItem mntmSimControl = new JMenuItem("Simulator Remote Control");
 		mntmSimControl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				API.getInstance().loadSimulatorController();
+				new Remote(true).OpenWindow();
 			}
 		});
 		
 		JMenuItem mntmRunRobot = new JMenuItem("Run on Robot");
-		mntmRunRobot.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				getEditor().writeToTemp();
-				API.getInstance().loadToRobot(getEditor().getTempFile().getAbsolutePath());
-			}
-		});
+		mntmRunRobot.addActionListener(new RunToRobot());
 		
 		JMenuItem mntmRobotControl = new JMenuItem("Robot Remote Control");
 		mntmRobotControl.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				API.getInstance().loadRobotController();
+				new Remote(false).OpenWindow();
 			}
 		});
 		
@@ -224,23 +214,11 @@ public class MainWindow extends JFrame {
 		
 		// Buttons
 		JButton btnRunSimulator = new JButton("Run on Simulator");
-		btnRunSimulator.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				getEditor().writeToTemp();
-				API.getInstance().loadToSimulator(getEditor().getTempFile().getAbsolutePath());
-			}
-		});
-		
+		btnRunSimulator.addActionListener(new RunToSimulator());
 		
 		JButton btnRunRobot = new JButton("Run on Robot");
-		btnRunRobot.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				getEditor().writeToTemp();
-				API.getInstance().loadToRobot(getEditor().getTempFile().getAbsolutePath());
-			}
-		});
+		btnRunRobot.addActionListener(new RunToRobot());
 				
-	
 		// Examples
 		JTree tree = new JTree();
 		tree.setModel(new ExamplesTreeModel());
@@ -255,7 +233,45 @@ public class MainWindow extends JFrame {
 		
 	}
 
+	private class RunToSimulator implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			getEditor().writeToTemp();
+			
+			NotificationWindow.createNotice("Loading Simulator\nPlease wait...");
+
+			Thread t = new Thread(new Runnable() {
+		         public void run()
+		         {
+		              API.getInstance().loadToSimulator(getEditor().getTempFile().getAbsolutePath());
+		              NotificationWindow.closeNotice();
+		         }
+			});
+			
+			t.start();
+		}
+	}
 	
+	private class RunToRobot implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			getEditor().writeToTemp();
+			
+			NotificationWindow.createNotice("Connecting to Robot\nPlease wait...");
+			
+			Thread t = new Thread(new Runnable() {
+		         public void run()
+		         {
+		              API.getInstance().loadToRobot(getEditor().getTempFile().getAbsolutePath());
+		              NotificationWindow.closeNotice();
+		         }
+			});
+			
+			t.start();
+		}
+	}
 
 	
 }

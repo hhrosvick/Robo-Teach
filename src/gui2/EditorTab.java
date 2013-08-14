@@ -25,6 +25,7 @@ public class EditorTab extends JScrollPane{
 		linenumbers.setEditable(false);
 		content.getDocument().addDocumentListener(new LineNumberChangeListener());
 		content.setText(text);
+		content.setFont(new Font("Courier", Font.PLAIN, 12));
 		
 		setViewportView(content);
 		setRowHeaderView(linenumbers);

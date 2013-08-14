@@ -40,13 +40,13 @@ public class ExamplesTreeModel extends DefaultTreeModel{
 		node_1.add(new ExamplesNode("Stop", "(irobot.drive 0)"));
 		
 		ExamplesNode node_2 = new ExamplesNode("Control Structure");
-		node_2.add(new ExamplesNode("Loop", "(irobot.drive 1)"));
-		node_2.add(new ExamplesNode("If - Then", "(irobot.drive 2)"));
-		node_2.add(new ExamplesNode("If - Then - Else", "(irobot.drive 3)"));
+		node_2.add(new ExamplesNode("Loop", "(loop <...>)"));
+		node_2.add(new ExamplesNode("Loop return", "(return)"));
+		node_2.add(new ExamplesNode("When", "(when <condition> <...>)"));
 	
 		ExamplesNode node_3 = new ExamplesNode("Extras");
-		node_3.add(new ExamplesNode("LED Control", "(irobot.drive 4)"));
-		node_3.add(new ExamplesNode("Song!", "(irobot.drive 5)"));
+		node_3.add(new ExamplesNode("LED Control", "(...)"));
+		node_3.add(new ExamplesNode("Song!", "(...)"));
 
 		rootNode.add(node_1);
 		rootNode.add(node_2);

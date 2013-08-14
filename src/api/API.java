@@ -3,6 +3,8 @@ package api;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+import parser.LISPParser;
+
 import casa.CASAProcess;
 import casa.ProcessOptions;
 import casa.TransientAgent;
@@ -144,11 +146,14 @@ public class API {
 		if(filepath != null && filepath != "")
 		{
 			if(!Robot.ABbreathing()){
-				System.out.println("Robot not Breathing");
+				System.out.println("Robot not breathing... stopping");
 				Robot.stopMotor();
 			}
 			
-			Robot.abclEval(fileRead(filepath), null);
+			
+			LISPParser.parse(filepath, Robot);
+			
+			//Robot.abclEval(fileRead(filepath), null);
 
 		}
 			

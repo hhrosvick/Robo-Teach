@@ -36,7 +36,6 @@ abstract public class AbstractRobot extends iRobotCreate {
 	}
 	
 	public boolean ABbreathing(){
-		System.out.println("Cheking breathing...");
 		return this.breathing;
 	}
 	
@@ -51,11 +50,9 @@ abstract public class AbstractRobot extends iRobotCreate {
 		error = getSensorBumps()!=0 || getSensorWheelOvercurrent()!=0;
 		
 		if(error){
-			System.out.println("true");
 			return true;
 		}
 		else{
-			System.out.println("false");
 			return false;
 		}
 	}
