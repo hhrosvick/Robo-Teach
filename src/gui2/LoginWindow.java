@@ -100,7 +100,8 @@ public class LoginWindow extends JFrame{
 	
 		JLabel lblImage = new JLabel("Robo-Teach Logo");
 		lblImage.setHorizontalAlignment(SwingConstants.CENTER);
-		lblImage.setIcon(new ImageIcon("C:\\Users\\Henry\\Documents\\Programming\\Grad\\Robo-Teach\\images\\Pictures\\TitlePicture.png"));
+		// C:\\Users\\Henry\\Documents\\Programming\\Grad\\Robo-Teach\\
+		lblImage.setIcon(new ImageIcon("images\\Pictures\\TitlePicture.png"));
 		lblImage.setBounds(0, 0, 141, 172);
 		mainPanel.add(lblImage);
 		
