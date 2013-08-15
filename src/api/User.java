@@ -50,7 +50,7 @@ public class User {
 		}
 		
 		try {
-			String query = "SELECT * FROM sql24765.user WHERE id_number=" + String.valueOf(UserID);
+			String query = "SELECT * FROM roboteachdb.user WHERE id_number=" + String.valueOf(UserID);
 			ResultSet response = Database.getInstance().query(query);
 			
 			if(!response.last()) throw new Exception("User does not exist in progree database");
@@ -76,9 +76,9 @@ public class User {
 	@SuppressWarnings("unused")
 	private static int createUser(int id, String user_name) throws Exception {
 		
-		String query = "INSERT INTO sql24765.user (name, id_number, type) VALUES ('" + user_name + "', '"+ id +"', 'student')";
+		String query = "INSERT INTO roboteachdb.user (name, id_number, type) VALUES ('" + user_name + "', '"+ id +"', 'student')";
 		Database.getInstance().execute(query);
-		query = "INSERT INTO sql24765.completion (id, lesson, challenge) VALUES ('"+ id +"', 0, 0)";
+		query = "INSERT INTO roboteachdb.completion (id, lesson, challenge) VALUES ('"+ id +"', 0, 0)";
 		Database.getInstance().execute(query);
 	
 		return UserID;
@@ -108,13 +108,13 @@ public class User {
 		Map<String,String> m = new HashMap<String,String>();
 		
 		try {			
-			String query = "SELECT user.name, user.id_number, completion.lesson, completion.challenge FROM sql24765.user, sql24765.completion WHERE user.id_number = completion.id AND user.type = 'student' AND user.id_number = '"+ UserID +"'";
+			String query = "SELECT user.name, user.id_number, completion.lesson, completion.challenge FROM roboteachdb.user, roboteachdb.completion WHERE user.id_number = completion.id AND user.type = 'student' AND user.id_number = '"+ UserID +"'";
 			ResultSet response = Database.getInstance().query(query);
 					
 			if(response.next() && response.getInt("id_number") == 0)
 					return null;
 
-			query = "SELECT AVG(lesson), AVG(challenge) FROM sql24765.completion";
+			query = "SELECT AVG(lesson), AVG(challenge) FROM roboteachdb.completion";
 			ResultSet avg = Database.getInstance().query(query);
 			
 			avg.next();
@@ -167,7 +167,7 @@ public class User {
 		Map<String,String> average = new HashMap<String, String>();
 		
 		try {
-			String query = "SELECT user.name, user.id_number, completion.lesson, completion.challenge FROM sql24765.user, sql24765.completion WHERE user.id_number = completion.id AND user.type = 'student'";
+			String query = "SELECT user.name, user.id_number, completion.lesson, completion.challenge FROM roboteachdb.user, roboteachdb.completion WHERE user.id_number = completion.id AND user.type = 'student'";
 			ResultSet response = Database.getInstance().query(query);
 			
 			if(response.next() && response.getInt("id_number") == 0)
@@ -185,7 +185,7 @@ public class User {
 				response.next();
 			}
 			
-			query = "SELECT AVG(lesson), AVG(challenge) FROM sql24765.completion";
+			query = "SELECT AVG(lesson), AVG(challenge) FROM roboteachdb.completion";
 			ResultSet avg = Database.getInstance().query(query);
 			
 			avg.next();
@@ -216,7 +216,7 @@ public class User {
 		
 		Vector<Integer> v = new Vector<Integer>();
 		v.add(0);
-		String query = "SELECT * FROM sql24765.user WHERE type = 'student'";
+		String query = "SELECT * FROM roboteachdb.user WHERE type = 'student'";
 		try {
 			ResultSet response = Database.getInstance().query(query);
 			response.next();
@@ -245,7 +245,7 @@ public class User {
 		
 		if(!authenticated) return;
 		
-		String query = "UPDATE sql24765.completion SET lesson=" + String.valueOf(progress) + " WHERE id=" + String.valueOf(UserID);
+		String query = "UPDATE roboteachdb.completion SET lesson=" + String.valueOf(progress) + " WHERE id=" + String.valueOf(UserID);
 		boolean response = Database.getInstance().execute(query);
 		if(!response)
 			throw new Exception("No user with the ID " + UserID);
@@ -260,7 +260,7 @@ public class User {
 		
 		if(!authenticated) return;
 		
-		String query = "UPDATE sql24765.completion SET challenge=" + String.valueOf(progress) + " WHERE id=" + String.valueOf(UserID);
+		String query = "UPDATE roboteachdb.completion SET challenge=" + String.valueOf(progress) + " WHERE id=" + String.valueOf(UserID);
 		boolean response = Database.getInstance().execute(query);
 		if(!response)
 			throw new Exception("No user with the ID " + UserID);
